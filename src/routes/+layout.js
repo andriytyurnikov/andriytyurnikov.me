@@ -14,3 +14,6 @@ inject({ mode: dev ? 'development' : 'production' });
 //     analyticsId
 //   })
 // }
+
+import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+injectSpeedInsights();
