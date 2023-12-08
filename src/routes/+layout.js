@@ -1,19 +1,6 @@
-import { env } from '$env/dynamic/public';
 import { dev } from '$app/environment';
 import { inject } from '@vercel/analytics';
-import { page } from '$app/stores';
+import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
 
 inject({ mode: dev ? 'development' : 'production' });
-
-// let analyticsId = env.VERCEL_ANALYTICS_ID;
-
-// $: if (browser && analyticsId) {
-//   webVitals({
-//     path: $page.url.pathname,
-//     params: $page.params,
-//     analyticsId
-//   })
-// }
-
-import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
 injectSpeedInsights();
