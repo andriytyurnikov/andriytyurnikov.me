@@ -1,0 +1,39 @@
+@import "./../app.pcss";
+@import "./lib/canon/canon.pcss";
+@import "./lib/fundatio/fundatio.pcss";
+@import "./../responsive-layouts.pcss";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* respect prefers-reduced-motion */
+  @media (prefers-reduced-motion) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.25s;
+  }
+  
+  html {
+    @apply
+      /* 4,5,6,7,8 */
+      pro-rata-rem--inclusive
+      ;
+  }
+
+  body {
+    @apply
+      text-blue-950 dark:text-blue-50
+      bg-blue-50 dark:bg-blue-950
+      ;
+  }
+}
