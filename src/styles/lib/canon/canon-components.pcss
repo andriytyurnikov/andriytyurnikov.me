@@ -1,0 +1,148 @@
+/* Canon -- 
+  .canon - typographic defaults
+*/
+@tailwind components;
+
+@layer components {
+
+  .canon {
+    @apply 
+        metrica-cap-size-4/6r
+        metrica-leading-10/6r
+        ;
+
+    font-weight: 100;
+    display: flow-root;
+
+    & .hero {
+      @apply 
+        metrica-cap-size-20/6r
+        metrica-leading-40/6r
+        ;
+    }
+
+    & h1 {
+      @apply 
+        metrica-cap-size-16/6r
+        metrica-leading-30/6r
+
+        font-bold
+        ;
+    }
+
+    & h2 {
+      @apply 
+        metrica-cap-size-12/6r
+        metrica-leading-25/6r
+
+        font-bold
+        ;
+    }
+
+    & h3 {
+      @apply 
+        metrica-cap-size-10/6r
+        metrica-leading-20/6r
+
+        font-bold
+        ;
+    }
+
+    & h4 {
+      @apply 
+        metrica-cap-size-8/6r
+        metrica-leading-15/6r
+
+        font-bold
+        ;
+    }
+
+    & h5 {
+      @apply 
+        metrica-cap-size-6/6r
+        metrica-leading-15/6r
+
+        font-bold
+        ;
+    }
+
+    & h6 {
+      @apply 
+        metrica-cap-size-5/6r
+        metrica-leading-10/6r
+
+        font-bold
+        ;
+    }
+
+    & th {
+
+    }
+    
+    & p.lead {
+      @apply 
+        metrica-cap-size-5/6r
+        metrica-leading-10/6r
+        ;
+    }
+
+    & p:not(.lead) {
+      @apply 
+        metrica-cap-size-4/6r
+        metrica-leading-10/6r
+        ;
+    }
+
+    & p + p {
+      @apply
+        my-4/6r
+        ;
+    }
+
+    & a {
+      @apply
+        underline
+        underline-offset-2
+        decoration-1
+        decoration-dashed
+        ;
+    }
+
+    & blockquote {
+      @apply 
+        metrica-cap-size-4/4r
+        metrica-leading-8/4r
+        pb-4
+        ;
+    }
+
+    & figure {
+
+    }
+    
+    & figcaption {
+
+    }
+
+    & strong {
+      @apply
+        font-bold
+        ;
+    }
+    
+    & em {
+      @apply
+        italic
+        ;
+    }
+
+    & code {
+
+    }
+
+    & kbd {
+
+    }
+  }
+
+}

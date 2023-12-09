@@ -1,0 +1,680 @@
+/* Metrica -- Cap-height sizing, x-height sizing, whitespace trim
+  .metrica-
+*/
+
+.metrica-font-berkeley-mono {
+  font-family: 'Berkeley Mono Variable';
+
+  @apply
+    metrica-trim-computations
+    ;
+
+  --metrica-metric-cap-height:    680;
+  --metrica-metric-ascent:        956;
+  --metrica-metric-descent:      -244;
+  --metrica-metric-line-gap:        0;
+  --metrica-metric-units-per-em: 1000;
+  --metrica-metric-x-height:      522;
+  --metrica-metric-x-width-avg:   600;
+  
+
+  --metrica-precomputed-cap-height-scale:
+    0.680;
+    /* calc(
+      var(--metrica-metric-cap-height)
+      / var(--metrica-metric-units-per-em)
+    );  */
+
+  --metrica-precomputed-baseline-trim-factors: 
+    0.244;
+    /* calc(
+      var(--metrica-absolute-descent-scale)
+      + var(--metrica-line-gap-scale) 
+      / 2 
+    ); */
+  
+  --metrica-precomputed-cap-height-trim-factors:
+    0.276;
+    /* calc(
+      var(--metrica-ascent-scale)   
+      - var(--metrica-cap-height-scale)
+      + var(--metrica-line-gap-scale)
+      / 2
+    ); */
+
+  --metrica-precomputed-line-height-scale:
+    1.2;
+    /* calc(
+      var(--metrica-content-area)
+      / var(--metrica-metric-units-per-em)
+    ); */
+}
+
+.metrica-font-noto-sans-mono {
+  font-family: 'Noto Sans Mono';
+
+  @apply
+    metrica-trim-computations
+    ;
+
+  --metrica-metric-cap-height: 714;
+  --metrica-metric-ascent: 1069;
+  --metrica-metric-descent: -293;
+  --metrica-metric-line-gap: 0;
+  --metrica-metric-units-per-em: 1000;
+  --metrica-metric-x-height: 536;
+  --metrica-metric-x-width-avg: 445;
+
+  --metrica-precomputed-cap-height-scale: 
+    0.714;
+
+  --metrica-precomputed-baseline-trim-factors: 
+    0.293;
+  
+  --metrica-precomputed-cap-height-trim-factors:
+    0.355;
+
+  --metrica-precomputed-line-height-scale:
+    1.362;
+}
+
+.metrica-font-noto-sans {
+  @apply 
+    metrica-font-noto-sans-mono
+    ;
+  
+  font-family: 'Noto Sans Mono';
+}
+
+.metrica-font-prata {    
+  font-family: 'Prata';
+
+  --metrica-metric-cap-height: 800;
+  --metrica-metric-ascent: 993;
+  --metrica-metric-descent: -362;
+  --metrica-metric-line-gap: 0;
+  --metrica-metric-units-per-em: 1000;
+  --metrica-metric-x-height: 0;
+  --metrica-metric-x-width-avg: 0;
+
+  /* @apply
+    metrica-trim-computations
+  ; */
+
+  --metrica-precomputed-cap-height-scale: 
+    0.8;
+
+  --metrica-precomputed-baseline-trim-factors: 
+    0.362;
+  
+  --metrica-precomputed-cap-height-trim-factors:
+    0.193;
+
+  --metrica-precomputed-line-height-scale:
+    1.355;
+}
+
+.metrica-font-verdana {
+  font-family: 'Verdana';
+
+  @apply
+    metrica-trim-computations
+    ;
+
+  --metrica-metric-cap-height: 1489;
+  --metrica-metric-ascent: 2059;
+  --metrica-metric-descent: -430;
+  --metrica-metric-line-gap: 0;
+  --metrica-metric-units-per-em: 2048;
+  --metrica-metric-x-height: 1117;
+  --metrica-metric-x-width-avg: 600;
+  
+
+  --metrica-precomputed-cap-height-scale:
+    0.7270;
+    /* calc(
+      var(--metrica-metric-cap-height)
+      / var(--metrica-metric-units-per-em)
+    );  */
+
+  --metrica-precomputed-baseline-trim-factors: 
+    0.430;
+    /* calc(
+      var(--metrica-absolute-descent-scale)
+      + var(--metrica-line-gap-scale) 
+      / 2 
+    ); */
+  
+  --metrica-precomputed-cap-height-trim-factors:
+    0.57;
+    /* calc(
+      var(--metrica-ascent-scale)   
+      - var(--metrica-cap-height-scale)
+      + var(--metrica-line-gap-scale)
+      / 2
+    ); */
+
+  --metrica-precomputed-line-height-scale:
+    1.2153;
+    /* calc(
+      var(--metrica-content-area)
+      / var(--metrica-metric-units-per-em)
+    ); */
+}
+
+/* to be used in generated classes? or replaced with JS computations */
+.metrica-trim-computations {
+  --metrica-absolute-descent: 
+    abs(var(--metrica-metric-descent))
+    ;
+  
+  --metrica-ascent-scale: 
+    calc(
+      var(--metrica-metric-ascent) 
+      / var(--metrica-metric-units-per-em)
+    );
+  
+  --metrica-cap-height-scale: 
+    calc(
+      var(--metrica-metric-cap-height)
+      / var(--metrica-metric-units-per-em)
+    );
+  
+  --metrica-line-gap-scale:
+    calc(
+      var(--metrica-metric-line-gap)
+      / var(--metrica-metric-units-per-em)
+    );
+  
+  --metrica-absolute-descent-scale: 
+    calc(
+      var(--metrica-absolute-descent)
+      / var(--metrica-metric-units-per-em)
+    );
+  
+  --metrica-line-height-normal: 
+    calc(
+      var(--metrica-line-height-scale)
+      * var(--metrica-font-size)
+    );
+  
+  --metrica-content-area: 
+    calc(
+      var(--metrica-metric-ascent)
+      + var(--metrica-metric-line-gap)
+      + var(--metrica-absolute-descent)
+    );
+  
+  --metrica-line-height-scale:
+    calc(
+      var(--metrica-content-area)
+      / var(--metrica-metric-units-per-em)
+    );
+
+  --metrica-line-height-offset:
+    calc(
+      (
+        var(--metrica-line-height-normal)
+        - var(--metrica-line-height)
+      )
+      / 2
+    );
+
+  --metrica-precomputed-baseline-trim-factors: 
+    calc(
+      var(--metrica-absolute-descent-scale) 
+      + var(--metrica-line-gap-scale) 
+      / 2 
+    );
+  
+  --metrica-precomputed-cap-height-trim-factors:
+    calc(
+      var(--metrica-ascent-scale) 
+      - var(--metrica-cap-height-scale) 
+      + var(--metrica-line-gap-scale) 
+      / 2
+    );
+
+  --metrica-precomputed-cap-height-scale: 
+    calc(
+      var(--metrica-metric-cap-height)
+      / var(--metrica-metric-units-per-em)
+    );
+    
+  --metrica-precomputed-line-height-scale:
+    calc(
+      var(--metrica-content-area)
+      / var(--metrica-metric-units-per-em)
+    );
+}
+
+/* using precomputed data to avoid deep nesting of CSS calc() */
+.metrica-trim {
+  --metrica-baseline-trim:
+    calc(
+      (
+        var(--metrica-precomputed-baseline-trim-factors)
+        - 
+        (
+          (
+            (
+              var(--metrica-precomputed-line-height-scale)
+              *
+              var(--metrica-font-size)
+            )
+            - 
+            var(--metrica-line-height)
+          )
+          /
+          2
+          / 
+          var(--metrica-font-size)
+        )
+      )
+      * 
+      (-1)
+    );
+  
+  --metrica-cap-height-trim:
+    calc(
+      (
+        var(--metrica-precomputed-cap-height-trim-factors)
+        -
+        (
+          (
+            (
+              var(--metrica-precomputed-line-height-scale)
+              *
+              var(--metrica-font-size)
+            )
+            - 
+            var(--metrica-line-height)
+          )
+          /
+          2
+          / 
+          var(--metrica-font-size)
+        )
+      )
+      * 
+      (-1)
+    );
+}
+
+.metrica-trim::after {
+  content: '';
+  display: table;
+  margin-top: calc(var(--metrica-baseline-trim) * 1em);
+}
+
+.metrica-trim::before {
+  content: '';
+  display: table;
+  margin-bottom: calc(var(--metrica-cap-height-trim) * 1em);
+}
+
+/* to be used in generated classes */
+.metrica-cap-sized {
+  --metrica-font-size: 
+    calc(
+      var(--metrica-cap-size) 
+      / var(--metrica-precomputed-cap-height-scale)
+    );
+    
+  font-size: 
+    calc(var(--metrica-font-size) * 1rem);
+}
+
+/* This is to be generated */
+.metrica-cap-size-8\/4r {
+  --metrica-cap-size: 2;
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-7\/4r {
+  --metrica-cap-size: 1.75;
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: 
+    calc(
+      var(--metrica-font-size) * 1rem
+    );
+}
+
+.metrica-cap-size-6\/4r {
+  --metrica-cap-size: 1.5;
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-5\/4r {
+  --metrica-cap-size: 1.25;
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-4\/4r {
+  --metrica-cap-size: 1;
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-3\/4r {
+  --metrica-cap-size: 0.75;
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-2\/4r {
+  --metrica-cap-size: 0.5;
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-1\/4r {
+  --metrica-cap-size: 0.25;
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+
+.metrica-cap-size-20\/6r {
+  --metrica-cap-size: calc(20 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-16\/6r {
+  --metrica-cap-size: calc(16 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: 
+    calc(
+      var(--metrica-font-size) * 1rem
+    );
+}
+
+.metrica-cap-size-12\/6r {
+  --metrica-cap-size: calc(12 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-10\/6r {
+  --metrica-cap-size: calc(10 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-8\/6r {
+  --metrica-cap-size: calc(8 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-6\/6r {
+  --metrica-cap-size: calc(6 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-5\/6r {
+  --metrica-cap-size: calc(5 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-4\/6r {
+  --metrica-cap-size: calc(4 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-3\/6r {
+  --metrica-cap-size: calc(3 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+.metrica-cap-size-2\/6r {
+  --metrica-cap-size: calc(2 / 6);
+  @apply
+    metrica-cap-sized
+    ;
+  
+  font-size: calc(var(--metrica-font-size) * 1rem);
+}
+
+/* This is to be generated */
+.metrica-leading-16\/4r {
+  --metrica-line-height: calc(16 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-15\/4r {
+  --metrica-line-height: calc(15 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-14\/4r {
+  --metrica-line-height: calc(14 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-13\/4r {
+  --metrica-line-height: calc(13 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-12\/4r {
+  --metrica-line-height: calc(12 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-11\/4r {
+  --metrica-line-height: calc(11 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-10\/4r {
+  --metrica-line-height: calc(10 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-9\/4r {
+  --metrica-line-height: calc(9 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-8\/4r {
+  --metrica-line-height: calc(8 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-7\/4r {
+  --metrica-line-height: calc(7 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-6\/4r {
+  --metrica-line-height: calc(6 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-5\/4r {
+  --metrica-line-height: calc(5 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-4\/4r {
+  --metrica-line-height: calc(4 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-3\/4r {
+  --metrica-line-height: calc(3 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-2\/4r {
+  --metrica-line-height: calc(2 / 4);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+
+.metrica-leading-50\/6r {
+  --metrica-line-height: calc(50 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-44\/6r {
+  --metrica-line-height: calc(44 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-40\/6r {
+  --metrica-line-height: calc(40 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-36\/6r {
+  --metrica-line-height: calc(36 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-35\/6r {
+  --metrica-line-height: calc(35 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-30\/6r {
+  --metrica-line-height: calc(30 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-28\/6r {
+  --metrica-line-height: calc(28 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-25\/6r {
+  --metrica-line-height: calc(25 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+
+.metrica-leading-24\/6r {
+  --metrica-line-height: calc(24 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-22\/6r {
+  --metrica-line-height: calc(22 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-20\/6r {
+  --metrica-line-height: calc(20 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-18\/6r {
+  --metrica-line-height: calc(18 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-16\/6r {
+  --metrica-line-height: calc(16 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+
+.metrica-leading-15\/6r {
+  --metrica-line-height: calc(15 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-14\/6r {
+  --metrica-line-height: calc(14 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-12\/6r {
+  --metrica-line-height: calc(12 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-11\/6r {
+  --metrica-line-height: calc(11 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-10\/6r {
+  --metrica-line-height: calc(10 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-9\/6r {
+  --metrica-line-height: calc(9 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-8\/6r {
+  --metrica-line-height: calc(8 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}
+
+.metrica-leading-5\/6r {
+  --metrica-line-height: calc(5 / 6);
+  line-height: calc( var(--metrica-line-height) * 1rem );
+}

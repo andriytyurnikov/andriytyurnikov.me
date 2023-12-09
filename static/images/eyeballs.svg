@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="320"
+   height="80"
+   viewBox="0 0 320 80"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="eyeballs.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="false"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#7e7e7e"
+     inkscape:document-units="px"
+     borderlayer="true"
+     labelstyle="default"
+     inkscape:clip-to-page="true"
+     showguides="true"
+     inkscape:zoom="1.3593707"
+     inkscape:cx="144.55218"
+     inkscape:cy="176.18446"
+     inkscape:window-width="1472"
+     inkscape:window-height="788"
+     inkscape:window-x="0"
+     inkscape:window-y="37"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="linearGradient2"
+       inkscape:collect="always"
+       inkscape:label="Inferno 0-30">
+      <stop
+         style="stop-color:#fcffa4;stop-opacity:1;"
+         offset="0"
+         id="stop2" />
+      <stop
+         style="stop-color:#fcffa4;stop-opacity:1;"
+         offset="0.05"
+         id="stop7" />
+      <stop
+         style="stop-color:#b43359;stop-opacity:1;"
+         offset="0.14"
+         id="stop6" />
+      <stop
+         style="stop-color:#4c0c6b;stop-opacity:1;"
+         offset="0.41999999"
+         id="stop5" />
+      <stop
+         style="stop-color:#150b37;stop-opacity:1;"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2"
+       id="radialGradient7"
+       cx="40"
+       cy="40"
+       fx="40"
+       fy="40"
+       r="40"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="scene"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:url(#radialGradient7);stroke-width:0.462037"
+       id="path1-6"
+       cx="40"
+       cy="40"
+       r="40"
+       inkscape:label="eyeball-map" />
+    <g
+       id="g7"
+       inkscape:label="eyeball-regions"
+       transform="translate(240)">
+      <circle
+         style="fill:#4c0c6b;fill-opacity:1;stroke-width:0.462037"
+         id="path1-6-8"
+         cx="40"
+         cy="40"
+         r="40"
+         inkscape:label="left-eyeball" />
+      <circle
+         style="fill:#b43359;fill-opacity:1;stroke-width:0.196366"
+         id="path1-6-8-6"
+         cx="40"
+         cy="40"
+         inkscape:label="left-eyeball"
+         r="17" />
+      <circle
+         style="fill:#fcffa4;fill-opacity:1;stroke-width:0.0693055"
+         id="path1-6-8-6-6"
+         cx="40"
+         cy="40"
+         inkscape:label="left-eyeball"
+         r="6" />
+    </g>
+  </g>
+</svg>

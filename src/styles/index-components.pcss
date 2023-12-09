@@ -1,0 +1,186 @@
+@tailwind base;
+
+@layer base {
+  
+  ::selection {
+    @apply 
+      bg-vt320-amber
+      text-vt320-grey
+      ;
+  }
+
+  html {
+    @apply
+      /* 4,5,6,7,8 */
+      pro-rata-rem--inclusive
+      text-blue-50
+      bg-blue-950
+      ;
+
+    min-height: 100%;
+    min-height: -webkit-fill-available;
+    height: 100%;
+    height: -webkit-fill-available;
+  }
+
+  body {
+    min-height: 100%;
+    min-height: -webkit-fill-available;
+    height: 100%;
+    height: -webkit-fill-available;
+  }
+}
+
+@layer utilities {
+  .h-avatar { 
+    @apply
+     h-5/1r
+     ;
+  }
+
+  .grid-template-row-split {
+    grid-template-rows: repeat(auto-fill, 50vh);
+  }
+
+  .grid-template-col-split {
+    grid-template-columns: repeat(auto-fill, 50vw);
+  }
+
+  .responsive-grid-split-cell {
+    @apply
+      w-full
+
+      portrait:col-span-2 
+      portrait:row-span-1
+      
+      landscape:col-span-1 
+      landscape:row-span-2
+    ;
+  } 
+}
+
+.index-main {
+  @apply 
+    text-blue-50
+
+    metrica-font-berkeley-mono
+    metrica-cap-size-4/4r
+    metrica-leading-8/4r
+    metrica-trim
+
+    bg-blue-800
+    
+    relative
+
+    h-screen 
+    scroll-smooth 
+    snap-y snap-mandatory
+    overflow-y-scroll
+    ;
+
+  & article {
+    @apply      
+      bg-gradient-to-b 
+      from-blue-800 
+      from-20% 
+      via-blue-500 
+      via-60% 
+      to-blue-800 
+      to-80%      
+    ;
+  }
+
+  & .avatar-squircle-3 {
+    clip-path: url(#dyna-squircle-3);
+  }
+
+  & header > .avatar {
+    @apply
+      bg-blue-800
+      ;
+  }
+
+  & header > p {
+    @apply
+      px-4
+
+      bg-gradient-to-b 
+        from-blue-800 
+        to-blue-700
+
+      metrica-font-berkeley-mono
+      metrica-cap-size-4/4r
+      metrica-leading-8/4r
+      metrica-trim
+      
+
+      snap-end
+      
+      portrait:col-span-2 
+      landscape:col-span-1
+      portrait:row-span-1
+      landscape:row-span-2
+      ;
+  }
+
+  & section > h1 {
+    @apply 
+      sticky
+      uppercase
+      h-12/4r
+      pt-6/4r
+      px-4/4r
+
+      metrica-font-berkeley-mono
+      metrica-cap-size-6/4r
+      metrica-leading-6/4r
+      metrica-trim      
+      
+      portrait:col-span-2
+      portrait:text-left 
+      landscape:col-span-1
+      landscape:text-right
+      ;
+  }
+
+  & section > h1 > a {
+    @apply 
+      inline-block 
+      w-full
+      ;
+  }
+
+  & section > p, section > div {
+    @apply 
+      portrait:col-span-2
+      landscape:col-span-1
+      px-4/4r
+
+      metrica-font-berkeley-mono
+      metrica-cap-size-4/4r
+      metrica-leading-8/4r
+      metrica-trim
+      
+      h-screen
+      snap-start
+      ;
+  }
+
+  & section > p > a, section > div > a {
+    @apply
+      underline
+      decoration-2
+      underline-offset-2
+      decoration-dashed
+      ;
+  }
+  
+  & small {
+    @apply
+      metrica-font-berkeley-mono
+      metrica-cap-size-3/4r 
+      metrica-leading-6/4r 
+      metrica-trim
+      ;
+  }
+}
