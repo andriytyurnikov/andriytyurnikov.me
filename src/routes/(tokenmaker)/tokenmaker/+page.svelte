@@ -3,11 +3,11 @@
 </script>
 
 <article class="p-4 scena-latus mx-auto">
-  <h2 class="text-center my-8">
+  <h2 class="text-center my-4">
     TokenMaker
   </h2>
   <hr class="my-8 border-current"/>
-  <h4 class="mb-10/6r">
+  <p class="lead">
     Mint your tokens safely on 
     <span class="text-[#e84142] font-bold">Avalanche</span>,
     <span class="text-[#3b82f6] font-bold">Base</span>,
@@ -25,7 +25,7 @@
     
     <span class="text-[#888888]">Kava</span>,
     <span class="text-[#888888]">PulseChain</span> -->
-  </h4>
+  </p>
 
   <ul class="list-disc list-inside mb-10/6r">
     Every token created by TokenMaker&trade; benefits from:
@@ -35,8 +35,6 @@
   </ul>
 
   <h6 class="lead mb-10/6r">Go, create your token</h6>
-
-  <h6 class="lead mb-10/6r">Want to create a DAO? Check out DAOMaker&trade;</h6>
 
   <h6 class="lead mb-10/6r">Read TokenMaker Guidebook&trade;</h6>
 </article>
