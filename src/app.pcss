@@ -3,3 +3,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  
+  @font-face {
+    font-family: 'Berkeley Mono Variable';
+    src: url('/fonts/berkeley-mono-variable/WEB/BerkeleyMonoVariable-Regular.woff2') format("woff2"),
+         url('/fonts/berkeley-mono-variable/WEB/BerkeleyMonoVariable-Regular.woff') format("woff"),
+         url('/fonts/berkeley-mono-variable/TTF/BerkeleyMonoVariable-Regular.ttf') format("truetype");
+
+    font-weight: 100;
+  }
+  
+  ::selection {
+    @apply 
+      bg-vt320-amber
+      text-vt320-grey
+      ;
+  }
+
+  html {    
+    margin: 0;
+    /* padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); */
+
+    min-height: 100%;
+    min-height: -webkit-fill-available;
+    height: 100%;
+    height: auto;
+    width: 100%;
+    width: -webkit-fill-available;
+  }
+
+  body {
+    min-height: 100%;
+    min-height: -webkit-fill-available;
+    height: 100%;
+    width: 100%;
+    width: -webkit-fill-available;
+  }
+}
