@@ -1,4 +1,4 @@
-// export const prerender = true;
+export const prerender = true;
 
 import { dev } from '$app/environment';
 import { inject } from '@vercel/analytics';
