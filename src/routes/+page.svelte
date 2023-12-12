@@ -42,7 +42,8 @@ xmlns="http://www.w3.org/2000/svg">
 </div>
 
 <main class="index-main">
-  <article class="grid portrait:grid-template-row-split landscape:grid-template-col-split">
+  <article class="grid 
+  portrait:grid-cols-1 portrait:grid-rows-2 landscape:grid-cols-2 landscape:grid-rows-1">
     <header class="contents">
       <div class="responsive-grid-split-cell self-center justify-self-center z-40 grow flex flex-row justify-center avatar h-avatar sticky top-0 py-2 min-w-80 w-full">
         <div class="mr-3">
