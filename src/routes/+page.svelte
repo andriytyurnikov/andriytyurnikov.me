@@ -84,8 +84,6 @@ xmlns="http://www.w3.org/2000/svg">
         Programming since 1996<br/>
         In Kyiv, Ukraine since 2009<br/>
         <br/>
-        Rebooting my professional life since 2023<br/>
-        <br/>
         Interested in Web, Typography, Cognitive Science, Systems, Innovations.
       </p>
     </section>
