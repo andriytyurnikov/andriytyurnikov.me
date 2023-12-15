@@ -1,7 +1,7 @@
 <script>
   import { assets, base } from '$app/paths'
 
-  import ThemeSwitch from '$lib/fundatio/ThemeSwitch.svelte';
+  import ThemeToggle from '$lib/fundatio/ThemeToggle.svelte';
 </script>
 
 <h2>View Transitions:</h2>

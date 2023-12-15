@@ -6,7 +6,7 @@
 
   import Shell from '$lib/fundatio/Shell.svelte';
   import NavBar from '$lib/fundatio/NavBar.svelte';
-  import ThemeSwitch from '$lib/fundatio/ThemeSwitch.svelte';
+  import ThemeToggle from '$lib/fundatio/ThemeToggle.svelte';
 </script>
 
 <svelte:head>
@@ -42,6 +42,7 @@
           </svg>
         </a>
       </li>
+
       <li>
         <a href="{base}/#contacts" class="invisible">
           <svg class="w-navbar-icon h-navbar-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -49,6 +50,7 @@
           </svg>        
         </a>
       </li>
+
       <li>
         <button>
           <svg class="w-navbar-icon h-navbar-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -56,9 +58,11 @@
           </svg>
         </button>
       </li>
+
       <li>
-        <ThemeSwitch/>
+        <ThemeToggle/>
       </li>
+      
       <li>
         <button>
           <svg class="w-navbar-icon h-navbar-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">

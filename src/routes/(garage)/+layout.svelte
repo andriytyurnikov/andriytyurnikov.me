@@ -6,7 +6,9 @@
 
   import Shell from '$lib/fundatio/Shell.svelte';
   import NavBar from '$lib/fundatio/NavBar.svelte';
-  import ThemeSwitch from '$lib/fundatio/ThemeSwitch.svelte';
+  
+  import ThemeInitializer from '$lib/fundatio/ThemeInitializer.svelte';
+  import ThemeToggle from '$lib/fundatio/ThemeToggle.svelte';
 </script>
 
 <div style="height: 0; width: 0;">
@@ -47,10 +49,12 @@ xmlns="http://www.w3.org/2000/svg">
   </svg>
 </div>
 
+<ThemeInitializer/>
+
 <Shell>
   <NavBar 
     slot="navbar"
-    class="bg-blue-950 text-blue-50
+    class="bg-blue-50 text-blue-950 dark:bg-blue-950 dark:text-blue-50
     border-t border-current landscape:border-t-0 landscape:border-l
     xl:border-t-0 landscape:xl:border-l-0 xl:border-r-0 xl:border-b
     "
@@ -70,24 +74,24 @@ xmlns="http://www.w3.org/2000/svg">
         </a>
       </li>
 
-      <li>
-        <a href="{base}/#contacts" class="invisible">
-          <svg class="w-navbar-icon h-navbar-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
-          </svg>        
-        </a>
-      </li>
-
-      <li>
-        <a href="{base}" class="invisible">
+      <li class="xl:!grow-[8]">
+        <button>
           <svg class="w-navbar-icon h-navbar-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
-        </a>
+        </button>
       </li>
 
       <li>
-        <ThemeSwitch></ThemeSwitch>
+        <ThemeToggle></ThemeToggle>
+      </li>
+
+      <li class="invisible">
+        <button>
+          <svg class="w-navbar-icon h-navbar-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+          </svg>
+        </button>
       </li>
       
     </ul>

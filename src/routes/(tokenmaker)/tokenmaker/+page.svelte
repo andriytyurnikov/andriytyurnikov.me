@@ -1,5 +1,5 @@
 <script>
-  import ThemeSwitch from '$lib/fundatio/ThemeSwitch.svelte';
+  import ThemeToggle from '$lib/fundatio/ThemeToggle.svelte';
 </script>
 
 <article class="p-4 scena-latus mx-auto">

@@ -6,7 +6,7 @@
 
   import Shell from '$lib/fundatio/Shell.svelte';
   import NavBar from '$lib/fundatio/NavBar.svelte';
-  import ThemeSwitch from '$lib/fundatio/ThemeSwitch.svelte';
+  import ThemeToggle from '$lib/fundatio/ThemeToggle.svelte';
 
   import {
     afterNavigate,
@@ -77,7 +77,7 @@
     </li>
 
     <li>
-      <ThemeSwitch/>
+      <ThemeToggle/>
     </li>
     
     <li>
