@@ -156,11 +156,11 @@
       m-8
       mx-auto
   ">
-    <h1 class="text-center tracking-wider">
-      FontCalc
-    </h1>
+    <h3 class="text-center tracking-wider">
+      Proportional Type
+    </h3>
     <p class="text-center lead">
-      Responsive font size calculator.
+      Responsive font size calculator
     </p>
   </section>
 
