@@ -4,9 +4,9 @@
   import { onMount } from 'svelte';
   import { assets, base } from '$app/paths';
 
-  import Shell from '$lib/fundatio/Shell.svelte';
-  import NavBar from '$lib/fundatio/NavBar.svelte';
-  import ThemeToggle from '$lib/fundatio/ThemeToggle.svelte';
+  import Shell from '$lib/elementa/Shell.svelte';
+  import NavBar from '$lib/elementa/NavBar.svelte';
+  import ThemeToggle from '$lib/elementa/ThemeToggle.svelte';
 
   import {
     afterNavigate,
@@ -38,7 +38,7 @@
 <Shell>
   <NavBar 
     slot="navbar"
-    class="bg-blue-950 text-blue-50 
+    class="bg-slate-950 text-slate-50 
     border-t border-current landscape:border-t-0 landscape:border-l
     xl:border-t-0 landscape:xl:border-l-0 xl:border-r-0 xl:border-b
     ">

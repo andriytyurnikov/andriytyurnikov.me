@@ -7,7 +7,13 @@ export default {
   theme: {
     /** Can not use extend: for custom small breakpoints, as  */
     screens: {
-      'xs': '320px',
+      // 'phone': {'raw': '(max-width: 507px) or (max-height: 507px)'},
+      // https://parsnip.io/post/ios-9-ipad-multitasking-and-ios-safari/
+      'tablet': {'raw': '(min-width: 507px) and (min-height: 507px)'},
+      'laptop': '1200px',
+      'desktop': '1537px',
+      'desktop-4k': '2049px',
+      // ...mediaResponsumTheme.screens,
       ...defaultTheme.screens,
       '3xl': '2048px',
     },
@@ -78,12 +84,22 @@ export default {
         },
       },
       fontFamily: {
+        'atkinson-hyperlegible': ['Atkinson Hyperlegible Regular', 'sans-serif'],
         'berkeley-mono': ['Berkeley Mono Variable', 'sans-serif'],
         'noto-sans-display': ['Noto Sans Display', 'sans-serif'],
         'noto-sans-mono': ['Noto Sans Mono', 'sans-serif'],
         'space-mono': ['Space Mono', 'sans-serif']
       },
       fontMetrics: {
+        'atkinson-hyperlegible': {
+          capHeight: 668,
+          ascent: 950,
+          descent: -290,
+          lineGap: 0,
+          unitsPerEm: 1000,
+          xHeight: 496,
+          xWidthAvg: 534,
+        },
         berkeley: {
           capHeight: 680,
           ascent: 956,

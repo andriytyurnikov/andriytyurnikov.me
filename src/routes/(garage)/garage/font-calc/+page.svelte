@@ -48,6 +48,11 @@
   }
 
   let fontFamilies = {
+    'atkinson-hyperlegible': {
+      name: 'Atkinson Hyperlegible',
+      unitsPerEm: 1000,
+      xHeight: 496,
+    },
     'berkeley-mono': {
       name: 'Berkeley Mono',
       unitsPerEm: 1000,
@@ -87,6 +92,11 @@
       name: 'Roboto', 
       unitsPerEm: 2048,
       xHeight: 1092,
+    },
+    'space-mono':{
+      name: 'Space Mono',
+      unitsPerEm: 1000,
+      xHeight: 496
     },
     'urbanist':{
       name: 'Urbanist', 
@@ -151,7 +161,7 @@
     ">
   <section 
     class="
-      scena-focus w-full
+      max-w-para w-full
       px-2 lg:px-3
       m-8
       mx-auto
@@ -167,7 +177,7 @@
   <hr class="mb-4 lg:mb-6"/>
   
   <section class="
-    w-full max-w-40/1
+    w-full max-w-lg
     px-2 lg:px-3
     mb-2 lg:mb-3
     mx-auto">
@@ -175,7 +185,7 @@
     <fieldset class="border
     border-blue-100
 
-    max-w-3xl
+    max-w-2xl
     
     p-4 pt-2
     mb-4
@@ -291,7 +301,7 @@
   text-blue-50
   block
   p-6">
-    <div class="container max-w-40/1 mx-auto">
+    <div class="container max-w-lg mx-auto">
 
       <h4>Inspired and enlightnend by:</h4>
 

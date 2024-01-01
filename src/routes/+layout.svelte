@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-  <meta name="theme-color" content="#172554" />
+  <!-- <meta name="theme-color" content="#172554" /> -->
 </svelte:head>
 
 <slot />

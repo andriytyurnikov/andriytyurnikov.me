@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .scena-screen {
+    @apply
+      flex 
+      flex-col
+      items-center 
+      justify-center
+      min-w-full
+      w-full
+      min-h-lvh
+      h-full
+      ;
+  }
+
+  .scena-cover {
+    @apply
+      flex
+      grow
+      min-w-full
+      w-full
+      min-h-full
+      h-full
+      ;
+  }
+
+  .scena-cover--center {
+    @apply
+      items-center 
+      justify-center
+      ;
+  }
+}

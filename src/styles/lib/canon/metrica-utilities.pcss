@@ -2,6 +2,54 @@
   .metrica-
 */
 
+.metrica-font-atkinson-hyperlegible {
+  font-family: 'Atkinson Hyperlegible';
+
+  @apply
+    metrica-trim-computations
+    ;
+
+  --metrica-metric-cap-height:    668;
+  --metrica-metric-ascent:        950;
+  --metrica-metric-descent:      -290;
+  --metrica-metric-line-gap:        0;
+  --metrica-metric-units-per-em: 1000;
+  --metrica-metric-x-height:      496;
+  --metrica-metric-x-width-avg:   534;
+  
+
+  --metrica-precomputed-cap-height-scale:
+    0.668;
+    /* calc(
+      var(--metrica-metric-cap-height)
+      / var(--metrica-metric-units-per-em)
+    );  */
+
+  --metrica-precomputed-baseline-trim-factors: 
+    0.29;
+    /* calc(
+      var(--metrica-absolute-descent-scale)
+      + var(--metrica-line-gap-scale) 
+      / 2 
+    ); */
+  
+  --metrica-precomputed-cap-height-trim-factors:
+    0.282;
+    /* calc(
+      var(--metrica-ascent-scale)   
+      - var(--metrica-cap-height-scale)
+      + var(--metrica-line-gap-scale)
+      / 2
+    ); */
+
+  --metrica-precomputed-line-height-scale:
+    1.24;
+    /* calc(
+      var(--metrica-content-area)
+      / var(--metrica-metric-units-per-em)
+    ); */
+}
+
 .metrica-font-berkeley-mono {
   font-family: 'Berkeley Mono Variable';
 
@@ -112,6 +160,34 @@
 
   --metrica-precomputed-line-height-scale:
     1.355;
+}
+
+.metrica-font-space-mono {
+  font-family: 'Space Mono';
+
+  @apply
+    metrica-trim-computations
+    ;
+
+  --metrica-metric-cap-height: 700;
+  --metrica-metric-ascent: 1120;
+  --metrica-metric-descent: -361;
+  --metrica-metric-line-gap: 0;
+  --metrica-metric-units-per-em: 1000;
+  --metrica-metric-x-height: 496;
+  --metrica-metric-x-width-avg: 612;
+
+  --metrica-precomputed-cap-height-scale: 
+    0.7;
+
+  --metrica-precomputed-baseline-trim-factors: 
+    0.361;
+  
+  --metrica-precomputed-cap-height-trim-factors:
+    0.42;
+
+  --metrica-precomputed-line-height-scale:
+    1.481;
 }
 
 .metrica-font-verdana {

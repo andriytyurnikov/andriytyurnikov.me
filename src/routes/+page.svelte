@@ -80,11 +80,10 @@ xmlns="http://www.w3.org/2000/svg">
         <a href="{base}#about">About</a>
       </h1>
       <p id="about" class="responsive-grid-split-cell portrait:pt-9/1r landscape:pt-4/1r bg-gradient-to-b from-blue-700 via-blue-700 to-blue-600">
-        Born in 1981<br/>
+        In Kyiv, Ukraine<br/>
         Programming since 1996<br/>
-        In Kyiv, Ukraine since 2009<br/>
         <br/>
-        Interested in Web, Typography, Cognitive Science, Systems, Innovations.
+        Interested in Web, Typography, Interfaces, Systems.
       </p>
     </section>
 
@@ -160,11 +159,11 @@ xmlns="http://www.w3.org/2000/svg">
       <p id="hire" class="portrait:pt-15/1r landscape:pt-4/1r bg-gradient-to-b from-blue-500 via-blue-500 via-blue-500 via-blue-500 to-blue-600">
         Keywords for HR ;)<br/><br/>
         <small class="inline-block">
-          Heroku, AWS, GCP, Docker, Linux,
-          Rails, Node.js, Next.js, SvelteKit,
-          Svelte, React, Vue, Bootstrap, Tailwind,
+          Heroku, AWS, Docker,
+          Rails, Node.js, SvelteKit,
+          Svelte, React, Bootstrap, Tailwind,
           Ruby, JavaScript, TypeScript,
-          MySQL, PostgreSQL, Redis, ElasticSearch, Memcached,
+          MySQL, PostgreSQL, Redis, ElasticSearch,
           REST API, GraphQL
         </small>
       </p>

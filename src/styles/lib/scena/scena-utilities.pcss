@@ -1,0 +1,59 @@
+@tailwind utilities;
+
+@layer utilities {
+  .max-w-fovea {
+    @apply
+      max-w-[8rem]
+      ;
+  }
+
+  .max-w-para {
+    @apply
+      max-w-[16rem]
+      ;
+  }
+  
+  .max-w-peri {
+    @apply
+      max-w-[32rem]
+      ;
+  }
+
+  .max-w-upto-fovea {
+    @apply
+      max-w-fovea
+      ;
+  }
+
+  .max-w-upto-para {
+    @apply
+      w-full
+      max-w-para
+      ;
+  }
+
+  .max-w-upto-peri {
+    @apply
+      w-full
+      max-w-peri
+      ;
+  }
+
+  .w-fovea {
+    @apply
+      w-[8rem]
+      ;
+  }
+
+  .w-para {
+    @apply
+      w-[16rem]
+      ;
+  }
+  
+  .w-peri {
+    @apply
+      w-[32rem]
+      ;
+  }
+}

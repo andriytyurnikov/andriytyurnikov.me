@@ -1,12 +1,12 @@
 <script>
-  import ThemeToggle from '$lib/fundatio/ThemeToggle.svelte';
+  import ThemeToggle from '$lib/elementa/ThemeToggle.svelte';
 </script>
 
-<article class="p-4 scena-latus mx-auto">
-  <h2 class="text-center my-4">
+<article class="p-4 max-w-peri mx-auto">
+  <h2 class="text-center">
     TokenMaker
   </h2>
-  <hr class="my-8 border-current"/>
+  <hr class="my-4 border-current"/>
   <p class="lead">
     Mint your tokens safely on 
     <span class="text-[#e84142] font-bold">Avalanche</span>,
