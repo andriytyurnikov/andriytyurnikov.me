@@ -4,7 +4,7 @@
 
 <div class="scena-cover scena-cover--center p-6/4r">
   <article class="canon
-  metrica-font-atkinson-hyperlegible
+  metrica-font-berkeley-mono
   tracking-widest
   mx-auto max-w-upto-peri">
     <hr class="max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/>

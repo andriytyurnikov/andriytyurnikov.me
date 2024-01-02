@@ -51,11 +51,11 @@ xmlns="http://www.w3.org/2000/svg">
         </div>
 
         <div class="flex flex-col text-left pt-2">
-          <div class="mb-6 font-extralight metrica-font-berkeley-mono metrica-cap-size-3/4r metrica-leading-3/4r metrica-trim">
+          <div class="mb-6 font-extralight metrica-cap-size-3/4r metrica-leading-3/4r metrica-trim">
             Andriy Tyurnikov
           </div>
    
-          <div class="font-extralight metrica-font-berkeley-mono metrica-cap-size-3/4r metrica-leading-3/4r metrica-trim">
+          <div class="font-extralight metrica-cap-size-3/4r metrica-leading-3/4r metrica-trim">
             Web Developer
           </div>
         </div>
@@ -176,7 +176,6 @@ xmlns="http://www.w3.org/2000/svg">
       <div 
         id="garage" 
         class="portrait:pt-18/1r landscape:pt-4/1r bg-blue-800
-        metrica-font-noto-sans-mono
       metrica-cap-size-4/4r
       metrica-leading-8/4r
       metrica-trim">

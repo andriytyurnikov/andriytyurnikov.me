@@ -26,9 +26,13 @@
   }
 
   function handleOrientation(event) {
+    // document.body.height = window.innerHeight;
+    // document.body.width = window.innerWidth;
   }
 
   function handleResize(event) {
+    // document.body.height = window.innerHeight;
+    // document.body.width = window.innerWidth;
   }
 
   function handleScroll(event) {
@@ -49,7 +53,6 @@
   
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </svelte:head>
 
 <svelte:window 
@@ -62,13 +65,10 @@
   class="elementa-shell" 
   on:scroll={handleScroll} on:scrollend={handleScrollEnd} >
   <!-- modal overlay -->
-  <div></div>
 
   <!-- toast notifications container -->
-  <div></div>
 
   <!-- search overlay -->
-  <div></div>
 
   <header class="contents">
     <slot name="navbar"/>

@@ -2,8 +2,6 @@
   export let data;
   
   import "./../../../app.pcss";
-  import "./../../../styles/lib/canon/canon.pcss";
-  import "./../../../styles/lib/elementa/elementa.pcss";
   import "./../../../styles/animated.pcss";
 
   import { onMount } from 'svelte';

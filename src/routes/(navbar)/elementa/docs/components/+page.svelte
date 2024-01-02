@@ -5,7 +5,7 @@
 <article class="p-4 mx-auto canon metrica-font-berkeley-mono bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
   <section class="mx-auto max-w-peri">
   <h2 class="text-center">
-    <svg class="inline-block w-8 h-8 mx-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+    <svg class="inline-block w-8 h-8 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
     </svg>
     Elementa Fundamentalia
@@ -25,7 +25,7 @@
   <section class="mx-auto max-w-peri">
     <ul class="elementa-list border-slate-900 dark:border-slate-100">
       <li class="elementa-list-item text-slate-900 dark:text-slate-100">
-        <a href="{base}/elementa/shell">
+        <a href="{base}/elementa/docs/components/shell">
           <svg class="inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8.25V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V8.25m-18 0V6a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 6v2.25m-18 0h18M5.25 6h.008v.008H5.25V6zM7.5 6h.008v.008H7.5V6zm2.25 0h.008v.008H9.75V6z" />
           </svg>
@@ -34,7 +34,7 @@
       </li>
   
       <li class="elementa-list-item text-slate-900 dark:text-slate-100">
-        <a href="{base}/elementa/navbar">
+        <a href="{base}/elementa/docs/components/navbar">
           <svg class="inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
           </svg>        
@@ -43,7 +43,7 @@
       </li>
   
       <li class="elementa-list-item text-slate-900 dark:text-slate-100">
-        <a href="{base}/elementa/list">
+        <a href="{base}/elementa/docs/components/list">
           <svg class="inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
           </svg>        

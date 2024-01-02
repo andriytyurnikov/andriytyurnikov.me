@@ -1,8 +1,8 @@
-<article class="canon metrica-font-atkinson-hyperlegible">
+<article class="canon metrica-font-berkeley-mono">
   <section class="text-center max-w-peri mx-auto">
-    <h4 class="mx-auto hero text-center tracking-wider">
+    <h5 class="mx-auto hero text-center">
       Canon Typographia
-    </h4>
+    </h5>
     <p class="lead metrica-leading-12/4r">
       Reasonable defaults of typographic style for Web
     </p>
@@ -15,8 +15,14 @@
   <hr class="my-4/4r max-w-peri mx-auto"/>
   
   <section class="block max-w-peri mx-auto">
-    <h5>Canon core:</h5>
-    <p>No color settings except for current color or inherit. Border, outline, ring, text decoration, placeholder, caret. </p>
+    <h1 class="hero">HERO HEADING</h1>
+    <h1>h1 Heading</h1>
+    <h2>h2 Heading</h2>
+    <h3>h3 Heading</h3>
+    <h4>h4 Heading</h4>
+    <h5>h5 Heading</h5>
+    <h6>h6 Heading</h6>
+    <p class="lead">No color settings except for current color or inherit. Border, outline, ring, text decoration, placeholder, caret. </p>
     <ol>
       <li>a</li>
       <li>abbr</li>
