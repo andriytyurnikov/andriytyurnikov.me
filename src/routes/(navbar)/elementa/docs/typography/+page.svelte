@@ -1,4 +1,8 @@
-<article class="canon metrica-font-berkeley-mono">
+<div class="scena-cover scena-cover--center p-6/4r">
+  <article class="canon
+  metrica-font-berkeley-mono
+  tracking-widest
+  mx-auto max-w-upto-peri">
   <section class="text-center max-w-peri mx-auto">
     <h5 class="mx-auto hero text-center">
       Canon Typographia
@@ -86,3 +90,4 @@
     <p>Paragraph with abbreviation <abbr title="User Interface">UI</abbr> &mdash; means User Interface.</p>
   </section>
 </article>
+</div>

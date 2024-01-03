@@ -18,15 +18,15 @@
       Elementa Fundamentalia
     </h2>
 
-    <hr class="max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="max-w-upto-peri mx-auto"/>
 
     <p class="text-center">
       Web apps should aim to match the experience of native apps
     </p>
 
-    <hr class="max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="max-w-upto-peri mx-auto"/>
 
-    <a href="{base}/elementa/docs/" class="inline-block rounded-full border border-2 border-slate-900 dark:border-slate-100 p-5/6r float-right">
+    <a href="{base}/elementa/docs/" class="inline-block !no-underline rounded-full border border-2 border-slate-900 dark:border-slate-100 p-5/6r float-right">
       Get Started &rarr;
     </a>
     <!-- <h5>Problem statement</h5>
@@ -36,6 +36,6 @@
       Also specifics of new digital medium introduces challenges of it's own.
       Therefore relatevely recent discoveries are largerly ignored by practitioners.
     </p>
-    <hr class="max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/> -->
+    <hr class="max-w-upto-peri mx-auto"/> -->
   </article>
 </div>

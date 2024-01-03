@@ -28,16 +28,26 @@
       flex
       grow
       min-w-full
-      w-full
       min-h-full
-      h-full
       ;
   }
 
-  .scena-cover--center {
+  .scena-cover--center, .scena-cover--centered {
     @apply
+      grow
       items-center 
       justify-center
+      place-items-stretch
+      ;
+  }
+
+  .scena-page {
+    @apply
+      block
+      absolute
+      inset-0
+      min-w-full
+      min-h-full
       ;
   }
 }

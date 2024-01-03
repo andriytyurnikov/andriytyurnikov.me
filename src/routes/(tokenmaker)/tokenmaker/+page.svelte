@@ -6,7 +6,7 @@
   <h2 class="text-center">
     TokenMaker
   </h2>
-  <hr class="my-4 border-current"/>
+  <hr class="my-4"/>
   <p class="lead">
     Mint your tokens safely on 
     <span class="text-[#e84142] font-bold">Avalanche</span>,

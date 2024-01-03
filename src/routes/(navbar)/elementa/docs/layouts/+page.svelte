@@ -7,34 +7,30 @@
   metrica-font-berkeley-mono
   tracking-widest
   mx-auto max-w-upto-peri">
-    <hr class="max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/>
-    <!-- <h5>Problem statement</h5>
-    <p>
-      UI layout composition borrows heavily from tradition of Typography. 
-      But Typographical tradition formed way before modern scientific method. 
-      Also specifics of new digital medium introduces challenges of it's own.
-      Therefore relatevely recent discoveries are largerly ignored by practitioners.
-    </p>
-    <hr class="max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/> -->
-    <h5>Installation:</h5>
-    <p>
-      Tailwind plugin.
-    </p>
-    <hr class="max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="max-w-upto-peri mx-auto"/>
     <h5>Utilities:</h5>
     <p>
       (Min-, Max-) Width & Height.
     </p>
-    <hr class="max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="max-w-upto-peri mx-auto"/>
     <h5>Components:</h5>
     <p>
-      Shell: Screen<br/>
+      Shells & Wrappers:
+      <a href="{base}/elementa/docs/layouts/shell">Shell</a>,
+      <a href="{base}/elementa/docs/layouts/screen">Screen</a>,
+      <a href="{base}/elementa/docs/layouts/edgy">Page</a>,
+      <br/>
       Macro Layouts: 
-        <a href="{base}/scena/docs/cover">Cover</a>, 
-        <a href="{base}/scena/docs/focus">Focus</a>,
-        Split, Columns, Grid<br/>
-      Generic Containers: Stack, Box<br/>
-      Compositions: Applicatio, Page (pagina), List (lista), Table (tabula)<br/>
+      <a href="{base}/elementa/docs/layouts/cover">Cover</a>, 
+      <a href="{base}/elementa/docs/layouts/focus">Focus</a>,
+      Split, Columns, Grid
+      <br/>
+      Generic Containers: Stack, Box
+      <br/>
+      Compositions: 
+      <a href="{base}/elementa/docs/layouts/application">Application</a>,
+      Page, List, Table
+      <br/>
     </p>
 
   </article>

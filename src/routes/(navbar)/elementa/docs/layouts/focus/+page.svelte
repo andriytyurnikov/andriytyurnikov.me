@@ -10,28 +10,28 @@
       "
   >
 
-    <hr class="max-w-upto-fovea mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="max-w-upto-fovea mx-auto"/>
     <h2 class="text-center max-w-upto-fovea mx-auto">
       Focus
     </h2>
-    <hr class="max-w-upto-fovea mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="max-w-upto-fovea mx-auto"/>
     <p class="max-w-upto-fovea mx-auto text-center">
       Foveal &mdash; ~4.5&deg of Field of View
     </p>
     
-    <hr class="w-full max-w-upto-para mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="w-full max-w-upto-para mx-auto"/>
     
     <p class="lead max-w-upto-para mx-auto">
       ParaFoveal &mdash; ~9&deg of Field of View
     </p>
 
-    <hr class="w-full max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="w-full max-w-upto-peri mx-auto"/>
 
     <p class="lead max-w-upto-peri mx-auto">
       PeriFoveal &mdash; ~18&deg of Field of View
     </p>
 
-    <hr class="w-full max-w-upto-peri mx-auto border-slate-900 dark:border-slate-100"/>
+    <hr class="w-full max-w-upto-peri mx-auto"/>
   </article>
 
 </div>

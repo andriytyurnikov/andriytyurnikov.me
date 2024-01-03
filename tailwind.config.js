@@ -6,17 +6,7 @@ export default {
   darkMode: 'class',
   theme: {
     /** Can not use extend: for custom small breakpoints, as  */
-    screens: {
-      // 'phone': {'raw': '(max-width: 507px) or (max-height: 507px)'},
-      // https://parsnip.io/post/ios-9-ipad-multitasking-and-ios-safari/
-      'tablet': {'raw': '(min-width: 507px) and (min-height: 507px)'},
-      'laptop': '1200px',
-      'desktop': '1537px',
-      'desktop-4k': '2049px',
-      // ...mediaResponsumTheme.screens,
-      ...defaultTheme.screens,
-      '3xl': '2048px',
-    },
+    /** TODO: test screens: {...pluginScreens} */
     extend: {
       animation: {
         'spin-once': 'spin 0.25s ease-in-out 1',
@@ -170,6 +160,7 @@ export default {
     // require('@tailwindcss/forms'),
     // require('@tailwindcss/aspect-ratio'),
     // require('@tailwindcss/container-queries'),
+    require('@rubakas/media-responsum'),
     require('@rubakas/fractio-rem'),
     require('@rubakas/pro-rata-rem'),
     // require('./src/lib/metrica.js'),
