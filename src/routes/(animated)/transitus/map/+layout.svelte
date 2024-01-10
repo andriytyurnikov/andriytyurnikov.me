@@ -3,8 +3,8 @@
 
   let stage;
   
-  import "./../../app.pcss";
-  import "./../../styles/lib/elementa/elementa.pcss";
+  import "./../../../../app.pcss";
+  import "./../../../../styles/lib/elementa/elementa.pcss";
 
   import { onMount } from 'svelte';
   import { assets, base } from '$app/paths';
