@@ -1,14 +1,21 @@
 import { writable } from 'svelte/store';
 
-class TransitionMapper {
+class TransitionMap {
   constructor() {
-    this._map = writeable([]);
+    this._matchers = writeable([]);
+  }
+
+  transition() {
+    newMatcher = new TransitionMatcher();
+    this._matchers.update(v => [...v, newMatcher]);
+    return newMatcher;
   }
 }
 
 class TransitionMatcher {
   constructor() {
-    this._map = writeable([]);
+    this._constraints = writeable([]);
+    this._rules = writeable([]);
   }
 
   fromValue() {}
@@ -31,7 +38,9 @@ class TransitionMatcher {
 
   includingInitialRender() {}
 
-  use()
+  use() {}
+
+  matches() {}
 }
 
 // map
@@ -52,6 +61,4 @@ class TransitionMatcher {
   //   .includingInitialRender()
   //   .use()
 
-const matcher = Object.freeze( new TransitionMatcher() );
-
-export default matcher;
+export default TransitionMap;

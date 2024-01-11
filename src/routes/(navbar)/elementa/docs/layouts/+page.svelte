@@ -16,9 +16,9 @@
     <h5>Components:</h5>
     <p>
       Shells & Wrappers:
-      <a href="{base}/elementa/docs/layouts/shell">Shell</a>,
-      <a href="{base}/elementa/docs/layouts/screen">Screen</a>,
-      <a href="{base}/elementa/docs/layouts/edgy">Page</a>,
+      <a href="{base}/elementa/docs/layouts">Shell</a>,
+      <a href="{base}/elementa/docs/layouts">Screen</a>,
+      <a href="{base}/elementa/docs/layouts">Page</a>,
       <br/>
       Macro Layouts: 
       <a href="{base}/elementa/docs/layouts/cover">Cover</a>, 
