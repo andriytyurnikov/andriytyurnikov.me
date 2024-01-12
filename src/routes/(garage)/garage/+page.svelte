@@ -217,6 +217,7 @@
   
   <footer 
     class="
+      w-full
       bg-blue-900
       text-blue-50
       block
