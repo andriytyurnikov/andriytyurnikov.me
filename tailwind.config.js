@@ -76,6 +76,7 @@ export default {
       fontFamily: {
         'atkinson-hyperlegible': ['Atkinson Hyperlegible Regular', 'sans-serif'],
         'berkeley-mono': ['Berkeley Mono Variable', 'sans-serif'],
+        'e-ukraine': ['e-Ukraine', 'sans-serif'],
         'noto-sans-display': ['Noto Sans Display', 'sans-serif'],
         'noto-sans-mono': ['Noto Sans Mono', 'sans-serif'],
         'space-mono': ['Space Mono', 'sans-serif']
@@ -98,6 +99,15 @@ export default {
           unitsPerEm: 1000,
           xHeight: 522,
           xWidthAvg: 600,
+        },
+        'e-ukraine': {
+          capHeight: 380,
+          ascent: 513,
+          descent: -100,
+          lineGap: 0,
+          unitsPerEm: 512,
+          xHeight: 300,
+          xWidthAvg: 339,
         },
         'noto-sans-mono': {
           familyName: 'Noto Sans Mono',
@@ -147,8 +157,6 @@ export default {
         },
       },
       maxWidth: {
-        '20/1': '20rem',
-        '40/1': '40rem',
       },
       spacing: {
         'unset': 'unset',

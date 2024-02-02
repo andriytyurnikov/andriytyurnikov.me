@@ -58,6 +58,11 @@
       unitsPerEm: 1000,
       xHeight: 522,
     },
+    'e-ukraine': {
+      name: 'e-Ukraine',
+      unitsPerEm: 512,
+      xHeight: 300,
+    },
     'ibm-plex': {
       name: 'IBM Plex',
       unitsPerEm: 1000,
@@ -110,7 +115,7 @@
     },
   }
   
-  let selectedFontFamilyKey = 'berkeley-mono';
+  let selectedFontFamilyKey = 'atkinson-hyperlegible';
 
   function truncate_float(length, number) {
 		let base = Math.pow(10, length)
