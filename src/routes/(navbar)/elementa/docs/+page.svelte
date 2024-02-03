@@ -2,7 +2,7 @@
   import { assets, base } from '$app/paths'
 </script>
 
-<article class="p-4 mx-auto canon metrica-font-berkeley-mono bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+<article class="p-4 mx-auto canon metrica-font-berkeley-mono">
   <section class="mx-auto max-w-peri">
     <h2 class="text-center">
       <svg class="inline-block w-8 h-8 mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">

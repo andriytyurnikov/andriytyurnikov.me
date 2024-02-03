@@ -2,6 +2,9 @@
   import { onMount, onDestroy, getContext, setContext } from 'svelte';
   import { writable } from 'svelte/store';
   import { assets, base } from '$app/paths'
+
+  let klass = null;
+  export { klass as class };
   
   let scrollInProgress = writable(false)
 	setContext('ScrollInProgress', scrollInProgress)
@@ -61,8 +64,8 @@
   on:orientation={handleOrientation}
 />
 
-<div 
-  class="elementa-shell" 
+<div
+  class={["elementa-shell", klass].filter(c => c).join(' ')}
   on:scroll={handleScroll} on:scrollend={handleScrollEnd} >
   <!-- modal overlay -->
 
@@ -70,11 +73,11 @@
 
   <!-- search overlay -->
 
-  <header class="contents">
+  <header class="elementa-shell-navbar-slot">
     <slot name="navbar"/>
   </header>
 
-  <main class="elementa-main">
+  <main class="elementa-shell-main-slot">
     <div class="elementa-navbar-aware-wrapper">
       <slot></slot>
     </div>

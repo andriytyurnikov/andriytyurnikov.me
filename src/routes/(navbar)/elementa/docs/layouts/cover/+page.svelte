@@ -1,4 +1,4 @@
-<div class="scena-cover scena-cover--center bg-slate-200">
+<div class="scena-cover scena-cover--center">
 
   <article 
     class="

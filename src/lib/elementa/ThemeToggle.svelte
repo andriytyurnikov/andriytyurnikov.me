@@ -1,5 +1,4 @@
 <script>
-
   import { theme } from './stores/theme';
 	import { BROWSER } from 'esm-env';
 	import { onDestroy } from 'svelte';

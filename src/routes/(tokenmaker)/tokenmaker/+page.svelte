@@ -2,7 +2,8 @@
   import ThemeToggle from '$lib/elementa/ThemeToggle.svelte';
 </script>
 
-<article class="p-4 max-w-peri mx-auto">
+<article 
+  class="p-4 max-w-peri mx-auto">
   <h2 class="text-center">
     TokenMaker
   </h2>

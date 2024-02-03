@@ -16,14 +16,17 @@
     <h5>Components:</h5>
     <p>
       Shells & Wrappers:
+      <a href="{base}/elementa/docs/layouts">Splash</a>,
       <a href="{base}/elementa/docs/layouts">Shell</a>,
       <a href="{base}/elementa/docs/layouts">Screen</a>,
-      <a href="{base}/elementa/docs/layouts">Page</a>,
+      <a href="{base}/elementa/docs/layouts">Page</a>
       <br/>
       Macro Layouts: 
       <a href="{base}/elementa/docs/layouts/cover">Cover</a>, 
       <a href="{base}/elementa/docs/layouts/focus">Focus</a>,
-      Split, Columns, Grid
+      Split, 
+      Columns, 
+      Grid
       <br/>
       Generic Containers: Stack, Box
       <br/>

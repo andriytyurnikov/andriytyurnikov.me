@@ -11,13 +11,16 @@
 
 <div 
   class="scena-screen
-  bg-neutral-50 dark:bg-neutral-950
-  text-neutral-950 dark:text-neutral-50"
+  bg-slate-50 dark:bg-slate-950 
+  text-slate-900 dark:text-slate-100"
   >
   <Shell>
     <NavBar 
       slot="navbar"
-      class="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50"
+      class="
+      bg-slate-50 dark:bg-slate-950 
+      text-slate-900 dark:text-slate-100
+      "
     >
       <ul>
         <li>

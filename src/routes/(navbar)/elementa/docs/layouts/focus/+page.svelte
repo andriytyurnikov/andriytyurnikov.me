@@ -1,4 +1,9 @@
-<div class="scena-cover scena-cover--center bg-slate-200">
+<div 
+  class="
+    scena-cover scena-cover--center 
+    bg-slate-200 dark:bg-slate-800
+    text-slate-800 dark:text-slate-200
+    ">
 
   <article 
     class="

@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer components {
+  .elementa-splash {
+    @apply
+      absolute
+      top-0
+      left-0
+      w-full
+      h-dvh
+
+  }
+
   .elementa-shell {
     @apply
       /* important for JS scroll behavior */
@@ -20,7 +30,7 @@
       ;
   }
 
-  .elementa-main {
+  .elementa-shell-main-slot {
     @apply
       z-40
 
@@ -31,6 +41,18 @@
       flex-col
       flex-1
       ;
+  }
+
+  .elementa-shell-navbar-slot {
+    @apply
+      z-40
+      fixed
+      w-full
+
+      laptop:landscape:top-0
+      portrait:bottom-0 laptop:portrait:bottom-unset 
+      landscape:right-0
+    ;
   }
 
   .elementa-navbar-aware-wrapper {
@@ -58,17 +80,8 @@
     /* 16-20-24-28-32-36 */
     /* sm-md-lg-xl-2xl-3xl */
     @apply
-      z-40
-      fixed
       h-navbar landscape:h-full landscape:laptop:h-navbar
       w-full landscape:w-navbar landscape:laptop:w-full
-      
-      laptop:landscape:top-0
-      portrait:bottom-0 laptop:portrait:bottom-unset 
-      landscape:right-0
-
-      /* backdrop-blur-sm */
-      
       ;
     
     & ul {

@@ -35,10 +35,12 @@
   })
 </script>
 
-<Shell>
+<Shell
+  class="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
   <NavBar 
     slot="navbar"
-    class="bg-slate-950 text-slate-50 
+    class="
+    bg-slate-950 text-slate-50 dark:bg-slate-50 dark:text-slate-950 
     border-t border-current landscape:border-t-0 landscape:border-l
     xl:border-t-0 landscape:xl:border-l-0 xl:border-r-0 xl:border-b
     ">
