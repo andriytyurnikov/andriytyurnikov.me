@@ -6,9 +6,7 @@
   export { klass as class };
 
   export let duration = '300ms';
-  export let tolerance = 0;
   export let scrollOpacity = true;
-  export let additionalClasses = [];
 
   let bar, opaque = false;
 
