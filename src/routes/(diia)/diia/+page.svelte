@@ -5,7 +5,7 @@
 <article class="px-8">
   <h1 class="
         metrica-font-e-ukraine-head
-        metrica-cap-sized
+
         metrica-cap-size-rem-[15/8]
         hero
         tracking-wide
@@ -23,7 +23,7 @@
     Роками візит до держустанови асоціювався в українців із приниженнями й незрозумілістю. Відвідувачі не мали змоги вплинути на процес, а посадовці — механізмів його поліпшити. Це не сприяло ані впорядковуванню державних процесів, ані довірі людей до держави — лише створювало умови для розквіту корупції. Насправді ж, заручниками цієї системи були всі: і громадяни, і посадовці.
   </p>
 
-  <p class="tracking-wide text-center">
+  <p class="tracking-wide text-center test-[1]">
     <a href="{base}/diia" class="tracking-wider inline-block !no-underline rounded-full border border-2 border-slate-900 uppercase dark:border-slate-100 px-12/8r py-6/8r mx-auto">
       Увійти
     </a>
