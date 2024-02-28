@@ -33,13 +33,15 @@
   .elementa-shell-main-slot {
     @apply
       z-40
-
-      min-h-full
+      min-w-full
       w-auto
-      
-      flex
-      flex-col
-      flex-1
+
+      min-h-dvh
+      h-auto
+
+      laptop:pt-navbar
+      portrait:pb-navbar 
+      landscape:pr-navbar landscape:laptop:pr-unset
       ;
   }
 
@@ -47,24 +49,14 @@
     @apply
       z-40
       fixed
-      w-full
+      
+      h-auto landscape:h-full landscape:laptop:h-auto
+      w-full landscape:w-auto landscape:laptop:w-full
 
       laptop:landscape:top-0
-      portrait:bottom-0 laptop:portrait:bottom-unset 
+      portrait:bottom-0 laptop:portrait:bottom-unset
       landscape:right-0
     ;
-  }
-
-  .elementa-navbar-aware-wrapper {
-    @apply
-      flex
-      /* not absolute! wrapper should ... wrap */
-      portrait:pb-navbar landscape:pr-navbar landscape:laptop:pr-unset laptop:pt-navbar
-      min-h-dvh
-      h-auto
-      min-w-full
-      w-full
-      ;
   }
 
   .elementa-navbar {

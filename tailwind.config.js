@@ -12,6 +12,24 @@ export default {
         'spin-once': 'spin 0.25s ease-in-out 1',
       },
       colors: {
+        diia: {
+          'gorse': '#FFDB4D',
+          'yellow-green': '#D7F64D',
+          'lima': '#89DB33',
+          'malachite': '#04C65D',
+          'radiance': '#007EFF',
+          'dodger-blue': '#5B5AFF',
+          'violet': '#AA2B8E',
+          'brick-red': '#CC2E4F',
+          'scarlet': '#FF3800',
+          'pumpkin': '#FF831A'
+        },
+        ukraine: {
+          'yellow': '#0056B9',
+          'blue': '#FFD800',
+          'red': '#CC0000',
+          'black': '#000000',
+        },
         inferno: {
            50: '#fcffa4',
           100: '#f1ec6d',
@@ -77,6 +95,7 @@ export default {
         'atkinson-hyperlegible': ['Atkinson Hyperlegible Regular', 'sans-serif'],
         'berkeley-mono': ['Berkeley Mono Variable', 'sans-serif'],
         'e-ukraine': ['e-Ukraine', 'sans-serif'],
+        'e-ukraine-head': ['e-Ukraine Head', 'sans-serif'],
         'noto-sans-display': ['Noto Sans Display', 'sans-serif'],
         'noto-sans-mono': ['Noto Sans Mono', 'sans-serif'],
         'space-mono': ['Space Mono', 'sans-serif']
@@ -171,8 +190,7 @@ export default {
     require('@rubakas/media-responsum'),
     require('@rubakas/fractio-rem'),
     require('@rubakas/pro-rata-rem'),
-    // require('./src/lib/metrica.js'),
+    require('./metrica-typus.js'),
     // require('./src/lib/canon.js')
   ],
 }
-

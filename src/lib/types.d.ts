@@ -8,7 +8,7 @@ export type TransitionWithParams = {
 export type TransitionRule = {
   fromRouteId? : string | string[],
   toRouteId?   : string | string[],
-  withType?    : string | string[],
+  withType?    : NavigationType | NavigationType[],
   transition?  : TransitionWithParams | TransitionWithParams[],
   in?          : TransitionWithParams | TransitionWithParams[],
   out?         : TransitionWithParams | TransitionWithParams[],

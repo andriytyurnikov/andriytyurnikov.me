@@ -52,10 +52,7 @@ xmlns="http://www.w3.org/2000/svg">
   <Shell>
     <NavBar 
       slot="navbar"
-      class="bg-blue-950 text-blue-50
-      border-t border-current landscape:border-t-0 landscape:border-l
-      xl:border-t-0 landscape:xl:border-l-0 xl:border-r-0 xl:border-b
-      "
+      class="bg-blue-950 text-blue-50"
     >
       <ul>
         <li>
@@ -105,6 +102,7 @@ xmlns="http://www.w3.org/2000/svg">
         </li>
       </ul>
     </NavBar>
-      <slot/>
+
+    <slot/>
   </Shell>
 </div>

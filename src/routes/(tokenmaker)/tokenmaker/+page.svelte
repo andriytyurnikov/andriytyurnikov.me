@@ -28,14 +28,16 @@
     <span class="text-[#888888]">PulseChain</span> -->
   </p>
 
+  <br/>
+
   <ul class="list-disc list-inside mb-10/6r">
     Every token created by TokenMaker&trade; benefits from:
     <li>verified on-chain template</li>
-    <li>entry in TokenMaker Secure Registry</li>
+    <li>entry in TokenMaker Secure Tokens Registry</li>
     <li>NFT Certificate of Safety</li>
   </ul>
 
-  <h6 class="lead mb-10/6r">Go, create your token</h6>
-
-  <h6 class="lead mb-10/6r">Read TokenMaker Guidebook&trade;</h6>
+  <a href="#" class="inline-block !no-underline rounded-full border border-2 border-slate-900 dark:border-slate-100 px-10/6r py-5/6r float-right">
+    Create your token
+  </a>
 </article>

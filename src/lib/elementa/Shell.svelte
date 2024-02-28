@@ -78,8 +78,6 @@
   </header>
 
   <main class="elementa-shell-main-slot">
-    <div class="elementa-navbar-aware-wrapper">
-      <slot></slot>
-    </div>
+    <slot></slot>
   </main>
 </div>

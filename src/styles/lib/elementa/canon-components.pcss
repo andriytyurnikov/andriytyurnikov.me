@@ -1,75 +1,75 @@
-/* Canon -- 
+/* Canon --
   .canon - typographic defaults
 */
 @tailwind components;
 
 @layer components {
 
-  .canon {
-    @apply 
-        metrica-cap-size-4/6r
-        metrica-leading-10/6r
+.canon, .canon-3\/4, .canon-2\/3 {
+    @apply
+        metrica-cap-size-rem-[4/6]
+        metrica-leading-rem-[10/6]
         ;
 
     font-weight: 100;
     display: flow-root;
 
     & .hero {
-      @apply 
-        metrica-cap-size-14/6r
-        metrica-leading-30/6r
+      @apply
+        metrica-cap-size-rem-[14/6]
+        metrica-leading-rem-[30/6]
         ;
     }
 
     & h1 {
-      @apply 
-        metrica-cap-size-12/6r
-        metrica-leading-25/6r
+      @apply
+        metrica-cap-size-rem-[12/6]
+        metrica-leading-rem-[25/6]
 
         font-bold
         ;
     }
 
     & h2 {
-      @apply 
-        metrica-cap-size-10/6r
-        metrica-leading-20/6r
+      @apply
+        metrica-cap-size-rem-[10/6]
+        metrica-leading-rem-[20/6]
 
         font-bold
         ;
     }
 
     & h3 {
-      @apply 
-        metrica-cap-size-8/6r
-        metrica-leading-15/6r
+      @apply
+        metrica-cap-size-rem-[8/6]
+        metrica-leading-rem-[15/6]
 
         font-bold
         ;
     }
 
     & h4 {
-      @apply 
-        metrica-cap-size-7/6r
-        metrica-leading-15/6r
+      @apply
+        metrica-cap-size-rem-[7/6]
+        metrica-leading-rem-[15/6]
 
         font-bold
         ;
     }
 
     & h5 {
-      @apply 
-        metrica-cap-size-6/6r
-        metrica-leading-15/6r
+      @apply
+        metrica-cap-size-rem-[6/6]
+        metrica-leading-rem-[15/6]
 
         font-bold
         ;
     }
 
     & h6 {
-      @apply 
-        metrica-cap-size-5/6r
-        metrica-leading-10/6r
+      @apply
+        metrica-cap-size-rem-[5/6]
+        metrica-leading-rem-[10/6]
 
         font-bold
         ;
@@ -85,18 +85,18 @@
     & th {
 
     }
-    
+
     & p.lead {
-      @apply 
-        metrica-cap-size-5/6r
-        metrica-leading-10/6r
+      @apply
+        metrica-cap-size-rem-[5/6]
+        metrica-leading-rem-[10/6]
         ;
     }
 
     & p:not(.lead) {
-      @apply 
-        metrica-cap-size-4/6r
-        metrica-leading-10/6r
+      @apply
+        metrica-cap-size-rem-[4/6]
+        metrica-leading-rem-[10/6]
         ;
     }
 
@@ -116,9 +116,9 @@
     }
 
     & blockquote {
-      @apply 
-        metrica-cap-size-4/4r
-        metrica-leading-8/4r
+      @apply
+        metrica-cap-size-rem-[4/4]
+        metrica-leading-rem-[8/4]
         pb-4
         ;
     }
@@ -126,7 +126,7 @@
     & figure {
 
     }
-    
+
     & figcaption {
 
     }
@@ -136,7 +136,7 @@
         font-bold
         ;
     }
-    
+
     & em {
       @apply
         italic
@@ -152,4 +152,151 @@
     }
   }
 
+}
+
+.canon-4\/5 {
+  @apply
+    metrica-cap-size-rem-[5/8]
+    metrica-leading-rem-[12/8]
+    ;
+
+  font-weight: 100;
+  display: flow-root;
+
+  & .hero {
+    @apply
+      metrica-cap-size-rem-[15/8]
+      metrica-leading-rem-[30/8]
+      ;
+  }
+
+  & h1 {
+    @apply
+      metrica-cap-size-rem-[15/8]
+      metrica-leading-rem-[24/8]
+
+      font-bold
+      ;
+  }
+
+  & h2 {
+    @apply
+      metrica-cap-size-rem-[12/8]
+      metrica-leading-rem-[24/8]
+
+      font-bold
+      ;
+  }
+
+  & h3 {
+    @apply
+      metrica-cap-size-rem-[10/8]
+      metrica-leading-rem-[18/8]
+
+      font-bold
+      ;
+  }
+
+  & h4 {
+    @apply
+      metrica-cap-size-rem-[9/8]
+      metrica-leading-rem-[18/8]
+
+      font-bold
+      ;
+  }
+
+  & h5 {
+    @apply
+      metrica-cap-size-rem-[8/8]
+      metrica-leading-rem-[18/8]
+
+      font-bold
+      ;
+  }
+
+  & h6 {
+    @apply
+      metrica-cap-size-rem-[6/8]
+      metrica-leading-rem-[12/8]
+
+      font-bold
+      ;
+  }
+
+  & hr {
+    @apply
+      my-6/8r
+      border-current
+      ;
+  }
+
+  & th {
+
+  }
+
+  & p.lead {
+    @apply
+      metrica-cap-size-rem-[6/8]
+      metrica-leading-rem-[12/8]
+      ;
+  }
+
+  & p:not(.lead) {
+    @apply
+      metrica-cap-size-rem-[5/8]
+      metrica-leading-rem-[12/8]
+      ;
+  }
+
+  & p + p {
+    @apply
+      my-6/8r
+      ;
+  }
+
+  & a {
+    @apply
+      underline
+      underline-offset-2
+      decoration-1
+      decoration-dashed
+      ;
+  }
+
+  & blockquote {
+    @apply
+      metrica-cap-size-rem-[4/4]
+      metrica-leading-rem-[8/4]
+      pb-4
+      ;
+  }
+
+  & figure {
+
+  }
+
+  & figcaption {
+
+  }
+
+  & strong {
+    @apply
+      font-bold
+      ;
+  }
+
+  & em {
+    @apply
+      italic
+      ;
+  }
+
+  & code {
+
+  }
+
+  & kbd {
+
+  }
 }
