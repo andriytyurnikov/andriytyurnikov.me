@@ -16,7 +16,7 @@
         ">
     Diia Design System*
   </h1>
-  <p class="text-center tracking-wide">
+  <p class="lead text-center tracking-wide">
     *Перероблена та доповненна
   </p>
   <p class="tracking-wide">

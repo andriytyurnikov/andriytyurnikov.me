@@ -12,7 +12,7 @@
 
 <div class="scena-screen bg-neutral-950 text-neutral-50">
   <div class="scena-cover scena-cover--center">
-    <div class="contents metrica-font-e-ukraine">
+    <div class="contents canon-4/5 metrica-font-e-ukraine">
       <slot/>
     </div>
   </div>
