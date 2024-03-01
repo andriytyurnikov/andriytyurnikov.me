@@ -69,12 +69,12 @@
       xHeight: 523,
     },
     'helvetica-neue':{
-      name: 'Helvetica Neue', 
+      name: 'Helvetica Neue',
       unitsPerEm: 1000,
       xHeight: 536,
     },
     'montserrat':{
-      name: 'Montserrat', 
+      name: 'Montserrat',
       unitsPerEm: 1000,
       xHeight: 525,
     },
@@ -84,17 +84,17 @@
       xHeight: 536,
     },
     'playfair':{
-      name: 'Playfair Display', 
+      name: 'Playfair Display',
       unitsPerEm: 1000,
       xHeight: 531,
     },
     'prata':{
-      name: 'Prata', 
+      name: 'Prata',
       unitsPerEm: 1000,
       xHeight: 533,
     },
     'roboto':{
-      name: 'Roboto', 
+      name: 'Roboto',
       unitsPerEm: 2048,
       xHeight: 1092,
     },
@@ -104,17 +104,17 @@
       xHeight: 496
     },
     'urbanist':{
-      name: 'Urbanist', 
+      name: 'Urbanist',
       unitsPerEm: 2000,
       xHeight: 1050,
     },
     'verdana':{
-      name: 'Verdana', 
+      name: 'Verdana',
       unitsPerEm: 2048,
       xHeight: 1117,
     },
   }
-  
+
   let selectedFontFamilyKey = 'atkinson-hyperlegible';
 
   function truncate_float(length, number) {
@@ -128,22 +128,22 @@
 
     let string_representation = truncated_float.toString()
     if(string_representation.indexOf('.') == -1) {
-      string_representation = string_representation + '.0' 
+      string_representation = string_representation + '.0'
     }
-    
+
     return string_representation.padEnd(width, '0')
   }
 
   $: selectedFontFamily = fontFamilies[selectedFontFamilyKey];
   $: selectedFontFamilySizeFactor = selectedFontFamily.unitsPerEm / selectedFontFamily.xHeight;
-  
+
   $: if(APS <= 0.19) {
     labelAPS = 'degradation cliff'
-  } else if(APS == 0.2) { 
-    labelAPS = 'Critical Print Size'
-  } else if(APS <= 0.3) { 
-    labelAPS = 'low-hanging inclusive'  
-  } else if(APS < 0.42) { 
+  } else if(APS == 0.2) {
+    labelAPS = 'normal vision'
+  } else if(APS <= 0.3) {
+    labelAPS = 'broadly inclusive'
+  } else if(APS < 0.42) {
     labelAPS = 'inclusive'
   } else if(APS == 0.42) {
     labelAPS = 'children-friendly'
@@ -152,19 +152,19 @@
   } else if(APS > 0.5 && APS < 1) {
     labelAPS = 'watch your headings!'
   } else if(APS == 1.0) {
-    labelAPS = 'degradation slope'
+    labelAPS = 'slight discomfort for normal vision'
   }
 </script>
 
-<article 
+<article
   class="
-    bg-blue-950 
+    bg-blue-950
     text-blue-50
-    w-full 
+    w-full
     canon
     metrica-font-berkeley-mono
     ">
-  <section 
+  <section
     class="
       max-w-para w-full
       px-2 lg:px-3
@@ -180,23 +180,23 @@
   </section>
 
   <hr class="mb-4 lg:mb-6"/>
-  
+
   <section class="
     w-full max-w-lg
     px-2 lg:px-3
     mb-2 lg:mb-3
     mx-auto">
-    
+
     <fieldset class="border
     border-blue-100
 
     max-w-2xl
-    
+
     p-4 pt-2
     mb-4
     mx-auto">
       <legend>[Font family]</legend>
-      <select 
+      <select
         class="p-2 w-full text-blue-950"
         bind:value={selectedFontFamilyKey}
         >
@@ -231,7 +231,7 @@
         {/each}
       </table>
 
-      <div class="basis-1/2 border p-2 w-full">
+      <div id="advanced" class="basis-1/2 border p-2 w-full">
         <legend class="pb-3">[Advanced]</legend>
 
         <label>
@@ -244,9 +244,9 @@
           <input
             bind:value={APS}
             class="w-full text-blue-100"
-            type="range" 
-            min="0.1" 
-            max="1" 
+            type="range"
+            min="0.1"
+            max="1"
             step="0.01"
             list="APS-markers"
             />
@@ -266,37 +266,37 @@
 
         <p class="pb-3 lg:pb-5">
           Notable values:<br/>
-          <a 
-            href="{base}#"
+          <button
+            href="{base}/garage/font-calc/#advanced"
             on:click={ (e) => { APS = 0.20 } }
             >
             0.20°
-          </a> Critical Print Size
+          </button> normal vision
           <br/>
-          <a 
-            href="{base}#"
+          <button
+            href="{base}/garage/font-calc/#advanced"
             on:click={ (e) => { APS = 0.30 } }
             >
             0.30°
-          </a> low-hanging inclusive
+          </button> broadly inclusive
           <br/>
-          <a 
-            href="{base}#"
+          <button
+            href="{base}/garage/font-calc/#advanced"
             on:click={ (e) => { APS = 0.42 } }
             >
             0.42°
-          </a> children-friendly
+          </button> children-friendly
         </p>
       </div>
     </div>
 
-    <div class="container mx-auto p-6 pl-4 my-4 lg:pl-6 w-auto bg-blue-700 border-l-8 border-blue-200">    
+    <div class="container mx-auto p-6 pl-4 my-4 lg:pl-6 w-auto bg-blue-700 border-l-8 border-blue-200">
       <abbr>CPS</abbr> (Critical Print Size) &mdash;
       research backed angular size of <span class="whitespace-nowrap break-keep">x-height</span> at which maximal reading speed is maintained.
       <br/>
       <br/>
       TLDR;
-      From phisical size of the device, 
+      From phisical size of the device,
       viewing distance, font metrics and browser resolution on device,
       we may derive optimal font size value.
     </div>
@@ -392,7 +392,7 @@
           </a>
         </li>
 
-      </ul>    
+      </ul>
 
     </div>
   </footer>
