@@ -28,7 +28,7 @@
 
   /** @type { App.PageData } */
   export let data;
-  
+
   /** @type {import('$lib/types').TransitionRules } */
   const rules = [
     // back button
@@ -53,7 +53,7 @@
 
     {
       withType:     'link',
-      transition:   {function: fade, params: { duration: 30000, easing: linear }}
+      transition:   {function: fade, params: { duration: 1250, easing: linear }}
     },
 
     {
@@ -88,4 +88,3 @@
     </GlowingIce>
   </div>
 </div>
-

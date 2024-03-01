@@ -17,13 +17,13 @@
     class="bg-amber-50 text-neutral-950"
   >
     <ul>
-      <li class="bg-orange-600 text-amber-50 metrica-cap-size-rem-[8/4] text-center w-5">
+      <li class="bg-orange-600 text-amber-50 metrica-capsize-rem-[8/4] text-center w-5">
         <a href="{base}/hn" class="h-full w-full border-r-2 font-bold">
           Y
         </a>
       </li>
 
-      <li class="metrica-cap-size-rem-[5/4] font-bold">
+      <li class="metrica-capsize-rem-[5/4] font-bold">
         <a href="{base}/hn" class="text-left">
           HackerNews
         </a>

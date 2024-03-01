@@ -7,10 +7,10 @@
 </svelte:head>
 
 <div class="scena-cover scena-cover--center">
-<article 
+<article
   class="
-    garage-article 
-    canon 
+    garage-article
+    canon
     metrica-font-berkeley-mono
     tracking-wider
   ">
@@ -24,7 +24,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
       </svg>Garage
     </h2>
-    
+
     <quote>
       "Work with the garage door up"
     </quote>
@@ -46,27 +46,27 @@
         <a href="{base}/garage/font-calc">
           <svg class="inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0012 2.25z" />
-          </svg>          
-          Proportional Type Calculator(&beta;) 
+          </svg>
+          Proportional Type Calculator (&beta;)
           <!-- <br/>formula of responsive typography -->
         </a>
       </li>
 
-      <li class="text-blue-100">
-        <a 
+      <li class="text-blue-300">
+        <!--a
           class="after:content-['_↗']"
           href="https://svelte.dev/repl/c5ebdd2e6fc2493b94609fc4a927773e?version=4.2.1"
-          target="_blank" rel="noopener">
+          target="_blank" rel="noopener"-->
           <svg class="inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
-          Field of View accuity visualisation (&beta;)
-        </a>
+          Field of View accuity visualisation (&alpha;)
+        <!--/a-->
       </li>
 
       <!-- <li class="text-blue-100">
-        <a 
+        <a
           class="after:content-['_↗']"
           href="https://svelte.dev/repl/2319271d93c34981aafce411f8345be8?version=4.2.1"
           target="_blank" rel="noopener">
@@ -94,7 +94,7 @@
     <ul class="pl-0 list-inside mb-8">
       <h5>Apps & Systems:</h5>
       <li class="text-blue-300">
-        <a 
+        <a
           class="after:content-['_↗']"
           href="https://plugari.com"
           target="_blank" rel="noopener">
@@ -161,16 +161,21 @@
         </a>
       </li>
 
-      <li class="text-blue-300">
-        <svg class="inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
-        </svg>
-        Metrica Typus (&alpha;)
-        &mdash; font sizing and trimming
+      <li class="text-blue-100">
+        <a
+          class="after:content-['_↗']"
+          href="https://www.npmjs.com/package/@rubakas/metrica-typus"
+          target="_blank" rel="noopener">
+          <svg class="inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802" />
+          </svg>
+          Metrica Typus (&alpha;)
+          &mdash; font sizing and trimming
+        </a>
       </li>
 
-      <li class="text-blue-100">
-        <a 
+      <!-- <li class="text-blue-100">
+        <a
           class="after:content-['_↗']"
           href="https://www.npmjs.com/package/@rubakas/fractio-rem"
           target="_blank" rel="noopener">
@@ -178,26 +183,26 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
           </svg>
-          Fractio Rem (&beta;) 
+          Fractio Rem (&beta;)
           &mdash; fractional size scale
         </a>
-      </li>
+      </li> -->
 
       <li class="text-blue-100">
-        <a 
+        <a
           class="after:content-['_↗']"
           href="https://www.npmjs.com/package/@rubakas/pro-rata-rem"
           target="_blank" rel="noopener">
           <svg class="inline-block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
           </svg>
-          Pro Rata Rem (&beta;) 
+          Pro Rata Rem (&beta;)
           &mdash; responsive root element
         </a>
       </li>
 
       <li class="text-blue-100">
-        <a 
+        <a
           class="after:content-['_↗']"
           href="https://www.npmjs.com/package/@rubakas/media-responsum"
           target="_blank" rel="noopener">
@@ -228,8 +233,8 @@
 
     </ul>
   </section>
-  
-  <footer 
+
+  <footer
     class="
       w-full
       bg-blue-900
@@ -241,10 +246,10 @@
     <div class="container max-w-lg mx-auto">
       <h5>Friends in craft:</h5>
 
-      <ul class="pl-0 list-disc list-inside !mb-0 md:columns-2 md:gap-x-12">        
+      <ul class="pl-0 list-disc list-inside !mb-0 md:columns-2 md:gap-x-12">
         RadialUIs and ZoomUIs:
         <li class="text-blue-100">
-          <a class="after:content-['_↗']" 
+          <a class="after:content-['_↗']"
             href="https://github.com/tinchox5"
             target="_blank" rel="noopener">
             Juan Martin
@@ -254,7 +259,7 @@
 
         Mobile & AR/VR:
         <li>
-          <a class="after:content-['_↗']" 
+          <a class="after:content-['_↗']"
             href="https://github.com/ALexanderLonsky"
             target="_blank" rel="noopener">
             Alexander Lonsky
@@ -262,7 +267,7 @@
         </li>
 
         <li class="text-blue-100">
-          <a class="after:content-['_↗']" 
+          <a class="after:content-['_↗']"
             href="https://www.vilinskyy.com/"
             target="_blank" rel="noopener">
             Alexander Vilinskyy
@@ -270,7 +275,7 @@
         </li>
 
         <li class="text-blue-100">
-          <a class="after:content-['_↗']" 
+          <a class="after:content-['_↗']"
             href="https://alamak.app/"
             target="_blank" rel="noopener">
             Alamak Oy
@@ -280,36 +285,36 @@
 
         Web & Ruby on Rails:
         <li class="text-blue-100">
-          <a 
+          <a
             class="after:content-['_↗']"
             href="https://verkligheten.github.io/"
             target="_blank" rel="noopener">
             Eugene Naumov
           </a>
         </li>
-  
+
         <li class="text-blue-100">
-          <a class="after:content-['_↗']" 
+          <a class="after:content-['_↗']"
             href="https://vsnares.github.io/"
             target="_blank" rel="noopener">
             Markell Pohosov
           </a>
         </li>
-  
+
         <li class="text-blue-100">
-          <a class="after:content-['_↗']" 
+          <a class="after:content-['_↗']"
             href="https://cupatea.github.io/"
             target="_blank" rel="noopener">
             Vladyslav Davydenko
           </a>
         </li>
-        AKA 
-        <a class="after:content-['_↗']" 
+        AKA
+        <a class="after:content-['_↗']"
           href="https://rubakas.com"
           target="_blank" rel="noopener">
           Rubakas
         </a>
-      </ul> 
+      </ul>
 
     </div>
   </footer>

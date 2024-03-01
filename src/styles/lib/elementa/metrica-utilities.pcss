@@ -2,11 +2,11 @@
   .metrica-
 */
 
-.metrica-font-atkinson-hyperlegible {
+._metrica-font-atkinson-hyperlegible {
   font-family: 'Atkinson Hyperlegible';
 
   @apply
-    metrica-trim-computations
+    _metrica-trim-computations
     ;
 
   --metrica-metric-cap-height:    668;
@@ -25,7 +25,7 @@
       / var(--metrica-metric-units-per-em)
     );  */
 
-  --metrica-precomputed-baseline-trim-factors:
+  --metrica-precomputed-baseline-trim-factor:
     0.29;
     /* calc(
       var(--metrica-absolute-descent-scale)
@@ -33,7 +33,7 @@
       / 2
     ); */
 
-  --metrica-precomputed-cap-height-trim-factors:
+  --metrica-precomputed-cap-height-trim-factor:
     0.282;
     /* calc(
       var(--metrica-ascent-scale)
@@ -50,11 +50,11 @@
     ); */
 }
 
-.metrica-font-berkeley-mono {
+._metrica-font-berkeley-mono {
   font-family: 'Berkeley Mono Variable';
 
   @apply
-    metrica-trim-computations
+    _metrica-trim-computations
     ;
 
   --metrica-metric-cap-height:    680;
@@ -73,7 +73,7 @@
       / var(--metrica-metric-units-per-em)
     );  */
 
-  --metrica-precomputed-baseline-trim-factors:
+  --metrica-precomputed-baseline-trim-factor:
     0.244;
     /* calc(
       var(--metrica-absolute-descent-scale)
@@ -81,7 +81,7 @@
       / 2
     ); */
 
-  --metrica-precomputed-cap-height-trim-factors:
+  --metrica-precomputed-cap-height-trim-factor:
     0.276;
     /* calc(
       var(--metrica-ascent-scale)
@@ -98,11 +98,11 @@
     ); */
 }
 
-.metrica-font-e-ukraine {
+._metrica-font-e-ukraine {
   font-family: 'e-Ukraine';
 
   @apply
-    metrica-trim-computations
+    _metrica-trim-computations
     ;
 
   --metrica-metric-cap-height:    380;
@@ -121,7 +121,7 @@
       / var(--metrica-metric-units-per-em)
     );  */
 
-  --metrica-precomputed-baseline-trim-factors:
+  --metrica-precomputed-baseline-trim-factor:
     0.1953125;
     /* calc(
       var(--metrica-absolute-descent-scale)
@@ -129,7 +129,7 @@
       / 2
     ); */
 
-  --metrica-precomputed-cap-height-trim-factors:
+  --metrica-precomputed-cap-height-trim-factor:
     0.259765625;
     /* calc(
       var(--metrica-ascent-scale)
@@ -146,17 +146,17 @@
     ); */
 }
 
-.metrica-font-e-ukraine-head {
-  @apply metrica-font-e-ukraine;
+._metrica-font-e-ukraine-head {
+  @apply _metrica-font-e-ukraine;
 
   font-family: 'e-Ukraine Head';
 }
 
-.metrica-font-noto-sans-mono {
+._metrica-font-noto-sans-mono {
   font-family: 'Noto Sans Mono';
 
   @apply
-    metrica-trim-computations
+    _metrica-trim-computations
     ;
 
   --metrica-metric-cap-height: 714;
@@ -170,25 +170,25 @@
   --metrica-precomputed-cap-height-scale:
     0.714;
 
-  --metrica-precomputed-baseline-trim-factors:
+  --metrica-precomputed-baseline-trim-factor:
     0.293;
 
-  --metrica-precomputed-cap-height-trim-factors:
+  --metrica-precomputed-cap-height-trim-factor:
     0.355;
 
   --metrica-precomputed-line-height-scale:
     1.362;
 }
 
-.metrica-font-noto-sans {
+._metrica-font-noto-sans {
   @apply
-    metrica-font-noto-sans-mono
+    _metrica-font-noto-sans-mono
     ;
 
   font-family: 'Noto Sans Mono';
 }
 
-.metrica-font-prata {
+._metrica-font-prata {
   font-family: 'Prata';
 
   --metrica-metric-cap-height: 800;
@@ -199,28 +199,28 @@
   --metrica-metric-x-height: 0;
   --metrica-metric-x-width-avg: 0;
 
-  /* @apply
-    metrica-trim-computations
-  ; */
+  @apply
+    _metrica-trim-computations
+    ;
 
   --metrica-precomputed-cap-height-scale:
     0.8;
 
-  --metrica-precomputed-baseline-trim-factors:
+  --metrica-precomputed-baseline-trim-factor:
     0.362;
 
-  --metrica-precomputed-cap-height-trim-factors:
+  --metrica-precomputed-cap-height-trim-factor:
     0.193;
 
   --metrica-precomputed-line-height-scale:
     1.355;
 }
 
-.metrica-font-space-mono {
+._metrica-font-space-mono {
   font-family: 'Space Mono';
 
   @apply
-    metrica-trim-computations
+    _metrica-trim-computations
     ;
 
   --metrica-metric-cap-height: 700;
@@ -234,21 +234,21 @@
   --metrica-precomputed-cap-height-scale:
     0.7;
 
-  --metrica-precomputed-baseline-trim-factors:
+  --metrica-precomputed-baseline-trim-factor:
     0.361;
 
-  --metrica-precomputed-cap-height-trim-factors:
+  --metrica-precomputed-cap-height-trim-factor:
     0.42;
 
   --metrica-precomputed-line-height-scale:
     1.481;
 }
 
-.metrica-font-verdana {
+._metrica-font-verdana {
   font-family: 'Verdana';
 
   @apply
-    metrica-trim-computations
+    _metrica-trim-computations
     ;
 
   --metrica-metric-cap-height: 1489;
@@ -267,7 +267,7 @@
       / var(--metrica-metric-units-per-em)
     );  */
 
-  --metrica-precomputed-baseline-trim-factors:
+  --metrica-precomputed-baseline-trim-factor:
     0.430;
     /* calc(
       var(--metrica-absolute-descent-scale)
@@ -275,7 +275,7 @@
       / 2
     ); */
 
-  --metrica-precomputed-cap-height-trim-factors:
+  --metrica-precomputed-cap-height-trim-factor:
     0.57;
     /* calc(
       var(--metrica-ascent-scale)
@@ -293,7 +293,7 @@
 }
 
 /* to be used in generated classes? or replaced with JS computations */
-.metrica-trim-computations {
+._metrica-trim-computations {
   --metrica-absolute-descent:
     abs(var(--metrica-metric-descent))
     ;
@@ -350,14 +350,14 @@
       / 2
     );
 
-  --metrica-precomputed-baseline-trim-factors:
+  --metrica-precomputed-baseline-trim-factor:
     calc(
       var(--metrica-absolute-descent-scale)
       + var(--metrica-line-gap-scale)
       / 2
     );
 
-  --metrica-precomputed-cap-height-trim-factors:
+  --metrica-precomputed-cap-height-trim-factor:
     calc(
       var(--metrica-ascent-scale)
       - var(--metrica-cap-height-scale)
@@ -379,11 +379,11 @@
 }
 
 /* using precomputed data to avoid deep nesting of CSS calc() */
-.metrica-trim {
+._metrica-trim {
   --metrica-baseline-trim:
     calc(
       (
-        var(--metrica-precomputed-baseline-trim-factors)
+        var(--metrica-precomputed-baseline-trim-factor)
         -
         (
           (
@@ -408,7 +408,7 @@
   --metrica-cap-height-trim:
     calc(
       (
-        var(--metrica-precomputed-cap-height-trim-factors)
+        var(--metrica-precomputed-cap-height-trim-factor)
         -
         (
           (
@@ -431,6 +431,87 @@
     );
 }
 
+._metrica-trim::after {
+  content: '';
+  display: table;
+  margin-top: calc(var(--metrica-baseline-trim) * 1em);
+}
+
+._metrica-trim::before {
+  content: '';
+  display: table;
+  margin-bottom: calc(var(--metrica-cap-height-trim) * 1em);
+}
+
+/* to be used in generated classes */
+/* .metrica-sized {
+  --metrica-font-size:
+    calc(
+      var(--metrica-cap-scale)
+      / var(--metrica-precomputed-cap-height-scale)
+    );
+
+  font-size:
+    calc(var(--metrica-font-size) * 1rem);
+} */
+
+
+/* metrica-capsize-rem-[A/B] */
+
+/* metrica-leading-rem-[A/B] */
+
+/* .metrica-trim {
+  --metrica-baseline-trim:
+    calc(
+      (
+        var(--metrica-precomputed-baseline-trim-factor)
+        -
+        (
+          (
+            (
+              var(--metrica-precomputed-line-height-scale)
+              *
+              var(--metrica-font-size-cap-scale)
+            )
+            -
+            var(--metrica-line-height-unitless)
+          )
+          /
+          2
+          /
+          var(--metrica-font-size-cap-scale)
+        )
+      )
+      *
+      (-1)
+    );
+
+  --metrica-cap-height-trim:
+    calc(
+      (
+        var(--metrica-precomputed-cap-height-trim-factor)
+        -
+        (
+          (
+            (
+              var(--metrica-precomputed-line-height-scale)
+              *
+              var(--metrica-font-size-cap-scale)
+            )
+            -
+            var(--metrica-line-height-unitless)
+          )
+          /
+          2
+          /
+          var(--metrica-font-size-cap-scale)
+        )
+      )
+      *
+      (-1)
+    );
+}
+
 .metrica-trim::after {
   content: '';
   display: table;
@@ -441,22 +522,56 @@
   content: '';
   display: table;
   margin-bottom: calc(var(--metrica-cap-height-trim) * 1em);
-}
-
-/* to be used in generated classes */
-/* .metrica-cap-sized {
-  --metrica-font-size:
-    calc(
-      var(--metrica-cap-size)
-      / var(--metrica-precomputed-cap-height-scale)
-    );
-
-  font-size:
-    calc(var(--metrica-font-size) * 1rem);
 } */
 
-/* This is to be generated */
-/* metrica-cap-size-rem-[A/B] */
+/* .metrica-trim {
+  --metrica-baseline-trim:
+    calc(
+      (
+        var(--metrica-precomputed-baseline-trim-factors)
+        -
+        (
+          (
+            (
+              var(--metrica-precomputed-line-height-scale)
+              *
+              var(--metrica-font-size-scale)
+            )
+            -
+            var(--metrica-line-height-unitless)
+          )
+          /
+          2
+          /
+          var(--metrica-font-size-scale)
+        )
+      )
+      *
+      (-1)
+    );
 
-/* This is to be generated */
-/* metrica-leading-rem-[A/B] */
+  --metrica-cap-height-trim:
+    calc(
+      (
+        var(--metrica-precomputed-cap-height-trim-factors)
+        -
+        (
+          (
+            (
+              var(--metrica-precomputed-line-height-scale)
+              *
+              var(--metrica-font-size-scale)
+            )
+            -
+            var(--metrica-line-height-unitless)
+          )
+          /
+          2
+          /
+          var(--metrica-font-size-scale)
+        )
+      )
+      *
+      (-1)
+    );
+} */

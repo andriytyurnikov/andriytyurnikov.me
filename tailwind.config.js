@@ -110,23 +110,32 @@ export default {
           xHeight: 496,
           xWidthAvg: 534,
         },
-        berkeley: {
+        'berkeley-mono': {
           capHeight: 680,
           ascent: 956,
           descent: -244,
           lineGap: 0,
           unitsPerEm: 1000,
           xHeight: 522,
-          xWidthAvg: 600,
+          xWidthAvg: 600
         },
         'e-ukraine': {
           capHeight: 380,
-          ascent: 513,
+          ascent: 514,
           descent: -100,
           lineGap: 0,
           unitsPerEm: 512,
           xHeight: 300,
-          xWidthAvg: 339,
+          xWidthAvg: 306
+        },
+        'e-ukraine-head': {
+          capHeight: 380,
+          ascent: 514,
+          descent: -100,
+          lineGap: 0,
+          unitsPerEm: 512,
+          xHeight: 300,
+          xWidthAvg: 313
         },
         'noto-sans-mono': {
           familyName: 'Noto Sans Mono',
@@ -190,7 +199,7 @@ export default {
     require('@rubakas/media-responsum'),
     require('@rubakas/fractio-rem'),
     require('@rubakas/pro-rata-rem'),
-    require('./metrica-typus.js'),
-    // require('./src/lib/canon.js')
+    require('@rubakas/metrica-typus'),
+    // require('./src/lib/metrica-typus/index.js')
   ],
 }
