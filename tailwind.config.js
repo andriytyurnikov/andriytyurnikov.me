@@ -96,6 +96,7 @@ export default {
         'berkeley-mono': ['Berkeley Mono Variable', 'sans-serif'],
         'e-ukraine': ['e-Ukraine', 'sans-serif'],
         'e-ukraine-head': ['e-Ukraine Head', 'sans-serif'],
+        'helvetica-neue': ['Helvetica Neue'],
         'noto-sans-display': ['Noto Sans Display', 'sans-serif'],
         'noto-sans-mono': ['Noto Sans Mono', 'sans-serif'],
         'space-mono': ['Space Mono', 'sans-serif']
@@ -136,6 +137,16 @@ export default {
           unitsPerEm: 512,
           xHeight: 300,
           xWidthAvg: 313
+        },
+        'helvetica-neue': {
+          capHeight: 714,
+          ascent: 952,
+          descent: -213,
+          lineGap: 28,
+          unitsPerEm: 1000,
+          xHeight: 517,
+          xWidthAvg: 481,
+          category: "sans-serif"
         },
         'noto-sans-mono': {
           familyName: 'Noto Sans Mono',

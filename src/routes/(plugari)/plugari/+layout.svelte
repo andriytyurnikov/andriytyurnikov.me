@@ -11,7 +11,7 @@
 
 
 <div class="scena-screen bg-neutral-950 text-neutral-50">
-  <div class="scena-cover scena-cover--center">
+  <div class="scena-cover scena-cover--center bg-diia-white">
     <div class="contents">
       <slot/>
     </div>
