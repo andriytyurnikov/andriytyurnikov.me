@@ -29,12 +29,12 @@
   </p>
 
   <div class="z-30 tracking-wide text-center">
-    <a  href="{base}/plugari/sign-in"
+    <a  href="{base}/plugari"
         class="tracking-wider inline-block !no-underline rounded-full border border-2 border-slate-900 uppercase dark:border-slate-100 mr-6/8r mb-6/8r px-12/8r py-6/8r mx-auto">
       Вхід
     </a>
 
-    <a  href="{base}/plugari/sign-up"
+    <a  href="{base}/plugari"
         class="tracking-wider inline-block !no-underline rounded-full
         bg-gradient-to-r from-diia-pumpkin to-diia-yellow-green
         text-black
