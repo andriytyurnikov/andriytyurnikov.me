@@ -42,8 +42,8 @@
     },
     // imac24: {
     //   name: 'iMac 24"',
-    //   cssapd: 38,
-    //   apd: 76
+    //   cssapd: 41,
+    //   apd: 82.6
     // },
   }
 
