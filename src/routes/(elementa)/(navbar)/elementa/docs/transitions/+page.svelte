@@ -1,7 +1,7 @@
 <div class="scena-cover scena-cover--center p-6/4r">
   <article class="canon
   metrica-font-berkeley-mono
-  tracking-widest
+  tracking-wider
   mx-auto max-w-upto-peri">
   <section class="text-center max-w-peri mx-auto">
     <h5 class="mx-auto hero text-center">

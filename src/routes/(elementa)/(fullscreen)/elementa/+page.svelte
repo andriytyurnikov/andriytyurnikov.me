@@ -3,11 +3,11 @@
 </script>
 
 <div class="scena-cover scena-cover--center p-4/6r">
-  <article 
+  <article
     class="
-      canon 
+      canon
       metrica-font-berkeley-mono
-      tracking-widest
+      tracking-wider
       mx-auto max-w-upto-peri
     "
     >
@@ -31,8 +31,8 @@
     </a>
     <!-- <h5>Problem statement</h5>
     <p>
-      UI layout composition borrows heavily from tradition of Typography. 
-      But Typographical tradition formed way before modern scientific method. 
+      UI layout composition borrows heavily from tradition of Typography.
+      But Typographical tradition formed way before modern scientific method.
       Also specifics of new digital medium introduces challenges of it's own.
       Therefore relatevely recent discoveries are largerly ignored by practitioners.
     </p>

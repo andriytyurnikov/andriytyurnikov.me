@@ -5,7 +5,7 @@
 <div class="scena-cover scena-cover--center p-6/4r">
   <article class="canon
   metrica-font-berkeley-mono
-  tracking-widest
+  tracking-wider
   mx-auto max-w-upto-peri">
     <hr class="max-w-upto-peri mx-auto"/>
     <h5>Utilities:</h5>

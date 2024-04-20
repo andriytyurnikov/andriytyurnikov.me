@@ -18,6 +18,7 @@
   </p>
   <ul class="pl-0 list-disc list-inside mb-6">
     Ideas:
+    <li class="text-blue-100">ProRataType</li>
     <li class="text-blue-100">PublicJet - Vyper Contracts</li>
     <li class="text-blue-100">TokenMaster</li>
     <li class="text-blue-100">TCR</li>

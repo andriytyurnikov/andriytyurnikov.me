@@ -41,39 +41,39 @@
     // splash animation for every route?
     {
       withType:     'enter',
-      transition:   {function: blur, params: { duration: 1250, amount: '64px', easing: linear }}
+      transition:   {function: blur, params: { duration: 1000, amount: '64px', easing: linear }}
     },
 
     {
       withType:     'link',
       fromRouteId:  '/(garage)/garage',
       toRouteId:    '/(animated)/ice',
-      transition:   {function: blur, params: { duration: 1250, amount: '64px', easing: linear }}
+      transition:   {function: blur, params: { duration: 450, amount: '64px', easing: linear }}
     },
 
     {
       withType:     'link',
-      transition:   {function: fade, params: { duration: 1250, easing: linear }}
+      transition:   {function: fade, params: { duration: 450, easing: linear }}
     },
 
     {
       withType:     'disabled',
       toRouteId:    '/(animated)/ice',
-      transition:   {function: blur, params: { duration: 250 }}
+      transition:   {function: blur, params: { duration: 450 }}
     },
 
     {
       withType:     'disabled',
       fromRouteId:  '/(animated)/ice',
       toRouteId:    '/(animated)/ice/inspired-by',
-      transition:   {function: blur, params: { duration: 250 }}
+      transition:   {function: blur, params: { duration: 450 }}
     },
 
     {
       withType:     'disabled',
       fromRouteId:  '/(animated)/ice/inspired-by',
       toRouteId:    '/(animated)/ice',
-      transition:   {function: blur, params: { duration: 250 }}
+      transition:   {function: blur, params: { duration: 450 }}
     }
   ];
 </script>

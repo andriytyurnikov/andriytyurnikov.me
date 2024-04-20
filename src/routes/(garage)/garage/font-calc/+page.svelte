@@ -40,6 +40,11 @@
       cssapd: 46,
       apd: 92
     },
+    studiodisplay27: {
+      name: 'Studio Display 27"', //@ 700mm
+      cssapd: 58.5,
+      apd: 117
+    },
     // imac24: {
     //   name: 'iMac 24"',
     //   cssapd: 41,
