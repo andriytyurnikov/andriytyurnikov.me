@@ -63,6 +63,11 @@
       unitsPerEm: 1000,
       xHeight: 522,
     },
+    'courier-prime': {
+      name: 'Courier Prime',
+      unitsPerEm: 2048,
+      xHeight: 924,
+    },
     'e-ukraine': {
       name: 'e-Ukraine',
       unitsPerEm: 512,
