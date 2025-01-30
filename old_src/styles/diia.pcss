@@ -1,0 +1,38 @@
+@import "./lib/elementa/elementa.pcss";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Berkeley Mono Variable';
+    src: url('/fonts/berkeley-mono-variable/WEB/BerkeleyMonoVariable-Regular.woff2') format("woff2"),
+         url('/fonts/berkeley-mono-variable/WEB/BerkeleyMonoVariable-Regular.woff') format("woff"),
+         url('/fonts/berkeley-mono-variable/TTF/BerkeleyMonoVariable-Regular.ttf') format("truetype");
+
+    font-weight: 100;
+  }
+
+  @font-face {
+    font-family: 'e-Ukraine Head';
+    src: url('/fonts/e-Ukraine Head/e-UkraineHead-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'e-Ukraine';
+    src: url('/fonts/e-Ukraine/e-Ukraine-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  ::selection {
+    @apply
+      bg-ukraine-blue
+      text-ukraine-yellow
+      ;
+  }
+}

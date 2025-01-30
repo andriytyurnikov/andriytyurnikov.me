@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .scena-fill {
+    min-height: 100%;
+    min-height: -webkit-fill-available;
+    min-width: 100%;
+    min-width: -webkit-fill-available;
+  }
+
+  .scena-screen {
+    @apply
+      flex 
+      flex-col
+      items-center 
+      justify-center
+      min-w-full
+      w-full
+      min-h-dvh
+      h-full
+      ;
+  }
+
+  .scena-cover {
+    @apply
+      flex
+      grow
+      min-w-full
+      min-h-full
+      ;
+  }
+
+  .scena-cover--center, .scena-cover--centered {
+    @apply
+      grow
+      items-center 
+      justify-center
+      place-items-stretch
+      ;
+  }
+
+  .scena-page {
+    @apply
+      block
+      absolute
+      inset-0
+      min-w-full
+      min-h-full
+      ;
+  }
+}

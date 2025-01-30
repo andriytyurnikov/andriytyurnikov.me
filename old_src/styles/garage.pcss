@@ -1,0 +1,76 @@
+@import "./lib/elementa/elementa.pcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .avatar-squircle-3 {
+    clip-path: url(#dyna-squircle-3);
+    -webkit-mask-box-image-width: none;
+  }
+}
+
+.garage-article {
+  @apply
+    tracking-wider
+    w-full
+    ;
+
+  & quote {
+    @apply
+      inline-block
+
+      py-2/4r
+      px-4/4r
+      mx-4/4r
+      mb-2/4r
+
+      font-light
+      bg-blue-600 border-l-4 border-l-blue-50
+      text-blue-100
+      ;
+  }
+
+  & ul {
+    @apply
+
+      metrica-leading-rem-[10/6]
+      mb-10/6r
+      ;
+  }
+
+  & ul.small {
+    @apply
+      metrica-font-berkeley-mono
+
+      metrica-capsize-rem-[3/6]
+      metrica-leading-rem-[5/4]
+
+      tracking-widest
+      ;
+  }
+
+  & section {
+    @apply
+      metrica-font-berkeley-mono
+
+      metrica-capsize-rem-[4/6]
+      metrica-leading-rem-[10/6]
+
+      max-w-lg
+      mx-auto
+
+      pb-8/4r
+      ;
+  }
+
+  & a {
+    @apply
+      underline
+      underline-offset-2
+      decoration-1
+      decoration-dashed
+      ;
+  }
+}
