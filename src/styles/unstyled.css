@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@import "./shared/breakpoints.devices.css";
+@import "./shared/colors.viridis.css";
+
+@import "./shared/base.root.css";
+@import "./shared/base.tags.css";
+
+@theme {
+  --navbar-size: 4rem;
+}
+
+@layer components {
+  /* Container - contains - it imposes outer limits */
+  .ui-el-container {
+    @apply
+      /* max-w-[20rem] */
+      tablet:portrait:max-w-[40rem]
+      tablet:landscape:max-w-[48rem]
+      laptop:max-w-[48rem]
+      desktop-4k:max-w-[64rem]
+      ;
+  }
+
+  .ui-el-stack {
+  }
+
+  .ui-el-box {
+  }
+
+  .ui-el-center {
+    /* max-inline-size: 60ch; */
+    margin-inline: auto;
+    box-sizing: content-box;
+
+    @apply flex flex-col items-center;
+  }
+
+  .ui-el-cover {
+    @apply flex flex-col;
+    min-block-size: 100dvh;
+
+    & > * {
+      margin-block: 1rem;
+    }
+
+    & > .ui-el-cover-hero {
+      margin-block: auto;
+    }
+
+    & > :first-child:not(.ui-el-cover-hero) {
+      margin-block-start: 0;
+    }
+
+    & > :last-child:not(.ul-el-cover-hero) {
+      margin-block-end: 0;
+    }
+  }
+};

@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    @apply
+      font-[Roboto_Mono]
+      min-h-full;
+  }
+
+  body {
+    @apply min-h-full;
+  }
+
+  a {
+    @apply
+      underline underline-offset-2
+      text-blue-600 visited:text-purple-600
+      ;
+  }
+}

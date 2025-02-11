@@ -1,0 +1,13 @@
+@theme {
+  /* 360..428px / 16px = 22.5..26.75rem width */
+  /* 507/20 ... 25..38.4..64rem */
+  --breakpoint-tablet: @media all and
+    (min-width:507px) and
+    (min-height:507px);
+  /* 75rem; width */
+  --breakpoint-laptop: 1200px;
+  --breakpoint-desktop: 1537px;
+  --breakpoint-desktop-4k: 2049rem;
+
+  --spacing: 0.25rem;
+}

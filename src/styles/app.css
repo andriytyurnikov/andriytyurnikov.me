@@ -1,34 +1,15 @@
 @import "tailwindcss";
 
+@import "./shared/breakpoints.devices.css";
+@import "./shared/colors.viridis.css";
+
+@import "./shared/base.root.css";
+@import "./shared/base.tags.css";
+
 @theme {
-  --breakpoint-tablet: 507px;
-  --breakpoint-laptop: 1200px;
-  --breakpoint-desktop: 1537px;
-  --breakpoint-desktop-4k: 2049rem;
+  --ui-navbar-size: 4rem;
 }
 
-@layer base {
-  :root {
-    @apply text-[16px] tablet:text-[20px] laptop:text-[24px] desktop:text-[28px] desktop-4k:text-[32px];
-  }
-
-  html {
-    @apply
-      font-[Roboto_Mono]
-      min-h-full;
-  }
-
-  body {
-    @apply min-h-full;
-  }
-
-  a {
-    @apply
-      underline underline-offset-2
-      text-blue-600 visited:text-purple-600
-      ;
-  }
-}
 
 @layer components {
   .ui-container {
@@ -41,7 +22,7 @@
   .ui-photo {
     @apply
       w-24 h-24
-      rounded-full;
+      ;
   }
 
   .ui-link--out {
@@ -91,8 +72,8 @@
 
   .ui-shell-navbar {
     @apply
-      h-[3.333333rem] landscape:h-full landscape:laptop:h-[3.333333rem]
-      w-full landscape:w-[3.333333rem] landscape:laptop:w-full
+      h-[4rem] landscape:h-full landscape:laptop:h-[4rem]
+      w-full landscape:w-[4rem] landscape:laptop:w-full
       ;
   }
 
@@ -113,12 +94,10 @@
       min-h-dvh
       h-auto
 
-      laptop:pt-[3.333333rem]
-      portrait:pb-[3.333333rem]
-      landscape:pr-[3.333333rem]
+      laptop:pt-[4rem]
+      portrait:pb-[4rem]
+      landscape:pr-[4rem]
       landscape:laptop:pr-0
     ;
   }
 }
-
-@import "./shared/colors.viridis.css"

@@ -4,7 +4,11 @@
 
 <div class="ui-container h-card flex flex-grow flex-col h-full w-full content-center justify-center items-center self-center">
   <!-- Profile photo (optional) -->
-  <img class="ui-photo u-photo" src="{base}/images/me.png" alt="Andriy Tyurnikov">
+  <img
+    style="clip-path: url(#dyna-squircle-3)"
+    class="ui-photo u-photo"
+    src="{base}/images/me.png"
+    alt="Andriy Tyurnikov">
 
   <!-- Name + Homepage link combined -->
   <a class="p-name u-url" href="https://andriytyurnikov.me">Andriy Tyurnikov</a>
@@ -36,6 +40,44 @@
   <!-- Contact methods -->
   <a class="u-email" href="mailto:Andriy.Tyurnikov@gmail.com">Andriy.Tyurnikov@gmail.com</a>
   <a class="u-tel" href="tel:+380-67-106-10-26">+380-67-106-10-26</a>
+</div>
+
+<div style="height: 0; width: 0;" aria-hidden="true">
+  <svg height="0" width="0" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <clipPath
+        clipPathUnits="objectBoundingBox"
+        id="dyna-squircle">
+        <path d="M 0, 0.5
+                Q 0,0 0.5,0
+                T 1, 0.5 0.5, 1 0,0.5"/>
+      </clipPath>
+
+      <clipPath
+        clipPathUnits="objectBoundingBox"
+        id="dyna-squircle-2">
+        <path d="M 0,.5
+                C 0,0  0,0  .5,0
+                S 1,0  1,.5  1,1 .5,1  0,1  0,.5"/>
+      </clipPath>
+
+      <clipPath
+        clipPathUnits="objectBoundingBox"
+        id="dyna-squircle-3">
+        <path d="M 0,.5
+                Q 0,0  0.5,0
+                T 1,.5 .5,1 0,.5"/>
+      </clipPath>
+
+
+      <filter id="gauss">
+        <feGaussianBlur
+          in="SourceGraphic"
+          stdDeviation="0" />
+      </filter>
+    </defs>
+  </svg>
 </div>
 
 <style>
