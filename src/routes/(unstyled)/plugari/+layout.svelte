@@ -1,5 +1,6 @@
 <script>
 	let { children } = $props();
+	import '../../../styles/plugari.css';
 </script>
 
 <svelte:head>
@@ -12,5 +13,14 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
+
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-gray-100">
+  <body class="h-full">
+  ```
+-->
 
 {@render children()}
