@@ -1,38 +1,4 @@
-@import 'tailwindcss';
-
-@import './shared/breakpoints.devices.css';
-@import './shared/colors.viridis.css';
-
-@import './shared/base.root.css';
-@import './shared/base.tags.css';
-
-@theme {
-	--ui-navbar-size: 4rem;
-}
-
 @layer components {
-	.ui-container {
-		@apply w-full max-w-7xl
-      mx-auto
-      px-4 tablet:px-6 desktop:px-8;
-	}
-
-	.ui-photo {
-		@apply w-24 h-24;
-	}
-
-	.ui-link--out {
-		@apply after:content-['_↗'];
-	}
-
-	.ui-splash {
-		@apply absolute
-      top-0
-      left-0
-      w-full
-      h-dvh;
-	}
-
 	.ui-shell {
 		@apply /* important for JS scroll behavior */
       relative
@@ -61,13 +27,24 @@
 	}
 
 	.ui-shell-navbar {
-		@apply h-[var(--ui-navbar-size)]
+		@apply flex
+		  landscape:flex-col-reverse portrait:flex-row
+			laptop:landscape:flex-row laptop:portrait:flex-row
+
+			h-[var(--ui-navbar-size)]
 			landscape:h-full
 			landscape:laptop:h-[var(--ui-navbar-size)]
 
       w-full
       landscape:w-[var(--ui-navbar-size)]
       landscape:laptop:w-full;
+
+		.ui-shell-navbar-section {
+			@apply flex
+		  landscape:flex-col-reverse portrait:flex-row
+			laptop:landscape:flex-row laptop:portrait:flex-row
+			h-full w-full;
+		}
 	}
 
 	.ui-shell-navbar-width-limiter {
