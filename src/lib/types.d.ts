@@ -1,17 +1,18 @@
-import { TransitionConfig } from "svelte/transition"
+import { NavigationType } from '@sveltejs/kit';
+import { TransitionConfig } from 'svelte/transition';
 
 export type TransitionWithParams = {
-  function: function,
-  params? : object
-}
+	function: function;
+	params?: object;
+};
 
 export type TransitionRule = {
-  fromRouteId? : string | string[],
-  toRouteId?   : string | string[],
-  withType?    : NavigationType | NavigationType[],
-  transition?  : TransitionWithParams | TransitionWithParams[],
-  in?          : TransitionWithParams | TransitionWithParams[],
-  out?         : TransitionWithParams | TransitionWithParams[],
-}
+	fromRouteId?: string | string[];
+	toRouteId?: string | string[];
+	withType?: NavigationType | NavigationType[];
+	transition?: TransitionWithParams | TransitionWithParams[];
+	in?: TransitionWithParams | TransitionWithParams[];
+	out?: TransitionWithParams | TransitionWithParams[];
+};
 
-export type TransitionRules = TransitionRule[]
+export type TransitionRules = TransitionRule[];
