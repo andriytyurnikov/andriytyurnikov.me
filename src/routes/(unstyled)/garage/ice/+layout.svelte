@@ -2,29 +2,10 @@
 	import '../../../../styles/unstyled.css';
 
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
-	import { noop, transpect } from '$lib/glowing-ice/transition';
+	import { linear } from 'svelte/easing';
+	import { blur } from 'svelte/transition';
 
-	import { browser, dev, building, version } from '$app/environment';
-	import { page, navigating } from '$app/stores';
-
-	import {
-		afterNavigate,
-		beforeNavigate,
-		disableScrollHandling,
-		goto,
-		invalidate,
-		invalidateAll,
-		onNavigate,
-		preloadCode,
-		preloadData
-	} from '$app/navigation';
-
-	import { blur, fade } from 'svelte/transition';
-	import { filterContrast, filterInvert, filterHueRotate } from '$lib/glowing-ice/transition';
-	import { linear, backIn, circInOut, cubicIn, cubicOut } from 'svelte/easing';
-
-	/** @type { App.PageData } */
-	let { children, data } = $props();
+	let { children } = $props();
 
 	/** @type {import('$lib/types').TransitionRules } */
 	const rules = [
@@ -41,7 +22,10 @@
 		{
 			withType: 'link',
 			toRouteId: '/(unstyled)/garage/ice/by-type/link',
-			transition: { function: blur, params: { duration: 1500, amount: '64px', easing: linear } }
+			transition: {
+				function: blur,
+				params: { duration: 1500, amount: '64px', easing: linear }
+			}
 		},
 		{
 			withType: 'goto',
@@ -66,7 +50,7 @@
 </header>
 
 <main>
-	<GlowingIce {data} {rules}>
+	<GlowingIce {rules}>
 		{@render children()}
 	</GlowingIce>
 </main>
