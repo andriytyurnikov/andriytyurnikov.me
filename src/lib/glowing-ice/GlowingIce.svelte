@@ -1,17 +1,7 @@
 <script>
 	import { browser, dev, building, version } from '$app/environment';
-	import { page, navigating } from '$app/state';
-	import {
-		afterNavigate,
-		beforeNavigate,
-		disableScrollHandling,
-		goto,
-		invalidate,
-		invalidateAll,
-		onNavigate,
-		preloadCode,
-		preloadData
-	} from '$app/navigation';
+	import { page } from '$app/state';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	import { flip } from 'svelte/animate';
 	import { linear } from 'svelte/easing';
@@ -21,14 +11,14 @@
 	let { children, rules } = $props();
 
 	// Reactive state
-	let navigating_matching_rules = $state([]);
 	let loaded = $state(false);
+	let navigating_matching_rules = $state([]);
 	let before_navigate_fired = $state(false);
 	let after_navigate_fired = $state(false);
 
 	// Derived state
 	const reactive_transition = $derived(
-		before_navigate_fired || after_navigate_fired ? resolveTransition : noop
+		before_navigate_fired || after_navigate_fired ? bindTransition : bindTransition
 	);
 
 	// Effects
@@ -88,30 +78,28 @@
 	}
 
 	// Transition logic
-	function resolveTransition(node, params, options) {
-		console.log('resolveTransition');
+	function bindTransition(node, params, options) {
+		console.log('bindTransition');
 		console.log('Rules total:', rules.length);
 
 		if (navigating_matching_rules.length === 0) {
-			return noop(node, params, options);
+			return noop.bind(node, params, options);
 		} else {
 			console.log('Rule matched:', navigating_matching_rules[0]);
 			const rule = navigating_matching_rules[0];
-			return rule.transition.function.call(null, node, rule.transition.params, options);
+			return rule.transition.function.bind(null, node, rule.transition.params, options);
 		}
 	}
 
 	function getInParams() {
 		const params =
 			before_navigate_fired || after_navigate_fired ? navigating_matching_rules[0]?.params : {};
-		console.log(params);
 		return params;
 	}
 
 	function getOutParams() {
 		const params =
 			before_navigate_fired || after_navigate_fired ? navigating_matching_rules[0]?.params : {};
-		console.log(params);
 		return params;
 	}
 </script>
@@ -121,7 +109,7 @@
 	{#key page.url}
 		{#if loaded && (before_navigate_fired || after_navigate_fired)}
 			<div
-				style="position: absolute; top: 0px; left: 0px; min-width: 100%; min-height: 100%;"
+				style="position: absolute; top: 0px; left: 0px; min-width: 100%; min-height: 100%; display: flex; flex-direction: column;"
 				out:reactive_transition|global={getOutParams()}
 				in:reactive_transition|global={getInParams()}
 				on:introstart={handleIntroStart}

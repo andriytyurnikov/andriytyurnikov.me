@@ -4,9 +4,13 @@
 
 <h1>Animation by NavigationType</h1>
 <br />
-<ul>
+<ul class="leading-16 flex-1 w-full min-h-full items-stretch grid grid-rows-2 grid-cols-3">
+	<li><a href="{base}/garage/ice/by-type/enter">Enter</a></li>
+	<li><a href="{base}/garage/ice/by-type/form">Form</a></li>
+	<li><a href="{base}/garage/ice/by-type/goto">Goto</a></li>
+	<li><a href="{base}/garage/ice/by-type/leave">Leave</a></li>
 	<li><a href="{base}/garage/ice/by-type/link">Link</a></li>
+	<li><a href="{base}/garage/ice/by-type/popstate">Popstate</a></li>
 </ul>
-<br />
 <br />
 <a href="{base}/garage/ice">Back to Glowing Ice</a>
