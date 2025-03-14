@@ -7,6 +7,7 @@
 @import './shared/base.tags.css';
 
 @import './shared/components.shell.css';
+@import './shared/colors.viridis.css';
 
 @theme {
 	--ui-navbar-size: 4rem;
