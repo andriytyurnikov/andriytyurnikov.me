@@ -20,22 +20,24 @@
 		<div
 			class="ui-shell-navbar justify-between bg-neutral-900/75 backdrop-blur-md text-neutral-100"
 		>
-			<ul class="hidden laptop:flex ui-shell-navbar-section justify-self-start items-center">
-				<li class="flex items-stretch pl-6">Navbar title</li>
+			<ul
+				class="ui-shell-navbar-section ui-shell-navbar-section--aside justify-self-start items-center"
+			>
+				<li class="flex items-stretch pl-6">Title</li>
 			</ul>
 
-			<ul class="ui-shell-navbar-section justify-around items-center">
-				<li class="flex"><a href="/">Home</a></li>
-				<li class="flex"><a href="/about">About</a></li>
-				<li class="flex"><a href="/contact">Contact</a></li>
-				<li class="flex"><a href="/contact">Menu</a></li>
+			<ul class="ui-shell-navbar-section ui-shell-navbar-section--central">
+				<li class="flex grow justify-self-center"><a href="/">Home</a></li>
+				<li class="flex grow justify-self-center"><a href="/about">Garage</a></li>
+				<li class="flex grow justify-self-center"><a href="/contact">Contacts</a></li>
+				<li class="flex grow justify-self-center"><a href="/contact">Menu</a></li>
 			</ul>
 
 			<ul
-				class="hidden laptop:flex ui-shell-navbar-section justify-end items-center justify-self-end pr-6"
+				class="ui-shell-navbar-section ui-shell-navbar-section--aside justify-end items-center justify-self-end"
 			>
 				<li class="flex">
-					<a href="/" aria-label="profile">
+					<a href="/" aria-label="profile" class="align-bottom">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"

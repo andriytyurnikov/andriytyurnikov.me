@@ -6,17 +6,15 @@
 @import './shared/base.root.css';
 @import './shared/base.tags.css';
 
+@import './shared/components.container.css';
+@import './shared/components.every-layout.css';
+@import './shared/components.shell.css';
+
 @theme {
 	--ui-navbar-size: 4rem;
 }
 
 @layer components {
-	.ui-container {
-		@apply w-full max-w-7xl
-      mx-auto
-      px-4 tablet:px-6 desktop:px-8;
-	}
-
 	.ui-photo {
 		@apply w-24 h-24;
 	}
@@ -71,7 +69,7 @@
 	}
 
 	.ui-shell-navbar-width-limiter {
-		@apply w-full laptop:max-w-lg
+		@apply w-full laptop:max-w-[40rem]
       mx-auto
       h-full;
 	}

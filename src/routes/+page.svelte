@@ -27,14 +27,6 @@
 	<p class="p-country-name">Ukraine</p>
 	<br />
 
-	<!-- Organization (keep hidden) -->
-	<p class="p-org hidden">Rubakas</p>
-
-	<a class="u-url px-2 bg-amber-500 !text-black after:content-['_→']" href="{base}/garage" rel="me"
-		>MY GARAGE</a
-	>
-	<br />
-
 	<!-- Social profiles -->
 	<a class="ui-link--out u-url" href="https://github.com/andriytyurnikov" rel="me" target="_blank"
 		>GitHub</a
@@ -56,6 +48,14 @@
 	<!-- Contact methods -->
 	<a class="u-email" href="mailto:Andriy.Tyurnikov@gmail.com">Andriy.Tyurnikov@gmail.com</a>
 	<a class="u-tel" href="tel:+380-67-106-10-26">+380-67-106-10-26</a>
+
+	<!-- Organization (keep hidden) -->
+	<p class="p-org hidden">Rubakas</p>
+
+	<a class="u-url px-2 bg-amber-500 !text-black after:content-['_→']" href="{base}/garage" rel="me"
+		>MY GARAGE</a
+	>
+	<br />
 </div>
 
 <div style="height: 0; width: 0;" aria-hidden="true">

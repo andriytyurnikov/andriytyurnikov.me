@@ -1,20 +1,39 @@
-<article>
-  <h1 class="text-[3.375rem]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-10 inline-block ml-4">
-      <path fill-rule="evenodd" d="M10.5 3.798v5.02a3 3 0 0 1-.879 2.121l-2.377 2.377a9.845 9.845 0 0 1 5.091 1.013 8.315 8.315 0 0 0 5.713.636l.285-.071-3.954-3.955a3 3 0 0 1-.879-2.121v-5.02a23.614 23.614 0 0 0-3 0Zm4.5.138a.75.75 0 0 0 .093-1.495A24.837 24.837 0 0 0 12 2.25a25.048 25.048 0 0 0-3.093.191A.75.75 0 0 0 9 3.936v4.882a1.5 1.5 0 0 1-.44 1.06l-6.293 6.294c-1.62 1.621-.903 4.475 1.471 4.88 2.686.46 5.447.698 8.262.698 2.816 0 5.576-.239 8.262-.697 2.373-.406 3.092-3.26 1.47-4.881L15.44 9.879A1.5 1.5 0 0 1 15 8.818V3.936Z" clip-rule="evenodd" />
-    </svg>
-    Garage
-  </h1>
+<script>
+	import { base } from '$app/paths';
+</script>
 
-  <section>
-    <h2>Widgets</h2>
-  </section>
+<div class="text-neutral-50 container laptop:w-[40rem] laptop:max-w-[40rem] mx-auto text-left">
+	<!-- <header class="text-left h-32 pt-6 w-full">
+		<h1 class="text-left text-2xl font-bold">Garage</h1>
+	</header> -->
+	<article class="mx-4">
+		<ul class="text-[1.25rem] leading-[2.5rem]">
+			<li class="text-cyan-200">
+				✨ 🧊 <a href="{base}/garage/glowing-ice">Glowing Ice</a> &mdash; animated page transitions for
+				SvelteKit
+			</li>
 
-  <section>
-    <h2>Libraries & Plugins & Snippets</h2>
-  </section>
+			<li class="text-sky-200">
+				👁️ 🔠 <a href="{base}/garage/viewport-type">Viewport Type</a> &mdash; responsive font size calculator
+			</li>
 
-  <section>
-    <h2>Apps</h2>
-  </section>
-</article>
+			<li class="text-fuchsia-200">
+				🖥️ 🌅 <a href="{base}/garage/display-horizon">Display Horizon</a> &mdash; perception in screen-based
+				vision
+			</li>
+
+			<li class="text-amber-200">
+				🔪 🍔 <a href="{base}/garage/no-more-top-hamburger">No More Top Hamburger</a> &mdash; mobile-friendly
+				layouts manifesto
+			</li>
+		</ul>
+	</article>
+</div>
+
+<style>
+	@reference "../../styles/unstyled.css";
+
+	li a {
+		@apply decoration-dashed decoration-1;
+	}
+</style>

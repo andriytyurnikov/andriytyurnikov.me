@@ -6,8 +6,9 @@
 @import './shared/base.root.css';
 @import './shared/base.tags.css';
 
+@import './shared/components.container.css';
+@import './shared/components.every-layout.css';
 @import './shared/components.shell.css';
-@import './shared/colors.viridis.css';
 
 @theme {
 	--ui-navbar-size: 4rem;
@@ -30,7 +31,8 @@
 	}
 
 	.ui-el-center {
-		max-inline-size: 60ch;
+		/* max-inline-size: 60ch; */
+		max-inline-size: 40rem;
 		margin-inline: auto;
 		box-sizing: content-box;
 

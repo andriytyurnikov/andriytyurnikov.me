@@ -45,10 +45,23 @@
 			laptop:landscape:flex-row laptop:portrait:flex-row
 			h-full w-full;
 		}
+
+		.ui-shell-navbar-section--central {
+			@apply laptop:min-w-[40rem]
+			  /* justify-around */
+				justify-between
+				laptop:justify-normal
+				/* laptop:justify-items-start */
+			  items-center;
+		}
+
+		.ui-shell-navbar-section--aside {
+			@apply hidden laptop:flex;
+		}
 	}
 
 	.ui-shell-navbar-width-limiter {
-		@apply w-full laptop:max-w-lg
+		@apply w-full laptop:max-w-[40rem]
       mx-auto
       h-full;
 	}
