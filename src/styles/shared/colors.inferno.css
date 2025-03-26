@@ -1,0 +1,13 @@
+@theme {
+	--color-inferno-50: rgb(252, 255, 164);
+	--color-inferno-100: rgb(241, 236, 109);
+	--color-inferno-200: rgb(251, 182, 26);
+	--color-inferno-300: rgb(246, 128, 19);
+	--color-inferno-400: rgb(224, 85, 54);
+	--color-inferno-500: rgb(188, 55, 84);
+	--color-inferno-600: rgb(143, 36, 105);
+	--color-inferno-700: rgb(98, 20, 110);
+	--color-inferno-800: rgb(50, 10, 94);
+	--color-inferno-900: rgb(9, 6, 31);
+	--color-inferno-950: rgb(0, 0, 4);
+}

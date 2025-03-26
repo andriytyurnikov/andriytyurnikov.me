@@ -1,0 +1,13 @@
+@theme {
+	--color-magma-50: rgb(252, 253, 191);
+	--color-magma-100: rgb(253, 227, 165);
+	--color-magma-200: rgb(254, 176, 120);
+	--color-magma-300: rgb(249, 121, 93);
+	--color-magma-400: rgb(226, 77, 102);
+	--color-magma-500: rgb(183, 55, 121);
+	--color-magma-600: rgb(136, 39, 129);
+	--color-magma-700: rgb(92, 22, 127);
+	--color-magma-800: rgb(44, 17, 95);
+	--color-magma-900: rgb(8, 7, 30);
+	--color-magma-950: rgb(0, 0, 4);
+}

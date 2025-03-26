@@ -1,13 +1,13 @@
 @theme {
-  --color-viridis-50: rgb(253, 231, 37);
-  --color-viridis-100: rgb(218, 227, 25);
-  --color-viridis-200: rgb(144, 215, 67);
-  --color-viridis-300: rgb(78, 195, 107);
-  --color-viridis-400: rgb(37, 171, 130);
-  --color-viridis-500: rgb(33, 145, 140);
-  --color-viridis-600: rgb(43, 117, 142);
-  --color-viridis-700: rgb(55, 90, 140);
-  --color-viridis-800: rgb(68, 57, 131);
-  --color-viridis-900: rgb(72, 22, 104);
-  --color-viridis-950: rgb(68, 1, 84);
+	--color-viridis-50: rgb(253, 231, 37);
+	--color-viridis-100: rgb(218, 227, 25);
+	--color-viridis-200: rgb(144, 215, 67);
+	--color-viridis-300: rgb(78, 195, 107);
+	--color-viridis-400: rgb(37, 171, 130);
+	--color-viridis-500: rgb(33, 145, 140);
+	--color-viridis-600: rgb(43, 117, 142);
+	--color-viridis-700: rgb(55, 90, 140);
+	--color-viridis-800: rgb(68, 57, 131);
+	--color-viridis-900: rgb(72, 22, 104);
+	--color-viridis-950: rgb(68, 1, 84);
 }
