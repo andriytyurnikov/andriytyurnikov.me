@@ -23,20 +23,20 @@
 			<ul
 				class="ui-shell-navbar-section ui-shell-navbar-section--aside justify-self-start items-center"
 			>
-				<li class="flex items-stretch pl-6">Title</li>
+				<li class="hidden flex items-stretch pl-6">Title</li>
 			</ul>
 
 			<ul class="ui-shell-navbar-section ui-shell-navbar-section--central">
 				<li class="flex grow justify-self-center"><a href="/">Home</a></li>
 				<li class="flex grow justify-self-center"><a href="/garage">Garage</a></li>
 				<li class="flex grow justify-self-center"><a href="/contact">Friends</a></li>
-				<li class="flex grow justify-self-center"><a href="/contact">Menu</a></li>
+				<li class="flex grow justify-self-center"><a href="/contact">Follow</a></li>
 			</ul>
 
 			<ul
 				class="ui-shell-navbar-section ui-shell-navbar-section--aside justify-end items-center justify-self-end"
 			>
-				<li class="flex">
+				<li class="hidden flex">
 					<a href="/" aria-label="profile" class="align-bottom">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@
 						</svg>
 					</a>
 				</li>
-				<li class="flex">
+				<li class="hidden flex">
 					<a href="/about" aria-label="notifications">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

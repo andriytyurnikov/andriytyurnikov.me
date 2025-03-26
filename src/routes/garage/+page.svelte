@@ -6,7 +6,7 @@
 	<!-- <header class="text-left h-32 pt-6 w-full">
 		<h1 class="text-left text-2xl font-bold">Garage</h1>
 	</header> -->
-	<article class="mx-4">
+	<article class="mx-4 laptop:mx-0">
 		<ul class="text-[1.25rem] leading-[2.5rem]">
 			<li class="text-cyan-200">
 				✨ 🧊 <a href="{base}/garage/glowing-ice">Glowing Ice</a> &mdash; animated page transitions for
