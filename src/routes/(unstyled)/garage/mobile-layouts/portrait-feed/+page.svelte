@@ -23,7 +23,7 @@
 				<p>
 					Photos ans videos in central section
 					<br />
-					<a href="{base}/garage/layouts" rel="me">back to layouts</a>
+					<a href="{base}/garage/mobile-layouts" rel="me">back to layouts</a>
 				</p>
 			</section>
 		</div>

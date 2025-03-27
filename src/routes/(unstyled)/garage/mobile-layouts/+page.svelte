@@ -4,19 +4,20 @@
 
 <article class="min-h-dvh w-full p-4 flex items-center justify-center">
 	<section class="ui-el-container">
-		<h1 class="text-[3.375rem]">Responsive Layouts</h1>
+		<h1 class="text-[3rem]">Responsive Layouts</h1>
 		<p>Responsive layouts emerge from acceptance of hard constraints.</p>
 		<h2 class="text-[2.25rem]">Hard constraints:</h2>
 		<p>
-			There is no "spectrum" of devices - there are distinct categories:
+			There is no "spectrum" of devices &mdash; there are distinct categories:
 			<br />
 			Smartphones, Tablets, Laptops, Desktops.
 			<br />
-			They are different. This reality is to be accepted.
+			Accept finger reach limitations.
 		</p>
+
 		<h2 class="text-[2.25rem]">Emerging solutions:</h2>
 		<p>
-			Mobile users deserve more then a <span
+			Mobile users deserve more then a [<span
 				class="align-baseline inline-block h-4 w-4 text-center bg-neutral-900/75"
 				><svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -32,26 +33,24 @@
 						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
 					/>
 				</svg>
-			</span>
-			on the top of the screen.
+			</span>] on the top of the screen.
 			<br />
-			Accept reality of device format. Accept finger reach limitations.
+			<a href="{base}/garage/mobile-layouts/centered" rel="me">Centered composition</a> (mostly for
+			landing pages)
 			<br />
-			<a href="{base}/garage/layouts/shell" rel="me"
-				>Appliation Shell with responsive position of the Navigation Bar</a
+			<a href="{base}/garage/mobile-layouts/portrait-feed" rel="me"
+				>Portrait-oriented content feed</a
 			>
 			<br />
-			<a href="{base}/garage/layouts/portrait-feed" rel="me">Portrait-oriented content feed</a>
+			<a href="{base}/garage/mobile-layouts/shell" rel="me"
+				>Appliation Shell with responsive position of the Navigation Bar</a
+			>
 			(often image/video driven)
-			<br />
-			<a href="{base}/garage/layouts/centered" rel="me">Centered composition</a> (mostly lending
-			pages)
-			<br />
 		</p>
 	</section>
 </article>
 
-<article class="min-h-dvh w-full p-4 flex items-center justify-center">
+<!--article class="min-h-dvh w-full p-4 flex items-center justify-center">
 	<section class="ui-el-container flex flex-col flex-1 min-h-full">
 		<h1 class="text-[2.25rem] mb-8">Primitives from the<br /> "Every Layout" book</h1>
 		<div
@@ -71,7 +70,7 @@
 			<div>12 Icon</div>
 		</div>
 	</section>
-</article>
+</article-->
 
 <style>
 	@reference "../../../../styles/unstyled.css";

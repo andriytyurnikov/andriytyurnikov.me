@@ -30,7 +30,7 @@
 				<li class="flex grow justify-self-center"><a href="/">Home</a></li>
 				<li class="flex grow justify-self-center"><a href="/garage">Garage</a></li>
 				<li class="flex grow justify-self-center"><a href="/contact">Friends</a></li>
-				<li class="flex grow justify-self-center"><a href="/contact">Follow</a></li>
+				<li class="flex grow justify-self-center"><a href="/contact">Follow me</a></li>
 			</ul>
 
 			<ul

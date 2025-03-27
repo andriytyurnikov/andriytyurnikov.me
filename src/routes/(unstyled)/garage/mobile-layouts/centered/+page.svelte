@@ -4,17 +4,15 @@
 
 <article class="p-4 ui-el-cover">
 	<div>optional Heading area - hard to reach on mobile</div>
-	<section class="ui-el-cover-hero">
-		<div class="ui-el-center">
-			<h2 class="text-[2.25rem]">Centered Composition</h2>
-			<p>
-				Both axies (if needed).
-				<br />
-				<a href="{base}/garage/layouts" rel="me">back to layouts</a>
-			</p>
-		</div>
+	<section class="ui-el-cover-hero max-w-[40rem] mx-auto">
+		<h2 class="text-[2.25rem]">Centered Composition</h2>
+		<p>
+			Both axies (if needed).
+			<br />
+			<a href="{base}/garage/mobile-layouts" rel="me">back to layouts</a>
+		</p>
 	</section>
-	<div>optional Footer area - easy to reach on mobile</div>
+	<div class="text-right">optional Footer area - easy to reach on mobile</div>
 </article>
 
 <style>

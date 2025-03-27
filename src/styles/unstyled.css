@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @import './shared/breakpoints.devices.css';
+@import './shared/colors.inferno.css';
 @import './shared/colors.viridis.css';
 
 @import './shared/base.root.css';
