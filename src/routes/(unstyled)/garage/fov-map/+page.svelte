@@ -1,7 +1,7 @@
 <script>
 	import '../../../../styles/unstyled.css';
 
-	// import { base } from '$app/paths';
+	import { base } from '$app/paths';
 </script>
 
 <article
@@ -22,7 +22,11 @@
 					<div
 						class="text-center text-2xl rounded-[50%] bg-radial from-inferno-50/10 via-inferno-300/10 to-inferno-400/10 w-[20rem] h-[16rem] flex place-items-center place-content-center"
 					>
-						Visual accuity is key to zoning and composition
+						<p>
+							Visual accuity is key to zoning and composition.
+							<br />
+							<a href="{base}/garage">Back</a>
+						</p>
 					</div>
 				</div>
 			</div>
