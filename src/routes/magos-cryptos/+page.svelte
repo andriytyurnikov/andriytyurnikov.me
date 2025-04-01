@@ -42,18 +42,28 @@
 	</section>
 
 	<section
-		class="p-4 flex w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center items-center"
+		class="p-4 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center items-center"
 	>
+		<h1 class="text-[2.25rem] tracking-widest font-bold font-cinzel text-center w-full">
+			Coming Soon:
+		</h1>
+		<br />
 		<p class="tracking-wider font-normal text-left text-[1.25rem] max-w-[32rem]">
 			<a
 				class="decoration-dashed underline-offset-4 decoration-from-font"
-				href="{base}/magos-cryptos/bold"
+				href="{base}/magos-cryptos/"
 			>
 				<span class="font-bold font-cinzel-decorative">Bold</span>
 			</a>
 			&mdash; frontend for true DeFi stablecoin<br /><br />
-			<span class="font-bold font-cinzel-decorative">ChainSword</span> &mdash; MEV-resistant AMM<br
-			/>
+			<a
+				class="decoration-dashed underline-offset-4 decoration-from-font"
+				href="{base}/magos-cryptos/"
+			>
+				<span class="font-bold font-cinzel-decorative">ChainSword</span></a
+			>
+			&mdash; MEV-resistant AMM
+			<br />
 		</p>
 	</section>
 </article>
