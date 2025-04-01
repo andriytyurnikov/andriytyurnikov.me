@@ -1,9 +1,15 @@
 @layer base {
-  :root {
-    @apply
-      leading-[1.5]
+	:root {
+		@apply leading-[1.5]
       text-[16px] tablet:text-[20px] laptop:text-[24px] desktop:text-[28px] desktop-4k:text-[32px]
-      subpixel-antialiased
-      ;
-  }
+      subpixel-antialiased;
+	}
+
+	@font-face {
+		font-family: 'Saira';
+		font-optical-sizing: auto;
+		font-weight: 100;
+		font-style: normal;
+		font-variation-settings: 'wdth' 100;
+	}
 }

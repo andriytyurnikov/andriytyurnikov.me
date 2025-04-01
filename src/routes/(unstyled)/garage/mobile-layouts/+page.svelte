@@ -38,13 +38,9 @@
 			<a href="{base}/garage/mobile-layouts/centered" rel="me">Centered composition</a> (mostly for
 			landing pages)
 			<br />
-			<a href="{base}/garage/mobile-layouts/portrait-feed" rel="me"
-				>Portrait-oriented content feed</a
-			>
+			<a href="{base}/garage/mobile-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
 			<br />
-			<a href="{base}/garage/mobile-layouts/shell" rel="me"
-				>Appliation Shell with responsive position of the Navigation Bar</a
-			>
+			<a href="{base}/garage/mobile-layouts/shell" rel="me">Appliation Shell (responsive NavBar)</a>
 			(often image/video driven)
 		</p>
 	</section>

@@ -15,23 +15,23 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.7",
-		"@eslint/js": "^9.21.0",
+		"@eslint/js": "^9.23.0",
 		"@sveltejs/adapter-auto": "^4.0.0",
-		"@sveltejs/kit": "^2.17.3",
+		"@sveltejs/kit": "^2.20.2",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
-		"eslint": "^9.21.0",
-		"eslint-config-prettier": "^10.0.2",
+		"eslint": "^9.23.0",
+		"eslint-config-prettier": "^10.1.1",
 		"eslint-plugin-svelte": "^2.46.1",
 		"globals": "^15.15.0",
 		"mdsvex": "^0.12.3",
-		"prettier": "^3.5.2",
+		"prettier": "^3.5.3",
 		"prettier-plugin-svelte": "^3.3.3",
-		"svelte": "^5.20.4",
-		"vite": "^6.2.0",
-		"vitest": "^3.0.7"
+		"svelte": "^5.25.6",
+		"vite": "^6.2.4",
+		"vitest": "^3.1.1"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.0.9",
-		"tailwindcss": "^4.0.9"
+		"@tailwindcss/vite": "^4.0.17",
+		"tailwindcss": "^4.0.17"
 	}
 }

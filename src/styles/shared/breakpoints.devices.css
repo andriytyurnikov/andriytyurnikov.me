@@ -2,16 +2,26 @@
 	/* 360..428px / 16px = 22.5..26.75rem width */ /* 32.75 css px/deg; 2.05rem/deg */
 	/* 507px / 20px ... 25..38.4..64rem */
 	/* --breakpoint-tablet: @media all and (min-width: 507px) and (min-height: 507px); */
-	--breakpoint-tablet: 507px; /* ~20 deg ~820px ~41px/deg; 1rem = 20px; 1deg~41px; */ /* 41 css px/deg; 2.05rem/deg */
+
+	/* --breakpoint-tablet: 507px; /* ~20 deg ~820px ~41px/deg; 1rem = 20px; 1deg~41px; */ /* 41 css px/deg; 2.05rem/deg */
 	/* 75rem; width */
+	--breakpoint-tablet: 507px;
 	--breakpoint-laptop: 1200px; /* ~24 deg ~50 rem; 1rem = 24px; */
 	--breakpoint-desktop: 1537px; /* ~30 deg px; 1rem = 28px; 1.67rem/deg */
-	--breakpoint-desktop-4k: 2049rem;
+	--breakpoint-desktop-4k: 2049px;
 
-	--container-tablet: 507px;
+	--container-tablet: 640px;
 	--container-laptop: 1200px;
 	--container-desktop: 1537px;
 	--container-desktop-4k: 2049rem;
 
 	--spacing: 0.25rem;
+}
+
+@custom-variant tablet {
+	@media all and (min-width: 507px) and (min-height: 507px) {
+		& {
+			@slot;
+		}
+	}
 }

@@ -29,7 +29,7 @@
 			<ul class="ui-shell-navbar-section ui-shell-navbar-section--central">
 				<li class="flex grow justify-self-center"><a href="/">Home</a></li>
 				<li class="flex grow justify-self-center"><a href="/garage">Garage</a></li>
-				<li class="flex grow justify-self-center"><a href="/contact">Friends</a></li>
+				<li class="flex grow justify-self-center"><a href="/garage/friends">Friends</a></li>
 				<li class="flex grow justify-self-center"><a href="/contact">Follow me</a></li>
 			</ul>
 
@@ -96,6 +96,6 @@
 	}
 
 	li a {
-		@apply min-h-8 min-w-8;
+		@apply min-h-8 min-w-8 no-underline leading-8;
 	}
 </style>

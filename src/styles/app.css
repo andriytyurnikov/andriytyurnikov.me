@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 
 @import './shared/breakpoints.devices.css';
+
+@import './shared/colors.ukraine.css';
 @import './shared/colors.viridis.css';
 
 @import './shared/base.root.css';

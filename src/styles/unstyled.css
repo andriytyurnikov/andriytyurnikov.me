@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 
 @import './shared/breakpoints.devices.css';
+
+@import './shared/colors.ukraine.css';
+
 @import './shared/colors.inferno.css';
 @import './shared/colors.viridis.css';
 
@@ -13,6 +16,8 @@
 
 @theme {
 	--ui-navbar-size: 4rem;
+	--font-cinzel: 'Cinzel', 'serif';
+	--font-cinzel-decorative: 'Cinzel Decorative', 'serif';
 }
 
 @layer components {

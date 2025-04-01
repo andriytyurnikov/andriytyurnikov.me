@@ -179,7 +179,7 @@
       mx-auto
   "
 	>
-		<h1 class="pt-6 pb-2 text-[2.25rem] text-center tracking-wider">Viewport Type</h1>
+		<h1 class="pt-6 pb-2 text-[2.25rem] text-center tracking-wider">Viewport Typography</h1>
 		<p class="text-center lead mb-2">Responsive font size calculator</p>
 	</section>
 
@@ -205,17 +205,19 @@
 			<legend>[Font family]</legend>
 			<select class="p-2 w-full" bind:value={selectedFontFamilyKey}>
 				{#each Object.entries(fontFamilies) as [key, properties], index (key)}
-					<option value={key} selected={key === selectedFontFamilyKey}>{properties.name}</option>
+					<option value={key} selected={key === selectedFontFamilyKey}>
+						{properties.name}
+					</option>
 				{/each}
 			</select>
 		</fieldset>
 
 		<div id="audience" class="basis-1/2 border p-2 w-full">
-			<legend class="pb-3">[Audience visual accuity]</legend>
+			<legend class="pb-3">[Angular font size]</legend>
 
 			<label>
 				<span class="inline-block pb-4"
-					>Angular Print Size: <br />
+					>Critical Print Size: <br />
 					<span class="text-blue-50">
 						{pad_float(2, 4, APS)}°
 					</span>
@@ -249,7 +251,7 @@
 				Notable values:<br />
 				<button
 					href="{base}/garage/font-calc/#advanced"
-					on:click={(e) => {
+					on:click={() => {
 						APS = 0.2;
 					}}
 				>
@@ -259,7 +261,7 @@
 				<br />
 				<button
 					href="{base}/garage/font-calc/#advanced"
-					on:click={(e) => {
+					on:click={() => {
 						APS = 0.3;
 					}}
 				>
@@ -269,7 +271,7 @@
 				<br />
 				<button
 					href="{base}/garage/font-calc/#advanced"
-					on:click={(e) => {
+					on:click={() => {
 						APS = 0.42;
 					}}
 				>
