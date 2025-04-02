@@ -33,36 +33,14 @@
 	// Navigation handlers
 	beforeNavigate((navigation) => {
 		console.log('beforeNavigate', navigation);
-
-		navigating_matching_rules = rules
-			.filter((rule) => rule != undefined && rule != null)
-			.filter((rule) => !Object.hasOwn(rule, 'withType') || rule?.withType === navigation.type)
-			.filter(
-				(rule) =>
-					!Object.hasOwn(rule, 'fromRouteId') || rule?.fromRouteId === navigation.from?.route?.id
-			)
-			.filter(
-				(rule) => !Object.hasOwn(rule, 'toRouteId') || rule?.toRouteId === navigation.to?.route?.id
-			);
-
+		navigating_matching_rules = getMatchingRules(navigation);
 		after_navigate_fired = false;
 		before_navigate_fired = true;
 	});
 
 	afterNavigate((navigation) => {
 		console.log('afterNavigate', navigation);
-
-		navigating_matching_rules = rules
-			.filter((rule) => rule != undefined && rule != null)
-			.filter((rule) => !Object.hasOwn(rule, 'withType') || rule?.withType === navigation.type)
-			.filter(
-				(rule) =>
-					!Object.hasOwn(rule, 'fromRouteId') || rule?.fromRouteId === navigation.from?.route?.id
-			)
-			.filter(
-				(rule) => !Object.hasOwn(rule, 'toRouteId') || rule?.toRouteId === navigation.to?.route?.id
-			);
-
+		navigating_matching_rules = getMatchingRules(navigation);
 		after_navigate_fired = true;
 		before_navigate_fired = false;
 	});
@@ -80,20 +58,6 @@
 	function handleIntroEnd(e) {
 		console.log(e);
 	}
-
-	// Transition logic
-	// function bindTransition(node, params, options) {
-	// 	console.log('bindTransition');
-	// 	console.log('Rules total:', rules.length);
-
-	// 	if (navigating_matching_rules.length === 0) {
-	// 		return noop.bind(node, params, options);
-	// 	} else {
-	// 		console.log('Rule matched:', navigating_matching_rules[0]);
-	// 		const rule = navigating_matching_rules[0];
-	// 		return rule.transition.function.bind(null, node, rule.transition.params, options);
-	// 	}
-	// }
 
 	function bindIntro(node, params, options) {
 		console.log('bindIntro');
@@ -141,13 +105,33 @@
 		}
 	}
 
-	function getInParams() {
+	function getMatchingRules(navigation) {
+		return rules
+			.filter((rule) => rule != undefined && rule != null)
+			.filter((rule) => {
+				if (!Object.hasOwn(rule, 'withType')) return true;
+
+				const withType = rule.withType;
+				return Array.isArray(withType)
+					? withType.includes(navigation.type)
+					: withType === navigation.type;
+			})
+			.filter(
+				(rule) =>
+					!Object.hasOwn(rule, 'fromRouteId') || rule?.fromRouteId === navigation.from?.route?.id
+			)
+			.filter(
+				(rule) => !Object.hasOwn(rule, 'toRouteId') || rule?.toRouteId === navigation.to?.route?.id
+			);
+	}
+
+	function getIntroParams() {
 		const params =
 			before_navigate_fired || after_navigate_fired ? navigating_matching_rules[0]?.params : {};
 		return params;
 	}
 
-	function getOutParams() {
+	function getOutroParams() {
 		const params =
 			before_navigate_fired || after_navigate_fired ? navigating_matching_rules[0]?.params : {};
 		return params;
@@ -160,8 +144,8 @@
 		{#if loaded && (before_navigate_fired || after_navigate_fired)}
 			<div
 				style="position: absolute; top: 0px; left: 0px; min-width: 100%; min-height: 100%; display: flex; flex-direction: column;"
-				out:reactiveOutro|global={getOutParams()}
-				in:reactiveIntro|global={getInParams()}
+				in:reactiveIntro|global={getIntroParams()}
+				out:reactiveOutro|global={getOutroParams()}
 				on:introstart={handleIntroStart}
 				on:introend={handleIntroEnd}
 				on:outrostart={handleOutroStart}

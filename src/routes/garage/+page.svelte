@@ -7,25 +7,23 @@
 		<h1 class="text-left text-2xl font-bold">Garage</h1>
 	</header> -->
 	<article class="mx-4 py-4 laptop:mx-0">
+		<p class="text-[2rem] mb-6">"Work with the garage door up"</p>
 		<ul class="text-[1.25rem] leading-[1.875rem]">
-			Front-end related:
-			<li>
-				<a href="{base}/garage/fov-map">🌇 Field of View Map 🗺️</a> &mdash; in the eye of the beholder
+			Web UI related:
+			<li class="mt-4">
+				<a href="{base}/garage/fov-map">🌇 Field of View Map 🗺️</a>
 			</li>
 
 			<li>
-				<a href="{base}/garage/viewport-typography">👁️ Viewport Typography 🔠</a> &mdash; responsive
-				font size calculator
+				<a href="{base}/garage/viewport-typography">👁️ Viewport Typography 🔠</a>
 			</li>
 
 			<li class="text-cyan-200">
-				<a href="{base}/garage/glowing-ice">✨ Glowing Ice 🧊</a> &mdash; animated page transitions for
-				SvelteKit
+				<a href="{base}/garage/glowing-ice">✨ Glowing Ice Animations 🧊</a>
 			</li>
 
 			<li>
-				<a href="{base}/garage/no-more-top-hamburger">🔪 No More Top Hamburger 🍔</a> &mdash; desperate
-				manifesto
+				<a href="{base}/garage/no-more-top-hamburger">🔪 No More Top Hamburger 🍔</a>
 			</li>
 
 			<li class="hidden">

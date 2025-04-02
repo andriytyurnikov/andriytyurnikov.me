@@ -23,7 +23,7 @@
 						class="text-center text-2xl rounded-[50%] bg-radial from-inferno-50/10 via-inferno-300/10 to-inferno-400/10 w-[20rem] h-[16rem] flex place-items-center place-content-center"
 					>
 						<p>
-							Visual accuity is key to zoning and composition.
+							Visual accuity<br /> map<br /> is key<br /> to zoning and composition.
 							<br />
 							<a href="{base}/garage">Back</a>
 						</p>
