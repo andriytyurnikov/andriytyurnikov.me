@@ -6,19 +6,11 @@
 	<!-- <header class="text-left h-32 pt-6 w-full">
 		<h1 class="text-left text-2xl font-bold">Garage</h1>
 	</header> -->
-	<article class="mx-4 laptop:mx-0">
-		<ul class="text-neutral-200 text-[1.25rem] leading-[1.875rem]">
-			<li class="text-cyan-200">
-				<a href="{base}/garage/glowing-ice">✨ Glowing Ice 🧊</a> &mdash; animated page transitions for
-				SvelteKit
-			</li>
+	<article class="mx-4 py-4 laptop:mx-0">
+		<ul class="text-[1.25rem] leading-[1.875rem]">
+			Front-end related:
 			<li>
 				<a href="{base}/garage/fov-map">🌇 Field of View Map 🗺️</a> &mdash; in the eye of the beholder
-			</li>
-
-			<li>
-				<a href="{base}/garage/display-horizon">🖥️ Display Horizon 🌅</a> &mdash; screens in field of
-				view
 			</li>
 
 			<li>
@@ -26,15 +18,23 @@
 				font size calculator
 			</li>
 
-			<li class="hidden text-cyan-200">
-				<a href="{base}/garage/mobile-layouts">📱 Mobile Layouts 🖼️</a> &mdash; steal like an artist
+			<li class="text-cyan-200">
+				<a href="{base}/garage/glowing-ice">✨ Glowing Ice 🧊</a> &mdash; animated page transitions for
+				SvelteKit
 			</li>
 
-			<hr class="mt-4 mb-6 border-cyan-200" />
+			<li>
+				<a href="{base}/garage/no-more-top-hamburger">🔪 No More Top Hamburger 🍔</a> &mdash; desperate
+				manifesto
+			</li>
 
-			<li class="hidden text-yellow-200">
-				<a href="{base}/garage/no-more-top-hamburger">🔪 No More Top Hamburger 🍔</a> &mdash; abandon
-				hamburger menu
+			<li class="hidden">
+				<a href="{base}/garage/display-horizon">🖥️ Display Horizon 🌅</a> &mdash; screens in field of
+				view
+			</li>
+
+			<li class="hidden text-cyan-200">
+				<a href="{base}/garage/mobile-layouts">📱 Mobile Layouts 🖼️</a> &mdash; steal like an artist
 			</li>
 		</ul>
 	</article>

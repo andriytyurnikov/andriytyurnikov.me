@@ -13,7 +13,7 @@
 					<img
 						style="clip-path: url(#dyna-squircle-3)"
 						class="ui-photo u-photo"
-						src="{base}/images/me.png"
+						src="{base}/images/me_ghibli.png"
 						alt="Andriy Tyurnikov"
 					/>
 				</div>
@@ -27,8 +27,9 @@
 			</div>
 
 			<p class="mt-8 text-[1rem] leading-12 text-right">
-				<a class="u-email text-white decoration-dashed" href="mailto:Andriy.Tyurnikov@gmail.com"
-					>Andriy.Tyurnikov@gmail.com</a
+				<a
+					class="u-email text-white decoration-dashed px-4"
+					href="mailto:Andriy.Tyurnikov@gmail.com">Andriy.Tyurnikov@gmail.com</a
 				>
 				<!-- <span class="inline-flex p-2 bg-neutral-800 rounded-sm">
 					<svg
@@ -47,7 +48,7 @@
 					</svg>
 				</span> -->
 				<br />
-				<a class="u-tel text-white" href="tel:+380-67-106-10-26">+380-67-106-10-26</a>
+				<a class="u-tel text-white px-4" href="tel:+380-67-106-10-26">+380-67-106-10-26</a>
 				<!-- <span class="inline-flex p-2 bg-neutral-800 rounded-sm">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -143,7 +144,7 @@
 	@reference "../styles/app.css";
 
 	:global(html) {
-		background-color: theme(--color-blue-800);
+		background-color: theme(--color-gray-950);
 		color: theme(--color-white);
 	}
 

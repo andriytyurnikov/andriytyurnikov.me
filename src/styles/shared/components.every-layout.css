@@ -23,8 +23,9 @@
 	}
 
 	.el-cover {
-		@apply flex flex-col flex-1;
-		min-block-size: 100%; /* 100% parent height, instead? */
+		@apply flex flex-col min-h-full h-full;
+		/* min-block-size: 100%;  */
+		/* 100% parent height, instead? */
 
 		& > * {
 			margin-block: 1rem;

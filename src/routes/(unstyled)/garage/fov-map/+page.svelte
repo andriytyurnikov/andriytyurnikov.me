@@ -5,7 +5,7 @@
 </script>
 
 <article
-	class="overflow-clip text-inferno-950 bg-inferno-950 h-dvh flex flex-col flex-1 grow place-items-center place-content-center"
+	class="overflow-clip text-inferno-950 bg-inferno-950 max-w-dvw max-h-dvh flex flex-col flex-1 grow place-items-center place-content-center"
 >
 	<div
 		class="rounded-[50%] bg-radial from-inferno-600 via-inferno-700 to-inferno-800 w-[60rem] min-h-[48rem] flex place-items-center place-content-center"
