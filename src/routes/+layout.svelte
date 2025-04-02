@@ -29,7 +29,8 @@
 				function: fly,
 				params: { duration: 450, easing: linear, y: '-100%' }
 			},
-			intro: { function: blur, params: { duration: 450, easing: quadIn } }
+			intro: { function: blur, params: { duration: 450, easing: quadIn } },
+			onintrostart: (e) => console.log('onintrostart', e)
 		},
 		{
 			withType: 'link',

@@ -17,13 +17,29 @@
 	// const reactive_transition = $derived(
 	// 	before_navigate_fired || after_navigate_fired ? bindTransition : bindTransition
 	// );
-	const reactiveIntro = $derived(
-		before_navigate_fired || after_navigate_fired ? bindIntro : bindIntro
-	);
+	const derivedIntro = $derived.by(() => {
+		// before_navigate_fired || after_navigate_fired ? bindIntro : bindIntro;
+		const rule = getActiveRule();
+		return rule?.intro?.function || rule?.transition?.function || noop;
+	});
 
-	const reactiveOutro = $derived(
-		before_navigate_fired || after_navigate_fired ? bindOutro : bindOutro
-	);
+	const derivedIntroParams = $derived.by(() => {
+		// before_navigate_fired || after_navigate_fired ? bindIntro : bindIntro;
+		const rule = getActiveRule();
+		return rule?.intro?.params || rule?.transition?.params || {};
+	});
+
+	const derivedOutro = $derived.by(() => {
+		// before_navigate_fired || after_navigate_fired ? bindOutro : bindOutro
+		const rule = getActiveRule();
+		return rule?.outro?.function || rule?.transition?.function || noop;
+	});
+
+	const derivedOutroParams = $derived.by(() => {
+		// before_navigate_fired || after_navigate_fired ? bindIntro : bindIntro;
+		const rule = getActiveRule();
+		return rule?.outro?.params || rule?.transition?.params || {};
+	});
 
 	// Effects
 	$effect(() => {
@@ -44,6 +60,10 @@
 		after_navigate_fired = true;
 		before_navigate_fired = false;
 	});
+
+	function getActiveRule() {
+		return navigating_matching_rules[0] || {};
+	}
 
 	// Event handlers
 	function onoutroend(e) {
@@ -66,8 +86,8 @@
 		if (navigating_matching_rules.length === 0) {
 			return noop.bind(node, params, options);
 		} else {
-			console.log('Rule matched:', navigating_matching_rules[0]);
-			const rule = navigating_matching_rules[0];
+			const rule = getActiveRule();
+			console.log('Rule matched:', rule);
 
 			if (rule.intro) {
 				return rule.intro.function.bind(null, node, rule?.intro?.params || {}, options);
@@ -89,8 +109,8 @@
 		if (navigating_matching_rules.length === 0) {
 			return noop.bind(node, params, options);
 		} else {
+			const rule = getActiveRule();
 			console.log('Rule matched:', navigating_matching_rules[0]);
-			const rule = navigating_matching_rules[0];
 
 			if (rule.outro) {
 				return (rule?.outro?.function || noop).bind(null, node, rule?.outro?.params || {}, options);
@@ -135,17 +155,11 @@
 	}
 
 	function getIntroParams() {
-		const params =
-			before_navigate_fired || after_navigate_fired ? navigating_matching_rules[0]?.params : {};
-		console.log(params);
-		return params;
+		return getActiveRule()?.intro?.params || getActiveRule()?.transition?.params || {};
 	}
 
 	function getOutroParams() {
-		const params =
-			before_navigate_fired || after_navigate_fired ? navigating_matching_rules[0]?.params : {};
-		console.log(params);
-		return params;
+		return getActiveRule()?.outro?.params || getActiveRule()?.transition?.params || {};
 	}
 </script>
 
@@ -155,8 +169,8 @@
 		{#if loaded && (before_navigate_fired || after_navigate_fired)}
 			<div
 				style="position: absolute; top: 0px; left: 0px; min-width: 100%; min-height: 100%; display: flex; flex-direction: column;"
-				in:reactiveIntro|global={getIntroParams()}
-				out:reactiveOutro|global={getOutroParams()}
+				in:derivedIntro|global={derivedIntroParams}
+				out:derivedOutro|global={derivedOutroParams}
 				{onintrostart}
 				{onintroend}
 				{onoutrostart}
