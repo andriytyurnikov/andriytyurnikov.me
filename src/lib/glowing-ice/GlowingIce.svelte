@@ -5,7 +5,7 @@
 
 	import { noop } from './transition.js';
 
-	let { children, rules } = $props();
+	let { children, rules, debug = true } = $props();
 
 	// Reactive state
 	let loaded = $state(false);
@@ -46,16 +46,16 @@
 	});
 
 	// Event handlers
-	function handleOutroStart(e) {
+	function onoutroend(e) {
 		console.log(e);
 	}
-	function handleOutroEnd(e) {
+	function onoutrostart(e) {
 		console.log(e);
 	}
-	function handleIntroStart(e) {
+	function onintrostart(e) {
 		console.log(e);
 	}
-	function handleIntroEnd(e) {
+	function onintroend(e) {
 		console.log(e);
 	}
 
@@ -106,34 +106,45 @@
 	}
 
 	function getMatchingRules(navigation) {
-		return rules
-			.filter((rule) => rule != undefined && rule != null)
-			.filter((rule) => {
-				if (!Object.hasOwn(rule, 'withType')) return true;
+		return rules.filter((rule) => {
+			if (!rule) return false;
 
+			// Check navigation type
+			if (Object.hasOwn(rule, 'withType')) {
 				const withType = rule.withType;
-				return Array.isArray(withType)
-					? withType.includes(navigation.type)
-					: withType === navigation.type;
-			})
-			.filter(
-				(rule) =>
-					!Object.hasOwn(rule, 'fromRouteId') || rule?.fromRouteId === navigation.from?.route?.id
-			)
-			.filter(
-				(rule) => !Object.hasOwn(rule, 'toRouteId') || rule?.toRouteId === navigation.to?.route?.id
-			);
+				if (
+					Array.isArray(withType)
+						? !withType.includes(navigation.type)
+						: withType !== navigation.type
+				) {
+					return false;
+				}
+			}
+
+			// Check route IDs
+			if (Object.hasOwn(rule, 'fromRouteId') && rule.fromRouteId !== navigation.from?.route?.id) {
+				return false;
+			}
+
+			if (Object.hasOwn(rule, 'toRouteId') && rule.toRouteId !== navigation.to?.route?.id) {
+				return false;
+			}
+
+			return true;
+		});
 	}
 
 	function getIntroParams() {
 		const params =
 			before_navigate_fired || after_navigate_fired ? navigating_matching_rules[0]?.params : {};
+		console.log(params);
 		return params;
 	}
 
 	function getOutroParams() {
 		const params =
 			before_navigate_fired || after_navigate_fired ? navigating_matching_rules[0]?.params : {};
+		console.log(params);
 		return params;
 	}
 </script>
@@ -146,10 +157,10 @@
 				style="position: absolute; top: 0px; left: 0px; min-width: 100%; min-height: 100%; display: flex; flex-direction: column;"
 				in:reactiveIntro|global={getIntroParams()}
 				out:reactiveOutro|global={getOutroParams()}
-				on:introstart={handleIntroStart}
-				on:introend={handleIntroEnd}
-				on:outrostart={handleOutroStart}
-				on:outroend={handleOutroEnd}
+				{onintrostart}
+				{onintroend}
+				{onoutrostart}
+				{onoutroend}
 			>
 				{@render children()}
 			</div>
