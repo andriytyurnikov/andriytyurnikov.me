@@ -138,7 +138,7 @@
 				{@render children()}
 			</div>
 		{:else}
-			<div style="position: absolute; inset: 0; background: white; z-index: 100;" />
+			<div style="position: absolute; inset: 0; background: white; z-index: 100;"></div>
 		{/if}
 	{/key}
 </div>
