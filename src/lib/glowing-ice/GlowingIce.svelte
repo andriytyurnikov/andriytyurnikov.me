@@ -115,11 +115,13 @@
 </script>
 
 <!-- glowing-ice -->
-<div style="position:relative; min-width: 100%; min-height: 100%;">
+<div
+	style="position: relative; min-width: 100%; min-height: 100%; height: 100%; display: flex; flex-direction: column; flex: 1; justify-content: stretch;"
+>
 	{#key page.url}
 		{#if ready}
 			<div
-				style="position: absolute; top: 0px; left: 0px; min-width: 100%; min-height: 100%; display: flex; flex-direction: column;"
+				style="position: absolute; top: 0; bottom:0 left: 0; right: 0; min-width: 100%; min-height: 100%; display: flex; flex-direction: column; flex: 1; justify-content: stretch;"
 				in:derivedIntro|global={derivedIntroParams}
 				out:derivedOutro|global={derivedOutroParams}
 				{onintrostart}
@@ -130,7 +132,9 @@
 				{@render children()}
 			</div>
 		{:else}
-			<div style="position: absolute; inset: 0; background: white; z-index: 100;"></div>
+			<div
+				style="position: absolute; inset: 0; display: flex; flex-direction: column; flex: 1; justify-content: stretch;"
+			></div>
 		{/if}
 	{/key}
 </div>

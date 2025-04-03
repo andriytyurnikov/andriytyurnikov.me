@@ -2,12 +2,15 @@
 	import { base } from '$app/paths';
 </script>
 
-<div class="text-neutral-50 container laptop:w-[40rem] laptop:max-w-[40rem] mx-auto text-left">
-	<!-- <header class="text-left h-32 pt-6 w-full">
-		<h1 class="text-left text-2xl font-bold">Garage</h1>
-	</header> -->
-	<article class="mx-4 py-4 laptop:mx-0">
-		<p class="text-[2rem] mb-6">"Work with the garage door up"</p>
+<section
+	class="min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly"
+>
+	<div class="w-1/2 portrait:w-full w-[16rem] h-[12rem] flex flex-col justify-center">
+		<p class="mx-4 text-[2rem] mb-6 text-center">"Work with the garage door up"</p>
+	</div>
+	<div
+		class="flex w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
+	>
 		<ul class="text-[1.25rem] leading-[1.875rem]">
 			Web UI related:
 			<li class="mt-4">
@@ -23,7 +26,7 @@
 			</li>
 
 			<li>
-				<a href="{base}/garage/no-more-top-hamburger">🔪 No More Top Hamburger 🍔</a>
+				<a href="{base}/garage/no-more-top-hamburger">🔪 NoMoreTopHamburger.com 🍔</a>
 			</li>
 
 			<li class="hidden">
@@ -35,11 +38,11 @@
 				<a href="{base}/garage/mobile-layouts">📱 Mobile Layouts 🖼️</a> &mdash; steal like an artist
 			</li>
 		</ul>
-	</article>
-</div>
+	</div>
+</section>
 
 <style>
-	@reference "../../styles/unstyled.css";
+	@reference "../../../styles/unstyled.css";
 
 	ul li {
 		@apply mb-4;

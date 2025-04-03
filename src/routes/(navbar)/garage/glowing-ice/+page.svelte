@@ -1,0 +1,27 @@
+<script>
+	import { base } from '$app/paths';
+</script>
+
+<section class="h-full w-full flex flex-col grow flex-1 justify-center items-center">
+	<div
+		class=" flex flex-col justify-center w-full max-w-[24rem] p-4 tablet:p-0 tablet:max-w-[32rem] tablet:w-[32rem] laptop:w-[32rem] h-[20rem] tablet:h-[24rem]"
+	>
+		<h1 class="text-center text-[3rem] font-black mb-2">✨ 🧊<br /> Glowing Ice</h1>
+		<p class="text-center mb-6">animated page transitions for SvelteKit</p>
+		<p class="text-center">
+			Check out transition <a href="{base}/garage/glowing-ice/effects">effects</a>
+		</p>
+	</div>
+</section>
+
+<!-- <div class="el-cover">
+	<div class="el-cover-hero">
+		<header class="mx-4">
+			<h1 class="text-center text-[3rem] font-black mb-2">✨ 🧊<br /> Glowing Ice</h1>
+			<p class="text-center mb-6">animated page transitions for SvelteKit</p>
+			<p class="text-center">
+				Check out transition <a href="{base}/garage/glowing-ice/effects">effects</a>
+			</p>
+		</header>
+	</div>
+</div> -->

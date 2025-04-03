@@ -3,15 +3,15 @@
 @layer base {
 	html {
 		@apply font-[Roboto_Mono]
-      min-h-full;
+      min-h-full h-full;
 	}
 
 	body {
-		@apply min-h-full;
+		@apply min-h-full h-full;
 	}
 
 	a {
-		@apply underline underline-offset-2
-      text-blue-500 visited:text-purple-500;
+		@apply underline
+		  underline-offset-2;
 	}
 }

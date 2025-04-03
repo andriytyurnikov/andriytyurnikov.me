@@ -73,7 +73,7 @@
 		<div class="p-5 h-full content-center justify-center items-center self-center text-center">
 			<p class="leading-12">
 				<a
-					class="u-url rounded-md p-4 bg-ukraine-blue text-white no-underline after:content-['_→']"
+					class="u-url rounded-md px-6 py-4 bg-ukraine-blue text-white no-underline after:content-['_→']"
 					href="{base}/garage"
 					rel="me">MY GARAGE</a
 				><br /><br />

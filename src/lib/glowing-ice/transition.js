@@ -6,34 +6,18 @@ function split_css_unit(value) {
 }
 
 export function noop(
-  node,
-  config = { delay: 0, duration: 0, easing: linear },
-  direction_config = { direction: 'both' }
+	node,
+	config = { delay: 0, duration: 0, easing: linear },
+	direction_config = { direction: 'both' }
 ) {
-  return {
-    delay: config.delay,
-    duration: config.duration,
-    easing: config.easing,
-    css: (t, u) => {
-      return ``;
-    }
-  }
-}
-
-export function transpect(
-  node,
-  config = { delay: 0, duration: 100, easing: linear },
-  direction_config = { direction: 'both' }
-) {
-  return {
-    delay: config.delay,
-    duration: config.duration,
-    easing: config.easing,
-    css: (t, u) => {
-      console.log('transpect:', config, direction_config, t);
-      return ``;
-    }
-  }
+	return {
+		delay: config.delay,
+		duration: config.duration,
+		easing: config.easing,
+		css: (t, u) => {
+			return ``;
+		}
+	};
 }
 
 export function filterHueRotate(
@@ -49,7 +33,8 @@ export function filterHueRotate(
 		delay,
 		duration,
 		easing,
-		css: (_t, u) => `opacity: ${target_opacity - od * u}; filter: ${f} hue-rotate(${u * value}${unit});`
+		css: (_t, u) =>
+			`opacity: ${target_opacity - od * u}; filter: ${f} hue-rotate(${u * value}${unit});`
 	};
 }
 
@@ -80,11 +65,12 @@ export function filterContrast(
 
 	const od = target_opacity * (1 - opacity);
 	const [value, unit] = split_css_unit(amount);
-  const cd = value * (1 - start);
+	const cd = value * (1 - start);
 	return {
 		delay,
 		duration,
 		easing,
-		css: (_t, u) => `opacity: ${target_opacity - od * u}; filter: ${f} contrast(${value - cd * u}${unit});`
+		css: (_t, u) =>
+			`opacity: ${target_opacity - od * u}; filter: ${f} contrast(${value - cd * u}${unit});`
 	};
 }

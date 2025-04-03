@@ -35,7 +35,7 @@
 </article>
 
 <style>
-	@reference "../../../styles/unstyled.css";
+	@reference "../../../../styles/unstyled.css";
 
 	:global(section) {
 		padding: 1rem;

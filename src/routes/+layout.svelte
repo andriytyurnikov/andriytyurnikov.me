@@ -1,7 +1,10 @@
 <script>
+	import '../styles/app.css';
+
 	let { children } = $props();
 
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
+
 	import { linear, quadIn } from 'svelte/easing';
 	import { blur, fade, fly, scale, slide } from 'svelte/transition';
 	import { noop, filterHueRotate, filterInvert, filterContrast } from '$lib/glowing-ice/transition';
@@ -17,205 +20,43 @@
 			withType: 'link',
 			toRouteId: '/',
 			intro: {
-				function: slide,
-				params: { duration: 250, easing: linear, axis: 'y' }
+				function: fly,
+				params: { duration: 450, easing: linear, y: '-100%', opacity: 1 }
 			},
-			outro: { function: fade, params: { delay: 100, duration: 150, easing: quadIn } }
+			outro: {
+				function: fade,
+				params: { delay: 0, duration: 450, easing: quadIn }
+			}
 		},
 		{
 			withType: 'link',
 			fromRouteId: '/',
-			toRouteId: '/garage',
+			toRouteId: '/(navbar)/garage',
 			outro: {
 				function: fly,
-				params: { duration: 250, easing: linear, y: '-100%' }
+				params: { duration: 450, easing: linear, y: '-100%' }
 			},
-			intro: { function: blur, params: { delay: 100, duration: 150, easing: quadIn } }
+			intro: {
+				function: blur,
+				params: { delay: 150, duration: 300, easing: quadIn, opacity: null }
+			}
 		},
 		{
 			withType: 'link',
-			fromRouteId: '/garage',
+			fromRouteId: '/(navbar)/garage',
 			toRouteId: '/(unstyled)/garage/fov-map',
-			transition: { function: fade, params: { duration: 250, easing: linear } }
+			transition: {
+				function: blur,
+				params: { duration: 450, easing: linear, amount: '16px' }
+			}
 		},
 		{
 			withType: 'link',
 			fromRouteId: '/(unstyled)/garage/fov-map',
-			toRouteId: '/garage',
-			transition: { function: fade, params: { duration: 1250, easing: linear } }
-		},
-
-		{
-			withType: 'link',
-			toRouteId: '/garage/no-more-top-hamburger',
-			transition: { function: filterHueRotate, params: { duration: 1000, easing: linear } }
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/garage/no-more-top-hamburger',
-			toRouteId: '/garage',
-			transition: { function: filterHueRotate, params: { duration: 1000, easing: linear } }
-		},
-
-		{
-			withType: 'enter',
-			toRouteId: '/(unstyled)/garage/glowing-ice/by-type/enter',
-			transition: { function: blur, params: { duration: 150, amount: '64px', easing: linear } }
-		},
-		{
-			withType: 'form',
-			toRouteId: '/(unstyled)/garage/glowing-ice/by-type/form',
-			transition: { function: blur, params: { duration: 150, amount: '64px', easing: linear } }
-		},
-		{
-			withType: 'goto',
-			toRouteId: '/(unstyled)/garage/glowing-ice/by-type/goto',
-			transition: { function: blur, params: { duration: 150, amount: '64px', easing: linear } }
-		},
-		{
-			withType: 'leave',
-			toRouteId: '/(unstyled)/garage/glowing-ice/by-type/leave',
-			transition: { function: blur, params: { duration: 150, amount: '64px', easing: linear } }
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/by-type/link',
+			toRouteId: '/(navbar)/garage',
 			transition: {
 				function: blur,
-				params: { duration: 1500, amount: '64px', easing: linear }
-			}
-		},
-		{
-			withType: 'popstate',
-			toRouteId: '/(unstyled)/garage/glowing-ice/by-type/popstate',
-			transition: { function: blur, params: { duration: 150, amount: '64px', easing: linear } }
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/effects/blur',
-			transition: {
-				function: blur,
-				params: { duration: 450, amount: '32px', easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/glowing-ice/effects/blur',
-			transition: {
-				function: blur,
-				params: { duration: 450, amount: '32px', easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/glowing-ice/effects/fade',
-			transition: {
-				function: fade,
-				params: { duration: 450, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/effects/fade',
-			transition: {
-				function: fade,
-				params: { duration: 450, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/glowing-ice/effects/fly',
-			transition: {
-				function: fly,
-				params: { duration: 450, x: '100%', y: '-50%', easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/effects/fly',
-			transition: {
-				function: fly,
-				params: { duration: 450, x: '100%', y: '-50%', easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/glowing-ice/effects/slide',
-			transition: {
-				function: slide,
-				params: { duration: 450, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/effects/slide',
-			transition: {
-				function: slide,
-				params: { duration: 450, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/glowing-ice/effects/scale',
-			transition: {
-				function: scale,
-				params: { duration: 450, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/effects/scale',
-			transition: {
-				function: scale,
-				params: { duration: 450, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/glowing-ice/effects/contrast',
-			transition: {
-				function: filterContrast,
-				params: { duration: 1000, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/effects/contrast',
-			transition: {
-				function: filterContrast,
-				params: { duration: 1000, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/glowing-ice/effects/invert',
-			transition: {
-				function: filterInvert,
-				params: { duration: 1000, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/effects/invert',
-			transition: {
-				function: filterInvert,
-				params: { duration: 1000, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(unstyled)/garage/glowing-ice/effects/hue-rotate',
-			transition: {
-				function: filterHueRotate,
-				params: { duration: 1000, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/glowing-ice/effects/hue-rotate',
-			transition: {
-				function: filterHueRotate,
-				params: { duration: 1000, easing: linear }
+				params: { duration: 450, easing: linear, amount: '16px' }
 			}
 		}
 	];
