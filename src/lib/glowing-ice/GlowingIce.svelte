@@ -12,11 +12,47 @@
 	let { children, rules, debug = true } = $props();
 
 	// Reactive state
+	let reactiveNavigation = $state(null);
 	let ready = $state(false);
-	let navigating_matching_rules = $state([]);
+
+	const derivedMatchingRules = $derived.by(() => {
+		if (!reactiveNavigation) return [];
+
+		return rules.filter((rule) => {
+			if (!rule) return false;
+
+			// Check navigation type first
+			if (Object.hasOwn(rule, 'withType')) {
+				const withType = rule.withType;
+				const navType = reactiveNavigation.type;
+				if (Array.isArray(withType) ? !withType.includes(navType) : withType !== navType)
+					return false;
+			}
+
+			// Special case: 'enter' navigation has null .from
+			if (reactiveNavigation.type === 'enter') {
+				return !Object.hasOwn(rule, 'fromRouteId');
+			}
+
+			// Normal navigation checks
+			if (Object.hasOwn(rule, 'fromRouteId')) {
+				if (rule.fromRouteId !== reactiveNavigation.from?.route?.id) {
+					return false;
+				}
+			}
+
+			if (Object.hasOwn(rule, 'toRouteId')) {
+				if (rule.toRouteId !== reactiveNavigation.to?.route?.id) {
+					return false;
+				}
+			}
+
+			return true;
+		});
+	});
 
 	const derivedActiveRule = $derived.by(() => {
-		return navigating_matching_rules[0] || {};
+		return derivedMatchingRules[0] || {};
 	});
 
 	const derivedIntro = $derived.by(() => {
@@ -53,21 +89,14 @@
 	beforeNavigate((navigation) => {
 		if (debug) console.log('Navigation starting:', navigation.type);
 		if (!browser) return;
-
-		navigating_matching_rules = getMatchingRules(navigation);
+		reactiveNavigation = navigation;
 	});
 
 	afterNavigate((navigation) => {
 		if (debug) console.log('Navigation completed:', navigation.type, navigation);
 		if (!browser) return;
 
-		if (navigation.type === 'enter') {
-			// For SSR hydration
-			navigating_matching_rules = getMatchingRules(navigation);
-		} else {
-			// Normal navigation
-			navigating_matching_rules = getMatchingRules(navigation);
-		}
+		reactiveNavigation = navigation;
 	});
 
 	// Event handlers
@@ -82,43 +111,6 @@
 	}
 	function onintroend(e) {
 		return derivedActiveRule?.onintroend?.(e);
-	}
-
-	function getMatchingRules(navigation) {
-		return rules.filter((rule) => {
-			if (!rule) return false;
-
-			// Check navigation type first
-			if (Object.hasOwn(rule, 'withType')) {
-				const withType = rule.withType;
-				const navType = navigation.type;
-				if (Array.isArray(withType) ? !withType.includes(navType) : withType !== navType)
-					return false;
-			}
-
-			// Special case: 'enter' navigation has null .from
-			if (navigation.type === 'enter') {
-				// Only match rules that explicitly allow 'enter' type
-				// and don't require a fromRouteId
-				return !Object.hasOwn(rule, 'fromRouteId');
-			}
-
-			// Normal navigation checks
-			if (Object.hasOwn(rule, 'fromRouteId')) {
-				// navigation.from exists for non-enter types
-				if (rule.fromRouteId !== navigation.from?.route?.id) {
-					return false;
-				}
-			}
-
-			if (Object.hasOwn(rule, 'toRouteId')) {
-				if (rule.toRouteId !== navigation.to?.route?.id) {
-					return false;
-				}
-			}
-
-			return true;
-		});
 	}
 </script>
 

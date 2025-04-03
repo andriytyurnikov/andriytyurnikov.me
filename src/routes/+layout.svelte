@@ -4,7 +4,7 @@
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
 	import { linear, quadIn } from 'svelte/easing';
 	import { blur, fade, fly, scale, slide } from 'svelte/transition';
-	import { filterHueRotate, filterInvert, filterContrast } from '$lib/glowing-ice/transition';
+	import { noop, filterHueRotate, filterInvert, filterContrast } from '$lib/glowing-ice/transition';
 
 	/** @type {import('$lib/types').TransitionRules } */
 	const rules = [
@@ -19,7 +19,8 @@
 			intro: {
 				function: slide,
 				params: { duration: 250, easing: linear, axis: 'y' }
-			}
+			},
+			outro: { function: fade, params: { delay: 100, duration: 150, easing: quadIn } }
 		},
 		{
 			withType: 'link',
@@ -27,9 +28,9 @@
 			toRouteId: '/garage',
 			outro: {
 				function: fly,
-				params: { duration: 450, easing: linear, y: '-100%' }
+				params: { duration: 250, easing: linear, y: '-100%' }
 			},
-			intro: { function: blur, params: { duration: 450, easing: quadIn } }
+			intro: { function: blur, params: { delay: 100, duration: 150, easing: quadIn } }
 		},
 		{
 			withType: 'link',
