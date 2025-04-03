@@ -1,17 +1,19 @@
 <script>
 	// import { browser, dev, building, version } from '$app/environment';
+	import { browser } from '$app/environment';
 	import { page } from '$app/state';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	// import { onMount } from 'svelte';
+	// import { OnMount } from 'fractils';
+	import { tick } from 'svelte';
 
 	import { noop } from './transition.js';
 
 	let { children, rules, debug = true } = $props();
 
 	// Reactive state
-	let loaded = $state(false);
+	let ready = $state(false);
 	let navigating_matching_rules = $state([]);
-	let before_navigate_fired = $state(false);
-	let after_navigate_fired = $state(false);
 
 	const derivedActiveRule = $derived.by(() => {
 		return navigating_matching_rules[0] || {};
@@ -22,7 +24,7 @@
 	});
 
 	const derivedIntroParams = $derived.by(() => {
-		return derivedActiveRule.intro?.params || derivedActiveRule.transition?.params || {};
+		return derivedActiveRule?.intro?.params || derivedActiveRule?.transition?.params || {};
 	});
 
 	const derivedOutro = $derived.by(() => {
@@ -35,22 +37,37 @@
 
 	// Effects
 	$effect(() => {
-		loaded = true;
+		if (browser) {
+			// First tick: component mounted
+			// Second tick: all children rendered
+			tick()
+				.then(tick)
+				.then(() => {
+					ready = true;
+					if (debug) console.log('Animations ready');
+				});
+		}
 	});
 
 	// Navigation handlers
 	beforeNavigate((navigation) => {
-		console.log('beforeNavigate', navigation);
+		if (debug) console.log('Navigation starting:', navigation.type);
+		if (!browser) return;
+
 		navigating_matching_rules = getMatchingRules(navigation);
-		after_navigate_fired = false;
-		before_navigate_fired = true;
 	});
 
 	afterNavigate((navigation) => {
-		console.log('afterNavigate', navigation);
-		navigating_matching_rules = getMatchingRules(navigation);
-		after_navigate_fired = true;
-		before_navigate_fired = false;
+		if (debug) console.log('Navigation completed:', navigation.type, navigation);
+		if (!browser) return;
+
+		if (navigation.type === 'enter') {
+			// For SSR hydration
+			navigating_matching_rules = getMatchingRules(navigation);
+		} else {
+			// Normal navigation
+			navigating_matching_rules = getMatchingRules(navigation);
+		}
 	});
 
 	// Event handlers
@@ -71,25 +88,33 @@
 		return rules.filter((rule) => {
 			if (!rule) return false;
 
-			// Check navigation type
+			// Check navigation type first
 			if (Object.hasOwn(rule, 'withType')) {
 				const withType = rule.withType;
-				if (
-					Array.isArray(withType)
-						? !withType.includes(navigation.type)
-						: withType !== navigation.type
-				) {
+				const navType = navigation.type;
+				if (Array.isArray(withType) ? !withType.includes(navType) : withType !== navType)
+					return false;
+			}
+
+			// Special case: 'enter' navigation has null .from
+			if (navigation.type === 'enter') {
+				// Only match rules that explicitly allow 'enter' type
+				// and don't require a fromRouteId
+				return !Object.hasOwn(rule, 'fromRouteId');
+			}
+
+			// Normal navigation checks
+			if (Object.hasOwn(rule, 'fromRouteId')) {
+				// navigation.from exists for non-enter types
+				if (rule.fromRouteId !== navigation.from?.route?.id) {
 					return false;
 				}
 			}
 
-			// Check route IDs
-			if (Object.hasOwn(rule, 'fromRouteId') && rule.fromRouteId !== navigation.from?.route?.id) {
-				return false;
-			}
-
-			if (Object.hasOwn(rule, 'toRouteId') && rule.toRouteId !== navigation.to?.route?.id) {
-				return false;
+			if (Object.hasOwn(rule, 'toRouteId')) {
+				if (rule.toRouteId !== navigation.to?.route?.id) {
+					return false;
+				}
 			}
 
 			return true;
@@ -100,7 +125,7 @@
 <!-- glowing-ice -->
 <div style="position:relative; min-width: 100%; min-height: 100%;">
 	{#key page.url}
-		{#if loaded && (before_navigate_fired || after_navigate_fired)}
+		{#if ready}
 			<div
 				style="position: absolute; top: 0px; left: 0px; min-width: 100%; min-height: 100%; display: flex; flex-direction: column;"
 				in:derivedIntro|global={derivedIntroParams}
@@ -112,6 +137,8 @@
 			>
 				{@render children()}
 			</div>
+		{:else}
+			<div style="position: absolute; inset: 0; background: white; z-index: 100;" />
 		{/if}
 	{/key}
 </div>

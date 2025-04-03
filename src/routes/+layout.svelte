@@ -11,7 +11,7 @@
 		{
 			withType: 'enter',
 			toRouteId: '/',
-			transition: { function: blur, params: { duration: 150, amount: '64px', easing: linear } }
+			transition: { function: fade, params: { duration: 250, easing: linear } }
 		},
 		{
 			withType: 'link',
@@ -29,8 +29,7 @@
 				function: fly,
 				params: { duration: 450, easing: linear, y: '-100%' }
 			},
-			intro: { function: blur, params: { duration: 450, easing: quadIn } },
-			onintrostart: (e) => console.log('onintrostart', e)
+			intro: { function: blur, params: { duration: 450, easing: quadIn } }
 		},
 		{
 			withType: 'link',
