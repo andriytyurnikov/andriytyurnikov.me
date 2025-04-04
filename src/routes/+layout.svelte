@@ -5,9 +5,15 @@
 
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
 
-	import { linear, quadIn } from 'svelte/easing';
+	import { linear, quadIn, quintIn, quintOut } from 'svelte/easing';
 	import { blur, fade, fly, scale, slide } from 'svelte/transition';
-	import { noop, filterHueRotate, filterInvert, filterContrast } from '$lib/glowing-ice/transition';
+	import {
+		translate,
+		noop,
+		filterHueRotate,
+		filterInvert,
+		filterContrast
+	} from '$lib/glowing-ice/transition';
 
 	/** @type {import('$lib/types').TransitionRules } */
 	const rules = [
@@ -25,7 +31,7 @@
 			},
 			outro: {
 				function: fade,
-				params: { delay: 0, duration: 450, easing: quadIn }
+				params: { duration: 450, easing: quintIn, opacity: 1 }
 			}
 		},
 		{
@@ -34,11 +40,11 @@
 			toRouteId: '/(navbar)/garage',
 			outro: {
 				function: fly,
-				params: { duration: 450, easing: linear, y: '-100%' }
+				params: { duration: 450, easing: linear, y: '-100%', opacity: 0 }
 			},
 			intro: {
-				function: blur,
-				params: { delay: 150, duration: 300, easing: quadIn, opacity: null }
+				function: fade,
+				params: { duration: 450, easing: quintIn }
 			}
 		},
 		{

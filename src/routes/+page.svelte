@@ -4,9 +4,9 @@
 </script>
 
 <article
-	class="text-[1.25rem] gap-0 grid grid-cols-1 grid-rows-2 landscape:grid-cols-2 landscape:grid-rows-1 h-dvh w-dvw bg-neutral-800 text-neutral-100"
+	class="bg-black text-[1.25rem] gap-0 grid grid-cols-1 grid-rows-2 landscape:grid-cols-2 landscape:grid-rows-1 h-dvh w-dvw text-yellow-50"
 >
-	<section class="col-span-1 row-span-1 bg-ukraine-blue">
+	<section class="col-span-1 row-span-1 bg-sky-700">
 		<div class="p-5 h-full content-center justify-center items-center self-center">
 			<div class="flex flex-row content-center justify-center">
 				<div class="mr-4">
@@ -69,34 +69,35 @@
 			</p>
 		</div>
 	</section>
-	<section class="col-span-1 row-span-1 bg-ukraine-yellow text-black">
+	<section class="col-span-1 row-span-1 bg-sky-700 text-black">
 		<div class="p-5 h-full content-center justify-center items-center self-center text-center">
 			<p class="leading-12">
 				<a
-					class="u-url rounded-md px-6 py-4 bg-ukraine-blue text-white no-underline after:content-['_→']"
+					data-sveltekit-preload-data
+					class="cursor-pointer inline-block active:translate-y-1 hover:bg-yellow-300 u-url rounded-md px-6 py-3 bg-yellow-400 text-black no-underline after:content-['_→']"
 					href="{base}/garage"
 					rel="me">MY GARAGE</a
 				><br /><br />
 				<a
-					class="ui-link--out u-url text-black"
+					class="ui-link--out u-url text-yellow-50"
 					href="https://github.com/andriytyurnikov"
 					rel="me"
 					target="_blank">GitHub</a
 				><br />
 				<a
-					class="ui-link--out u-url text-black"
+					class="ui-link--out u-url text-yellow-50"
 					href="https://www.linkedin.com/in/andriy-tyurnikov-05672176/"
 					rel="me"
 					target="_blank">LinkedIn</a
 				><br />
 				<a
-					class="ui-link--out u-url text-black"
+					class="ui-link--out u-url text-yellow-50"
 					href="https://x.com/AndriyTyurnikov"
 					rel="me"
 					target="_blank">Twitter/X</a
 				><br />
 				<a
-					class="ui-link--out u-url text-black"
+					class="ui-link--out u-url text-yellow-50"
 					href="https://t.me/AndriyTyurnikov/"
 					rel="me"
 					target="_blank">Telegram</a
@@ -145,7 +146,6 @@
 
 	:global(html) {
 		background-color: theme(--color-gray-950);
-		color: theme(--color-white);
 	}
 
 	a {

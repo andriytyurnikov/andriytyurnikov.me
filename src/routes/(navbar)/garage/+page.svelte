@@ -3,7 +3,7 @@
 </script>
 
 <section
-	class="min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly"
+	class="text-yellow-50 min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly"
 >
 	<div class="w-1/2 portrait:w-full w-[16rem] h-[12rem] flex flex-col justify-center">
 		<p class="mx-4 text-[2rem] mb-6 text-center">"Work with the garage door up"</p>
@@ -12,7 +12,7 @@
 		class="flex w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
 	>
 		<ul class="text-[1.25rem] leading-[1.875rem]">
-			Web UI related:
+			Web, UI/UX related:
 			<li class="mt-4">
 				<a href="{base}/garage/fov-map">🌇 Field of View Map 🗺️</a>
 			</li>

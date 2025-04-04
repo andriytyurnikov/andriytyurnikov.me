@@ -5,18 +5,29 @@ function split_css_unit(value) {
 	return split ? [parseFloat(split[1]), split[2] || 'px'] : [/** @type {number} */ (value), 'px'];
 }
 
-export function noop(
-	node,
-	config = { delay: 0, duration: 0, easing: linear },
-	direction_config = { direction: 'both' }
-) {
+export function noop(_node, { duration = 0, delay = 0, easing = (t) => t } = {}) {
 	return {
-		delay: config.delay,
-		duration: config.duration,
-		easing: config.easing,
-		css: (t, u) => {
-			return ``;
-		}
+		delay,
+		duration,
+		easing,
+		css: (t, u) => ``
+	};
+}
+
+export function translate(
+	node,
+	{ delay = 0, duration = 400, easing = cubic_out, x = 0, y = 0 } = {}
+) {
+	const style = getComputedStyle(node);
+	const transform = style.transform === 'none' ? '' : style.transform;
+	const [x_value, x_unit] = split_css_unit(x);
+	const [y_value, y_unit] = split_css_unit(y);
+	return {
+		delay,
+		duration,
+		easing,
+		css: (t, u) => `
+			transform: ${transform} translate(${(1 - t) * x_value}${x_unit}, ${(1 - t) * y_value}${y_unit});`
 	};
 }
 

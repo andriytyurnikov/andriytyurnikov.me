@@ -35,11 +35,7 @@
 </article>
 
 <style>
-	@reference "../../../../styles/unstyled.css";
-
-	:global(section) {
-		padding: 1rem;
-	}
+	@reference "../../../../styles/app.css";
 
 	article {
 		@apply bg-black bg-center bg-cover;
