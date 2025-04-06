@@ -115,7 +115,7 @@
 					</a>
 				</li>
 				<li class="flex grow justify-self-center">
-					<a href="{base}/hire-me">
+					<a href="{base}/business">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -131,7 +131,7 @@
 							/>
 						</svg>
 
-						<!-- Hire me -->
+						<!-- Business -->
 					</a>
 				</li>
 			</ul>

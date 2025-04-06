@@ -62,7 +62,7 @@
 			toRouteId: '/(navbar)/garage',
 			transition: {
 				function: blur,
-				params: { duration: 450, easing: linear, amount: '16px' }
+				params: { duration: 450, easing: linear, amount: '6px' }
 			}
 		}
 	];

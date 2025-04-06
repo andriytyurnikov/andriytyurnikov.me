@@ -17,6 +17,7 @@
 			Solo Wide
 		</div>
 	</section>
+
 	<section
 		class="bg-slate-100 h-dvh w-dvw flex portrait:flex-col landscape:flex-row items-center justify-center"
 	>
@@ -38,12 +39,12 @@
 		<div
 			class="bg-slate-600 w-1/2 w-[16rem] portrait:w-full h-[12rem] tablet:!w-[16rem] tablet:!h-[20rem]"
 		>
-			Duo Minor
+			Duo Minor (absurd)
 		</div>
 		<div
 			class="bg-slate-500 w-1/2 w-[16rem] portrait:w-full h-[12rem] tablet:!w-[16rem] tablet:!h-[20rem]"
 		>
-			Duo Minor
+			Duo Minor (absurd)
 		</div>
 	</section>
 	<section
