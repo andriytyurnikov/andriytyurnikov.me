@@ -2,16 +2,21 @@
 	// import { browser, dev, building, version } from '$app/environment';
 	import { browser } from '$app/environment';
 	import { page } from '$app/state';
-	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	// import { onMount } from 'svelte';
-	// import { OnMount } from 'fractils';
+	import { onNavigate } from '$app/navigation';
 	import { tick } from 'svelte';
 
 	import { noop } from './transition.js';
 
-	let { children, rules, debug = true } = $props();
+	let {
+		children,
+		debug = false,
+		enableViewTransitions = true, // Flag for future granular control
+		enableSvelteTransitions = true, // Flag for future granular control
+		rules
+	} = $props();
 
 	// Reactive state
+	let viewTransitionsSupported = $state(false);
 	let reactiveNavigation = $state(null);
 	let ready = $state(false);
 
@@ -71,9 +76,17 @@
 		return derivedActiveRule?.outro?.params || derivedActiveRule?.transition?.params || {};
 	});
 
+	const derivedUseViewTransitions = $derived.by(() => {
+		return viewTransitionsSupported && enableViewTransitions;
+	});
+
 	// Effects
 	$effect(() => {
 		if (browser) {
+			viewTransitionsSupported = 'startViewTransition' in document;
+			if (debug) console.log('View Transitions API supported:', viewTransitionsSupported);
+			if (debug) console.log('View Transitions enabled:', enableViewTransitions);
+
 			// First tick: component mounted
 			// Second tick: all children rendered
 			tick()
@@ -85,18 +98,24 @@
 		}
 	});
 
-	// Navigation handlers
-	beforeNavigate((navigation) => {
+	// placeholder for future implementation of ViewTransitions API support
+	onNavigate((navigation) => {
 		if (debug) console.log('Navigation starting:', navigation.type);
 		if (!browser) return;
 		reactiveNavigation = navigation;
-	});
 
-	afterNavigate((navigation) => {
-		if (debug) console.log('Navigation completed:', navigation.type, navigation);
-		if (!browser) return;
+		// ViewTransition API is not supported
+		if (!document.startViewTransition) return;
 
-		reactiveNavigation = navigation;
+		if (!derivedUseViewTransitions) return;
+
+		// use ViewTransition API
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
 	});
 
 	// Event handlers
@@ -138,3 +157,45 @@
 		{/if}
 	{/key}
 </div>
+
+<style>
+	@keyframes -global-slide-in {
+		from {
+			transform: translateX(100%);
+			opacity: 0;
+		}
+		to {
+			transform: translateX(0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes -global-slide-out {
+		from {
+			transform: translateX(0);
+			opacity: 1;
+		}
+		to {
+			transform: translateX(-100%);
+			opacity: 0;
+		}
+	}
+
+	@keyframes -global-fade-in {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes -global-fade-out {
+		from {
+			opacity: 1;
+		}
+		to {
+			opacity: 0;
+		}
+	}
+</style>

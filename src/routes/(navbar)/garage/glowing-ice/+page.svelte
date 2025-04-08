@@ -8,9 +8,12 @@
 	>
 		<h1 class="text-center text-[3rem] font-black mb-2">✨ 🧊<br /> Glowing Ice</h1>
 		<p class="text-center mb-6">animated page transitions for SvelteKit</p>
-		<p class="text-center">
-			Check out transition <a href="{base}/garage/glowing-ice/effects">effects</a>
-		</p>
+		<ul class="text-center">
+			TODO:
+			<li class="text-emerald-800">Support Svelte Transitions</li>
+			<li class="text-yellow-800">Support 'prefers-reduced-motion'</li>
+			<li class="text-yellow-800">Support ViewTransitions API</li>
+		</ul>
 	</div>
 </section>
 
