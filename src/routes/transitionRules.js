@@ -1,13 +1,6 @@
 import { linear, quadIn, quintIn, quintOut } from 'svelte/easing';
 import { blur, fade, fly, scale, slide } from 'svelte/transition';
-import {
-	altFly,
-	altFade,
-	noop,
-	filterHueRotate,
-	filterInvert,
-	filterContrast
-} from '$lib/glowing-ice/transition';
+import { noop, filterHueRotate, filterInvert, filterContrast } from '$lib/glowing-ice/transition';
 
 export default [
 	{

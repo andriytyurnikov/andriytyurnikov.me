@@ -1,6 +1,7 @@
 <script>
 	// import { browser, dev, building, version } from '$app/environment';
 	import { browser } from '$app/environment';
+	import { MediaQuery } from 'svelte/reactivity';
 	import { page } from '$app/state';
 	import { onNavigate } from '$app/navigation';
 	import { tick } from 'svelte';
@@ -10,15 +11,32 @@
 	let {
 		children,
 		debug = false,
-		enableViewTransitions = true, // Flag for future granular control
+		enableViewTransitions = false, // Flag for future granular control
 		enableSvelteTransitions = true, // Flag for future granular control
 		rules
 	} = $props();
 
 	// Reactive state
+	let prefersReducedMotionMediaQuery = new MediaQuery('prefers-reduced-motion: reduce');
 	let viewTransitionsSupported = $state(false);
 	let reactiveNavigation = $state(null);
 	let ready = $state(false);
+
+	let viewTransitionsActive = $derived.by(() => {
+		if (!browser) return false;
+
+		return (
+			!prefersReducedMotionMediaQuery.current && viewTransitionsSupported && enableViewTransitions
+		);
+	});
+
+	let svelteTransitionsActive = $derived.by(() => {
+		if (!browser) return false;
+
+		return (
+			!viewTransitionsActive && !prefersReducedMotionMediaQuery.current && enableSvelteTransitions
+		);
+	});
 
 	const derivedMatchingRules = $derived.by(() => {
 		if (!reactiveNavigation) return [];
@@ -61,7 +79,9 @@
 	});
 
 	const derivedIntro = $derived.by(() => {
-		return derivedActiveRule?.intro?.function || derivedActiveRule?.transition?.function || noop;
+		return svelteTransitionsActive
+			? derivedActiveRule?.intro?.function || derivedActiveRule?.transition?.function || noop
+			: noop;
 	});
 
 	const derivedIntroParams = $derived.by(() => {
@@ -69,7 +89,9 @@
 	});
 
 	const derivedOutro = $derived.by(() => {
-		return derivedActiveRule?.outro?.function || derivedActiveRule?.transition?.function || noop;
+		return svelteTransitionsActive
+			? derivedActiveRule?.outro?.function || derivedActiveRule?.transition?.function || noop
+			: noop;
 	});
 
 	const derivedOutroParams = $derived.by(() => {
@@ -86,6 +108,9 @@
 			viewTransitionsSupported = 'startViewTransition' in document;
 			if (debug) console.log('View Transitions API supported:', viewTransitionsSupported);
 			if (debug) console.log('View Transitions enabled:', enableViewTransitions);
+
+			viewTransitionsActive = viewTransitionsSupported && enableViewTransitions;
+			svelteTransitionsActive = enableSvelteTransitions && !viewTransitionsActive;
 
 			// First tick: component mounted
 			// Second tick: all children rendered
@@ -104,8 +129,7 @@
 		if (!browser) return;
 		reactiveNavigation = navigation;
 
-		// ViewTransition API is not supported
-		if (!document.startViewTransition) return;
+		if (prefersReducedMotionMediaQuery.current) return;
 
 		if (!derivedUseViewTransitions) return;
 
@@ -119,15 +143,18 @@
 	});
 
 	// Event handlers
-	function onoutroend(e) {
-		return derivedActiveRule?.onoutroend?.(e);
-	}
 	function onoutrostart(e) {
 		return derivedActiveRule?.onoutrostart?.(e);
 	}
+
+	function onoutroend(e) {
+		return derivedActiveRule?.onoutroend?.(e);
+	}
+
 	function onintrostart(e) {
 		return derivedActiveRule?.onintrostart?.(e);
 	}
+
 	function onintroend(e) {
 		return derivedActiveRule?.onintroend?.(e);
 	}
@@ -140,11 +167,17 @@
 	{#key page.url}
 		{#if ready}
 			<div
-				style="position: absolute; top: 0; bottom:0 left: 0; right: 0; min-width: 100%; min-height: 100%; display: flex; flex-direction: column; flex: 1; justify-content: stretch;"
+				style="position: absolute;
+				      top: 0; bottom:0; left: 0; right: 0;
+							min-width: 100%; min-height: 100%;
+							display: flex;
+							flex-direction: column;
+							flex: 1;
+							justify-content: stretch;"
 				in:derivedIntro|global={derivedIntroParams}
-				out:derivedOutro|global={derivedOutroParams}
 				{onintrostart}
 				{onintroend}
+				out:derivedOutro|global={derivedOutroParams}
 				{onoutrostart}
 				{onoutroend}
 			>
@@ -152,7 +185,12 @@
 			</div>
 		{:else}
 			<div
-				style="position: absolute; inset: 0; display: flex; flex-direction: column; flex: 1; justify-content: stretch;"
+				style="position: absolute;
+				      inset: 0;
+							display: flex;
+							flex-direction: column;
+							flex: 1;
+							justify-content: stretch;"
 			></div>
 		{/if}
 	{/key}

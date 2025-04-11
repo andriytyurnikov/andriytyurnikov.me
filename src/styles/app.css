@@ -39,3 +39,7 @@
       h-dvh;
 	}
 }
+
+@view-transition {
+	navigation: auto;
+}
