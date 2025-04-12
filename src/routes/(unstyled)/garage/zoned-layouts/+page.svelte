@@ -3,7 +3,7 @@
 </script>
 
 <article class="flex flex-col flex-1">
-	<section class="bg-slate-100 h-dvh w-dvw flex justify-center items-center">
+	<section class="bg-slate-100 min-h-dvh min-w-dvw flex justify-center items-center">
 		<div
 			class="bg-slate-700 w-full max-w-[24rem] p-4 tablet:p-0 tablet:max-w-[32rem] tablet:w-[32rem] laptop:w-[32rem] h-[20rem] tablet:h-[24rem]"
 		>

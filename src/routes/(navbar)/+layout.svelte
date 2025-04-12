@@ -183,10 +183,12 @@
 	<main class="ui-shell-main bg-neutral-900 text-neutral-100 flex flex-col flex-1">
 		<GlowingIce {rules}>
 			<div class="flex flex-col flex-1 justify-stretch grow min-h-full h-full">
-				<!-- <ul class="leading-16 grid grid-cols-2">
+				<!--
+				<ul class="leading-16 grid grid-cols-2">
   				<li><a href="{base}/garage/glowing-ice/by-effect">By Effect</a></li>
   				<li><a href="{base}/garage/glowing-ice/by-type">By NavigationType</a></li>
-  			</ul> -->
+  			</ul>
+        -->
 
 				{@render children()}
 			</div>

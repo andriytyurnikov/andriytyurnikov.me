@@ -81,7 +81,7 @@
 </svelte:head>
 
 <GlowingIce rules={transitionRules}>
-	<div class="flex flex-col flex-1 grow min-h-full h-full align-center justify-center">
-		{@render children()}
-	</div>
+	<!-- <div class="flex flex-col flex-1 grow min-h-full h-full align-center justify-center"> -->
+	{@render children()}
+	<!-- </div> -->
 </GlowingIce>

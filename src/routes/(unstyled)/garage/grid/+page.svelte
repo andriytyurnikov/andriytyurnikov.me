@@ -2,7 +2,7 @@
 	import '../../../../styles/unstyled.css';
 </script>
 
-<div class="ui-shell--grid">
+<div class="ui-shell--grid min-h-dvh">
 	<main
 		class="bg-sky-300 text-slate-100 ui-shell-main flex flex-col
 	        landscape:flex-row
@@ -33,7 +33,7 @@
 	<nav class="bg-sky-950 text-slate-200 ui-shell-navbar-slot">NavBar</nav>
 </div>
 
-<div class="ui-shell--grid">
+<div class="ui-shell--grid min-h-dvh">
 	<main
 		class="bg-slate-500 text-slate-100 ui-shell-main flex flex-col
 	        landscape:flex-row
