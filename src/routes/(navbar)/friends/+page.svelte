@@ -13,7 +13,7 @@
 	>
 		Friends in craft:
 		<ul class="pl-0 list-disc list-inside !mb-0 md:columns-2 md:gap-x-12 w-full">
-			RadialUIs and ZoomUIs:
+			Radial and Zoom UIs:
 			<li class="text-blue-100">
 				<a
 					class="after:content-['_↗']"

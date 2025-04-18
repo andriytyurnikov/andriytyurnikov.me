@@ -10,7 +10,7 @@
 
 	let {
 		children,
-		debug = false,
+		debug = true,
 		enableViewTransitions = false, // Flag for future granular control
 		enableSvelteTransitions = true, // Flag for future granular control
 		rules

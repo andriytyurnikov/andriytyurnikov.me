@@ -78,6 +78,34 @@
 			h-full w-full;
 		}
 
+		.ui-navbar-item {
+			@apply no-underline
+			flex flex-col laptop:flex-row
+			min-h-[var(--ui-navbar-size)] min-w-[var(--ui-navbar-size)]
+			laptop:w-auto items-center
+			laptop:pr-2 laptop:mr-6;
+
+			.ui-navbar-item-icon {
+				@apply flex
+				/* laptop:min-w-[var(--ui-navbar-size)] */
+
+				grow-3
+				laptop:grow-0
+				laptop:mx-3
+				size-6;
+			}
+
+			.ui-navbar-item-label {
+				@apply inline-flex
+				grow-1
+				justify-self-end
+
+				uppercase
+				text-[0.75rem] leading-[1rem] text-center
+				laptop:normal-case laptop:text-[1rem] laptop:text-left;
+			}
+		}
+
 		.ui-shell-navbar-section--central {
 			@apply laptop:min-w-[40rem]
 			  /* justify-around */

@@ -15,58 +15,6 @@
 		filterInvert,
 		filterContrast
 	} from '$lib/glowing-ice/transition';
-
-	/** @type {import('$lib/types').TransitionRules } */
-	const rules = [
-		{
-			withType: 'enter',
-			toRouteId: '/',
-			transition: { function: fade, params: { duration: 250, easing: linear } }
-		},
-		{
-			withType: 'link',
-			toRouteId: '/',
-			intro: {
-				function: fly,
-				params: { duration: 450, easing: linear, y: '-100%', opacity: 1 }
-			},
-			outro: {
-				function: fade,
-				params: { duration: 450, easing: quintIn, opacity: 1 }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/',
-			toRouteId: '/(navbar)/garage',
-			outro: {
-				function: fly,
-				params: { duration: 450, easing: linear, y: '-100%', opacity: 0 }
-			},
-			intro: {
-				function: fade,
-				params: { duration: 450, easing: quintIn }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(navbar)/garage',
-			toRouteId: '/(unstyled)/garage/fov-map',
-			transition: {
-				function: blur,
-				params: { duration: 450, easing: linear, amount: '16px' }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(unstyled)/garage/fov-map',
-			toRouteId: '/(navbar)/garage',
-			transition: {
-				function: blur,
-				params: { duration: 450, easing: linear, amount: '6px' }
-			}
-		}
-	];
 </script>
 
 <svelte:head>
