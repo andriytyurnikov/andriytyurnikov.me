@@ -15,8 +15,9 @@ export default [
 			function: fly,
 			params: { duration: 450, easing: linear, y: '-100%', opacity: 1 }
 		},
+		onintrostart: (e) => (e.target.style.zIndex = '100'),
 		outro: {
-			function: fade,
+			function: noop,
 			params: { duration: 450, easing: quintIn, opacity: 1 }
 		}
 	},
@@ -28,30 +29,30 @@ export default [
 			function: fly,
 			params: { duration: 450, easing: linear, y: '-100%', opacity: 1 }
 		},
+		onoutrostart: (e) => (e.target.style.zIndex = '100'),
 		intro: {
-			function: fade,
+			function: noop,
 			params: { duration: 450, easing: linear }
-		},
-		viewTransition: {
-			name: 'page-change',
-			style: {
-				old: {
-					'transform-origin': 'left center',
-					'animation-name': 'fade-out',
-					'animation-duration': '3s',
-					'animation-timing-function': 'linear',
-					'z-index': '2'
-				},
-				new: {
-					'transform-origin': 'left center',
-					'animation-name': 'fade-in',
-					'animation-duration': '3s',
-					'animation-timing-function': 'linear',
-					'z-index': '1'
-				}
-			}
 		}
-		// onoutrostart: (e) => (e.target.style.zIndex = '1')
+		// viewTransition: {
+		// 	name: 'page-change',
+		// 	style: {
+		// 		old: {
+		// 			'transform-origin': 'left center',
+		// 			'animation-name': 'fade-out',
+		// 			'animation-duration': '3s',
+		// 			'animation-timing-function': 'linear',
+		// 			'z-index': '2'
+		// 		},
+		// 		new: {
+		// 			'transform-origin': 'left center',
+		// 			'animation-name': 'fade-in',
+		// 			'animation-duration': '3s',
+		// 			'animation-timing-function': 'linear',
+		// 			'z-index': '1'
+		// 		}
+		// 	}
+		// }
 	},
 	{
 		withType: 'link',
