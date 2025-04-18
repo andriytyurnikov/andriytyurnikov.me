@@ -17,9 +17,10 @@ export default [
 		},
 		onintrostart: (e) => (e.target.style.zIndex = '100'),
 		outro: {
-			function: noop,
-			params: { duration: 450, easing: quintIn, opacity: 1 }
-		}
+			function: fade,
+			params: { duration: 450, easing: linear, opacity: 1 }
+		},
+		onoutrostart: (e) => (e.target.style.zIndex = '10')
 	},
 	{
 		withType: 'link',
@@ -31,7 +32,7 @@ export default [
 		},
 		onoutrostart: (e) => (e.target.style.zIndex = '100'),
 		intro: {
-			function: noop,
+			function: fade,
 			params: { duration: 450, easing: linear }
 		}
 		// viewTransition: {

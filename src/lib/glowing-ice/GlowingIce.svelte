@@ -2,7 +2,7 @@
 	// import { browser, dev, building, version } from '$app/environment';
 	import { browser } from '$app/environment';
 	import { MediaQuery } from 'svelte/reactivity';
-	import { page } from '$app/state';
+	import { navigating, page } from '$app/state';
 	import { onNavigate } from '$app/navigation';
 	import { tick } from 'svelte';
 
@@ -13,14 +13,15 @@
 		debug = true,
 		enableViewTransitions = false, // Flag for future granular control
 		enableSvelteTransitions = true, // Flag for future granular control
-		rules
+		rules = []
 	} = $props();
 
 	// Reactive state
 	let prefersReducedMotionMediaQuery = new MediaQuery('prefers-reduced-motion: reduce');
 	let viewTransitionsSupported = $state(false);
-	let reactiveNavigation = $state(null);
+	// let reactiveNavigation = $state(null);
 	let ready = $state(false);
+	let instanceId = $state(42);
 
 	let viewTransitionsActive = $derived.by(() => {
 		if (!browser) return false;
@@ -38,8 +39,18 @@
 		);
 	});
 
+	let derivedKey = $derived.by(() => {
+		if (!browser) return false;
+
+		return page.url.pathname + instanceId;
+
+		// return 0 == derivedMatchingRules.length
+		// 	? page.url.pathname + instanceId
+		// 	: page.url.pathname + instanceId;
+	});
+
 	const derivedMatchingRules = $derived.by(() => {
-		if (!reactiveNavigation) return [];
+		// if (!reactiveNavigation) return [];
 
 		return rules.filter((rule) => {
 			if (!rule) return false;
@@ -47,25 +58,25 @@
 			// Check navigation type first
 			if (Object.hasOwn(rule, 'withType')) {
 				const withType = rule.withType;
-				const navType = reactiveNavigation.type;
+				const navType = navigating?.type;
 				if (Array.isArray(withType) ? !withType.includes(navType) : withType !== navType)
 					return false;
 			}
 
 			// Special case: 'enter' navigation has null .from
-			if (reactiveNavigation.type === 'enter') {
+			if (navigating?.type === 'enter') {
 				return !Object.hasOwn(rule, 'fromRouteId');
 			}
 
 			// Normal navigation checks
 			if (Object.hasOwn(rule, 'fromRouteId')) {
-				if (rule.fromRouteId !== reactiveNavigation.from?.route?.id) {
+				if (rule.fromRouteId !== navigating?.from?.route?.id) {
 					return false;
 				}
 			}
 
 			if (Object.hasOwn(rule, 'toRouteId')) {
-				if (rule.toRouteId !== reactiveNavigation.to?.route?.id) {
+				if (rule.toRouteId !== navigating?.to?.route?.id) {
 					return false;
 				}
 			}
@@ -108,7 +119,7 @@
 			viewTransitionsSupported = 'startViewTransition' in document;
 			if (debug) console.log('View Transitions API supported:', viewTransitionsSupported);
 			if (debug) console.log('View Transitions enabled:', enableViewTransitions);
-
+			instanceId = Math.random().toString(36).slice(2, 11);
 			viewTransitionsActive = viewTransitionsSupported && enableViewTransitions;
 			svelteTransitionsActive = enableSvelteTransitions && !viewTransitionsActive;
 
@@ -127,7 +138,7 @@
 	onNavigate((navigation) => {
 		if (debug) console.log('Navigation starting:', navigation.type);
 		if (!browser) return;
-		reactiveNavigation = navigation;
+		// reactiveNavigation = navigation;
 
 		if (prefersReducedMotionMediaQuery.current) return;
 
@@ -164,8 +175,8 @@
 <div
 	style="position: relative; min-width: 100%; min-height: 100%; height: 100%; display: flex; flex-direction: column; flex: 1; justify-content: stretch;"
 >
-	{#key page.url}
-		{#if ready}
+	{#key derivedKey}
+		{#if true}
 			<div
 				style="position: absolute;
 				      top: 0; bottom: 0; left: 0; right: 0;
