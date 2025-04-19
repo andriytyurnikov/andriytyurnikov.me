@@ -9,89 +9,90 @@
 		<p class="mx-4 text-[2rem] mb-6 text-center">"The warmth of shared craft"</p>
 	</div>
 	<div
-		class="flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
+		class="px-6 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
 	>
-		Friends in craft:
-		<ul class="pl-0 list-disc list-inside !mb-0 md:columns-2 md:gap-x-12 w-full">
-			Radial and Zoom UIs:
-			<li class="text-blue-100">
-				<a
-					class="after:content-['_↗']"
-					href="https://github.com/tinchox5"
-					target="_blank"
-					rel="noopener"
-				>
-					Juan Martin
-				</a>
-			</li>
+		<h2 class="text-[2rem] font-bold mb-6">Friends in craft:</h2>
+		<div class="grid landscape:grid-cols-2 tablet:grid-cols-2 w-full">
+			<div>
+				<h3>Radial and Zoom UIs:</h3>
+				<p>
+					<a
+						class="after:content-['_↗']"
+						href="https://github.com/tinchox5"
+						target="_blank"
+						rel="noopener"
+					>
+						Juan Martin
+					</a>
+				</p>
 
-			Mobile & AR/VR:
-			<li>
-				<a
-					class="after:content-['_↗']"
-					href="https://github.com/ALexanderLonsky"
-					target="_blank"
-					rel="noopener"
-				>
-					Alexander Lonsky
-				</a>
-			</li>
-
-			<li class="text-blue-100">
-				<a class="after:content-['_↗']" href="https://alamak.app/" target="_blank" rel="noopener">
-					Alamak Oy
-				</a>
-			</li>
-
-			Web & Ruby on Rails:
-			<li class="text-blue-100">
-				<a
-					class="after:content-['_↗']"
-					href="https://verkligheten.github.io/"
-					target="_blank"
-					rel="noopener"
-				>
-					Eugene Naumov
-				</a>
-			</li>
-
-			<li class="text-blue-100">
-				<a
-					class="after:content-['_↗']"
-					href="https://vsnares.github.io/"
-					target="_blank"
-					rel="noopener"
-				>
-					Markell Pohosov
-				</a>
-			</li>
-
-			<li class="text-blue-100">
-				<a
-					class="after:content-['_↗']"
-					href="https://cupatea.github.io/"
-					target="_blank"
-					rel="noopener"
-				>
-					Vladyslav Davydenko
-				</a>
-			</li>
-			AKA
-			<a class="after:content-['_↗']" href="https://rubakas.com" target="_blank" rel="noopener">
-				Rubakas
-			</a>
-		</ul>
+				<h3>Mobile & AR/VR:</h3>
+				<p>
+					<a
+						class="after:content-['_↗']"
+						href="https://github.com/ALexanderLonsky"
+						target="_blank"
+						rel="noopener"
+					>
+						Alexander Lonsky
+					</a>
+				</p>
+			</div>
+			<div>
+				<h3>Web & Ruby on Rails:</h3>
+				<p>
+					<a
+						class="after:content-['_↗']"
+						href="https://verkligheten.github.io/"
+						target="_blank"
+						rel="noopener"
+					>
+						Eugene Naumov
+					</a>,
+					<a
+						class="after:content-['_↗']"
+						href="https://cupatea.github.io/"
+						target="_blank"
+						rel="noopener"
+					>
+						Vladyslav Davydenko
+					</a>,
+					<a
+						class="after:content-['_↗']"
+						href="https://vsnares.github.io/"
+						target="_blank"
+						rel="noopener"
+					>
+						Markell Pohosov
+					</a>
+					<br />
+					AKA
+					<a
+						class="after:content-['_↗']"
+						href="https://rubakas.com"
+						target="_blank"
+						rel="noopener"
+					>
+						Rubakas
+					</a>
+				</p>
+			</div>
+		</div>
 	</div>
 </section>
 
 <style>
 	@reference "../../../styles/unstyled.css";
 
-	ul li {
+	h3 {
 		@apply mb-4;
 	}
 
-	li a {
+	p {
+		@apply mb-6 leading-8;
+	}
+
+	a {
 		@apply decoration-dashed decoration-1 underline-offset-4;
 	}
 </style>

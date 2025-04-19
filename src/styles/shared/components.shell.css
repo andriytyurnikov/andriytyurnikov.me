@@ -83,7 +83,7 @@
 			flex flex-col laptop:flex-row
 			min-h-[var(--ui-navbar-size)] min-w-[var(--ui-navbar-size)]
 			laptop:w-auto items-center
-			laptop:pr-2 laptop:mr-6;
+			laptop:grow-1;
 
 			.ui-navbar-item-icon {
 				@apply flex

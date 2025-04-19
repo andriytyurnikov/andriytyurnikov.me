@@ -24,7 +24,15 @@
 		{
 			withType: 'link',
 			toRouteId: '/(navbar)/garage/viewport-typography',
-			transition: {
+			intro: {
+				function: scale,
+				params: { duration: 450, easing: linear }
+			}
+		},
+		{
+			withType: 'link',
+			fromRouteId: '/(navbar)/garage/viewport-typography',
+			outro: {
 				function: scale,
 				params: { duration: 450, easing: linear }
 			}
@@ -38,6 +46,11 @@
 		{
 			withType: 'link',
 			toRouteId: '/(navbar)/garage/glowing-ice',
+			transition: { function: blur, params: { duration: 450, amount: '8px', easing: linear } }
+		},
+		{
+			withType: 'link',
+			fromRouteId: '/(navbar)/garage/glowing-ice',
 			transition: { function: blur, params: { duration: 450, amount: '8px', easing: linear } }
 		}
 	];
