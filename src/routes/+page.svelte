@@ -7,8 +7,8 @@
 	class="bg-black text-[1.25rem] gap-0 grid grid-cols-1 grid-rows-2 landscape:grid-cols-2 landscape:grid-rows-1 h-dvh w-dvw text-yellow-50"
 >
 	<section class="col-span-1 row-span-1 bg-sky-700">
-		<div class="p-5 h-full content-center justify-center items-center self-center">
-			<div class="flex flex-row content-center justify-center">
+		<div class="p-4 h-full content-center justify-center items-center self-center">
+			<div class="mb-8 flex flex-row content-center justify-center">
 				<div class="mr-4">
 					<img
 						style="clip-path: url(#dyna-squircle-3)"
@@ -26,7 +26,7 @@
 				</div>
 			</div>
 
-			<p class="mt-8 text-[1rem] leading-12 text-right">
+			<p class="text-[1rem] leading-8 text-right">
 				<a
 					class="u-email text-white decoration-dashed px-4"
 					href="mailto:Andriy.Tyurnikov@gmail.com">Andriy.Tyurnikov@gmail.com</a
@@ -70,14 +70,14 @@
 		</div>
 	</section>
 	<section class="col-span-1 row-span-1 bg-sky-700 text-black">
-		<div class="p-5 h-full content-center justify-center items-center self-center text-center">
-			<p class="leading-12">
+		<div class="p-4 h-full content-center justify-center items-center self-center text-center">
+			<p class="leading-8">
 				<a
 					data-sveltekit-preload-data
-					class="cursor-pointer inline-block active:translate-y-1 hover:bg-yellow-300 u-url rounded-md px-6 py-3 bg-yellow-400 text-black no-underline after:content-['_→']"
+					class="mb-4 cursor-pointer inline-block active:translate-y-1 hover:bg-yellow-300 u-url rounded-md px-4 py-2 bg-yellow-400 text-black no-underline after:content-['_→']"
 					href="{base}/garage"
 					rel="me">MY GARAGE</a
-				><br /><br />
+				><br />
 				<a
 					class="ui-link--out u-url text-yellow-50"
 					href="https://github.com/andriytyurnikov"

@@ -3,12 +3,12 @@
 </script>
 
 <article
-	class="h-dvh w-dvw flex portrait:flex-col landscape:flex-row justify-evenly portrait:justify-stretch items-center"
+	class="min-h-dvh w-dvw flex portrait:flex-col landscape:flex-row justify-evenly portrait:justify-stretch items-center"
 >
 	<section class="p-4 w-1/2 portrait:w-full w-[16rem] justify-self-start">
-		<div class="flex flex-col place-self-center max-w-[16rem] text-gray-300">
+		<div class="flex flex-col place-self-center max-w-[16rem]">
 			<svg
-				class="w-[12rem] h-[12rem] mx-auto mt-8 mb-4"
+				class="w-[8rem] h-[8rem] mx-auto mt-8 mb-4"
 				version="1.1"
 				x="0px"
 				y="0px"
@@ -42,28 +42,41 @@
 	</section>
 
 	<section
-		class="p-4 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center items-center"
+		class="p-4 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] min-h-[20rem] tablet:min-h-[24rem] justify-center items-center"
 	>
 		<h1 class="text-[2.25rem] tracking-widest font-bold font-cinzel text-center w-full">
-			Coming Soon:
+			Prototyping in progress:
 		</h1>
 		<br />
 		<p class="tracking-wider font-normal text-left text-[1.25rem] max-w-[32rem]">
 			<a
-				class="decoration-dashed underline-offset-4 decoration-from-font"
+				class="mt-6 decoration-dashed underline-offset-4 decoration-from-font"
 				href="{base}/magos-cryptos/"
 			>
 				<span class="font-bold font-cinzel-decorative">Bold</span>
 			</a>
-			&mdash; frontend for true DeFi stablecoin<br /><br />
+			&mdash; frontend for true DeFi stablecoin<br />
 			<a
-				class="decoration-dashed underline-offset-4 decoration-from-font"
+				class="mt-6 decoration-dashed underline-offset-4 decoration-from-font"
 				href="{base}/magos-cryptos/"
 			>
 				<span class="font-bold font-cinzel-decorative">ChainSword</span></a
 			>
-			&mdash; MEV-resistant AMM
-			<br />
+			&mdash; Dynamic Fee AMM to clawback against sandwich attacks<br />
+			<a
+				class="mt-6 decoration-dashed underline-offset-4 decoration-from-font"
+				href="{base}/magos-cryptos/"
+			>
+				<span class="font-bold font-cinzel-decorative">Glider</span></a
+			>
+			&mdash; AMM with Dynamic Rebalancing<br />
+			<a
+				class="mt-6 decoration-dashed underline-offset-4 decoration-from-font"
+				href="{base}/magos-cryptos/"
+			>
+				<span class="font-bold font-cinzel-decorative">Monetorum</span></a
+			>
+			&mdash; on-chain token templates
 		</p>
 	</section>
 </article>

@@ -22,7 +22,9 @@
 			<ul
 				class="ui-shell-navbar-section ui-shell-navbar-section--aside justify-self-start items-center"
 			>
-				<li class="flex items-stretch pl-6 font-cinzel font-bold text-[1.75rem] tracking-widest">
+				<li
+					class="flex items-stretch pl-6 font-cinzel-decorative font-bold text-[1.75rem] tracking-widest"
+				>
 					BOLD
 				</li>
 			</ul>

@@ -16,7 +16,7 @@
 </svelte:head>
 
 <!-- main content -->
-<main class="h-dvh text-gray-950 flex flex-col justify-stretch font-fira-sans">
+<main class="h-dvh flex flex-col justify-stretch font-fira-sans">
 	{@render children()}
 </main>
 
@@ -24,10 +24,10 @@
 	@reference "../../styles/magos-cryptos.css";
 
 	:global(html, body) {
-		@apply bg-gray-950;
+		@apply bg-eigengrau;
 	}
 
 	main {
-		@apply text-gray-50;
+		@apply text-eigenweiss;
 	}
 </style>

@@ -5,16 +5,6 @@
 
 	import transitionRules from './transitionRules';
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
-
-	import { linear, quadIn, quintIn, quintOut } from 'svelte/easing';
-	import { blur, fade, fly, scale, slide } from 'svelte/transition';
-	import {
-		translate,
-		noop,
-		filterHueRotate,
-		filterInvert,
-		filterContrast
-	} from '$lib/glowing-ice/transition';
 </script>
 
 <svelte:head>
@@ -29,7 +19,5 @@
 </svelte:head>
 
 <GlowingIce rules={transitionRules}>
-	<!-- <div class="flex flex-col flex-1 grow min-h-full h-full align-center justify-center"> -->
 	{@render children()}
-	<!-- </div> -->
 </GlowingIce>
