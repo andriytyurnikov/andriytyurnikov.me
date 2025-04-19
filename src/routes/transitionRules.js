@@ -35,25 +35,6 @@ export default [
 			function: fade,
 			params: { duration: 450, easing: linear }
 		}
-		// viewTransition: {
-		// 	name: 'page-change',
-		// 	style: {
-		// 		old: {
-		// 			'transform-origin': 'left center',
-		// 			'animation-name': 'fade-out',
-		// 			'animation-duration': '3s',
-		// 			'animation-timing-function': 'linear',
-		// 			'z-index': '2'
-		// 		},
-		// 		new: {
-		// 			'transform-origin': 'left center',
-		// 			'animation-name': 'fade-in',
-		// 			'animation-duration': '3s',
-		// 			'animation-timing-function': 'linear',
-		// 			'z-index': '1'
-		// 		}
-		// 	}
-		// }
 	},
 	{
 		withType: 'link',
