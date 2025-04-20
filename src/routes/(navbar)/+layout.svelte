@@ -138,7 +138,7 @@
 					<span class="ui-navbar-item-label">Friends</span>
 				</a>
 
-				<a class="ui-navbar-item" href="{base}/business">
+				<a class="!hidden ui-navbar-item" href="{base}/business">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"

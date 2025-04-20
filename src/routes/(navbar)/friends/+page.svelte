@@ -84,14 +84,6 @@
 <style>
 	@reference "../../../styles/unstyled.css";
 
-	h3 {
-		@apply mb-4;
-	}
-
-	p {
-		@apply mb-6 leading-8;
-	}
-
 	a {
 		@apply decoration-dashed decoration-1 underline-offset-4;
 	}
