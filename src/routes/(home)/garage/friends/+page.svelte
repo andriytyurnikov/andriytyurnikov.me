@@ -11,7 +11,7 @@
 	<div
 		class="px-6 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
 	>
-		<h2 class="text-[2rem] font-bold mb-6">Friends in craft:</h2>
+		<h2 class="text-[1.75rem] font-bold mb-6">Friends in craft:</h2>
 		<div class="grid landscape:grid-cols-2 tablet:grid-cols-2 w-full">
 			<div>
 				<h3>Radial and Zoom UIs:</h3>
@@ -94,7 +94,7 @@
 </section>
 
 <style>
-	@reference "../../../../styles/default.css";
+	@reference "../../../../styles/home.css";
 
 	a {
 		@apply decoration-dashed decoration-1 underline-offset-4;

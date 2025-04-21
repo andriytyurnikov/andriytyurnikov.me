@@ -1,5 +1,5 @@
 <script>
-	import '../../../../styles/default.css';
+	import '../../../../styles/home.css';
 
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
 	import { linear } from 'svelte/easing';
@@ -195,12 +195,9 @@
 </article>
 
 <style>
-	@reference "../../../../styles/default.css";
+	@reference "../../../../styles/home.css";
 
 	article {
-		@apply bg-center bg-cover bg-cyan-300 text-cyan-950;
-		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.125), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.125)),
-			url('/images/glowing-ice.jpg');
+		@apply bg-ice;
 	}
 </style>

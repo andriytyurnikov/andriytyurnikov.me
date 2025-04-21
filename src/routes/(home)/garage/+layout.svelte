@@ -1,5 +1,5 @@
 <script>
-	import '../../../styles/default.css';
+	import '../../../styles/home.css';
 	import { base } from '$app/paths';
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
 	import { linear, quadIn } from 'svelte/easing';
@@ -15,7 +15,7 @@
 			toRouteId: '/(home)/garage/fov-map',
 			transition: {
 				function: blur,
-				params: { duration: 450, easing: linear, amount: '16px' }
+				params: { duration: 250, easing: linear, amount: '16px' }
 			}
 		},
 		{
@@ -24,7 +24,7 @@
 			toRouteId: '/(home)/garage',
 			transition: {
 				function: blur,
-				params: { duration: 450, easing: linear, amount: '6px' }
+				params: { duration: 250, easing: linear, amount: '6px' }
 			}
 		},
 		{
@@ -72,18 +72,18 @@
 		{
 			withType: 'link',
 			toRouteId: '/(home)/garage/no-more-top-hamburger',
-			transition: { function: filterHueRotate, params: { duration: 450, easing: linear } }
+			transition: { function: filterHueRotate, params: { duration: 250, easing: linear } }
 		},
 
 		{
 			withType: 'link',
 			toRouteId: '/(home)/garage/glowing-ice',
-			transition: { function: blur, params: { duration: 450, amount: '8px', easing: linear } }
+			transition: { function: blur, params: { duration: 250, amount: '8px', easing: linear } }
 		},
 		{
 			withType: 'link',
 			fromRouteId: '/(home)/garage/glowing-ice',
-			transition: { function: blur, params: { duration: 450, amount: '8px', easing: linear } }
+			transition: { function: blur, params: { duration: 250, amount: '8px', easing: linear } }
 		}
 	];
 </script>
@@ -243,11 +243,9 @@
 </div>
 
 <style>
-	@reference "../../../styles/default.css";
+	@reference "../../../styles/home.css";
 
 	main {
-		@apply bg-center bg-cover bg-neutral-900 text-neutral-50;
-		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/garage.jpg');
+		@apply bg-garage;
 	}
 </style>

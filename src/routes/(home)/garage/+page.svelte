@@ -9,10 +9,10 @@
 		<p class="mx-4 italic text-[2rem] mb-6 text-center">"Work with the garage door up"</p>
 	</div>
 	<div
-		class="flex w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
+		class="flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
 	>
+		<h2 class="text-[1.75rem] font-bold mb-6">Web, UI/UX related:</h2>
 		<ul class="text-[1.25rem] leading-[1.875rem]">
-			Web, UI/UX related:
 			<li class="mt-4">
 				<a href="{base}/garage/fov-map">🌇 Field of View Map 🗺️</a>
 			</li>
