@@ -1,6 +1,6 @@
 <script>
-	import '../../../../styles/default.css';
 	let { children } = $props();
+	import '../../../styles/default.css';
 </script>
 
 <svelte:head>

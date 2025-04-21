@@ -30,12 +30,11 @@
 			</li>
 
 			<li class="hidden">
-				<a href="{base}/garage/display-horizon">🖥️ Display Horizon 🌅</a> &mdash; screens in field of
-				view
+				<a href="{base}/display-horizon">🖥️ Display Horizon 🌅</a> &mdash; screens in field of view
 			</li>
 
 			<li class="hidden text-cyan-200">
-				<a href="{base}/garage/mobile-layouts">📱 Mobile Layouts 🖼️</a> &mdash; steal like an artist
+				<a href="{base}/mobile-layouts">📱 Mobile Layouts 🖼️</a> &mdash; steal like an artist
 			</li>
 		</ul>
 	</div>

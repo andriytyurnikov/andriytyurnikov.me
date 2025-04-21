@@ -35,12 +35,12 @@
 				</svg>
 			</span>] on the top of the screen.
 			<br />
-			<a href="{base}/garage/mobile-layouts/centered" rel="me">Centered composition</a> (mostly for
-			landing pages)
+			<a href="{base}/mobile-layouts/centered" rel="me">Centered composition</a> (mostly for landing
+			pages)
 			<br />
-			<a href="{base}/garage/mobile-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
+			<a href="{base}/mobile-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
 			<br />
-			<a href="{base}/garage/mobile-layouts/shell" rel="me">Appliation Shell (responsive NavBar)</a>
+			<a href="{base}/mobile-layouts/shell" rel="me">Appliation Shell (responsive NavBar)</a>
 			(often image/video driven)
 		</p>
 	</section>
@@ -69,7 +69,7 @@
 </article-->
 
 <style>
-	@reference "../../../../styles/default.css";
+	@reference "../../../styles/default.css";
 	:global(html) {
 		background-color: theme(--color-black);
 	}

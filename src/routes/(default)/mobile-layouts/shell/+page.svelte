@@ -9,6 +9,6 @@
 
 	<p class="text-left w-full">
 		Main content is here!<br />
-		<a href="{base}/garage/mobile-layouts" rel="me">back to layouts</a>
+		<a href="{base}/mobile-layouts" rel="me">back to layouts</a>
 	</p>
 </div>

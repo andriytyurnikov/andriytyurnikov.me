@@ -1,5 +1,5 @@
 <script>
-	import '../../../../styles/default.css';
+	import '../../../styles/default.css';
 </script>
 
 <article class="flex flex-col flex-1">
@@ -112,7 +112,7 @@
 </article>
 
 <style>
-	@reference "../../../../styles/default.css";
+	@reference "../../../styles/default.css";
 
 	:global(html, body) {
 		@apply bg-slate-900 text-slate-100;

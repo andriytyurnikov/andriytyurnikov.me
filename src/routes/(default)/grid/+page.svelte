@@ -1,5 +1,5 @@
 <script>
-	import '../../../../styles/default.css';
+	import '../../../styles/default.css';
 </script>
 
 <div class="ui-shell--grid min-h-dvh">

@@ -1,6 +1,6 @@
 <script>
 	let { children } = $props();
-	import '../../../../../styles/default.css';
+	import '../../../../styles/default.css';
 </script>
 
 <svelte:head>
@@ -28,9 +28,9 @@
 
 			<ul class="ui-shell-navbar-section ui-shell-navbar-section--central">
 				<li class="flex grow justify-self-center"><a href="/">Home</a></li>
-				<li class="flex grow justify-self-center"><a href="/about">Garage</a></li>
-				<li class="flex grow justify-self-center"><a href="/contact">Contacts</a></li>
-				<li class="flex grow justify-self-center"><a href="/contact">Menu</a></li>
+				<li class="flex grow justify-self-center"><a href="/">Garage</a></li>
+				<li class="flex grow justify-self-center"><a href="/">Contacts</a></li>
+				<li class="flex grow justify-self-center"><a href="/">Menu</a></li>
 			</ul>
 
 			<ul
@@ -55,7 +55,7 @@
 					</a>
 				</li>
 				<li class="flex">
-					<a href="/about" aria-label="notifications">
+					<a href="/" aria-label="notifications">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -83,7 +83,7 @@
 </div>
 
 <style>
-	@reference "../../../../../styles/default.css";
+	@reference "../../../../styles/default.css";
 
 	main {
 		background-image:
