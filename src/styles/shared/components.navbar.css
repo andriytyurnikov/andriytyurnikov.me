@@ -1,0 +1,34 @@
+@theme {
+	--ui-navbar-size: 4rem;
+}
+
+@layer components {
+	.ui-navbar {
+		@apply flex;
+
+		.ui-navbar-section {
+		}
+
+		.ui-navbar-item {
+		}
+	}
+
+	.ui-navbar--default {
+		@apply portrait:ui-navbar--bottom landscape:ui-navbar--right
+			lg:ui-navbar--top;
+	}
+
+	.ui-navbar--top {
+		@apply flex-row w-full;
+	}
+	.ui-navbar--bottom {
+		@apply flex-row w-full;
+	}
+
+	.ui-navbar--left {
+		@apply flex-col h-full;
+	}
+	.ui-navbar--right {
+		@apply flex-col-reverse h-full;
+	}
+}

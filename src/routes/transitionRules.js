@@ -35,23 +35,5 @@ export default [
 			function: fade,
 			params: { duration: 450, easing: linear }
 		}
-	},
-	{
-		withType: 'link',
-		fromRouteId: '/(navbar)/garage',
-		toRouteId: '/(unstyled)/garage/fov-map',
-		transition: {
-			function: blur,
-			params: { duration: 450, easing: linear, amount: '16px' }
-		}
-	},
-	{
-		withType: 'link',
-		fromRouteId: '/(unstyled)/garage/fov-map',
-		toRouteId: '/(navbar)/garage',
-		transition: {
-			function: blur,
-			params: { duration: 450, easing: linear, amount: '6px' }
-		}
 	}
 ];

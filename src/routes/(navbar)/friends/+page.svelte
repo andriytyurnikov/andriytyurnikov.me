@@ -6,7 +6,7 @@
 	class="text-yellow-50 min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly"
 >
 	<div class="w-1/2 portrait:w-full w-[16rem] h-[12rem] flex flex-col justify-center">
-		<p class="mx-4 text-[2rem] mb-6 text-center">"The warmth of shared craft"</p>
+		<p class="mx-4 italic text-[2rem] mb-6 text-center">"The warmth of shared craft"</p>
 	</div>
 	<div
 		class="px-6 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
@@ -15,7 +15,7 @@
 		<div class="grid landscape:grid-cols-2 tablet:grid-cols-2 w-full">
 			<div>
 				<h3>Radial and Zoom UIs:</h3>
-				<p>
+				<p class="mb-4">
 					<a
 						class="after:content-['_↗']"
 						href="https://github.com/tinchox5"
@@ -27,7 +27,7 @@
 				</p>
 
 				<h3>Mobile & AR/VR:</h3>
-				<p>
+				<p class="mb-4">
 					<a
 						class="after:content-['_↗']"
 						href="https://github.com/ALexanderLonsky"
@@ -39,8 +39,20 @@
 				</p>
 			</div>
 			<div>
-				<h3>Web & Ruby on Rails:</h3>
-				<p>
+				<h3>Web<sup>3</sup> and DeFi:</h3>
+				<p class="mb-4">
+					<a
+						class="after:content-['_↗']"
+						href="https://magoscryptos.dev"
+						target="_blank"
+						rel="noopener"
+					>
+						Magos Cryptos
+					</a>
+				</p>
+
+				<h3>Ruby on Rails:</h3>
+				<p class="mb-4">
 					<a
 						class="after:content-['_↗']"
 						href="https://verkligheten.github.io/"
@@ -66,7 +78,7 @@
 						Markell Pohosov
 					</a>
 					<br />
-					AKA
+					<!-- AKA
 					<a
 						class="after:content-['_↗']"
 						href="https://rubakas.com"
@@ -74,7 +86,7 @@
 						rel="noopener"
 					>
 						Rubakas
-					</a>
+					</a> -->
 				</p>
 			</div>
 		</div>

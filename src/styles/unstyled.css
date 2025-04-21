@@ -16,8 +16,6 @@
 
 @theme {
 	--ui-navbar-size: 4rem;
-	--font-cinzel: 'Cinzel', 'serif';
-	--font-cinzel-decorative: 'Cinzel Decorative', 'serif';
 }
 
 @layer components {

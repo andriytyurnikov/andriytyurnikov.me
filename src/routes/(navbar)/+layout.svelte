@@ -11,6 +11,25 @@
 	const rules = [
 		{
 			withType: 'link',
+			fromRouteId: '/(navbar)/garage',
+			toRouteId: '/(unstyled)/garage/fov-map',
+			transition: {
+				function: blur,
+				params: { duration: 450, easing: linear, amount: '16px' }
+			}
+		},
+		{
+			withType: 'link',
+			fromRouteId: '/(unstyled)/garage/fov-map',
+			toRouteId: '/(navbar)/garage',
+			transition: {
+				function: blur,
+				params: { duration: 450, easing: linear, amount: '6px' }
+			}
+		},
+		{
+			withType: 'link',
+			fromRouteId: '/(navbar)/garage',
 			toRouteId: '/(navbar)/friends',
 			outro: {
 				function: fly,
@@ -19,6 +38,19 @@
 			intro: {
 				function: fly,
 				params: { duration: 450, easing: linear, x: '100%', opacity: 1 }
+			}
+		},
+		{
+			withType: 'link',
+			fromRouteId: '/(navbar)/friends',
+			toRouteId: '/(navbar)/garage',
+			outro: {
+				function: fly,
+				params: { duration: 450, easing: linear, x: '200%', opacity: 1 }
+			},
+			intro: {
+				function: fly,
+				params: { duration: 450, easing: linear, x: '-100%', opacity: 1 }
 			}
 		},
 		{
@@ -138,7 +170,7 @@
 					<span class="ui-navbar-item-label">Friends</span>
 				</a>
 
-				<a class="!hidden ui-navbar-item" href="{base}/business">
+				<a class="invisible ui-navbar-item" href="{base}/business">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -203,16 +235,9 @@
 	<!-- main content -->
 	<main class="ui-shell-main bg-neutral-900 text-neutral-100 flex flex-col flex-1">
 		<GlowingIce {rules}>
-			<div class="flex flex-col flex-1 justify-stretch grow min-h-full h-full">
-				<!--
-				<ul class="leading-16 grid grid-cols-2">
-  				<li><a href="{base}/garage/glowing-ice/by-effect">By Effect</a></li>
-  				<li><a href="{base}/garage/glowing-ice/by-type">By NavigationType</a></li>
-  			</ul>
-        -->
-
-				{@render children()}
-			</div>
+			<!-- <div class="flex flex-col flex-1 justify-stretch grow min-h-full h-full"> -->
+			{@render children()}
+			<!-- </div> -->
 		</GlowingIce>
 	</main>
 </div>

@@ -15,6 +15,7 @@
 @theme {
 	--ui-navbar-size: 4rem;
 }
+
 @layer base {
 	html,
 	body {
