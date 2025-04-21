@@ -10,7 +10,7 @@
 
 	let {
 		children,
-		debug = true,
+		debug = false,
 		enableViewTransitions = false, // Flag for future granular control
 		enableSvelteTransitions = true, // Flag for future granular control
 		rules = []
@@ -146,14 +146,10 @@
 
 		// use ViewTransition API
 		return new Promise((resolve) => {
-			const viewTransition = document.startViewTransition(async () => {
+			document.startViewTransition(async () => {
 				resolve();
 				await navigation.complete;
 			});
-			// Wait until the new page has been created in the DOM.
-			// viewTransition.ready.then(() => {
-			// 	// Do something?
-			// });
 		});
 	});
 

@@ -15,7 +15,7 @@
 			toRouteId: '/(home)/garage/fov-map',
 			transition: {
 				function: blur,
-				params: { duration: 250, easing: linear, amount: '16px' }
+				params: { duration: 450, easing: linear, amount: '16px' }
 			}
 		},
 		{
@@ -24,33 +24,25 @@
 			toRouteId: '/(home)/garage',
 			transition: {
 				function: blur,
-				params: { duration: 250, easing: linear, amount: '6px' }
+				params: { duration: 450, easing: linear, amount: '16px' }
 			}
 		},
 		{
 			withType: 'link',
 			fromRouteId: '/(home)/garage',
 			toRouteId: '/(home)/garage/friends',
-			outro: {
-				function: fly,
-				params: { duration: 450, easing: linear, x: '-100%', opacity: 1 }
-			},
 			intro: {
-				function: fly,
-				params: { duration: 450, easing: linear, x: '100%', opacity: 1 }
+				function: fade,
+				params: { duration: 450, easing: linear }
 			}
 		},
 		{
 			withType: 'link',
 			fromRouteId: '/(home)/garage/friends',
 			toRouteId: '/(home)/garage',
-			outro: {
-				function: fly,
-				params: { duration: 450, easing: linear, x: '200%', opacity: 1 }
-			},
 			intro: {
-				function: fly,
-				params: { duration: 450, easing: linear, x: '-100%', opacity: 1 }
+				function: fade,
+				params: { duration: 450, easing: linear }
 			}
 		},
 		{
@@ -58,7 +50,7 @@
 			toRouteId: '/(home)/garage/viewport-typography',
 			intro: {
 				function: scale,
-				params: { duration: 450, easing: linear }
+				params: { duration: 250, easing: linear }
 			}
 		},
 		{
@@ -66,7 +58,7 @@
 			fromRouteId: '/(home)/garage/viewport-typography',
 			outro: {
 				function: scale,
-				params: { duration: 450, easing: linear }
+				params: { duration: 250, easing: linear }
 			}
 		},
 		{
@@ -78,12 +70,12 @@
 		{
 			withType: 'link',
 			toRouteId: '/(home)/garage/glowing-ice',
-			transition: { function: blur, params: { duration: 250, amount: '8px', easing: linear } }
+			intro: { function: fade, params: { duration: 250 } }
 		},
 		{
 			withType: 'link',
 			fromRouteId: '/(home)/garage/glowing-ice',
-			transition: { function: blur, params: { duration: 250, amount: '8px', easing: linear } }
+			intro: { function: fade, params: { duration: 250 } }
 		}
 	];
 </script>
