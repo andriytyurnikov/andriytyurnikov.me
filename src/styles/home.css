@@ -41,25 +41,25 @@
 	}
 }
 
-@layer utilities {
-	.bg-garage {
-		@apply bg-center bg-cover bg-neutral-900 text-neutral-50;
-		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/garage.jpg');
-	}
+@utility bg-garage {
+	@apply bg-center bg-cover bg-black text-neutral-50;
 
-	.bg-burger {
-		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)),
-			url('/images/burger-with-knife-in-it.jpg');
-	}
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/garage.jpg');
+}
 
-	.bg-ice {
-		@apply bg-center bg-cover bg-cyan-300 text-cyan-950;
-		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.125), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.125)),
-			url('/images/glowing-ice.jpg');
-	}
+@utility bg-burger {
+	@apply bg-black bg-center bg-cover;
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)),
+		url('/images/burger-with-knife-in-it.jpg');
+}
+
+@utility bg-ice {
+	@apply bg-center bg-cover bg-cyan-300 text-cyan-950;
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.125), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.125)),
+		url('/images/glowing-ice.jpg');
 }
 
 @view-transition {
