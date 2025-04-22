@@ -60,7 +60,7 @@
 						rel="noopener"
 					>
 						Eugene Naumov
-					</a>,
+					</a>,<br />
 					<a
 						class="after:content-['_↗']"
 						href="https://cupatea.github.io/"
@@ -68,7 +68,7 @@
 						rel="noopener"
 					>
 						Vladyslav Davydenko
-					</a>,
+					</a>,<br />
 					<a
 						class="after:content-['_↗']"
 						href="https://vsnares.github.io/"

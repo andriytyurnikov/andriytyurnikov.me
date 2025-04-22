@@ -3,7 +3,7 @@
 </script>
 
 <section class="ui-el-container">
-	<h1 class="text-[3rem]">📱 Mobile-first Layouts 🖼️</h1>
+	<h1 class="text-[2.25rem]">Mobile-first Layouts</h1>
 	<p class="text-balance">
 		Mobile-first responsive layouts emerge from acceptance of hard constraints:
 	</p>
