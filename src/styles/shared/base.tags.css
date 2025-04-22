@@ -2,8 +2,7 @@
 
 @layer base {
 	html {
-		@apply font-[Roboto_Mono]
-      min-h-full h-full;
+		@apply min-h-full h-full;
 	}
 
 	body {

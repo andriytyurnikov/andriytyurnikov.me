@@ -80,20 +80,9 @@
 	];
 </script>
 
-<svelte:head>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-		rel="stylesheet"
-	/>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-</svelte:head>
-
 <div class="ui-shell bg-neutral-900">
 	<!-- Responsive NavBar -->
-	<nav class="ui-shell-navbar-slot bg-neutral-900">
+	<nav class="ui-shell-navbar-slot bg-neutral-900 font-sans">
 		<div
 			class="ui-shell-navbar justify-between bg-neutral-900/75 backdrop-blur-md text-neutral-100"
 		>

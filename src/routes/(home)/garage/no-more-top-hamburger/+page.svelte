@@ -1,20 +1,9 @@
-<svelte:head>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-		rel="stylesheet"
-	/>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-</svelte:head>
-
 <article
 	class="text-neutral-50 p-4 flex flex-col flex-grow flex-1 grow min-h-full h-full items-center justify-center"
 >
 	<!-- <section class="flex flex-col flex-grow flex-1"> -->
 	<div class="w-full max-w-[40rem] mx-auto">
-		<p class="text-[1.25rem] mb-2">
+		<p class="text-[1.25rem] mb-2 text-balance">
 			The hamburger menu [☰] at the top of mobile screens is bad design.
 		</p>
 
