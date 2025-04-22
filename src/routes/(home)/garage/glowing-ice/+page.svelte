@@ -9,9 +9,12 @@
 		<h1 class="text-center text-[3rem] font-black mb-2">✨ 🧊<br /> Glowing Ice</h1>
 		<p class="text-center mb-6">animated page transitions for SvelteKit</p>
 		<ul class="text-left">
-			<li>✅ Svelte Transitions</li>
+			<li>✅ Routing rules</li>
+			<li>✅ Nested layouts</li>
 			<li>✅ Accessibility 'prefers-reduced-motion'</li>
+			<li>✅ Svelte Transitions</li>
 			<li>⛔ TODO: ViewTransitions API</li>
+			<li>⛔ TODO: Container customization</li>
 		</ul>
 	</div>
 </section>
