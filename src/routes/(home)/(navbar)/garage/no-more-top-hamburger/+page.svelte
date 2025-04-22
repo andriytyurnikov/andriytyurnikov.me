@@ -24,7 +24,7 @@
 </article>
 
 <style>
-	@reference "../../../../styles/home.css";
+	@reference "../../../../../styles/home.css";
 
 	article {
 		@apply bg-black bg-center bg-cover bg-burger;

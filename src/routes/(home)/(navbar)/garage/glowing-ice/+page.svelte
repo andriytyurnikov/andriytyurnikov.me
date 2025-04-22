@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	// import { base } from '$app/paths';
 </script>
 
 <section class="h-full w-full flex flex-col grow flex-1 justify-center items-center">

@@ -2,10 +2,12 @@
 	import { base } from '$app/paths';
 </script>
 
-<article class="min-h-dvh w-full p-4 flex items-center justify-center">
+<article class="min-h-full w-full p-4 flex items-center justify-center">
 	<section class="ui-el-container">
-		<h1 class="text-[3rem]">Responsive Layouts</h1>
-		<p>Responsive layouts emerge from acceptance of hard constraints:</p>
+		<h1 class="text-[3rem]">📱 Mobile-first Layouts 🖼️</h1>
+		<p class="text-balance">
+			Mobile-first responsive layouts emerge from acceptance of hard constraints:
+		</p>
 		<p>
 			There is no "spectrum" of devices &mdash; there are distinct categories:
 			<br />
@@ -16,12 +18,14 @@
 
 		<h2 class="text-[2.25rem]">Emerging solutions:</h2>
 		<p>
-			<a href="{base}/mobile-layouts/centered" rel="me">Centered composition</a> (mostly for landing
-			pages)
+			<a href="{base}/garage/mobile-first-layouts/centered" rel="me">Centered composition</a>
+			(mostly for landing pages)
 			<br />
-			<a href="{base}/mobile-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
+			<a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
 			<br />
-			<a href="{base}/mobile-layouts/shell" rel="me">Appliation Shell (responsive NavBar)</a>
+			<a href="{base}/garage/mobile-first-layouts/shell" rel="me"
+				>Appliation Shell (responsive NavBar)</a
+			>
 			(often image/video driven)
 		</p>
 	</section>
@@ -50,7 +54,7 @@
 </article-->
 
 <style>
-	@reference "../../../styles/default.css";
+	@reference "../../../../../styles/default.css";
 	:global(html) {
 		background-color: theme(--color-black);
 	}

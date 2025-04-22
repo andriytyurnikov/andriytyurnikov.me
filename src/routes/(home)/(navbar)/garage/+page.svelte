@@ -26,22 +26,22 @@
 			</li>
 
 			<li>
+				<a href="{base}/garage/mobile-first-layouts">📱 Mobile-first Layouts 🖼️</a>
+			</li>
+
+			<li>
 				<a href="{base}/garage/no-more-top-hamburger">🔪 NoMoreTopHamburger.com 🍔</a>
 			</li>
 
 			<li class="hidden">
 				<a href="{base}/display-horizon">🖥️ Display Horizon 🌅</a> &mdash; screens in field of view
 			</li>
-
-			<li class="hidden text-cyan-200">
-				<a href="{base}/mobile-layouts">📱 Mobile Layouts 🖼️</a> &mdash; steal like an artist
-			</li>
 		</ul>
 	</div>
 </section>
 
 <style>
-	@reference "../../../styles/default.css";
+	@reference "../../../../styles/default.css";
 
 	ul li {
 		@apply mb-4;

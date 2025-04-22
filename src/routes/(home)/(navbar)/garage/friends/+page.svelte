@@ -94,7 +94,7 @@
 </section>
 
 <style>
-	@reference "../../../../styles/home.css";
+	@reference "../../../../../styles/home.css";
 
 	a {
 		@apply decoration-dashed decoration-1 underline-offset-4;

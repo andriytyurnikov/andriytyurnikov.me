@@ -25,7 +25,7 @@ export default [
 	{
 		withType: 'link',
 		fromRouteId: '/(home)',
-		toRouteId: '/(home)/garage',
+		toRouteId: '/(home)/(navbar)/garage',
 		outro: {
 			function: fly,
 			params: { duration: 450, easing: linear, y: '-100%', opacity: 1 }
@@ -34,6 +34,24 @@ export default [
 		intro: {
 			function: fade,
 			params: { duration: 450, easing: linear }
+		}
+	},
+	{
+		withType: 'link',
+		fromRouteId: '/(home)/(navbar)/garage',
+		toRouteId: '/(home)/(fullscreen)/garage/fov-map',
+		transition: {
+			function: blur,
+			params: { duration: 450, easing: linear, amount: '16px' }
+		}
+	},
+	{
+		withType: 'link',
+		fromRouteId: '/(home)/(fullscreen)/garage/fov-map',
+		toRouteId: '/(home)/(navbar)/garage',
+		transition: {
+			function: blur,
+			params: { duration: 450, easing: linear, amount: '16px' }
 		}
 	}
 ];

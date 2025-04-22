@@ -1,18 +1,6 @@
 <script>
-	let { children } = $props();
-	import '../../../../styles/default.css';
+	import { base } from '$app/paths';
 </script>
-
-<svelte:head>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-		rel="stylesheet"
-	/>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-</svelte:head>
 
 <div class="ui-shell">
 	<!-- Responsive NavBar -->
@@ -78,12 +66,21 @@
 
 	<!-- main content -->
 	<main class="ui-shell-main bg-neutral-300 text-neutral-950">
-		{@render children()}
+		<div class="container laptop:w-[40rem] laptop:max-w-[40rem] mx-auto text-left">
+			<header class="text-left text-neutral-50 h-32 pt-6 w-full">
+				<h1 class="text-left text-4xl font-bold">Mobile-only Header</h1>
+			</header>
+
+			<p class="text-left w-full">
+				Main content is here!<br />
+				<a href="{base}/garage/mobile-first-layouts" rel="me">back to layouts</a>
+			</p>
+		</div>
 	</main>
 </div>
 
 <style>
-	@reference "../../../../styles/default.css";
+	@reference "../../../../../../styles/default.css";
 
 	main {
 		background-image:

@@ -10,7 +10,7 @@
 		<p>
 			Both axes (if needed).
 			<br />
-			<a href="{base}/mobile-layouts" rel="me">back to layouts</a>
+			<a href="{base}/garage/mobile-first-layouts" rel="me">back to layouts</a>
 		</p>
 	</section>
 
@@ -18,7 +18,7 @@
 </article>
 
 <style>
-	@reference "../../../../styles/default.css";
+	@reference "../../../../../../styles/default.css";
 
 	:global(html) {
 		background-color: theme(--color-black);

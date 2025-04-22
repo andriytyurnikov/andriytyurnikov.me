@@ -11,26 +11,8 @@
 	const rules = [
 		{
 			withType: 'link',
-			fromRouteId: '/(home)/garage',
-			toRouteId: '/(home)/garage/fov-map',
-			transition: {
-				function: blur,
-				params: { duration: 450, easing: linear, amount: '16px' }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(home)/garage/fov-map',
-			toRouteId: '/(home)/garage',
-			transition: {
-				function: blur,
-				params: { duration: 450, easing: linear, amount: '16px' }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(home)/garage',
-			toRouteId: '/(home)/garage/friends',
+			fromRouteId: '/(home)/(navbar)/garage',
+			toRouteId: '/(home)/(navbar)/garage/friends',
 			intro: {
 				function: fade,
 				params: { duration: 450, easing: linear }
@@ -38,8 +20,8 @@
 		},
 		{
 			withType: 'link',
-			fromRouteId: '/(home)/garage/friends',
-			toRouteId: '/(home)/garage',
+			fromRouteId: '/(home)/(navbar)/garage/friends',
+			toRouteId: '/(home)/(navbar)/garage',
 			intro: {
 				function: fade,
 				params: { duration: 450, easing: linear }
@@ -47,7 +29,7 @@
 		},
 		{
 			withType: 'link',
-			toRouteId: '/(home)/garage/viewport-typography',
+			toRouteId: '/(home)/(navbar)/garage/viewport-typography',
 			intro: {
 				function: scale,
 				params: { duration: 250, easing: linear }
@@ -55,7 +37,7 @@
 		},
 		{
 			withType: 'link',
-			fromRouteId: '/(home)/garage/viewport-typography',
+			fromRouteId: '/(home)/(navbar)/garage/viewport-typography',
 			outro: {
 				function: scale,
 				params: { duration: 250, easing: linear }
@@ -63,18 +45,18 @@
 		},
 		{
 			withType: 'link',
-			toRouteId: '/(home)/garage/no-more-top-hamburger',
+			toRouteId: '/(home)/(navbar)/garage/no-more-top-hamburger',
 			transition: { function: filterHueRotate, params: { duration: 250, easing: linear } }
 		},
 
 		{
 			withType: 'link',
-			toRouteId: '/(home)/garage/glowing-ice',
+			toRouteId: '/(home)/(navbar)/garage/glowing-ice',
 			intro: { function: fade, params: { duration: 250 } }
 		},
 		{
 			withType: 'link',
-			fromRouteId: '/(home)/garage/glowing-ice',
+			fromRouteId: '/(home)/(navbar)/garage/glowing-ice',
 			intro: { function: fade, params: { duration: 250 } }
 		}
 	];

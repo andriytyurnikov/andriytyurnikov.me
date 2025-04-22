@@ -1,5 +1,5 @@
 <script>
-	import '../../../../styles/home.css';
+	import '../../../../../styles/home.css';
 
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
 	import { linear } from 'svelte/easing';
@@ -195,7 +195,7 @@
 </article>
 
 <style>
-	@reference "../../../../styles/home.css";
+	@reference "../../../../../styles/home.css";
 
 	article {
 		@apply bg-ice;
