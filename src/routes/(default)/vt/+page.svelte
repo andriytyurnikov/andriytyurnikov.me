@@ -2,18 +2,27 @@
 	import { base } from '$app/paths';
 </script>
 
-<div class="bg-sky-200 h-dvh w-dvw justify-center flex flex-col items-center place-items-center">
+<div
+	style="view-transition-name: fade-through;"
+	class="bg-sky-200 h-dvh w-dvw justify-center flex flex-col items-center place-items-center"
+>
 	<h1 class="font-bold text-[2rem] text-center">View Transitions</h1>
-	<a href="{base}/vt/nested-1">Nested 1</a>
-	<a href="{base}/vt/nested-2">Nested 2</a>
-	<a href="{base}/vt/nested-3">
-		<div class="inline-block" style="view-transition-name: sign-in;">Nested hero</div>
+
+	Container transform (strong relationship - item-to-details)<br />
+	<a href="{base}/vt/container-transform">
+		<div
+			class="inline-block bg-rose-300 p-4 rounded-full"
+			style="view-transition-name: container-transform;"
+		>
+			Container transform
+		</div>
 	</a>
 
-	Relative motion<br />
-	Container transform (strong relationship - item-to-details)<br />
 	Shared Axis(x/y/z - back&next, stepper & wizard, camera)<br />
 	Fade through (no strong relationship - navbar destinations!)<br />
+	<a href="{base}/vt/fade-through">
+		<div class="inline-block bg-yellow-300 p-4 rounded-full">fade through</div>
+	</a>
 	Fade (separate element +scale)<br />
 </div>
 

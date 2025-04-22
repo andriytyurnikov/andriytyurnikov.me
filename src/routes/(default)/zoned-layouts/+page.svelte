@@ -3,6 +3,14 @@
 </script>
 
 <article class="flex flex-col flex-1">
+	<section class="bg-slate-900 min-h-dvh min-w-dvw flex justify-center items-center">
+		<div
+			class="bg-slate-500 w-1/2 w-[16rem] portrait:w-full h-[12rem] tablet:!w-[16rem] tablet:!h-[12rem]"
+		>
+			Solo Minor
+		</div>
+	</section>
+
 	<section class="bg-slate-100 min-h-dvh min-w-dvw flex justify-center items-center">
 		<div
 			class="bg-slate-700 w-full max-w-[24rem] p-4 tablet:p-0 tablet:max-w-[32rem] tablet:w-[32rem] laptop:w-[32rem] h-[20rem] tablet:h-[24rem]"
@@ -39,12 +47,12 @@
 		<div
 			class="bg-slate-600 w-1/2 w-[16rem] portrait:w-full h-[12rem] tablet:!w-[16rem] tablet:!h-[20rem]"
 		>
-			Duo Minor (absurd)
+			Duo Minor
 		</div>
 		<div
 			class="bg-slate-500 w-1/2 w-[16rem] portrait:w-full h-[12rem] tablet:!w-[16rem] tablet:!h-[20rem]"
 		>
-			Duo Minor (absurd)
+			Duo Minor
 		</div>
 	</section>
 	<section

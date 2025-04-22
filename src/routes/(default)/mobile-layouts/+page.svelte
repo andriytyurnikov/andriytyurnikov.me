@@ -5,8 +5,7 @@
 <article class="min-h-dvh w-full p-4 flex items-center justify-center">
 	<section class="ui-el-container">
 		<h1 class="text-[3rem]">Responsive Layouts</h1>
-		<p>Responsive layouts emerge from acceptance of hard constraints.</p>
-		<h2 class="text-[2.25rem]">Hard constraints:</h2>
+		<p>Responsive layouts emerge from acceptance of hard constraints:</p>
 		<p>
 			There is no "spectrum" of devices &mdash; there are distinct categories:
 			<br />
@@ -17,24 +16,6 @@
 
 		<h2 class="text-[2.25rem]">Emerging solutions:</h2>
 		<p>
-			Mobile users deserve more then a [<span
-				class="align-baseline inline-block h-4 w-4 text-center bg-neutral-900/75"
-				><svg
-					xmlns="http://www.w3.org/2000/svg"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke-width="1.5"
-					stroke="currentColor"
-					class="size-4"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-					/>
-				</svg>
-			</span>] on the top of the screen.
-			<br />
 			<a href="{base}/mobile-layouts/centered" rel="me">Centered composition</a> (mostly for landing
 			pages)
 			<br />

@@ -30,7 +30,7 @@
 			Main Zone
 		</div>
 	</main>
-	<nav class="bg-sky-950 text-slate-200 ui-shell-navbar-slot">NavBar</nav>
+	<nav class="bg-sky-950 text-slate-200 ui-shell-navbar-slot">NavBar Slot</nav>
 </div>
 
 <div class="ui-shell--grid min-h-dvh">
@@ -54,5 +54,5 @@
 			</div>
 		</section>
 	</main>
-	<nav class="sticky bg-sky-950 text-slate-200 ui-shell-navbar-slot">NavBar</nav>
+	<nav class="sticky bg-sky-950 text-slate-200 ui-shell-navbar-slot">NavBar Slot</nav>
 </div>

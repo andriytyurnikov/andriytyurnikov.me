@@ -31,19 +31,4 @@
 {@render children()}
 
 <style>
-	@media (prefers-reduced-motion) {
-		::view-transition-group(*),
-		::view-transition-old(*),
-		::view-transition-new(*) {
-			animation: none !important;
-		}
-	}
-
-	:global(h1) {
-		view-transition-name: title;
-	}
-
-	:global(::view-transition-group(sign-in)) {
-		animation-duration: 5s;
-	}
 </style>

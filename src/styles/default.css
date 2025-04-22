@@ -7,6 +7,7 @@
 @import './shared/colors.inferno.css';
 @import './shared/colors.viridis.css';
 
+@import './shared/base.view-transitions.css';
 @import './shared/base.root.css';
 @import './shared/base.tags.css';
 
@@ -16,6 +17,16 @@
 
 @theme {
 	--ui-navbar-size: 4rem;
+
+	--font-sans: 'IBM Plex Sans', sans-serif;
+	--font-serif: 'IBM Plex Serif', sans-serif;
+	--font-mono: 'IBM Plex Mono', monospace;
+}
+
+@layer base {
+	body {
+		@apply font-serif;
+	}
 }
 
 @layer components {
