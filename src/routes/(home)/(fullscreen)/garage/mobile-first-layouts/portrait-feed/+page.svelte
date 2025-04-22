@@ -37,15 +37,7 @@
 </article>
 
 <style>
-	@reference "../../../../../../styles/default.css";
-
-	:global(html) {
-		background-color: theme(--color-black);
-	}
-
-	:global(body) {
-		color: theme(--color-white);
-	}
+	@reference "../../../../../../styles/home.css";
 
 	article {
 		background-image:

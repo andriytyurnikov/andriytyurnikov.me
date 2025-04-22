@@ -17,6 +17,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
-<GlowingIce rules={transitionRules}>
-	{@render children()}
-</GlowingIce>
+<div class="bg-black text-white contents">
+	<GlowingIce rules={transitionRules}>
+		{@render children()}
+	</GlowingIce>
+</div>

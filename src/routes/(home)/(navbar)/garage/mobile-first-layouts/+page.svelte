@@ -2,34 +2,32 @@
 	import { base } from '$app/paths';
 </script>
 
-<article class="min-h-full w-full p-4 flex items-center justify-center">
-	<section class="ui-el-container">
-		<h1 class="text-[3rem]">📱 Mobile-first Layouts 🖼️</h1>
-		<p class="text-balance">
-			Mobile-first responsive layouts emerge from acceptance of hard constraints:
-		</p>
-		<p>
-			There is no "spectrum" of devices &mdash; there are distinct categories:
-			<br />
-			Smartphones, Tablets, Laptops, Desktops.
-			<br />
-			Accept finger reach limitations.
-		</p>
+<section class="ui-el-container">
+	<h1 class="text-[3rem]">📱 Mobile-first Layouts 🖼️</h1>
+	<p class="text-balance">
+		Mobile-first responsive layouts emerge from acceptance of hard constraints:
+	</p>
+	<p>
+		There is no "spectrum" of devices &mdash; there are distinct categories:
+		<br />
+		Smartphones, Tablets, Laptops, Desktops.
+		<br />
+		Accept finger reach limitations.
+	</p>
 
-		<h2 class="text-[2.25rem]">Emerging solutions:</h2>
-		<p>
-			<a href="{base}/garage/mobile-first-layouts/centered" rel="me">Centered composition</a>
-			(mostly for landing pages)
-			<br />
-			<a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
-			<br />
-			<a href="{base}/garage/mobile-first-layouts/shell" rel="me"
-				>Appliation Shell (responsive NavBar)</a
-			>
-			(often image/video driven)
-		</p>
-	</section>
-</article>
+	<h2 class="text-[2.25rem]">Emerging solutions:</h2>
+	<p>
+		<a href="{base}/garage/mobile-first-layouts/centered" rel="me">Centered composition</a>
+		(mostly for landing pages)
+		<br />
+		<a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
+		<br />
+		<a href="{base}/garage/mobile-first-layouts/shell" rel="me"
+			>Appliation Shell (responsive NavBar)</a
+		>
+		(often image/video driven)
+	</p>
+</section>
 
 <!--article class="min-h-dvh w-full p-4 flex items-center justify-center">
 	<section class="ui-el-container flex flex-col flex-1 min-h-full">
@@ -54,23 +52,7 @@
 </article-->
 
 <style>
-	@reference "../../../../../styles/default.css";
-	:global(html) {
-		background-color: theme(--color-black);
-	}
-
-	:global(body) {
-		color: theme(--color-white);
-		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/balance.jpg');
-		@apply bg-center bg-cover;
-	}
-
-	article {
-		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/balance.jpg');
-		@apply bg-center bg-cover;
-	}
+	@reference "../../../../../styles/home.css";
 
 	p {
 		@apply mb-6;

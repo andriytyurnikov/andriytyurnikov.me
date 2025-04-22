@@ -1,13 +1,18 @@
 <script>
 	let { children } = $props();
-	import '../../../../../styles/default.css';
+	import '../../../../../styles/home.css';
 </script>
 
-<svelte:head>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<article class="min-h-full w-full p-4 flex items-center justify-center">
+	{@render children()}
+</article>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-</svelte:head>
+<style>
+	@reference "../../../../../styles/home.css";
 
-{@render children()}
+	article {
+		background-image:
+			linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/balance.jpg');
+		@apply bg-center bg-cover;
+	}
+</style>

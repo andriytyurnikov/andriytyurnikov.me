@@ -80,7 +80,7 @@
 </div>
 
 <style>
-	@reference "../../../../../../styles/default.css";
+	@reference "../../../../../../styles/home.css";
 
 	main {
 		background-image:
