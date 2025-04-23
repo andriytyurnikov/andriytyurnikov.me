@@ -33,6 +33,15 @@
 				<a href="{base}/garage/no-more-top-hamburger">🔪 NoMoreTopHamburger.com 🍔</a>
 			</li>
 
+			<li>
+				<a
+					rel="me"
+					target="_blank"
+					class="ui-link-out u-url after:content-['_↗']"
+					href="https://rubygems.org/gems/clamo">📣 Clamo 💎</a
+				> : Ruby via JSON-RPC.
+			</li>
+
 			<li class="hidden">
 				<a href="{base}/display-horizon">🖥️ Display Horizon 🌅</a> &mdash; screens in field of view
 			</li>
@@ -41,7 +50,7 @@
 </section>
 
 <style>
-	@reference "../../../../styles/default.css";
+	@reference "../../../../styles/home.css";
 
 	ul li {
 		@apply mb-4;
