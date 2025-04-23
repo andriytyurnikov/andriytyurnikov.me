@@ -3,7 +3,7 @@
 </script>
 
 <section
-	class="text-yellow-50 min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly"
+	class="text-yellow-50 min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly overflow-y-scroll"
 >
 	<div class="w-1/2 portrait:w-full w-[16rem] h-[12rem] flex flex-col justify-center">
 		<p class="mx-4 italic text-[2rem] mb-6 text-center">"The warmth of shared craft"</p>
@@ -11,10 +11,10 @@
 	<div
 		class="px-6 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:max-h-[24rem] justify-center place-center items-center"
 	>
-		<h2 class="text-[1.75rem] font-bold mb-6">Friends in craft:</h2>
-		<div class="grid landscape:grid-cols-2 tablet:grid-cols-2 w-full">
+		<h2 class="text-[1.75rem] font-medium mb-6">Friends in craft:</h2>
+		<div class="grid grid-cols-2 gap-4 landscape:grid-cols-2 tablet:grid-cols-2 w-full">
 			<div>
-				<h3>Radial and Zoom UIs:</h3>
+				<h3 class="font-medium text-[1.25rem]">Radial and Zoom UIs:</h3>
 				<p class="mb-4">
 					<a
 						class="after:content-['_↗']"
@@ -26,7 +26,7 @@
 					</a>
 				</p>
 
-				<h3>Mobile & AR/VR:</h3>
+				<h3 class="font-medium text-[1.25rem]">Mobile & AR/VR:</h3>
 				<p class="mb-4">
 					<a
 						class="after:content-['_↗']"
@@ -39,7 +39,7 @@
 				</p>
 			</div>
 			<div>
-				<h3>Web<sup>3</sup> and DeFi:</h3>
+				<h3 class="font-medium text-[1.25rem]">Web<sup>3</sup> and DeFi:</h3>
 				<p class="mb-4">
 					<a
 						class="after:content-['_↗']"
@@ -51,7 +51,7 @@
 					</a>
 				</p>
 
-				<h3>Ruby on Rails:</h3>
+				<h3 class="font-medium text-[1.25rem]">Ruby on Rails:</h3>
 				<p class="mb-4">
 					<a
 						class="after:content-['_↗']"
@@ -94,7 +94,7 @@
 </section>
 
 <style>
-	@reference "../../../../../styles/home.css";
+	@reference "../../../../styles/home.css";
 
 	a {
 		@apply decoration-dashed decoration-1 underline-offset-4;

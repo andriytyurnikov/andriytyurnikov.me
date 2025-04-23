@@ -92,5 +92,31 @@ export default [
 		fromRouteId: '/(home)/(navbar)/garage/no-more-top-hamburger',
 		toRouteId: '/(home)/(navbar)/garage',
 		transition: { function: fade, params: { duration: 250, easing: linear } }
+	},
+	{
+		withType: 'link',
+		fromRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
+		toRouteId: '/(home)/(fullscreen)/garage/mobile-first-layouts/centered',
+		intro: {
+			function: scale,
+			params: { duration: 450, easing: linear }
+		},
+		outro: {
+			function: fade,
+			params: { delay: 400, duration: 50, easing: linear }
+		}
+	},
+	{
+		withType: 'link',
+		toRouteIdfromRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
+		fromRouteId: '/(home)/(fullscreen)/garage/mobile-first-layouts/centered',
+		outro: {
+			function: scale,
+			params: { duration: 450, easing: linear }
+		},
+		intro: {
+			function: fade,
+			params: { duration: 450, easing: linear }
+		}
 	}
 ];

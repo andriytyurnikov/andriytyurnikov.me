@@ -25,12 +25,12 @@ export default [
 		withType: 'link',
 		toRouteId: '/(home)/(navbar)/garage/viewport-typography',
 		intro: {
-			function: scale,
-			params: { duration: 450, easing: linear }
+			function: fade,
+			params: { duration: 250, easing: linear }
 		},
 		outro: {
 			function: fade,
-			params: { duration: 450, easing: linear }
+			params: { duration: 250, easing: linear }
 		}
 	},
 	{

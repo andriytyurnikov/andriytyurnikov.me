@@ -11,7 +11,7 @@
 	<div
 		class="flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:max-h-[24rem] justify-center place-center items-center"
 	>
-		<h2 class="text-[1.75rem] font-bold mb-6">Web, UI/UX related:</h2>
+		<h2 class="text-[1.75rem] font-medium mb-6">Web, UI/UX related:</h2>
 		<ul class="text-[1.25rem] leading-[1.875rem]">
 			<li class="mt-4">
 				<a href="{base}/garage/fov-map">🌇 Field of View Map 🗺️</a>

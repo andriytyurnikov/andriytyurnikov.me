@@ -9,7 +9,7 @@
 	let { children } = $props();
 </script>
 
-<article class="h-dvh flex flex-col flex-1">
+<article class="h-full flex flex-col flex-1">
 	<!-- <header>
 		<h1 class="text-center text-[3rem] font-bold mb-4">Glowing Ice</h1>
 		<p class="text-center">animated page transitions for SvelteKit</p>
