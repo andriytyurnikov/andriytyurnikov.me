@@ -1,5 +1,5 @@
 <!-- <section class="flex flex-col flex-grow flex-1"> -->
-<div class="w-full max-w-[40rem] mx-auto">
+<div class="w-full max-w-[24rem] mx-auto">
 	<p class="text-[1.25rem] mb-2 text-balance">
 		The hamburger menu [☰] at the top of mobile screens is bad design.
 	</p>
