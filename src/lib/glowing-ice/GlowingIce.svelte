@@ -1,12 +1,12 @@
 <script>
-	// import { browser, dev, building, version } from '$app/environment';
 	import { browser } from '$app/environment';
 	import { MediaQuery } from 'svelte/reactivity';
 	import { navigating, page } from '$app/state';
 	import { onNavigate } from '$app/navigation';
 	import { tick } from 'svelte';
 
-	import { noop } from './transition.js';
+	// import { noop } from './transition.js';
+	const noop = () => {};
 
 	let {
 		children,
@@ -19,8 +19,6 @@
 	// Reactive state
 	let prefersReducedMotionMediaQuery = new MediaQuery('prefers-reduced-motion: reduce');
 	let viewTransitionsSupported = $state(false);
-	// let reactiveNavigation = $state(null);
-	let ready = $state(false);
 	let instanceId = $state(42);
 
 	let viewTransitionsActive = $derived.by(() => {
@@ -50,7 +48,7 @@
 	});
 
 	const derivedMatchingRules = $derived.by(() => {
-		// if (!reactiveNavigation) return [];
+		if (!navigating) return [];
 
 		return rules.filter((rule) => {
 			if (!rule) return false;
@@ -128,7 +126,6 @@
 			tick()
 				.then(tick)
 				.then(() => {
-					ready = true;
 					if (debug) console.log('Animations ready');
 				});
 		}
@@ -138,12 +135,11 @@
 	onNavigate((navigation) => {
 		if (debug) console.log('Navigation starting:', navigation.type);
 		if (!browser) return;
-		// reactiveNavigation = navigation;
+		// navigating is faster
 
 		if (prefersReducedMotionMediaQuery.current) return;
 
 		if (!derivedUseViewTransitions) return;
-
 		// use ViewTransition API
 		return new Promise((resolve) => {
 			const viewTransition = document.startViewTransition(async () => {
@@ -180,9 +176,8 @@
 	style="position: relative; min-width: 100%; min-height: 100%; height: 100%; display: flex; flex-direction: column; flex: 1; justify-content: stretch;"
 >
 	{#key derivedKey}
-		{#if true}
-			<div
-				style="position: absolute;
+		<div
+			style="position: absolute;
 				      top: 0; bottom: 0; left: 0; right: 0;
 							min-width: 100%;
 							min-height: 100%;
@@ -190,25 +185,15 @@
 							flex-direction: column;
 							flex: 1;
 							justify-content: stretch;"
-				in:derivedIntro|global={derivedIntroParams}
-				{onintrostart}
-				{onintroend}
-				out:derivedOutro|global={derivedOutroParams}
-				{onoutrostart}
-				{onoutroend}
-			>
-				{@render children()}
-			</div>
-		{:else}
-			<div
-				style="position: absolute;
-				      inset: 0;
-							display: flex;
-							flex-direction: column;
-							flex: 1;
-							justify-content: stretch;"
-			></div>
-		{/if}
+			in:derivedIntro|global={derivedIntroParams}
+			{onintrostart}
+			{onintroend}
+			out:derivedOutro|global={derivedOutroParams}
+			{onoutrostart}
+			{onoutroend}
+		>
+			{@render children()}
+		</div>
 	{/key}
 </div>
 
