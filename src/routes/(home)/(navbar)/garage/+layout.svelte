@@ -1,5 +1,5 @@
 <script>
-	import '../../../styles/home.css';
+	import '../../../../styles/home.css';
 	import { base } from '$app/paths';
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
 	import { linear, quadIn } from 'svelte/easing';
@@ -8,58 +8,7 @@
 
 	let { children } = $props();
 
-	const rules = [
-		{
-			withType: 'link',
-			fromRouteId: '/(home)/(navbar)/garage',
-			toRouteId: '/(home)/(navbar)/garage/friends',
-			intro: {
-				function: fade,
-				params: { duration: 450, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(home)/(navbar)/garage/friends',
-			toRouteId: '/(home)/(navbar)/garage',
-			intro: {
-				function: fade,
-				params: { duration: 450, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(home)/(navbar)/garage/viewport-typography',
-			intro: {
-				function: scale,
-				params: { duration: 250, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(home)/(navbar)/garage/viewport-typography',
-			outro: {
-				function: scale,
-				params: { duration: 250, easing: linear }
-			}
-		},
-		{
-			withType: 'link',
-			toRouteId: '/(home)/(navbar)/garage/no-more-top-hamburger',
-			transition: { function: filterHueRotate, params: { duration: 250, easing: linear } }
-		},
-
-		{
-			withType: 'link',
-			toRouteId: '/(home)/(navbar)/garage/glowing-ice',
-			intro: { function: fade, params: { duration: 250 } }
-		},
-		{
-			withType: 'link',
-			fromRouteId: '/(home)/(navbar)/garage/glowing-ice',
-			intro: { function: fade, params: { duration: 250 } }
-		}
-	];
+	import transitionRules from './transitionRules';
 </script>
 
 <div class="ui-shell bg-neutral-900">
@@ -196,19 +145,11 @@
 	</nav>
 
 	<!-- main content -->
-	<main class="ui-shell-main bg-neutral-900 text-neutral-100 flex flex-col flex-1">
-		<GlowingIce {rules}>
+	<main class="ui-shell-main bg-garage text-neutral-100 flex flex-col flex-1">
+		<GlowingIce rules={transitionRules}>
 			<!-- <div class="flex flex-col flex-1 justify-stretch grow min-h-full h-full"> -->
 			{@render children()}
 			<!-- </div> -->
 		</GlowingIce>
 	</main>
 </div>
-
-<style>
-	@reference "../../../styles/home.css";
-
-	main {
-		@apply bg-garage;
-	}
-</style>

@@ -48,13 +48,14 @@
       min-w-full
       w-auto
 
-      min-h-dvh
-      h-auto
+      h-dvh
 
       laptop:pt-[var(--ui-navbar-size)]
       portrait:pb-[var(--ui-navbar-size)]
       landscape:pr-[var(--ui-navbar-size)]
-      landscape:laptop:pr-0;
+      landscape:laptop:pr-0
+
+      overflow-scroll;
 		}
 	}
 

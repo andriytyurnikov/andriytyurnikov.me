@@ -9,7 +9,7 @@
 		<p class="mx-4 italic text-[2rem] mb-6 text-center">"The warmth of shared craft"</p>
 	</div>
 	<div
-		class="px-6 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:h-[24rem] justify-center place-center items-center"
+		class="px-6 flex flex-col w-1/2 portrait:w-full landscape:w-[32rem] h-[20rem] tablet:max-h-[24rem] justify-center place-center items-center"
 	>
 		<h2 class="text-[1.75rem] font-bold mb-6">Friends in craft:</h2>
 		<div class="grid landscape:grid-cols-2 tablet:grid-cols-2 w-full">

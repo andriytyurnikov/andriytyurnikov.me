@@ -53,5 +53,35 @@ export default [
 			function: blur,
 			params: { duration: 450, easing: linear, amount: '16px' }
 		}
+	},
+	{
+		withType: 'link',
+		fromRouteId: '/(home)/(navbar)/garage',
+		toRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
+		transition: {
+			function: fade,
+			params: { duration: 250, easing: linear }
+		}
+	},
+	{
+		withType: 'link',
+		fromRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
+		toRouteId: '/(home)/(navbar)/garage',
+		transition: {
+			function: fade,
+			params: { duration: 250, easing: linear }
+		}
+	},
+	{
+		withType: 'link',
+		fromRouteId: '/(home)/(navbar)/garage',
+		toRouteId: '/(home)/(navbar)/garage/no-more-top-hamburger',
+		transition: { function: fade, params: { duration: 250, easing: linear } }
+	},
+	{
+		withType: 'link',
+		fromRouteId: '/(home)/(navbar)/garage/no-more-top-hamburger',
+		toRouteId: '/(home)/(navbar)/garage',
+		transition: { function: fade, params: { duration: 250, easing: linear } }
 	}
 ];

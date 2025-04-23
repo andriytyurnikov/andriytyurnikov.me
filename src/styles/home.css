@@ -47,7 +47,7 @@
 }
 
 @utility bg-garage {
-	@apply bg-center bg-cover bg-black text-neutral-50;
+	@apply bg-local bg-center bg-cover bg-black;
 
 	background-image:
 		linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/garage.jpg');
@@ -55,6 +55,7 @@
 
 @utility bg-burger {
 	@apply bg-black bg-center bg-cover;
+
 	background-image:
 		linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)),
 		url('/images/burger-with-knife-in-it.jpg');
@@ -62,11 +63,8 @@
 
 @utility bg-ice {
 	@apply bg-center bg-cover bg-cyan-300 text-cyan-950;
+
 	background-image:
 		linear-gradient(rgba(0, 0, 0, 0.125), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.125)),
 		url('/images/glowing-ice.jpg');
-}
-
-@view-transition {
-	navigation: auto;
 }

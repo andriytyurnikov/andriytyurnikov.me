@@ -17,15 +17,14 @@
 
 	<h2 class="text-[2.25rem]">Emerging solutions:</h2>
 	<p>
-		<a href="{base}/garage/mobile-first-layouts/centered" rel="me">Centered composition</a>
-		(mostly for landing pages)
+		<a href="{base}/garage/mobile-first-layouts/responsive-navbar" rel="me">Responsive NavBar</a>
 		<br />
 		<a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
-		<br />
-		<a href="{base}/garage/mobile-first-layouts/shell" rel="me"
-			>Appliation Shell (responsive NavBar)</a
-		>
 		(often image/video driven)
+		<br />
+		<br />
+		<a href="{base}/garage/mobile-first-layouts/centered" rel="me">Centered composition</a>
+		(mostly for landing pages)
 	</p>
 </section>
 
