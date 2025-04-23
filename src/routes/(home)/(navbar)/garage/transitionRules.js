@@ -9,7 +9,7 @@ export default [
 		toRouteId: '/(home)/(navbar)/garage/friends',
 		intro: {
 			function: fade,
-			params: { duration: 450, easing: linear }
+			params: { duration: 250, easing: linear }
 		}
 	},
 	{
@@ -18,7 +18,7 @@ export default [
 		toRouteId: '/(home)/(navbar)/garage',
 		intro: {
 			function: fade,
-			params: { duration: 450, easing: linear }
+			params: { duration: 250, easing: linear }
 		}
 	},
 	{
