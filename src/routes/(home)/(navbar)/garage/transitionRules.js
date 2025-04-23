@@ -23,22 +23,6 @@ export default [
 	},
 	{
 		withType: 'link',
-		toRouteId: '/(home)/(navbar)/garage/viewport-typography',
-		intro: {
-			function: scale,
-			params: { duration: 250, easing: linear }
-		}
-	},
-	{
-		withType: 'link',
-		fromRouteId: '/(home)/(navbar)/garage/viewport-typography',
-		outro: {
-			function: scale,
-			params: { duration: 250, easing: linear }
-		}
-	},
-	{
-		withType: 'link',
 		toRouteId: '/(home)/(navbar)/garage/glowing-ice',
 		intro: { function: fade, params: { duration: 250 } }
 	},
