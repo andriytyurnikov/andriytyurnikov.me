@@ -19,10 +19,9 @@
 	<p>
 		<a href="{base}/garage/mobile-first-layouts/responsive-navbar" rel="me">Responsive NavBar</a>
 		<br />
-		<a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
+		<!-- <a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
 		(often image/video driven)
-		<br />
-		<br />
+		<br /> -->
 		<a href="{base}/garage/mobile-first-layouts/centered" rel="me">Centered composition</a>
 		(mostly for landing pages)
 	</p>
