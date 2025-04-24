@@ -5,8 +5,7 @@ import { noop, filterHueRotate, filterInvert, filterContrast } from '$lib/glowin
 export default [
 	{
 		withType: 'link',
-		fromRouteId: '/(home)/(navbar)/garage',
-		toRouteId: '/(home)/(navbar)/garage/friends',
+		toRouteId: '/(home)/(navbar)/friends',
 		intro: {
 			function: fade,
 			params: { duration: 250, easing: linear }
@@ -14,8 +13,16 @@ export default [
 	},
 	{
 		withType: 'link',
-		fromRouteId: '/(home)/(navbar)/garage/friends',
+		fromRouteId: '/(home)/(navbar)/friends',
 		toRouteId: '/(home)/(navbar)/garage',
+		intro: {
+			function: fade,
+			params: { duration: 250, easing: linear }
+		}
+	},
+	{
+		withType: 'link',
+		toRouteId: '/(home)/(navbar)/about',
 		intro: {
 			function: fade,
 			params: { duration: 250, easing: linear }
@@ -42,5 +49,12 @@ export default [
 		withType: 'link',
 		fromRouteId: '/(home)/(navbar)/garage/glowing-ice',
 		intro: { function: fade, params: { duration: 250 } }
+	},
+	{
+		withType: 'link',
+		transition: {
+			function: fade,
+			params: { duration: 250, easing: linear }
+		}
 	}
 ];

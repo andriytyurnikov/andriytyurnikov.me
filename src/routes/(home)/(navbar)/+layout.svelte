@@ -82,7 +82,7 @@
 					<span class="ui-navbar-item-label">Friends</span>
 				</a>
 
-				<a class="ui-navbar-item" href="{base}/about-me">
+				<a class="ui-navbar-item" href="{base}/about">
 					<svg
 						class="ui-navbar-item-icon size-5"
 						xmlns="http://www.w3.org/2000/svg"
