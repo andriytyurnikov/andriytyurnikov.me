@@ -2,30 +2,65 @@
 	import { base } from '$app/paths';
 </script>
 
-<article class="min-h-dvh w-full flex flex-col items-stretch bg-stone-950">
+<article
+	class="min-h-dvh min-w-dvw
+        grid
+        grid-cols-1
+        grid-rows-[1fr_var(--ui-navbar-size)_0px]
+
+        landscape:grid-cols-[1fr_24rem_1fr]
+        landscape:grid-rows-1
+
+        tablet:grid-cols-[1fr_24rem_1fr]
+        tablet:grid-rows-1
+
+        landscape:tablet:grid-cols-[1fr_32rem_1fr]
+        landscape:tablet:grid-rows-1
+
+        laptop:grid-rows-1
+        "
+>
 	<nav
-		class="bg-stone-600/75 h-(--navbar-size) order-3 w-full fixed bottom-0 laptop:w-[calc((100%-28rem)/2)] laptop:h-full laptop:left-0"
+		class="row-2
+		      landscape:row-1
+		      landscape:min-h-full
+
+					tablet:row-1
+
+					bg-stone-600/75"
 	>
-		<p class="text-2xl">Navigation Zone</p>
+		Navigation Slot (Sidebar in landscape orientation)
 	</nav>
 	<main
-		class="bg-stone-800/75 flex-1 order-2 mb-(--navbar-size) laptop:mb-0 laptop:mx-[calc((100%-28rem)/2)]"
+		class="row-1 row-1
+	        landscape:min-h-full
+					landscape:w-[24rem]
+
+					tablet:row-1
+					landscape:tablet:w-[32rem]
+
+					laptop:w-[32rem]
+
+					bg-stone-800/75"
 	>
-		<div class="flex flex-col flex-1 items-center justify-center">
-			<section>
-				<h1 class="text-[2.25rem]">Portrait-oriented content feed</h1>
-				<p>
-					Content (images ans videos) section
-					<br />
-					<a href="{base}/garage/mobile-first-layouts" rel="me">back to layouts</a>
-				</p>
-			</section>
+		<div class="flex flex-col h-full w-full justify-center items-center">
+			<p>
+				Main zone:
+				<br />
+				Content (images ans videos) section
+				<br />
+				<a href="{base}/garage/mobile-first-layouts" rel="me">back to layouts</a>
+			</p>
 		</div>
 	</main>
 	<aside
-		class="bg-stone-200/75 text-stone-950 h-[9rem] order-1 laptop:w-[calc((100%-28rem)/2)] laptop:h-full laptop:right-0 laptop:fixed"
+		class="hidden
+		      landscape:block
+		      tablet:block
+
+					bg-stone-400/75"
 	>
-		<p class="text-2xl">Secondary/Optional Zone</p>
+		Optional Secondary zone
 	</aside>
 </article>
 

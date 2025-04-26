@@ -19,11 +19,15 @@
 	<p>
 		<a href="{base}/garage/mobile-first-layouts/responsive-navbar" rel="me">Responsive NavBar</a>
 		<br />
-		<!-- <a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait-oriented feed</a>
+		<a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait feed</a>
 		(often image/video driven)
-		<br /> -->
+		<br />
 		<a href="{base}/garage/mobile-first-layouts/centered" rel="me">Centered composition</a>
-		(mostly for landing pages)
+		(mostly for landing pages)<br />
+		<!-- <a href="{base}/garage/mobile-first-layouts/long-side-halves" rel="me">Long side halves</a>
+		<br />
+		<a href="{base}/garage/mobile-first-layouts/long-side-thirds" rel="me">Long side thirds</a>
+		<br /> -->
 	</p>
 </section>
 
