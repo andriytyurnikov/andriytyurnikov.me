@@ -13,6 +13,7 @@
 
 @import './shared/components.container.css';
 @import './shared/components.every-layout.css';
+@import './shared/components.layouts.css';
 @import './shared/components.shell.css';
 
 @theme {

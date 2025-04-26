@@ -1,0 +1,77 @@
+@layer components {
+	.lt-cover {
+		@apply flex
+		  flex-col
+			justify-stretch
+			items-center;
+
+		.lt-cover-header {
+			@apply justify-self-start
+			  place-self-start;
+		}
+		.lt-cover-main {
+			@apply my-auto
+				mx-auto;
+		}
+		.lt-cover-footer {
+			@apply justify-self-end
+			  place-self-end;
+		}
+	}
+
+	.lt-portrait-feed {
+		@apply grid
+        grid-cols-1
+        grid-rows-[1fr_var(--ui-navbar-size)_0px]
+
+        landscape:grid-cols-[1fr_24rem_1fr]
+        landscape:grid-rows-1
+
+        tablet:grid-cols-[1fr_24rem_1fr]
+        tablet:grid-rows-1
+
+        landscape:tablet:grid-cols-[1fr_32rem_1fr]
+        landscape:tablet:grid-rows-1
+
+        laptop:grid-rows-1;
+		.lt-portrait-feed-nav {
+			@apply row-2
+				      landscape:row-1
+				      landscape:min-h-full
+
+							tablet:row-1;
+		}
+		.lt-portrait-feed-main {
+			@apply row-1 row-1
+			        landscape:min-h-full
+							landscape:w-[24rem]
+
+							tablet:row-1
+							landscape:tablet:w-[32rem]
+
+							laptop:w-[32rem];
+		}
+		.lt-portrait-feed-aside {
+			@apply hidden
+				landscape:block
+				tablet:block;
+		}
+	}
+
+	.lt-navbar-shell {
+		@apply grid
+		  grid-rows-[1fr_var(--ui-navbar-size)]
+
+			landscape:grid-rows-1 landscape:grid-cols-[1fr_var(--ui-navbar-size)]
+			laptop:landscape:grid-rows-[var(--ui-navbar-size)_1fr] laptop:landscape:grid-cols-1
+
+			justify-stretch;
+
+		.lt-navbar-shell-main {
+			@apply self-stretch overflow-scroll;
+		}
+		.lt-navbar-shell-nav {
+			@apply order-last laptop:order-first;
+		}
+	}
+}

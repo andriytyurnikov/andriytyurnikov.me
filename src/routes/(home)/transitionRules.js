@@ -96,7 +96,7 @@ export default [
 	{
 		withType: 'link',
 		fromRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
-		toRouteId: '/(home)/(fullscreen)/garage/mobile-first-layouts/centered',
+		toRouteId: '/(home)/(fullscreen)/garage/mobile-first-layouts/cover',
 		intro: {
 			function: scale,
 			params: { duration: 450, easing: linear }
@@ -109,7 +109,7 @@ export default [
 	{
 		withType: 'link',
 		toRouteIdfromRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
-		fromRouteId: '/(home)/(fullscreen)/garage/mobile-first-layouts/centered',
+		fromRouteId: '/(home)/(fullscreen)/garage/mobile-first-layouts/cover',
 		outro: {
 			function: scale,
 			params: { duration: 450, easing: linear }

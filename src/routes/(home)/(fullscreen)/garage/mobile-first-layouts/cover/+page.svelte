@@ -2,13 +2,11 @@
 	import { base } from '$app/paths';
 </script>
 
-<article class="flex flex-col justify-stretch items-center h-full w-full">
-	<div class="p-4 justify-self-start place-self-start">
-		optional Heading area - hard to reach on mobile
-	</div>
+<article class="lt-cover h-dvh w-dvw">
+	<div class="p-4 lt-cover-header">optional Heading area - hard to reach on mobile</div>
 
-	<section class="my-auto max-w-[40rem] mx-auto">
-		<h2 class="text-[2.25rem]">Centered Composition</h2>
+	<section class="lt-cover-main max-w-[40rem]">
+		<h2 class="text-[2.25rem]">Cover</h2>
 		<p>
 			Both axes (if needed).
 			<br />
@@ -16,9 +14,7 @@
 		</p>
 	</section>
 
-	<div class="p-4 justify-self-end place-self-end text-right">
-		optional Footer area - easy to reach on mobile
-	</div>
+	<div class="p-4 lt-cover-footer">optional Footer area - easy to reach on mobile</div>
 </article>
 
 <style>

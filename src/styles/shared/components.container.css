@@ -1,14 +1,10 @@
 @layer components {
-	/* Container - contains - it imposes outer limits */
+	/* Container ... contains - it imposes outer limits */
 	.ui-container {
 		@apply /* max-w-[20rem] */
       tablet:portrait:max-w-[40rem]
       tablet:landscape:max-w-[48rem]
       laptop:max-w-[48rem]
       desktop-4k:max-w-[64rem];
-	}
-
-	.ui-zone-touch {
-		@apply mx-auto;
 	}
 }

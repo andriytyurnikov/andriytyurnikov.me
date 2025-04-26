@@ -1,4 +1,15 @@
-<article>
+<ul class="ui-navbar--top">
+	<ul class="ui-navbar-section">
+		<li class="ui-navbar-section-item"></li>
+		<li class="ui-navbar-section-item">
+			<ul class="ui-navbar-menu">
+				<li class="ui-navbar-menu-item"></li>
+			</ul>
+		</li>
+	</ul>
+</ul>
+
+<!-- <article>
 	<h1>Responsive Navbar</h1>
 	<section>
 		<h2>Introduction</h2>
@@ -20,4 +31,4 @@
 		<h2>Installation</h2>
 		<h3>Variables</h3>
 	</section>
-</article>
+</article> -->
