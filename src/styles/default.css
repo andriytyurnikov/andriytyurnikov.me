@@ -2,10 +2,12 @@
 
 @import './shared/breakpoints.devices.css';
 
-@import './shared/colors.ukraine.css';
+@import './shared/colors.eigengrau.css';
 
 @import './shared/colors.inferno.css';
 @import './shared/colors.viridis.css';
+
+@import './shared/colors.ukraine.css';
 
 @import './shared/base.view-transitions.css';
 @import './shared/base.root.css';
@@ -20,8 +22,10 @@
 	--ui-navbar-size: 4rem;
 
 	--font-sans: 'IBM Plex Sans', sans-serif;
-	--font-serif: 'IBM Plex Serif', sans-serif;
+	--font-serif: 'IBM Plex Serif', serif;
 	--font-mono: 'IBM Plex Mono', monospace;
+
+	--font-eb-garamond: 'EB Garamond', Garamond, serif;
 }
 
 @layer base {

@@ -11,12 +11,10 @@
 	import transitionRules from './transitionRules';
 </script>
 
-<div class="ui-shell bg-neutral-900">
+<div class="ui-shell bg-slate-900 text-slate-200">
 	<!-- Responsive NavBar -->
-	<nav class="ui-shell-navbar-slot bg-neutral-900 font-sans">
-		<div
-			class="ui-shell-navbar justify-between bg-neutral-900/75 backdrop-blur-md text-neutral-100"
-		>
+	<nav class="ui-shell-navbar-slot bg-slate-900 font-sans">
+		<div class="ui-shell-navbar justify-between bg-slate-900/75 backdrop-blur-md text-slate-200">
 			<ul
 				class="ui-shell-navbar-section ui-shell-navbar-section--aside justify-self-start items-center"
 			>
@@ -145,7 +143,7 @@
 	</nav>
 
 	<!-- main content -->
-	<main class="ui-shell-main bg-garage text-neutral-100 flex flex-col flex-1">
+	<main class="ui-shell-main bg-garage text-slate-200 flex flex-col flex-1">
 		<GlowingIce rules={transitionRules}>
 			<!-- <div class="flex flex-col flex-1 justify-stretch grow min-h-full h-full"> -->
 			{@render children()}

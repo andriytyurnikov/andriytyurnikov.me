@@ -4,7 +4,7 @@
 </script>
 
 <article
-	class="bg-black text-[1.25rem] gap-0 grid grid-cols-1 grid-rows-2 landscape:grid-cols-2 landscape:grid-rows-1 h-dvh w-dvw text-yellow-50"
+	class="bg-black text-[1.25rem] gap-0 grid grid-cols-1 grid-rows-2 landscape:grid-cols-2 landscape:grid-rows-1 h-dvh w-dvw text-slate-200-200"
 >
 	<section class="col-span-1 row-span-1 bg-sky-700">
 		<div class="p-4 h-full content-center justify-center items-center self-center">
@@ -49,25 +49,25 @@
 					rel="me">MY GARAGE</a
 				><br />
 				<a
-					class="ui-link--out u-url text-yellow-50"
+					class="ui-link--out u-url text-slate-200"
 					href="https://github.com/andriytyurnikov"
 					rel="me"
 					target="_blank">GitHub</a
 				><br />
 				<a
-					class="ui-link--out u-url text-yellow-50"
+					class="ui-link--out u-url text-slate-200"
 					href="https://www.linkedin.com/in/andriy-tyurnikov-05672176/"
 					rel="me"
 					target="_blank">LinkedIn</a
 				><br />
 				<a
-					class="ui-link--out u-url text-yellow-50"
+					class="ui-link--out u-url text-slate-200"
 					href="https://x.com/AndriyTyurnikov"
 					rel="me"
 					target="_blank">Twitter/X</a
 				><br />
 				<a
-					class="ui-link--out u-url text-yellow-50"
+					class="ui-link--out u-url text-slate-200"
 					href="https://t.me/AndriyTyurnikov/"
 					rel="me"
 					target="_blank">Telegram</a

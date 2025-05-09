@@ -25,7 +25,7 @@
 @layer base {
 	html,
 	body {
-		@apply bg-sky-950 font-serif;
+		@apply bg-sky-950 text-slate-200 font-serif;
 	}
 }
 
@@ -51,7 +51,7 @@
 	@apply bg-local bg-center bg-cover bg-black;
 
 	background-image:
-		linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/garage.jpg');
+		linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/garage.jpg');
 }
 
 @utility bg-burger {

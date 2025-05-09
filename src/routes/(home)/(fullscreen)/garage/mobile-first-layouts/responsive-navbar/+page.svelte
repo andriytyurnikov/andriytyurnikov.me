@@ -4,7 +4,7 @@
 
 <div class="ui-shell--grid min-h-dvh">
 	<main
-		class="bg-sky-300 text-slate-100 ui-shell-main flex flex-col
+		class="bg-sky-300 text-slate-200 ui-shell-main flex flex-col
 	        landscape:flex-row
 					justify-center"
 	>

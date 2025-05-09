@@ -1,8 +1,9 @@
 <script>
 	import { base } from '$app/paths';
+	let cohort = $state('median');
 
-	let APS = 0.3;
-	let labelAPS = '';
+	// let APS = $state(0.3);
+	// let APS = 0.3;
 
 	let devices = {
 		iphoneSE3: {
@@ -125,7 +126,7 @@
 		}
 	};
 
-	let selectedFontFamilyKey = 'atkinson-hyperlegible';
+	let selectedFontFamilyKey = $state('atkinson-hyperlegible');
 
 	function truncate_float(length, number) {
 		let base = Math.pow(10, length);
@@ -144,32 +145,40 @@
 		return string_representation.padEnd(width, '0');
 	}
 
-	$: selectedFontFamily = fontFamilies[selectedFontFamilyKey];
-	$: selectedFontFamilySizeFactor = selectedFontFamily.unitsPerEm / selectedFontFamily.xHeight;
+	let selectedFontFamily = $derived.by(() => {
+		return fontFamilies[selectedFontFamilyKey];
+	});
 
-	$: if (APS <= 0.19) {
-		labelAPS = 'degradation cliff';
-	} else if (APS == 0.2) {
-		labelAPS = 'normal vision';
-	} else if (APS <= 0.3) {
-		labelAPS = 'broadly inclusive';
-	} else if (APS < 0.42) {
-		labelAPS = 'inclusive';
-	} else if (APS == 0.42) {
-		labelAPS = 'children and eldery';
-	} else if (APS > 0.42 && APS <= 0.5) {
-		labelAPS = 'very inclusive';
-	} else if (APS > 0.5 && APS < 1) {
-		labelAPS = 'watch your headings!';
-	} else if (APS == 1.0) {
-		labelAPS = 'slight discomfort for normal vision';
-	}
+	let selectedFontFamilySizeFactor = $derived.by(() => {
+		return selectedFontFamily.unitsPerEm / selectedFontFamily.xHeight;
+	});
+
+	let APS = $derived.by(() => {
+		let value = 0.3;
+		switch (cohort) {
+			case 'kids':
+				value = 0.42;
+				break;
+			case 'peak':
+				value = 0.2;
+				break;
+			case 'median':
+				value = 0.3;
+				break;
+			case 'elders':
+				value = 0.42;
+				break;
+			default:
+				value = 0.3;
+		}
+		return value;
+	});
 </script>
 
 <article
 	class="
-    bg-blue-950
-    text-blue-50
+    text-slate-300
+    bg-slate-900
     w-full
     "
 >
@@ -179,8 +188,10 @@
       mx-auto
   "
 	>
-		<h1 class="pt-6 pb-2 text-[2.25rem] text-center tracking-wider">Viewport Typography</h1>
-		<p class="text-center lead mb-2">Responsive font size calculator</p>
+		<h1 class="pt-6 pb-2 text-[2.25rem] text-center tracking-wider">Ergonomic Typography</h1>
+		<p class="text-center lead mb-2">
+			Calculate optimal font size for font-family, medium and audience
+		</p>
 	</section>
 
 	<hr class="mb-4 lg:mb-6" />
@@ -194,15 +205,15 @@
 	>
 		<fieldset
 			class="border
-    border-blue-100
+            border-slate-300
 
-    max-w-2xl
+            max-w-2xl
 
-    p-4 pt-2
-    mb-4
-    mx-auto"
+            p-4 pt-2
+            mb-4
+            mx-auto"
 		>
-			<legend>[Font family]</legend>
+			<legend class="px-2">Font family</legend>
 			<select class="p-2 w-full" bind:value={selectedFontFamilyKey}>
 				{#each Object.entries(fontFamilies) as [key, properties], index (key)}
 					<option value={key} selected={key === selectedFontFamilyKey}>
@@ -212,73 +223,135 @@
 			</select>
 		</fieldset>
 
-		<div id="audience" class="basis-1/2 border p-2 w-full">
-			<legend class="pb-3">[Angular font size]</legend>
+		<fieldset aria-label="Name your audience" class="mb-6">
+			<h2 class="text-[1.5rem] mb-2">Name your audience</h2>
+			<div class="grid grid-cols-4 gap-2">
+				<!--
+      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
+      Active: "ring-2 ring-indigo-600 ring-offset-2"
+      Checked: "ring-0 bg-indigo-600 text-white hover:bg-indigo-500", Not Checked: "ring-1 ring-gray-300 bg-white text-gray-900 hover:bg-gray-50"
+      Not Active and not Checked: "ring-inset"
+      Active and Checked: "ring-2"
+    -->
+				<label
+					class="border peer/kids flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
 
-			<label>
-				<span class="inline-block pb-4"
-					>Critical Print Size: <br />
-					<span class="text-blue-50">
-						{pad_float(2, 4, APS)}°
-					</span>
-					{labelAPS}
-					<br />
-				</span>
-				<input
-					bind:value={APS}
-					class="w-full text-blue-100"
-					type="range"
-					min="0.1"
-					max="1"
-					step="0.01"
-					list="APS-markers"
-				/>
-				<datalist id="APS-markers" class="w-full">
-					<option value="0.1" label="0.1°"></option>
-					<option value="0.2" label=".2°"></option>
-					<option value="0.3" label=".3°"></option>
-					<option value="0.4" label=".4°"></option>
-					<option value="0.5" label=".5°"></option>
-					<option value="0.6" label=".6°"></option>
-					<option value="0.7" label=".7°"></option>
-					<option value="0.8" label=".8°"></option>
-					<option value="0.9" label=".9°"></option>
-					<option value="1" label="1.0°"></option>
-				</datalist>
-			</label>
+			          has-active:ring-2 has-active:ring-slate-900 has-active:ring-offset-2
+                has-checked:ring-0 has-checked:bg-slate-300 has-checked:text-slate-900 has-checked:hover:bg-slate-300"
+				>
+					<input
+						type="radio"
+						name="audience"
+						value="kids"
+						class="peer/kids sr-only"
+						checked={'kids' === cohort}
+						onclick={() => {
+							cohort = 'kids';
+						}}
+					/>
+					<span>Kids</span>
+				</label>
+				<!--
+      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
+      Active: "ring-2 ring-indigo-600 ring-offset-2"
+      Checked: "ring-0 bg-indigo-600 text-white hover:bg-indigo-500", Not Checked: "ring-1 ring-gray-300 bg-white text-gray-900 hover:bg-gray-50"
+      Not Active and not Checked: "ring-inset"
+      Active and Checked: "ring-2"
+    -->
+				<label
+					class="border peer/peak flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
 
-			<p class="pb-3 lg:pb-5">
-				Notable values:<br />
-				<button
-					href="{base}/garage/viewport-typography/#advanced"
-					on:click={() => {
-						APS = 0.2;
-					}}
+     has-active:ring-2 has-active:ring-slate-900 has-active:ring-offset-2
+                has-checked:ring-0 has-checked:bg-slate-300 has-checked:text-slate-900 has-checked:hover:bg-slate-300"
 				>
-					0.20°
-				</button>
-				normal vision
-				<br />
-				<button
-					href="{base}/garage/viewport-typography/#advanced"
-					on:click={() => {
-						APS = 0.3;
-					}}
+					<input
+						type="radio"
+						name="audience"
+						value="peak"
+						class="peer/peak sr-only"
+						checked={'peak' === cohort}
+						onclick={() => {
+							cohort = 'peak';
+						}}
+					/>
+					<span>Peak</span>
+				</label>
+				<!--
+      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
+      Active: "ring-2 ring-indigo-600 ring-offset-2"
+      Checked: "ring-0 bg-indigo-600 text-white hover:bg-indigo-500", Not Checked: "ring-1 ring-gray-300 bg-white text-gray-900 hover:bg-gray-50"
+      Not Active and not Checked: "ring-inset"
+      Active and Checked: "ring-2"
+    -->
+				<label
+					class="border peer/median flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+
+					      has-active:ring-2 has-active:ring-slate-900 has-active:ring-offset-2
+                has-checked:ring-0 has-checked:bg-slate-300 has-checked:text-slate-900 has-checked:hover:bg-slate-300"
 				>
-					0.30°
-				</button>
-				broadly inclusive
-				<br />
-				<button
-					href="{base}/garage/viewport-typography/#advanced"
-					on:click={() => {
-						APS = 0.42;
-					}}
+					<input
+						type="radio"
+						name="audience"
+						value="median"
+						class="peer/median sr-only"
+						checked={'median' === cohort}
+						onclick={() => {
+							cohort = 'median';
+						}}
+					/>
+					<span>Median</span>
+				</label>
+				<!--
+      In Stock: "cursor-pointer", Out of Stock: "opacity-25 cursor-not-allowed"
+      Active: "ring-2 ring-indigo-600 ring-offset-2"
+      Checked: "ring-0 bg-indigo-600 text-white hover:bg-indigo-500", Not Checked: "ring-1 ring-gray-300 bg-white text-gray-900 hover:bg-gray-50"
+      Not Active and not Checked: "ring-inset"
+      Active and Checked: "ring-2"
+    -->
+				<label
+					class="border peer/elders flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+
+                has-active:ring-2 has-active:ring-slate-900 has-active:ring-offset-2
+                has-checked:ring-0 has-checked:bg-slate-300 has-checked:text-slate-900 has-checked:hover:bg-slate-300"
 				>
-					0.42°
-				</button> children and eldery
-			</p>
-		</div>
+					<input
+						type="radio"
+						name="audience"
+						value="elders"
+						class="peer/elders sr-only"
+						checked={'elders' === cohort}
+						onclick={() => {
+							cohort = 'elders';
+						}}
+					/>
+					<span>Elders</span>
+				</label>
+
+				<div class="hidden peer-has-checked/kids:block col-span-4">
+					Age: 5-16 years old.<br />
+					Reading skill: underdeveloped.<br />
+					Visual acuity: no degradation.
+				</div>
+
+				<div class="hidden peer-has-checked/peak:block col-span-4">
+					Age: 16-28 years old.<br />
+					Reading skill: developed.<br />
+					Visual acuity: no degradation.
+				</div>
+
+				<div class="hidden peer-has-checked/median:block col-span-4">
+					Age: 28-59 years old.<br />
+					Reading skill: developed.<br />
+					Visual acuity: median degradation.
+				</div>
+
+				<div class="hidden peer-has-checked/elders:block col-span-4">
+					Age: 60+ years old.<br />
+					Reading skill: developed.<br />
+					Visual acuity: significant degradation.
+				</div>
+			</div>
+		</fieldset>
 
 		<div class="mx-auto flex gap-4 lg:gap-6 flex-col 2xl:flex-row aligh-items-start items-center">
 			<table class="table-auto border-collapse">
@@ -311,7 +384,7 @@
 		</div>
 
 		<div
-			class="container mx-auto p-6 pl-4 my-4 lg:pl-6 w-auto bg-blue-700 border-l-8 border-blue-200"
+			class="container mx-auto p-6 pl-4 my-4 lg:pl-6 w-auto bg-gray-700 border-l-8 border-gray-500 text-gray-100"
 		>
 			<abbr>CPS</abbr> (Critical Print Size) &mdash; research backed angular size of
 			<span class="whitespace-nowrap break-keep">x-height</span>
@@ -324,10 +397,10 @@
 	</section>
 
 	<footer
-		class="bg-blue-900
-  text-blue-50
-  block
-  p-6"
+		class="bg-slate-800
+          text-slate-200
+          block
+          p-6"
 	>
 		<div class="container max-w-lg mx-auto">
 			<h4>Inspired and enlightnend by:</h4>

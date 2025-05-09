@@ -3,7 +3,7 @@
 </script>
 
 <section
-	class="text-yellow-50 min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly overflow-y-scroll"
+	class="text-slate-200 min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly overflow-y-scroll"
 >
 	<div class="w-1/2 portrait:w-full w-[16rem] h-[12rem] flex flex-col justify-center">
 		<p class="mx-4 italic text-[2rem] mb-6 text-center">"Know thyself"</p>
