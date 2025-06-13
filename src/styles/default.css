@@ -19,6 +19,7 @@
 @import './shared/components.shell.css';
 
 @theme {
+	--tw-ring-offset-color: var(--color-indigo-500) !important;
 	--ui-navbar-size: 4rem;
 
 	--font-sans: 'IBM Plex Sans', sans-serif;

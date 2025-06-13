@@ -63,130 +63,9 @@
 <div class="bg-light-salmon h-dvh w-dvw justify-center items-center flex"></div>
 
 <div class="bg-brush-blue h-dvh w-dvw justify-center items-center flex"></div>
-<div
-	class="bg-brush-yellow text-eigengrau text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Hello
-</div>
 
 <div
-	class="bg-eigengrau text-brush-yellow text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Hello
-</div>
-
-<div class="bg-brush-blue text-eigengrau text-[4rem] h-dvh w-dvw justify-center items-center flex">
-	Hello
-</div>
-
-<div class="bg-eigengrau text-brush-blue text-[4rem] h-dvh w-dvw justify-center items-center flex">
-	Hello
-</div>
-
-<div class="bg-cyan-900 text-amber-200 text-[4rem] h-dvh w-dvw justify-center items-center flex">
-	Hello
-</div>
-
-<div
-	class="bg-eigengrau-800 text-amber-200 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Hello
-</div>
-
-<div
-	class="bg-eigengrau-900 text-amber-200 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Hello
-</div>
-
-<div
-	class="bg-eigengrau-950 text-amber-200 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Hello
-</div>
-
-<div class="bg-cyan-950 text-amber-200 text-[4rem] h-dvh w-dvw justify-center items-center flex">
-	Hello
-</div>
-
-<div class="bg-cyan-950 text-amber-200 text-[4rem] h-dvh w-dvw justify-center items-center flex">
-	Hello
-</div>
-
-<div
-	class="bg-linear-to-b/oklch from-slate-800 to-slate-900 text-slate-400 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Fog
-</div>
-
-<div
-	class="bg-linear-to-b/oklch from-slate-400 to-slate-500 text-slate-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Fog
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-slate-800 to-slate-900 text-slate-400 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Slate Fog
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-slate-400 to-slate-500 text-gray-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Slate Fog
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-steel-700 to-steel-900 text-steel-300 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Steel
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-steel-300 to-steel-500 text-steel-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Steel
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-fiord-800 to-fiord-900 text-fiord-100 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Fjord
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-fiord-300 to-fiord-400 text-fiord-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Fjord
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-blue-steel-800 to-blue-steel-900 text-blue-steel-200 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Blue Steel
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-blue-steel-200 to-blue-steel-300 text-blue-steel-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Blue Steel
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-pure-gray-700 to-pure-gray-800 text-pure-gray-100 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Pure Gray (600 difference)
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-pure-gray-200 to-pure-gray-300 text-pure-gray-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
->
-	Pure Gray (600 difference)
-</div>
-
-<div
-	class="font-mono bg-linear-to-b/oklch from-cold-gray-800 to-cold-gray-900 text-warm-gray-200 text-[4rem] h-dvh w-dvw justify-center items-center flex"
+	class="font-mono bg-linear-to-b/oklch from-cold-gray-700 to-cold-gray-800 text-warm-gray-100 text-[4rem] h-dvh w-dvw justify-center items-center flex"
 >
 	Gray, warm on cold
 </div>
@@ -195,4 +74,28 @@
 	class="font-mono bg-linear-to-b/oklch from-cold-gray-200 to-cold-gray-300 text-warm-gray-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
 >
 	Gray, warm on cold
+</div>
+
+<div
+	class="font-mono bg-linear-to-b/oklch from-warm-gray-700 to-warm-gray-800 text-cold-gray-100 text-[4rem] h-dvh w-dvw justify-center items-center flex"
+>
+	Gray, cold on warm
+</div>
+
+<div
+	class="font-mono bg-linear-to-b/oklch from-warm-gray-200 to-warm-gray-300 text-cold-gray-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
+>
+	Gray, cold on warm
+</div>
+
+<div
+	class="font-mono bg-linear-to-b/oklch from-pure-gray-700 to-pure-gray-800 text-pure-gray-100 text-[4rem] h-dvh w-dvw justify-center items-center flex"
+>
+	Gray, pure on pure
+</div>
+
+<div
+	class="font-mono bg-linear-to-b/oklch from-pure-gray-200 to-pure-gray-300 text-pure-gray-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
+>
+	Gray, pure on pure
 </div>

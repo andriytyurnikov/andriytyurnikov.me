@@ -209,9 +209,9 @@
 </svelte:head>
 
 <div
-	class="font-serif h-dvh mx-auto w-dvw bg-linear-to-r/oklch from-right-steel-blue via-17% via-macula to-right-steel-blue text-eigengrau overflow-y-scroll tracking-wider"
+	class="font-serif h-dvh mx-auto w-dvw bg-linear-to-b/oklch from-cold-gray-200 to-cold-gray-300 text-warm-gray-900 overflow-y-scroll tracking-wider"
 >
-	<div class="mx-auto max-w-[40rem] bg-macula-100">
+	<div class="mx-auto max-w-[40rem]">
 		<div class="px-4 pt-4">
 			<h1 class="text-[2.25rem] laptop:text-[4rem] leading-16 text-center">fontscale.me</h1>
 			<hr class="mt-4" />
@@ -222,7 +222,7 @@
 				<h2 class="text-[1.5rem] mb-2">Choose a font</h2>
 				<input
 					class="w-full border text-[1.5rem] h-12 px-4
-					      bg-macula-200
+                bg-cold-gray-200
 								inset-ring-eigengrau
 								ring-eigengrau
 								active:shadow-none
@@ -257,7 +257,7 @@
 						class="border peer/kids flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
 						      outline-transparent
 						      has-active:ring-2 has-active:ring-eigengrau has-active:ring-offset-2
-                  has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-macula has-checked:hover:bg-eigengrau"
+                  has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-cold-gray-200 has-checked:hover:bg-eigengrau"
 					>
 						<input
 							type="radio"
@@ -282,7 +282,7 @@
 						class="border peer/peak flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
 						      outline-transparent
 						      has-active:ring-2 has-active:ring-eigengrau has-active:ring-offset-2
-                  has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-macula has-checked:hover:bg-eigengrau"
+                  has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-cold-gray-200 has-checked:hover:bg-eigengrau"
 					>
 						<input
 							type="radio"
@@ -307,7 +307,7 @@
 						class="border peer/median flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
                   outline-transparent
                   has-active:transition-transform has-active:ring-2 has-active:ring-eigengrau has-active:ring-offset-2
-                  has-checked:transition-transform has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-macula has-checked:hover:bg-eigengrau"
+                  has-checked:transition-transform has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-cold-gray-200 has-checked:hover:bg-eigengrau"
 					>
 						<input
 							type="radio"
@@ -332,7 +332,7 @@
 						class="border peer/elders flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
 
 									has-active:transition-transform has-active:ring-2 has-active:ring-eigengrau has-active:ring-offset-2
-			            has-checked:transition-transform has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-macula has-checked:hover:bg-eigengrau"
+			            has-checked:transition-transform has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-cold-gray-200 has-checked:hover:bg-eigengrau"
 					>
 						<input
 							type="radio"
@@ -373,7 +373,7 @@
 				</div>
 			</fieldset>
 
-			<table class="table-auto border-collapse w-full">
+			<table class="table-auto border-collapse w-full mb-4">
 				<!-- <caption>
             Optimal values of font size per platform
         </caption> -->
