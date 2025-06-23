@@ -99,3 +99,15 @@
 >
 	Gray, pure on pure
 </div>
+
+<div
+	class="font-mono bg-linear-to-b/oklch from-cold-gray-700 to-cold-gray-800 text-cold-gray-100 text-[4rem] h-dvh w-dvw justify-center items-center flex"
+>
+	Gray, cold on cold
+</div>
+
+<div
+	class="font-mono bg-linear-to-b/oklch from-cold-gray-200 to-cold-gray-300 text-cold-gray-900 text-[4rem] h-dvh w-dvw justify-center items-center flex"
+>
+	Gray, cold on cold
+</div>
