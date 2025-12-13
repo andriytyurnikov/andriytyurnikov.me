@@ -1,0 +1,60 @@
+Heading 1
+=========
+
+Subheading
+----------
+
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+
+> BlockQuote
+
+First Paragraph
+
+Second Paragraph  
+New line within paragraph
+
+Third paragraph with **bold**, _italic_, `monospace`.  
+Horizontal rule:  
+
+***
+
+- List
+- List
+
+* List
+* List
+
+First Term
+: This is the definition of the first term.
+
+Second Term
+: This is one definition of the second term.
+: This is another definition of the second term.
+
+<style>
+  @reference "../../../styles/default.css";
+  
+  @layer base {
+    h1 { @apply text-[2.00rem] mb-4; }
+    h2 { @apply text-[1.75rem] mb-4; }
+    h3 { @apply text-[1.50rem] mb-4; }
+    h4 { @apply text-[1.25rem] mb-4; }
+    p { @apply mb-4; }
+    hr { @apply my-4 w-full border-current; }
+    blockquote { 
+      @apply m-4 p-4 bg-eigengrau-700;
+      p { @apply mb-0; }
+    }
+    dl {}
+    dt {}
+    dd {}
+  }
+  
+
+	:global(html, body) {
+		@apply bg-eigengrau-950 text-eigengrau-50;
+	}
+</style>

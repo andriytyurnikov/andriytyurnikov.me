@@ -47,7 +47,7 @@
 >
 	<T.SphereGeometry args={[0.1, 30, 30]} />
 	<!-- <T.BoxGeometry args={[0.125, 0.125, 0.125]} /> -->
-	<T.MeshToonMaterial color="red" />
+	<T.MeshToonMaterial color="white" />
 </T.Mesh>
 
 <!-- <T.Mesh position.y={-1.75} rotation.x={-Math.PI / 2} receiveShadow>

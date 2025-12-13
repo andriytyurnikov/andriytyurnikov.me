@@ -2,7 +2,10 @@
 
 @import './shared/breakpoints.devices.css';
 
+@import './shared/colors.eigengrau.css';
 @import './shared/colors.inferno.css';
+@import './shared/colors.plasma.css';
+@import './shared/colors.magma.css';
 @import './shared/colors.ukraine.css';
 @import './shared/colors.viridis.css';
 

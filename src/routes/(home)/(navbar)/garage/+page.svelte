@@ -21,16 +21,16 @@
 				<a href="{base}/garage/ergonomic-typography">👁️ Ergonomic Typography 🔠</a>
 			</li>
 
-			<li class="text-cyan-200">
-				<a href="{base}/garage/glowing-ice">✨ Glowing Ice Animations 🧊</a>
+			<li>
+				<a href="{base}/garage/no-more-top-hamburger">🔪 NoMoreTopHamburger.com 🍔</a>
 			</li>
 
 			<li>
 				<a href="{base}/garage/mobile-first-layouts">📱 Mobile-first Layouts 🖼️</a>
 			</li>
 
-			<li>
-				<a href="{base}/garage/no-more-top-hamburger">🔪 NoMoreTopHamburger.com 🍔</a>
+			<li class="text-cyan-200">
+				<a href="{base}/garage/glowing-ice">✨ Glowing Ice Animations 🧊</a>
 			</li>
 
 			<li>

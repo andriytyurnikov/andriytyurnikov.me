@@ -19,6 +19,6 @@
 	@reference "../../../styles/default.css";
 
 	:global(body) {
-		@apply bg-black;
+		@apply bg-[#16161d];
 	}
 </style>

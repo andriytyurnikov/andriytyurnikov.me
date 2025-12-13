@@ -1,0 +1,15 @@
+<script>
+	import '../../../styles/default.css';
+</script>
+# Post
+
+This is my first blog post created with **mdsvex** and **SvelteKit**.
+
+## Introduction
+
+In this post, I’ll show how easy it is to integrate markdown in SvelteKit with `mdsvex`. Here's a simple list of cool things we can do:
+
+- Markdown inside `.svx` files
+- Tailwind CSS for styling
+- SvelteKit for routing and SSR
+- And much more!
