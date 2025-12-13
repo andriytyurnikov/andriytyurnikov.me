@@ -13,7 +13,7 @@
 	--container-tablet: 640px;
 	--container-laptop: 1200px;
 	--container-desktop: 1537px;
-	--container-desktop-4k: 2049rem;
+	--container-desktop-4k: 2049px;
 
 	--spacing: 0.25rem;
 }
