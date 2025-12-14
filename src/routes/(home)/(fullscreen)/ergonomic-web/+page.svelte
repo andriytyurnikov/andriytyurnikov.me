@@ -5,6 +5,7 @@
 
 	import HeroSection from './HeroSection.svelte';
 	import FieldOfViewSection from './FieldOfViewSection.svelte';
+	import DeviceFormFactorsSection from './DeviceFormFactorsSection.svelte';
 
 	let breakpoint = $state('mobile');
 
@@ -25,75 +26,7 @@
 	<HeroSection />
 	<FieldOfViewSection />
 
-	<!-- Section 3: Device Form-Factors -->
-	<section
-		class="min-h-dvh flex flex-col items-center justify-center px-6 relative z-10 bg-transparent"
-	>
-		<div class="w-full max-w-2xl">
-			<h2 class="text-2xl tablet:text-3xl font-light mb-4 text-center">Device Form-Factors</h2>
-			<p class="text-eigengrau-300 text-center mb-8 max-w-prose mx-auto">
-				A CSS pixel on your phone is not the same size as on your monitor. Physical dimensions
-				matter.
-			</p>
-
-			<!-- Breakpoint indicator -->
-			<div class="flex justify-center gap-4 mb-8">
-				<div
-					class="px-4 py-2 rounded border transition-colors duration-300"
-					class:bg-eigengrau-100={breakpoint === 'mobile'}
-					class:text-eigengrau-950={breakpoint === 'mobile'}
-					class:border-eigengrau-100={breakpoint === 'mobile'}
-					class:border-eigengrau-800={breakpoint !== 'mobile'}
-				>
-					mobile
-				</div>
-				<div
-					class="px-4 py-2 rounded border transition-colors duration-300"
-					class:bg-eigengrau-100={breakpoint === 'tablet'}
-					class:text-eigengrau-950={breakpoint === 'tablet'}
-					class:border-eigengrau-100={breakpoint === 'tablet'}
-					class:border-eigengrau-800={breakpoint !== 'tablet'}
-				>
-					tablet
-				</div>
-				<div
-					class="px-4 py-2 rounded border transition-colors duration-300"
-					class:bg-eigengrau-100={breakpoint === 'laptop'}
-					class:text-eigengrau-950={breakpoint === 'laptop'}
-					class:border-eigengrau-100={breakpoint === 'laptop'}
-					class:border-eigengrau-800={breakpoint !== 'laptop'}
-				>
-					laptop+
-				</div>
-			</div>
-
-			<!-- Responsive demo box -->
-			<div
-				class="device-demo border border-eigengrau-800 rounded-lg p-4 tablet:p-6 laptop:p-8 transition-all duration-300"
-			>
-				<div
-					class="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-4 tablet:gap-6 laptop:gap-8"
-				>
-					<div class="bg-eigengrau-900 rounded p-4 text-center">
-						<div class="text-3xl mb-2">1</div>
-						<div class="text-eigengrau-500 text-sm">column on mobile</div>
-					</div>
-					<div class="bg-eigengrau-900 rounded p-4 text-center">
-						<div class="text-3xl mb-2">2</div>
-						<div class="text-eigengrau-500 text-sm">columns on tablet</div>
-					</div>
-					<div class="bg-eigengrau-900 rounded p-4 text-center tablet:col-span-2 laptop:col-span-1">
-						<div class="text-3xl mb-2">3</div>
-						<div class="text-eigengrau-500 text-sm">columns on laptop</div>
-					</div>
-				</div>
-			</div>
-
-			<p class="text-eigengrau-500 text-lg italic text-center mt-8">
-				"Design for physical reality, not pixel counts"
-			</p>
-		</div>
-	</section>
+	<DeviceFormFactorsSection />
 
 	<!-- Section 4: Typography -->
 	<section class="min-h-dvh flex flex-col items-center justify-center px-6 bg-eigengrau-950">
