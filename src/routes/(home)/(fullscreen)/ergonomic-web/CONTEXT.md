@@ -226,4 +226,5 @@ Responsive rem, breakpoints, orientation detection could be extracted as standal
 ### Potential Side Products
 - **Component systems** (Web3 friendly) — ergonomic UI primitives
 - **E-commerce themes** — applying ergonomic principles to shopping UX
+- **FOV overlay browser plugin** — extract FOV oval zones visualization as a developer tool for auditing visual hierarchy and content placement against acuity zones
 
