@@ -108,7 +108,7 @@ export default [
 	},
 	{
 		withType: 'link',
-		toRouteIdfromRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
+		toRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
 		fromRouteId: '/(home)/(fullscreen)/garage/mobile-first-layouts/cover',
 		outro: {
 			function: scale,
