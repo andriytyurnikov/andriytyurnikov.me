@@ -11,7 +11,7 @@ Little affordances may add up (or even multiply). The perceived and real complex
 | Layer | Domain | Status |
 |-------|--------|--------|
 | **Perceptual** | Vision, FOV, visual angle, acuity | Developing |
-| **Motor** | Thumb reach, gestures, handedness, Fitts's Law | Touched |
+| **Motor** | Thumb reach, gestures, handedness, Fitts's Law | Developing |
 | **Cognitive** | Attention, memory, load, decision-making | To research |
 | **Temporal** | Animation timing, latency, rhythm, pacing | To research |
 | **Emotional** | Delight, frustration, trust, affect | To research |
@@ -67,6 +67,62 @@ The traditional "60 character line length" rule is derived, not fundamental.
 **Key ratio:** 1rem ≈ 0.8°
 
 **Implication:** If rem is angular-consistent, then line width in rem is also angular-consistent. Set `max-width: 20rem` and the 16° rule follows automatically across devices.
+
+---
+
+## Motor Ergonomics
+
+### Handedness & Thumb Reach
+
+**Portrait mode:** "Easy reach" = bottom of screen. Navbar belongs at bottom.
+
+**Landscape mode:** "Easy reach" shifts to **dominant hand side**.
+- Right-handed: right edge = easy reach
+- Left-handed: left edge = easy reach
+
+The "bottom" is not a fixed edge — it's **relative to grip position**.
+
+### Detecting Handedness
+
+CSS `orientation: landscape` doesn't tell us rotation direction. Need JS extension.
+
+**Screen Orientation API:**
+- `landscape-primary` → rotated one direction
+- `landscape-secondary` → rotated opposite direction
+
+Rotation direction hints at dominant hand (needs verification of mapping).
+
+**Implementation:**
+```
+Screen Orientation API (JS)
+    ↓
+Inject to root element (class, data-attr, CSS var, or combined)
+    ↓
+CSS/Tailwind responds to injected state
+```
+
+**Injection strategies** (see Tailwind dark mode pattern):
+
+| Strategy | Example | Enables |
+|----------|---------|---------|
+| Class | `<html class="right-handed">` | Tailwind variants: `right-handed:ml-auto` |
+| Data attr | `<html data-hand="right">` | CSS selectors: `[data-hand="right"] .navbar` |
+| CSS var | `--dominant-hand: right` | Calculations, runtime JS access |
+| Combined | All three | Maximum flexibility |
+
+### Pragmatic Approach
+
+**Expose orientation to CSS, defer handedness assumptions.**
+
+Just inject the raw orientation type:
+- `portrait-primary`
+- `portrait-secondary`
+- `landscape-primary`
+- `landscape-secondary`
+
+Let layout author decide what each means for their UI. Don't bake in handedness inference yet.
+
+**Default:** Right-handed fallback (~90% of population) when needed, but keep it optional/overridable.
 
 ---
 
