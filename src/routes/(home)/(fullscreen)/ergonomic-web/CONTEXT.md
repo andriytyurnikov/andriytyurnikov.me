@@ -116,6 +116,17 @@ CSS/Tailwind responds to injected state
 | CSS var | `--dominant-hand: right` | Calculations, runtime JS access |
 | Combined | All three | Maximum flexibility |
 
+### Platform Scope
+
+**Handedness insights apply to handheld platforms only (Phone, Tablet).**
+
+Thumb reach, grip position, and orientation-based nav placement are irrelevant for:
+- Laptop (trackpad/mouse)
+- Desktop (mouse/keyboard)
+- Desktop 4K (mouse/keyboard)
+
+Don't transfer handheld motor ergonomics to desktop-class devices.
+
 ### Pragmatic Approach
 
 **Expose orientation to CSS, defer handedness assumptions.**
