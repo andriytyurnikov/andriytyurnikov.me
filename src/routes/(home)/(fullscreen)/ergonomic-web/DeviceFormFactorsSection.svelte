@@ -1,5 +1,8 @@
 <section class="min-h-dvh flex flex-col items-center justify-center relative z-10 bg-transparent">
-	<div class="scene-wrapper">
+	<h2 class="text-2xl tablet:text-3xl font-light mb-8 text-center">
+		Responsivenes is about vision, not pixels
+	</h2>
+	<div class="scene-wrapper overflow-x-clip">
 		<div class="scene">
 			<div class="device desktop">Desktop</div>
 			<div class="device laptop">Laptop</div>
@@ -11,7 +14,7 @@
 
 <style>
 	.scene-wrapper {
-		width: 20rem;
+		width: 24rem;
 	}
 
 	.scene {
@@ -71,77 +74,74 @@
 	}
 
 	/* Scene rotation */
-	/* Perspective: 1270/521 = 2.44× base, 635/521 = 1.22× base */
+	/* Perspective: 2.44× base = 58.5rem, 1.22× base = 29.28rem */
 	@keyframes scene-keyframes {
-		20% {
-			transform: perspective(48.75rem);
+		0% {
+			transform: perspective(58.5rem);
 		}
 		40%,
 		60% {
 			transform-origin: right;
-			transform: perspective(48.75rem) rotateY(-30deg) rotateZ(5deg);
+			transform: perspective(58.5rem) rotateY(-30deg) rotateZ(5deg);
 		}
 		80%,
 		100% {
 			transform-origin: center;
-			transform: perspective(24.38rem);
+			transform: perspective(29.28rem);
 		}
 	}
 
-	/* Laptop: float then center */
-	/* Z: 125/521 = 24% of 20rem = 4.8rem */
-	/* X: center 27.9% → 50% = +22.1% of 20rem = 4.42rem */
-	/* Y: center vertically = -2rem */
+	/* Laptop: Z = 5.76rem, X = 5.30rem, Y = -2.4rem */
 	@keyframes laptop-keyframes {
 		0%,
-		15% {
+		50% {
+			/* Phase 1-2: Flat on desktop during rotation */
 			transform: translateZ(0);
 		}
-		30%,
-		50% {
-			transform: translateZ(4.8rem);
+		65% {
+			/* Phase 3: Float away (perpendicular only) */
+			transform: translateZ(5.76rem);
 		}
-		70%,
+		85%,
 		100% {
-			transform: translateZ(4.8rem) translateX(4.42rem) translateY(-2rem);
+			/* Phase 4: Rotation reversed + planes realigned */
+			transform: translateZ(5.76rem) translateX(5.3rem) translateY(-2.4rem);
 		}
 	}
 
-	/* Tablet: float then center */
-	/* Z: 255/521 = 49% of 20rem = 9.8rem */
-	/* X: center 71.7% → 50% = -21.7% of 20rem = -4.34rem */
-	/* Y: center vertically = -1.6rem */
+	/* Tablet: Z = 11.76rem, X = -5.21rem, Y = -1.92rem */
 	@keyframes tablet-keyframes {
 		0%,
-		15% {
+		50% {
+			/* Phase 1-2: Flat on desktop during rotation */
 			transform: translateZ(0);
 		}
-		30%,
-		50% {
-			transform: translateZ(9.8rem);
+		65% {
+			/* Phase 3: Float away (perpendicular only) */
+			transform: translateZ(11.76rem);
 		}
-		70%,
+		85%,
 		100% {
-			transform: translateZ(9.8rem) translateX(-4.34rem) translateY(-1.6rem);
+			/* Phase 4: Rotation reversed + planes realigned */
+			transform: translateZ(11.76rem) translateX(-5.21rem) translateY(-1.92rem);
 		}
 	}
 
-	/* Phone: float then center */
-	/* Z: 385/521 = 74% of 20rem = 14.8rem */
-	/* X: center 93.8% → 50% = -43.8% of 20rem = -8.76rem */
-	/* Y: center vertically = -2.9rem */
+	/* Phone: Z = 17.76rem, X = -10.51rem, Y = -3.48rem */
 	@keyframes phone-keyframes {
 		0%,
-		15% {
+		50% {
+			/* Phase 1-2: Flat on desktop during rotation */
 			transform: translateZ(0);
 		}
-		30%,
-		50% {
-			transform: translateZ(14.8rem);
+		65% {
+			/* Phase 3: Float away (perpendicular only) */
+			transform: translateZ(17.76rem);
 		}
-		70%,
+		85%,
 		100% {
-			transform: translateZ(14.8rem) translateX(-8.76rem) translateY(-2.9rem);
+			/* Phase 4: Rotation reversed + planes realigned */
+			transform: translateZ(17.76rem) translateX(-10.51rem) translateY(-3.48rem);
 		}
 	}
 </style>

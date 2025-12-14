@@ -133,14 +133,13 @@
 			<ul class="space-y-4 text-left mb-12">
 				<li class="flex items-start gap-3">
 					<span class="text-eigengrau-500 mt-1">1.</span>
-					<span
-						><strong class="text-eigengrau-100">Field of View</strong> — center the essential</span
+					<span><strong class="text-eigengrau-100">Field of View</strong> — eyes before pixels</span
 					>
 				</li>
 				<li class="flex items-start gap-3">
 					<span class="text-eigengrau-500 mt-1">2.</span>
 					<span
-						><strong class="text-eigengrau-100">Device Form-Factors</strong> — respect physical dimensions</span
+						><strong class="text-eigengrau-100">Device Form-Factors</strong> — respect physical reality</span
 					>
 				</li>
 				<li class="flex items-start gap-3">
