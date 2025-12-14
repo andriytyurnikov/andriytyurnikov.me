@@ -206,3 +206,24 @@ Building on responsive rem (≈ angular units), how do we zone layouts ergonomic
 ### Research Threads
 (to be developed)
 
+---
+
+## Future Directions
+
+### Additional UI Patterns to Address
+- Positioning of modal dialogs
+- Popovers and dropdowns
+- Notifications / toasts
+
+(All should respect thumb reach on handheld, viewing distance on desktop)
+
+### Extraction of CSS Tools
+Responsive rem, breakpoints, orientation detection could be extracted as standalone:
+- Tailwind plugin
+- CSS-only library
+- PostCSS plugin
+
+### Potential Side Products
+- **Component systems** (Web3 friendly) — ergonomic UI primitives
+- **E-commerce themes** — applying ergonomic principles to shopping UX
+
