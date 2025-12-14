@@ -1,0 +1,43 @@
+/*
+ * RESPONSIVE REM SCALE
+ * ====================
+ *
+ * The Problem:
+ * CSS has no access to viewing distance. We can't measure visual angle directly.
+ * But visual angle (degrees) is the true ergonomic unit — what matters is how large
+ * something appears to the eye, not its pixel size.
+ *
+ * The Solution:
+ * Infer device tier from screen resolution, then scale root font-size to approximate
+ * angular consistency. This makes rem a practical stand-in for degrees.
+ *
+ * The Scale:
+ * Base unit = 4px, multiplied by tier (4 through 8):
+ *
+ *   | Device     | Multiplier | Root font | Typical distance |
+ *   |------------|------------|-----------|------------------|
+ *   | Mobile     | ×4         | 16px      | ~30cm            |
+ *   | Tablet     | ×5         | 20px      | ~40cm            |
+ *   | Laptop     | ×6         | 24px      | ~50cm            |
+ *   | Desktop    | ×7         | 28px      | ~60cm            |
+ *   | Desktop 4K | ×8         | 32px      | ~70cm            |
+ *
+ * Result:
+ * 1rem ≈ same visual angle across all device tiers.
+ * Key ratio: 1° ≈ 2.4rem
+ *
+ * Practical dimensions:
+ * - Portrait mobile width: ~24rem ≈ 10°
+ * - Body text max-width: 40rem ≈ 16.7° (comfortable reading without head movement)
+ *
+ * This replaces the traditional "60 character line length" rule with an
+ * angular-based approach that automatically adapts across devices.
+ */
+
+:root {
+	@apply text-[16px]
+		tablet:text-[20px]
+		laptop:text-[24px]
+		desktop:text-[28px]
+		desktop-4k:text-[32px];
+}

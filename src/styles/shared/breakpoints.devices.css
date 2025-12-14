@@ -1,23 +1,71 @@
-@theme {
-	/* 360..428px / 16px = 22.5..26.75rem width */ /* 32.75 css px/deg; 2.05rem/deg */
-	/* 507px / 20px ... 25..38.4..64rem */
-	/* --breakpoint-tablet: @media all and (min-width: 507px) and (min-height: 507px); */
+/*
+ * DEVICE BREAKPOINTS
+ * ==================
+ *
+ * Ergonomic breakpoints based on real device form factors, not arbitrary pixel values.
+ *
+ * Two worlds of interaction:
+ * - Touch/Handheld (Phone, Tablet): Motor ergonomics dominate (thumb reach)
+ * - Desktop-class (Laptop, Desktop, 4K): Perceptual ergonomics dominate (viewing distance)
+ *
+ * Key insight: 507px is iPad Picture-in-Picture size.
+ * If BOTH width AND height < 507px → phone or small floating window
+ * If ≥ 507px on both → tablet or larger as primary display
+ *
+ * Reference dimensions (responsive rem):
+ * - Portrait mobile width: ~24rem ≈ 10°
+ * - Body text max (line length): 40rem ≈ 16.7°
+ * - Key ratio: 1° ≈ 2.4rem
+ */
 
-	/* --breakpoint-tablet: 507px; /* ~20 deg ~820px ~41px/deg; 1rem = 20px; 1deg~41px; */ /* 41 css px/deg; 2.05rem/deg */
-	/* 75rem; width */
+@theme {
+	/*
+	 * BREAKPOINT THRESHOLDS
+	 *
+	 * Mobile: < 507px (default)
+	 *   - Phones in any orientation
+	 *   - Small floating windows (PiP)
+	 *   - Root font: 16px
+	 *
+	 * Tablet: 507px+
+	 *   - iPad PiP minimum = 507px
+	 *   - Uses min-width AND min-height to distinguish from landscape phones
+	 *   - Root font: 20px
+	 *
+	 * Laptop: 1200px+
+	 *   - Standard laptop displays
+	 *   - Root font: 24px
+	 *
+	 * Desktop: 1537px+
+	 *   - Large external monitors
+	 *   - Root font: 28px
+	 *
+	 * Desktop 4K: 2049px+
+	 *   - 4K and ultrawide displays
+	 *   - Root font: 32px
+	 */
 	--breakpoint-tablet: 507px;
-	--breakpoint-laptop: 1200px; /* ~24 deg ~50 rem; 1rem = 24px; */
-	--breakpoint-desktop: 1537px; /* ~30 deg px; 1rem = 28px; 1.67rem/deg */
+	--breakpoint-laptop: 1200px;
+	--breakpoint-desktop: 1537px;
 	--breakpoint-desktop-4k: 2049px;
 
+	/* Container max-widths per breakpoint */
 	--container-tablet: 640px;
 	--container-laptop: 1200px;
 	--container-desktop: 1537px;
 	--container-desktop-4k: 2049px;
 
+	/* Base spacing unit */
 	--spacing: 0.25rem;
 }
 
+/*
+ * TABLET CUSTOM VARIANT
+ *
+ * Uses BOTH min-width AND min-height to catch true tablets.
+ * A landscape phone might be 800px wide but only 400px tall — not a tablet.
+ * 507px on both dimensions = definitely tablet-class or larger.
+ */
 @custom-variant tablet {
 	@media all and (min-width: 507px) and (min-height: 507px) {
 		& {
