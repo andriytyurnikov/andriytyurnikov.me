@@ -54,19 +54,25 @@ Make an educated guess from **screen resolution + orientation** to infer device 
 
 **Result:** Rem becomes approximately angular-consistent across device tiers. 1rem ≈ same visual angle regardless of device.
 
-### Line Length: 16 Degrees, Not 60 Characters
+### Line Length: ~17 Degrees, Not 60 Characters
 
 The traditional "60 character line length" rule is derived, not fundamental.
 
-**The real constraint:** ~16 degrees of visual angle — the range for comfortable reading without head movement.
+**The real constraint:** ~16-17 degrees of visual angle — the range for comfortable reading without head movement.
 
 - 60 characters = approximation assuming typical font size + viewing distance
-- 16 degrees = the actual perceptual limit
-- 20rem (responsive) ≈ 16°
+- ~17 degrees = the actual perceptual limit
+- 40rem (responsive) ≈ 16.7°
 
-**Key ratio:** 1rem ≈ 0.8°
+**Key ratio:** 1° ≈ 2.4rem
 
-**Implication:** If rem is angular-consistent, then line width in rem is also angular-consistent. Set `max-width: 20rem` and the 16° rule follows automatically across devices.
+**Reference dimensions:**
+| Dimension | Responsive Rem | Degrees |
+|-----------|----------------|---------|
+| Portrait mobile width | ~24rem | ~10° |
+| Body text max (line length) | 40rem | ~16.7° |
+
+**Implication:** If rem is angular-consistent, then line width in rem is also angular-consistent. Set `max-width: 40rem` and the ~17° rule follows automatically across devices.
 
 ---
 
@@ -123,6 +129,53 @@ Just inject the raw orientation type:
 Let layout author decide what each means for their UI. Don't bake in handedness inference yet.
 
 **Default:** Right-handed fallback (~90% of population) when needed, but keep it optional/overridable.
+
+---
+
+## Form Factor Realities
+
+### Two Worlds
+
+| Group | Devices | Primary Constraint | Interaction |
+|-------|---------|-------------------|-------------|
+| **Touch/Handheld** | Phone, Tablet | Thumb reach (motor) | Touch, held in hand |
+| **Desktop-class** | Laptop, Desktop, 4K | Viewing distance (perceptual) | Mouse/keyboard, stationary |
+
+Different realities → different conventions:
+- **Touch:** Nav at bottom/side, thumb-friendly tap targets, motor ergonomics dominate
+- **Desktop:** Nav at top acceptable, denser UI possible, perceptual ergonomics dominate
+
+### Limited Layouts, Maximum Affordance
+
+Instead of infinite responsive complexity, a **limited polished set of layouts** can cover 80-90% of use cases with better ergonomic affordance.
+
+Pareto principle for layouts — fewer patterns, better executed.
+
+### Preliminary Layout Patterns
+
+See `/garage/mobile-first-layouts` and `/zoned-layouts` for working examples.
+
+**Structural layouts:**
+| Pattern | Structure | Use Case |
+|---------|-----------|----------|
+| **Cover** | Header / Main / Footer | Landing pages, hero (footer = easy reach) |
+| **Portrait Feed** | Nav / Main / Aside | Content feeds, media apps |
+| **Responsive NavBar** | Orientation-aware nav | App shells |
+
+**Content zones:**
+| Pattern | Description |
+|---------|-------------|
+| Solo Minor | Single small zone |
+| Solo | Single medium zone |
+| Solo Wide | Single wide zone |
+| Duo | Two equal zones |
+| Duo Minor | Two small zones |
+| Major + Minor | Asymmetric pair |
+| Trio | Three equal zones |
+
+**Orientation behavior:** Zones stack in portrait, go side-by-side in landscape.
+
+**Key dimension:** `max-width: 40rem` (responsive) as practical maximum for body text blocks.
 
 ---
 
