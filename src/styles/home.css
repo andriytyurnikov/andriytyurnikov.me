@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 
 @import './shared/breakpoints.devices.css';
+@import './shared/breakpoints.root.rem.css';
+@import './shared/breakpoints.orientation.css';
 
 @import './shared/colors.eigengrau.css';
 @import './shared/colors.inferno.css';

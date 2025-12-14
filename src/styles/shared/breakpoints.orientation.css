@@ -1,0 +1,56 @@
+/*
+ * ORIENTATION CUSTOM VARIANTS
+ * ===========================
+ *
+ * Tailwind variants for Screen Orientation API types.
+ * Requires JS initialization from $lib/orientation/orientation.js
+ *
+ * Usage:
+ *   <div class="portrait-primary:pb-16 landscape-primary:pr-16">
+ *
+ * Four orientation types:
+ * - portrait-primary    (normal portrait - most common)
+ * - portrait-secondary  (upside-down portrait)
+ * - landscape-primary   (rotated left, usually)
+ * - landscape-secondary (rotated right, usually)
+ *
+ * Note: The mapping of primary/secondary to rotation direction
+ * varies by device. Expose the primitive, let layout decide meaning.
+ */
+
+@custom-variant portrait-primary {
+	&:where(.orientation-portrait-primary, .orientation-portrait-primary *) {
+		@slot;
+	}
+}
+
+@custom-variant portrait-secondary {
+	&:where(.orientation-portrait-secondary, .orientation-portrait-secondary *) {
+		@slot;
+	}
+}
+
+@custom-variant landscape-primary {
+	&:where(.orientation-landscape-primary, .orientation-landscape-primary *) {
+		@slot;
+	}
+}
+
+@custom-variant landscape-secondary {
+	&:where(.orientation-landscape-secondary, .orientation-landscape-secondary *) {
+		@slot;
+	}
+}
+
+/* Convenience aliases for common cases */
+@custom-variant orientation-portrait {
+	&:where(.orientation-portrait-primary, .orientation-portrait-primary *, .orientation-portrait-secondary, .orientation-portrait-secondary *) {
+		@slot;
+	}
+}
+
+@custom-variant orientation-landscape {
+	&:where(.orientation-landscape-primary, .orientation-landscape-primary *, .orientation-landscape-secondary, .orientation-landscape-secondary *) {
+		@slot;
+	}
+}
