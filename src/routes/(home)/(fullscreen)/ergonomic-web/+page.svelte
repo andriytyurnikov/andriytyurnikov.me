@@ -18,52 +18,56 @@
 	});
 </script>
 
-<article class="bg-eigengrau-950 text-macula-100">
+<article class="bg-eigengrau-950 text-eigengrau-50">
 	<!-- Section 1: Hero -->
-	<section class="min-h-dvh flex flex-col items-center justify-center px-6">
+	<section
+		class="min-h-dvh flex flex-col items-center justify-center px-6 relative z-10 bg-transparent"
+	>
 		<h1 class="text-4xl tablet:text-5xl laptop:text-6xl font-light tracking-wide text-center mb-4">
 			Ergonomic Web
 		</h1>
-		<p class="text-xl tablet:text-2xl text-macula-200 text-center max-w-prose">
+		<p class="text-xl tablet:text-2xl text-eigengrau-100 text-center max-w-prose">
 			A page that practices what it preaches
 		</p>
-		<p class="text-macula-400 mt-8 text-center max-w-md">
+		<p class="text-eigengrau-200 mt-8 text-center max-w-md">
 			The web should adapt to humans, not the other way around. Scroll to explore four principles
 			that make interfaces feel natural.
 		</p>
-		<div class="mt-12 text-macula-500 animate-bounce">
+		<div class="mt-12 text-eigengrau-300 animate-bounce">
 			<span class="text-2xl">&#8595;</span>
 		</div>
 	</section>
 
 	<!-- Section 2: Field of View -->
+	<!-- Ovals bleed beyond viewport - fixed rem sizes matching visual acuity zones -->
 	<section
-		class="min-h-dvh flex flex-col items-center justify-center bg-eigengrau-900 overflow-hidden"
+		class="max-h-dvh max-w-dvw flex flex-col items-center justify-center overflow-visible relative z-0"
 	>
-		<!-- Nested ellipses with 4:3 aspect ratio (matching human FOV shape) -->
+		<!-- Outermost: ~60° peripheral vision -->
 		<div
-			class="rounded-[50%] border border-dashed border-eigengrau-700 bg-radial from-eigengrau-800 via-eigengrau-850/50 to-eigengrau-900/25 w-[20rem] h-[15rem] tablet:w-[36rem] tablet:h-[27rem] laptop:w-[48rem] laptop:h-[36rem] flex place-items-center place-content-center"
+			class="rounded-[50%] border border-dashed border-viridis-800 bg-radial from-viridis-700 via-viridis-800/50 to-viridis-900/25 w-[60rem] min-h-[45rem] flex place-items-center place-content-center"
 		>
-			<span class="absolute top-2 tablet:top-4 text-eigengrau-500 text-xs opacity-50">peripheral</span>
+			<!-- ~40° parafoveal -->
 			<div
-				class="rounded-[50%] border border-dashed border-eigengrau-600 bg-radial from-eigengrau-700 via-eigengrau-800/50 to-eigengrau-850/25 w-[66%] h-[66%] flex place-items-center place-content-center relative"
+				class="rounded-[50%] border border-dashed border-viridis-700 bg-radial from-viridis-600 via-viridis-700/50 to-viridis-800/25 w-[40rem] min-h-[30rem] flex place-items-center place-content-center"
 			>
-				<span class="absolute top-2 text-eigengrau-400 text-sm opacity-70">parafoveal</span>
+				<!-- ~30° near-peripheral -->
 				<div
-					class="rounded-[50%] border border-dashed border-eigengrau-500 bg-radial from-macula-900/30 via-eigengrau-700/50 to-eigengrau-800/25 w-[70%] h-[70%] flex place-items-center place-content-center relative"
+					class="rounded-[50%] border border-dashed border-viridis-600 bg-radial from-viridis-500 via-viridis-600/50 to-viridis-700/25 w-[32rem] min-h-[24rem] flex place-items-center place-content-center"
 				>
-					<span class="absolute top-1 text-macula-600 text-xs">near-peripheral</span>
+					<!-- ~20° parafoveal edge -->
 					<div
-						class="rounded-[50%] border border-dashed border-macula-700 bg-radial from-macula-200/20 via-macula-400/10 to-transparent w-[65%] h-[65%] flex place-items-center place-content-center relative"
+						class="rounded-[50%] border border-dashed border-viridis-500 bg-radial from-viridis-50 via-viridis-400/75 to-viridis-600/25 w-[24rem] h-[18rem] flex place-items-center place-content-center"
 					>
-						<span class="absolute top-0 text-macula-500 text-xs">foveal</span>
-						<!-- Center content - where eyes focus -->
-						<div class="text-center px-4 max-w-[90%]">
-							<h2 class="text-xl tablet:text-2xl font-light mb-2 text-macula-100">Field of View</h2>
-							<p class="text-macula-300 text-sm tablet:text-base mb-3">
-								Vision is sharpest here. Detail fades outward.
-							</p>
-							<p class="text-macula-500 text-sm italic">"Center the essential"</p>
+						<!-- ~10° foveal - sharpest vision -->
+						<div
+							class="rounded-[50%] border border-dashed border-viridis-400 bg-radial from-viridis-50 via-viridis-300/50 to-viridis-600/25 w-[16rem] h-[12rem] flex place-items-center place-content-center text-center"
+						>
+							<div class="px-4">
+								<h2 class="text-xl font-light mb-2 text-viridis-950">Field of View</h2>
+								<p class="text-viridis-900 text-sm mb-2">Sharpest vision follows your gaze.</p>
+								<p class="text-viridis-800 text-xs italic">"Place the essential where eyes land"</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -72,10 +76,12 @@
 	</section>
 
 	<!-- Section 3: Device Form-Factors -->
-	<section class="min-h-dvh flex flex-col items-center justify-center px-6">
+	<section
+		class="min-h-dvh flex flex-col items-center justify-center px-6 relative z-10 bg-transparent"
+	>
 		<div class="w-full max-w-2xl">
 			<h2 class="text-2xl tablet:text-3xl font-light mb-4 text-center">Device Form-Factors</h2>
-			<p class="text-macula-200 text-center mb-8 max-w-prose mx-auto">
+			<p class="text-eigengrau-300 text-center mb-8 max-w-prose mx-auto">
 				A CSS pixel on your phone is not the same size as on your monitor. Physical dimensions
 				matter.
 			</p>
@@ -84,28 +90,28 @@
 			<div class="flex justify-center gap-4 mb-8">
 				<div
 					class="px-4 py-2 rounded border transition-colors duration-300"
-					class:bg-macula-100={breakpoint === 'mobile'}
+					class:bg-eigengrau-100={breakpoint === 'mobile'}
 					class:text-eigengrau-950={breakpoint === 'mobile'}
-					class:border-macula-100={breakpoint === 'mobile'}
-					class:border-eigengrau-700={breakpoint !== 'mobile'}
+					class:border-eigengrau-100={breakpoint === 'mobile'}
+					class:border-eigengrau-800={breakpoint !== 'mobile'}
 				>
 					mobile
 				</div>
 				<div
 					class="px-4 py-2 rounded border transition-colors duration-300"
-					class:bg-macula-100={breakpoint === 'tablet'}
+					class:bg-eigengrau-100={breakpoint === 'tablet'}
 					class:text-eigengrau-950={breakpoint === 'tablet'}
-					class:border-macula-100={breakpoint === 'tablet'}
-					class:border-eigengrau-700={breakpoint !== 'tablet'}
+					class:border-eigengrau-100={breakpoint === 'tablet'}
+					class:border-eigengrau-800={breakpoint !== 'tablet'}
 				>
 					tablet
 				</div>
 				<div
 					class="px-4 py-2 rounded border transition-colors duration-300"
-					class:bg-macula-100={breakpoint === 'laptop'}
+					class:bg-eigengrau-100={breakpoint === 'laptop'}
 					class:text-eigengrau-950={breakpoint === 'laptop'}
-					class:border-macula-100={breakpoint === 'laptop'}
-					class:border-eigengrau-700={breakpoint !== 'laptop'}
+					class:border-eigengrau-100={breakpoint === 'laptop'}
+					class:border-eigengrau-800={breakpoint !== 'laptop'}
 				>
 					laptop+
 				</div>
@@ -113,45 +119,45 @@
 
 			<!-- Responsive demo box -->
 			<div
-				class="device-demo border border-eigengrau-700 rounded-lg p-4 tablet:p-6 laptop:p-8 transition-all duration-300"
+				class="device-demo border border-eigengrau-800 rounded-lg p-4 tablet:p-6 laptop:p-8 transition-all duration-300"
 			>
 				<div
 					class="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-4 tablet:gap-6 laptop:gap-8"
 				>
-					<div class="bg-eigengrau-800 rounded p-4 text-center">
+					<div class="bg-eigengrau-900 rounded p-4 text-center">
 						<div class="text-3xl mb-2">1</div>
-						<div class="text-macula-400 text-sm">column on mobile</div>
+						<div class="text-eigengrau-500 text-sm">column on mobile</div>
 					</div>
-					<div class="bg-eigengrau-800 rounded p-4 text-center">
+					<div class="bg-eigengrau-900 rounded p-4 text-center">
 						<div class="text-3xl mb-2">2</div>
-						<div class="text-macula-400 text-sm">columns on tablet</div>
+						<div class="text-eigengrau-500 text-sm">columns on tablet</div>
 					</div>
-					<div class="bg-eigengrau-800 rounded p-4 text-center tablet:col-span-2 laptop:col-span-1">
+					<div class="bg-eigengrau-900 rounded p-4 text-center tablet:col-span-2 laptop:col-span-1">
 						<div class="text-3xl mb-2">3</div>
-						<div class="text-macula-400 text-sm">columns on laptop</div>
+						<div class="text-eigengrau-500 text-sm">columns on laptop</div>
 					</div>
 				</div>
 			</div>
 
-			<p class="text-macula-400 text-lg italic text-center mt-8">
+			<p class="text-eigengrau-500 text-lg italic text-center mt-8">
 				"Design for physical reality, not pixel counts"
 			</p>
 		</div>
 	</section>
 
 	<!-- Section 4: Typography -->
-	<section class="min-h-dvh flex flex-col items-center justify-center px-6 bg-eigengrau-900">
+	<section class="min-h-dvh flex flex-col items-center justify-center px-6 bg-eigengrau-950">
 		<div class="w-full max-w-2xl">
 			<h2 class="text-2xl tablet:text-3xl font-light mb-4 text-center">Typography</h2>
-			<p class="text-macula-200 text-center mb-8 max-w-prose mx-auto">
+			<p class="text-eigengrau-300 text-center mb-8 max-w-prose mx-auto">
 				Readable text requires a minimum visual angle. Your eye, not your screen, determines what
 				size is comfortable.
 			</p>
 
 			<!-- Typography demo -->
 			<div class="space-y-6 mb-8">
-				<div class="border border-eigengrau-700 rounded-lg p-6">
-					<div class="text-macula-400 text-sm mb-2 uppercase tracking-wider">
+				<div class="border border-eigengrau-800 rounded-lg p-6">
+					<div class="text-eigengrau-500 text-sm mb-2 uppercase tracking-wider">
 						Optimized for your device
 					</div>
 					<p class="typography-demo leading-relaxed">
@@ -162,22 +168,22 @@
 				</div>
 
 				<div class="grid grid-cols-3 gap-4 text-center text-sm">
-					<div class="bg-eigengrau-800 rounded p-3">
-						<div class="text-macula-400">Phone</div>
-						<div class="text-macula-200">~30cm</div>
+					<div class="bg-eigengrau-900 rounded p-3">
+						<div class="text-eigengrau-500">Phone</div>
+						<div class="text-eigengrau-300">~30cm</div>
 					</div>
-					<div class="bg-eigengrau-800 rounded p-3">
-						<div class="text-macula-400">Tablet</div>
-						<div class="text-macula-200">~40cm</div>
+					<div class="bg-eigengrau-900 rounded p-3">
+						<div class="text-eigengrau-500">Tablet</div>
+						<div class="text-eigengrau-300">~40cm</div>
 					</div>
-					<div class="bg-eigengrau-800 rounded p-3">
-						<div class="text-macula-400">Desktop</div>
-						<div class="text-macula-200">~60cm</div>
+					<div class="bg-eigengrau-900 rounded p-3">
+						<div class="text-eigengrau-500">Desktop</div>
+						<div class="text-eigengrau-300">~60cm</div>
 					</div>
 				</div>
 			</div>
 
-			<p class="text-macula-400 text-lg italic text-center">"Let the eye dictate the size"</p>
+			<p class="text-eigengrau-500 text-lg italic text-center">"Let the eye dictate the size"</p>
 		</div>
 	</section>
 
@@ -189,7 +195,7 @@
 		<div class="flex-1 flex flex-col items-center justify-center">
 			<div class="w-full max-w-2xl">
 				<h2 class="text-2xl tablet:text-3xl font-light mb-4 text-center">Handedness</h2>
-				<p class="text-macula-200 text-center mb-8 max-w-prose mx-auto">
+				<p class="text-eigengrau-300 text-center mb-8 max-w-prose mx-auto">
 					On touch devices, your thumb can only reach so far. The bottom of the screen is easy; the
 					top is a stretch.
 				</p>
@@ -201,13 +207,13 @@
 						<div class="text-saccadic-red-flash-400 text-sm uppercase tracking-wider mb-1">
 							Hard to reach
 						</div>
-						<div class="text-macula-300">Top of screen</div>
+						<div class="text-eigengrau-300">Top of screen</div>
 					</div>
 					<div
 						class="bg-hypnotic-gold-900/30 border border-hypnotic-gold-700 rounded-lg p-4 text-center"
 					>
 						<div class="text-hypnotic-gold-400 text-sm uppercase tracking-wider mb-1">Moderate</div>
-						<div class="text-macula-300">Middle zone</div>
+						<div class="text-eigengrau-300">Middle zone</div>
 					</div>
 					<div
 						class="bg-hypnotic-green-900/30 border border-hypnotic-green-700 rounded-lg p-4 text-center"
@@ -215,11 +221,11 @@
 						<div class="text-hypnotic-green-400 text-sm uppercase tracking-wider mb-1">
 							Easy to reach
 						</div>
-						<div class="text-macula-300">Bottom of screen</div>
+						<div class="text-eigengrau-300">Bottom of screen</div>
 					</div>
 				</div>
 
-				<p class="text-macula-400 text-lg italic text-center">
+				<p class="text-eigengrau-500 text-lg italic text-center">
 					"Put controls where hands can reach"
 				</p>
 			</div>
@@ -229,7 +235,7 @@
 		<nav class="py-6 flex justify-center tablet:hidden">
 			<a
 				href="{base}/garage"
-				class="bg-eigengrau-800 border border-eigengrau-600 rounded-full px-6 py-3 text-macula-200 hover:bg-eigengrau-700 transition-colors"
+				class="bg-eigengrau-900 border border-eigengrau-700 rounded-full px-6 py-3 text-eigengrau-300 hover:bg-eigengrau-800 transition-colors"
 			>
 				Back to Garage
 			</a>
@@ -237,37 +243,40 @@
 	</section>
 
 	<!-- Section 6: Conclusion -->
-	<section class="min-h-dvh flex flex-col items-center justify-center px-6 bg-eigengrau-900">
+	<section class="min-h-dvh flex flex-col items-center justify-center px-6 bg-eigengrau-950">
 		<div class="w-full max-w-lg text-center">
 			<h2 class="text-2xl tablet:text-3xl font-light mb-8">Four Pillars</h2>
 
 			<ul class="space-y-4 text-left mb-12">
 				<li class="flex items-start gap-3">
-					<span class="text-macula-500 mt-1">1.</span>
-					<span><strong class="text-macula-100">Field of View</strong> — center the essential</span>
-				</li>
-				<li class="flex items-start gap-3">
-					<span class="text-macula-500 mt-1">2.</span>
+					<span class="text-eigengrau-500 mt-1">1.</span>
 					<span
-						><strong class="text-macula-100">Device Form-Factors</strong> — respect physical dimensions</span
+						><strong class="text-eigengrau-100">Field of View</strong> — center the essential</span
 					>
 				</li>
 				<li class="flex items-start gap-3">
-					<span class="text-macula-500 mt-1">3.</span>
+					<span class="text-eigengrau-500 mt-1">2.</span>
 					<span
-						><strong class="text-macula-100">Typography</strong> — size for the viewing distance</span
+						><strong class="text-eigengrau-100">Device Form-Factors</strong> — respect physical dimensions</span
 					>
 				</li>
 				<li class="flex items-start gap-3">
-					<span class="text-macula-500 mt-1">4.</span>
-					<span><strong class="text-macula-100">Handedness</strong> — place controls within reach</span
+					<span class="text-eigengrau-500 mt-1">3.</span>
+					<span
+						><strong class="text-eigengrau-100">Typography</strong> — size for the viewing distance</span
+					>
+				</li>
+				<li class="flex items-start gap-3">
+					<span class="text-eigengrau-500 mt-1">4.</span>
+					<span
+						><strong class="text-eigengrau-100">Handedness</strong> — place controls within reach</span
 					>
 				</li>
 			</ul>
 
 			<a
 				href="{base}/garage"
-				class="inline-block bg-macula-100 text-eigengrau-950 rounded-full px-8 py-3 font-medium hover:bg-macula-200 transition-colors"
+				class="inline-block bg-eigengrau-100 text-eigengrau-950 rounded-full px-8 py-3 font-medium hover:bg-eigengrau-200 transition-colors"
 			>
 				Back to Garage
 			</a>
