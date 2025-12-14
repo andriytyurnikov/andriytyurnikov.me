@@ -1,5 +1,11 @@
 # Ergonomic Web
 
+## Rationale
+
+Little affordances may add up (or even multiply). The perceived and real complexity of addressing ergonomic challenges can be justified economically — small friction reductions compound across interactions and users.
+
+---
+
 ## Ergonomic Layers
 
 | Layer | Domain | Status |
