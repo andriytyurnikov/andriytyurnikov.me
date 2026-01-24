@@ -22,7 +22,7 @@
 	});
 </script>
 
-<article class="bg-eigengrau-950 text-eigengrau-50">
+<article class="column-of-light text-eigengrau-50">
 	<HeroSection />
 	<FieldOfViewSection />
 
@@ -164,10 +164,34 @@
 			</a>
 		</div>
 	</section>
+
+	<section
+		class="column-of-light min-h-dvh flex flex-col items-center justify-center px-6"
+	></section>
+	<FieldOfViewSection />
 </article>
 
 <style>
 	@reference '../../../../styles/home.css';
+
+	.column-of-light {
+		background: linear-gradient(
+			to right,
+			var(--color-eigengrau-950) calc(50% - 30rem),
+			color-mix(in srgb, var(--color-viridis-900) 5%, var(--color-eigengrau-950))
+				calc(50% - 29.9999rem),
+			color-mix(in srgb, var(--color-viridis-800) 10%, transparent) calc(50% - 20rem),
+			color-mix(in srgb, var(--color-viridis-700) 10%, transparent) calc(50% - 12rem),
+			color-mix(in srgb, var(--color-viridis-600) 10%, transparent) calc(50% - 5rem),
+			color-mix(in srgb, var(--color-viridis-500) 10%, transparent) 50%,
+			color-mix(in srgb, var(--color-viridis-600) 10%, transparent) calc(50% + 5rem),
+			color-mix(in srgb, var(--color-viridis-700) 10%, transparent) calc(50% + 12rem),
+			color-mix(in srgb, var(--color-viridis-800) 10%, transparent) calc(50% + 20rem),
+			color-mix(in srgb, var(--color-viridis-900) 5%, var(--color-eigengrau-950))
+				calc(50% + 29.9999rem),
+			var(--color-eigengrau-950) calc(50% + 30rem)
+		);
+	}
 
 	/* Thumb zone gradient overlay */
 	.thumb-zone {

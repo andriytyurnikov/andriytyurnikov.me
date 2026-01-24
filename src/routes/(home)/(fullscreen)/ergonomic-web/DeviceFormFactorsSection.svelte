@@ -1,8 +1,8 @@
-<section class="min-h-dvh flex flex-col items-center justify-center relative z-10 bg-transparent">
+<section class="min-h-dvh flex flex-col items-center justify-center relative z-[1] bg-transparent">
 	<h2 class="text-2xl tablet:text-3xl font-light mb-8 text-center">
 		Responsivenes is about vision, not pixels
 	</h2>
-	<div class="scene-wrapper overflow-x-clip">
+	<div class="scene-wrapper overflow-x-clip will-change-auto">
 		<div class="scene">
 			<div class="device desktop">Desktop</div>
 			<div class="device laptop">Laptop</div>
