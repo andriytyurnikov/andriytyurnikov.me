@@ -20,6 +20,8 @@
 	import SceneBox from './SceneBox.svelte';
 	import TrueHorizon from './TrueHorizon.svelte';
 
+	let { gazeAngle = $bindable(0) } = $props();
+
 	interactivity();
 
 	// Device breakpoints (pixels) - matches CSS breakpoints
@@ -39,14 +41,6 @@
 		desktop4k: 63.5
 	};
 
-	// Gaze angle in degrees (negative = looking down)
-	const gazeAngle = {
-		mobile: -45,
-		tablet: -30,
-		laptop: -15,
-		desktop: -15,
-		desktop4k: -15
-	};
 
 	// Eye height above floor (cm)
 	const eyeHeight = 175;
@@ -73,10 +67,9 @@
 	};
 
 	let viewingDistance = $state(eyeDistance.mobile * distanceScale);
-	let currentGazeAngle = $state(gazeAngle.mobile);
 	let frustumHalfHeight = $state(0);
 	let horizonY = $state(eyeHeight * distanceScale);
-	let lookAtY = $state(eyeHeight * distanceScale + Math.sin(toRadians(gazeAngle.mobile)) * eyeDistance.mobile * distanceScale);
+	let lookAtY = $derived(eyeHeight * distanceScale + Math.sin(toRadians(gazeAngle)) * viewingDistance);
 
 	function toRadians(degrees) {
 		return (degrees * Math.PI) / 180;
@@ -197,11 +190,6 @@
 
 		const breakpoint = getBreakpoint(screenWidth, screenHeight);
 		viewingDistance = eyeDistance[breakpoint] * distanceScale;
-		currentGazeAngle = gazeAngle[breakpoint];
-
-		// Calculate look-at point Y (where camera is pointing)
-		const eyeHeightUnits = eyeHeight * distanceScale;
-		lookAtY = eyeHeightUnits + Math.sin(toRadians(currentGazeAngle)) * viewingDistance;
 
 		// Calculate frustum height for light positioning
 		const targetAngle = smallestSideAngle[breakpoint];
@@ -240,6 +228,11 @@
 
 	const gradientMap = createGradientMap(6);
 
+	// Floor zone circles (meters to scene units: 1m = 100cm * 0.01 = 1 unit)
+	const yellowZone = new THREE.CircleGeometry(2, 64); // 2m radius
+	const redZone = new THREE.CircleGeometry(30, 64); // 30m radius
+	const blueZone = new THREE.CircleGeometry(100, 64); // 100m radius
+
 	// Deform sphere so no vertex crosses z=0 in world space
 	function deformSphere(ballZPos) {
 		const positions = sphereGeometry.attributes.position.array;
@@ -261,7 +254,7 @@
 </script>
 
 <!-- Responsive camera: FOV, distance, and gaze angle adapt to device viewing conditions -->
-<RPoVCamera anchor={[0, 0, 0]} />
+<RPoVCamera anchor={[0, 0, 0]} bind:gazeAngle />
 
 <!-- True horizon line at eye level -->
 <TrueHorizon onHorizonChange={(y) => (horizonY = y)} opacity={0.5} />
@@ -289,8 +282,19 @@
 	<T.MeshToonMaterial color="white" {gradientMap} />
 </T.Mesh>
 
-<!-- Floor plane at Y=0 (60x60 units = 60m x 60m) -->
+<!-- Floor plane at Y=0 (200x200 units = 200m x 200m) -->
 <T.Mesh position.y={0} rotation.x={-Math.PI / 2} receiveShadow>
-	<T.PlaneGeometry args={[60, 60]} />
-	<T.MeshStandardMaterial color="red" />
+	<T.PlaneGeometry args={[200, 200]} />
+	<T.MeshStandardMaterial color="#1a1a1a" />
+</T.Mesh>
+
+<!-- Floor zone circles (layered: blue bottom, red middle, yellow top) -->
+<T.Mesh position.y={0.001} rotation.x={-Math.PI / 2} geometry={blueZone}>
+	<T.MeshBasicMaterial color="blue" />
+</T.Mesh>
+<T.Mesh position.y={0.002} rotation.x={-Math.PI / 2} geometry={redZone}>
+	<T.MeshBasicMaterial color="red" />
+</T.Mesh>
+<T.Mesh position.y={0.003} rotation.x={-Math.PI / 2} geometry={yellowZone}>
+	<T.MeshBasicMaterial color="yellow" />
 </T.Mesh>

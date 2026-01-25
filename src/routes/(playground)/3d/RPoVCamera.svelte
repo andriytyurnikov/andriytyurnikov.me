@@ -9,7 +9,7 @@
 	 * - Camera positioned at eye height (default 175cm) above floor
 	 * - Camera distance reflects eye-to-screen distance per device
 	 * - FOV matches the display's angular size
-	 * - Gaze angle tilts view (phones: -45°, desktops: -15°)
+	 * - Gaze angle tilts view (tunable, default 0°)
 	 * - Camera eye level defines the true horizon
 	 */
 
@@ -31,13 +31,7 @@
 			desktop4k: 25
 		},
 		/** Gaze angle in degrees (negative = looking down, positive = looking up) */
-		gazeAngle = {
-			mobile: -45,
-			tablet: -30,
-			laptop: -15,
-			desktop: -15,
-			desktop4k: -15
-		},
+		gazeAngle = $bindable(0),
 		/** The point the camera looks at (X and Z; Y is derived from eyeHeight and gaze) */
 		anchor = [0, 0, 0],
 		/** Eye height above floor in centimeters */
@@ -56,11 +50,10 @@
 
 	let currentFov = $state(smallestSideAngle.mobile);
 	let currentDistance = $state(eyeDistance.mobile * distanceScale);
-	let currentGazeAngle = $state(gazeAngle.mobile);
 
 	const fovSpring = new Spring(currentFov, { stiffness: 0.1, damping: 0.8 });
 	const distanceSpring = new Spring(currentDistance, { stiffness: 0.1, damping: 0.8 });
-	const gazeSpring = new Spring(currentGazeAngle, { stiffness: 0.1, damping: 0.8 });
+	const gazeSpring = new Spring(gazeAngle, { stiffness: 0.1, damping: 0.8 });
 
 	function getBreakpoint(width, height) {
 		const isTabletOrLarger = width >= BREAKPOINTS.tablet && height >= BREAKPOINTS.tablet;
@@ -121,12 +114,15 @@
 		const targetAngle = smallestSideAngle[breakpoint];
 		currentFov = calculateVerticalFov(viewportWidth, viewportHeight, targetAngle);
 		currentDistance = eyeDistance[breakpoint] * distanceScale;
-		currentGazeAngle = gazeAngle[breakpoint];
 
 		fovSpring.target = currentFov;
 		distanceSpring.target = currentDistance;
-		gazeSpring.target = currentGazeAngle;
 	}
+
+	// Update gaze spring when prop changes
+	$effect(() => {
+		gazeSpring.target = gazeAngle;
+	});
 
 	// Camera at eye height, looking in gaze direction
 	const gazeRadians = $derived(toRadians(gazeSpring.current));
