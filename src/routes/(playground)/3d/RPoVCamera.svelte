@@ -5,30 +5,40 @@
 	/**
 	 * Responsive Point of View Camera
 	 *
-	 * Simulates the physical viewing relationship:
+	 * Achieves accurate scale perception by matching camera FOV to the angular size
+	 * of the physical display as seen from typical viewing distance.
+	 *
+	 * FOV = 2 × atan(screenHeight / (2 × viewingDistance))
+	 *
 	 * - Camera positioned at eye height (default 175cm) above floor
-	 * - Camera distance reflects eye-to-screen distance per device
-	 * - FOV matches the display's angular size
+	 * - FOV calculated from physical screen dimensions and viewing distance
 	 * - Gaze angle tilts view (tunable, default 0°)
-	 * - Camera eye level defines the true horizon
 	 */
 
 	let {
-		/** Eye distance from screen in centimeters per breakpoint */
-		eyeDistance = {
+		/** Physical screen height in centimeters per breakpoint (landscape orientation) */
+		screenHeight = {
+			mobile: 14, // ~6" phone in portrait (width becomes height in landscape)
+			tablet: 18, // ~11" tablet
+			laptop: 19, // ~14" laptop
+			desktop: 34, // ~27" monitor
+			desktop4k: 40 // ~32" monitor
+		},
+		/** Physical screen width in centimeters per breakpoint (landscape orientation) */
+		screenWidth = {
+			mobile: 7, // ~6" phone in portrait (height becomes width in landscape)
+			tablet: 24, // ~11" tablet
+			laptop: 30, // ~14" laptop
+			desktop: 60, // ~27" monitor
+			desktop4k: 70 // ~32" monitor
+		},
+		/** Eye-to-screen distance in centimeters per breakpoint */
+		viewingDistance = {
 			mobile: 30,
 			tablet: 45,
 			laptop: 54,
-			desktop: 63.5,
-			desktop4k: 63.5
-		},
-		/** Angular size (degrees) of the smallest screen side per breakpoint */
-		smallestSideAngle = {
-			mobile: 12,
-			tablet: 20,
-			laptop: 20,
-			desktop: 25,
-			desktop4k: 25
+			desktop: 65,
+			desktop4k: 70
 		},
 		/** Gaze angle in degrees (negative = looking down, positive = looking up) */
 		gazeAngle = $bindable(0),
@@ -48,8 +58,10 @@
 		desktop4k: 2049
 	};
 
-	let currentFov = $state(smallestSideAngle.mobile);
-	let currentDistance = $state(eyeDistance.mobile * distanceScale);
+	// Initialize with mobile values
+	const initialFov = calculateFov(screenHeight.mobile, viewingDistance.mobile);
+	let currentFov = $state(initialFov);
+	let currentDistance = $state(viewingDistance.mobile * distanceScale);
 
 	const fovSpring = new Spring(currentFov, { stiffness: 0.1, damping: 0.8 });
 	const distanceSpring = new Spring(currentDistance, { stiffness: 0.1, damping: 0.8 });
@@ -74,46 +86,44 @@
 	}
 
 	/**
-	 * Calculate vertical FOV so that the smallest screen side has the target angular size.
-	 * PerspectiveCamera FOV is always vertical.
+	 * Calculate FOV from physical screen dimension and viewing distance.
+	 * FOV = 2 × atan(screenDimension / (2 × viewingDistance))
 	 */
-	function calculateVerticalFov(width, height, targetSmallestAngle) {
-		const aspectRatio = width / height;
-
-		if (height <= width) {
-			// Landscape or square: height is smallest, so vertical FOV = target
-			return targetSmallestAngle;
-		} else {
-			// Portrait: width is smallest, so horizontal FOV = target
-			// Calculate vertical FOV from horizontal FOV
-			// horizontalFOV = 2 * atan(tan(verticalFOV/2) * aspectRatio)
-			// Solving for verticalFOV: verticalFOV = 2 * atan(tan(horizontalFOV/2) / aspectRatio)
-			const horizontalFovRad = toRadians(targetSmallestAngle);
-			const verticalFovRad = 2 * Math.atan(Math.tan(horizontalFovRad / 2) / aspectRatio);
-			return toDegrees(verticalFovRad);
-		}
+	function calculateFov(screenDimension, distance) {
+		return toDegrees(2 * Math.atan(screenDimension / (2 * distance)));
 	}
 
 	function updateCamera() {
 		if (typeof window === 'undefined') return;
 
-		// Use window dimensions for aspect ratio (actual rendered area)
 		const viewportWidth = window.innerWidth;
 		const viewportHeight = window.innerHeight;
 		const isLandscape = viewportWidth >= viewportHeight;
 
-		// Screen dimensions may be reported in native orientation
-		// Align them with current viewport orientation
-		const screenMin = Math.min(window.screen.width, window.screen.height);
-		const screenMax = Math.max(window.screen.width, window.screen.height);
-		const screenWidth = isLandscape ? screenMax : screenMin;
-		const screenHeight = isLandscape ? screenMin : screenMax;
+		// Detect breakpoint from screen dimensions
+		const screenPixelMin = Math.min(window.screen.width, window.screen.height);
+		const screenPixelMax = Math.max(window.screen.width, window.screen.height);
+		const screenPixelWidth = isLandscape ? screenPixelMax : screenPixelMin;
+		const screenPixelHeight = isLandscape ? screenPixelMin : screenPixelMax;
 
-		const breakpoint = getBreakpoint(screenWidth, screenHeight);
+		const breakpoint = getBreakpoint(screenPixelWidth, screenPixelHeight);
+		const distance = viewingDistance[breakpoint];
 
-		const targetAngle = smallestSideAngle[breakpoint];
-		currentFov = calculateVerticalFov(viewportWidth, viewportHeight, targetAngle);
-		currentDistance = eyeDistance[breakpoint] * distanceScale;
+		// Get physical dimensions for current breakpoint
+		// In portrait mode, swap width and height
+		const physicalHeight = isLandscape ? screenHeight[breakpoint] : screenWidth[breakpoint];
+		const physicalWidth = isLandscape ? screenWidth[breakpoint] : screenHeight[breakpoint];
+
+		// Calculate vertical FOV from physical screen height
+		// Adjust for viewport aspect ratio if viewport doesn't match full screen
+		const viewportAspect = viewportWidth / viewportHeight;
+		const screenAspect = physicalWidth / physicalHeight;
+
+		// Scale physical height based on how much of the screen the viewport uses
+		const viewportPhysicalHeight = physicalHeight * (viewportHeight / screenPixelHeight);
+
+		currentFov = calculateFov(viewportPhysicalHeight, distance);
+		currentDistance = distance * distanceScale;
 
 		fovSpring.target = currentFov;
 		distanceSpring.target = currentDistance;
