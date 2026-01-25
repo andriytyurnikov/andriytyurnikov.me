@@ -3,9 +3,8 @@
 	 * 3D Scene demonstrating Responsive Point of View (RPoV) camera system.
 	 *
 	 * Features:
-	 * - RPoVCamera: Camera FOV, distance, and gaze angle adjust based on device breakpoints
-	 *   to match real-world viewing conditions (eye distance, display angular size, head tilt)
-	 * - TrueHorizon: Visual horizon line at eye level, positioned based on gaze angle
+	 * - RPoVCamera: Camera FOV and distance adjust based on device breakpoints
+	 *   to match real-world viewing conditions (eye distance, display angular size)
 	 * - SceneBox: Frustum visualization with responsive grid walls aligned to camera view
 	 * - Interactive ball: Click to animate toward screen with deformation
 	 *   (no vertex crosses the screen plane at z=0)
@@ -18,9 +17,6 @@
 
 	import RPoVCamera from './RPoVCamera.svelte';
 	import SceneBox from './SceneBox.svelte';
-	import TrueHorizon from './TrueHorizon.svelte';
-
-	let { gazeAngle = $bindable(0) } = $props();
 
 	interactivity();
 
@@ -41,9 +37,6 @@
 		desktop4k: 63.5
 	};
 
-	// Eye height above floor (cm)
-	const eyeHeight = 175;
-
 	// Convert real-world cm to scene units (1cm = 0.01 units)
 	const distanceScale = 0.01;
 
@@ -56,35 +49,8 @@
 	// Final position: center penetrates 0.25 radius into screen
 	const targetZ = ballRadius * 0.75;
 
-	// Display angular size (degrees) of smallest screen dimension per device
-	const smallestSideAngle = {
-		mobile: 12,
-		tablet: 20,
-		laptop: 20,
-		desktop: 25,
-		desktop4k: 25
-	};
 
 	let viewingDistance = $state(eyeDistance.mobile * distanceScale);
-	let frustumHalfHeight = $state(0);
-	let horizonY = $state(eyeHeight * distanceScale);
-	let lookAtY = $derived(
-		eyeHeight * distanceScale + Math.sin(toRadians(gazeAngle)) * viewingDistance
-	);
-
-	function toRadians(degrees) {
-		return (degrees * Math.PI) / 180;
-	}
-
-	function calculateVerticalFov(viewportWidth, viewportHeight, targetSmallestAngle) {
-		if (viewportHeight <= viewportWidth) {
-			return targetSmallestAngle;
-		} else {
-			const aspectRatio = viewportWidth / viewportHeight;
-			const horizontalFovRad = toRadians(targetSmallestAngle);
-			return (2 * Math.atan(Math.tan(horizontalFovRad / 2) / aspectRatio) * 180) / Math.PI;
-		}
-	}
 
 	// Ball animation state
 	let ballAtScreen = $state(false);
@@ -192,12 +158,6 @@
 		const breakpoint = getBreakpoint(screenWidth, screenHeight);
 		viewingDistance = eyeDistance[breakpoint] * distanceScale;
 
-		// Calculate frustum height for light positioning
-		const targetAngle = smallestSideAngle[breakpoint];
-		const verticalFov = calculateVerticalFov(viewportWidth, viewportHeight, targetAngle);
-		const halfVAngle = toRadians(verticalFov) / 2;
-		frustumHalfHeight = Math.tan(halfVAngle) * viewingDistance;
-
 		// Update ball position if it's at the initial position and not animating
 		if (!ballAtScreen && !animating) {
 			ballZ = viewingDistance;
@@ -229,11 +189,6 @@
 
 	const gradientMap = createGradientMap(4);
 
-	// Floor zone circles (meters to scene units: 1m = 100cm * 0.01 = 1 unit)
-	const yellowZone = new THREE.CircleGeometry(2, 64); // 2m radius
-	const redZone = new THREE.CircleGeometry(30, 64); // 30m radius
-	const blueZone = new THREE.CircleGeometry(100, 64); // 100m radius
-
 	// Deform sphere so no vertex crosses z=0 in world space
 	function deformSphere(ballZPos) {
 		const positions = sphereGeometry.attributes.position.array;
@@ -254,51 +209,29 @@
 	});
 </script>
 
-<!-- Responsive camera: FOV, distance, and gaze angle adapt to device viewing conditions -->
-<RPoVCamera anchor={[0, 0, 0]} bind:gazeAngle />
+<!-- Responsive camera: FOV and distance adapt to device viewing conditions -->
+<RPoVCamera anchor={[0, 0, 0]} />
 
-<!-- True horizon line at eye level -->
-<TrueHorizon onHorizonChange={(y) => (horizonY = y)} opacity={0.5} />
-
-<!-- Frustum visualization: 5 grid walls forming the view volume -->
+<!-- Frustum visualization: grid walls forming the view volume -->
 <SceneBox anchor={[0, 0, 0]} opacity={0.5} />
 
-<!-- Lighting: three-quarter key light + fill from behind camera -->
-<T.DirectionalLight
-	position={[viewingDistance * 0.7, horizonY + viewingDistance, -viewingDistance * 0.5]}
-	intensity={1}
-/>
-<T.PointLight position={[0, horizonY, -2 * viewingDistance]} intensity={0.5} />
+<!-- Lighting: key light above and to the side + fill from behind camera -->
+<T.DirectionalLight position={[viewingDistance * 0.7, viewingDistance, -viewingDistance * 0.5]} intensity={1} />
+<T.PointLight position={[0, 0, -2 * viewingDistance]} intensity={0.5} />
 
 <!-- Invisible screen plane at z=0 (collision boundary) -->
-<T.Mesh position.y={lookAtY} position.x={0} position.z={0}>
+<T.Mesh position={[0, 0, 0]}>
 	<T.PlaneGeometry args={[1.6, 0.9]} />
-	<T.MeshStandardMaterial visible={false} transparent={true} opacity={0.125} color="white" />
+	<T.MeshStandardMaterial visible={false} transparent opacity={0.125} color="white" />
 </T.Mesh>
 
 <!-- Interactive ball: click to toggle position, deforms against screen plane -->
 <T.Mesh
 	castShadow
-	position={[0, lookAtY, ballZ]}
+	position={[0, 0, ballZ]}
 	onclick={toggleBallPosition}
 	geometry={sphereGeometry}
 >
 	<T.MeshToonMaterial color="white" {gradientMap} />
 </T.Mesh>
 
-<!-- Floor plane at Y=0 (200x200 units = 200m x 200m) -->
-<T.Mesh position.y={0} rotation.x={-Math.PI / 2} receiveShadow>
-	<T.PlaneGeometry args={[200, 200]} />
-	<T.MeshStandardMaterial color="#1a1a1a" />
-</T.Mesh>
-
-<!-- Floor zone circles (layered: blue bottom, red middle, yellow top) -->
-<T.Mesh position.y={0.001} rotation.x={-Math.PI / 2} geometry={blueZone}>
-	<T.MeshBasicMaterial color="blue" />
-</T.Mesh>
-<T.Mesh position.y={0.002} rotation.x={-Math.PI / 2} geometry={redZone}>
-	<T.MeshBasicMaterial color="red" />
-</T.Mesh>
-<T.Mesh position.y={0.003} rotation.x={-Math.PI / 2} geometry={yellowZone}>
-	<T.MeshBasicMaterial color="yellow" />
-</T.Mesh>

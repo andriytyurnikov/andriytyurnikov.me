@@ -38,7 +38,7 @@
 		/** Number of cells across the width */
 		cellsAcross = 6,
 		/** Number of cells along the depth */
-		cellsDepth = 12,
+		cellsDepth = 6,
 		...rest
 	} = $props();
 

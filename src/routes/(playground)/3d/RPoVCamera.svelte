@@ -10,9 +10,8 @@
 	 *
 	 * FOV = 2 × atan(screenHeight / (2 × viewingDistance))
 	 *
-	 * - Camera positioned at eye height (default 175cm) above floor
+	 * - Camera positioned at viewing distance from anchor point
 	 * - FOV calculated from physical screen dimensions and viewing distance
-	 * - Gaze angle tilts view (tunable, default 0°)
 	 */
 
 	let {
@@ -40,12 +39,8 @@
 			desktop: 65,
 			desktop4k: 70
 		},
-		/** Gaze angle in degrees (negative = looking down, positive = looking up) */
-		gazeAngle = $bindable(0),
-		/** The point the camera looks at (X and Z; Y is derived from eyeHeight and gaze) */
+		/** The point the camera looks at */
 		anchor = [0, 0, 0],
-		/** Eye height above floor in centimeters */
-		eyeHeight = 175,
 		/** Scale factor to convert distances (cm) to scene units */
 		distanceScale = 0.01,
 		...rest
@@ -65,7 +60,6 @@
 
 	const fovSpring = new Spring(currentFov, { stiffness: 0.1, damping: 0.8 });
 	const distanceSpring = new Spring(currentDistance, { stiffness: 0.1, damping: 0.8 });
-	const gazeSpring = new Spring(gazeAngle, { stiffness: 0.1, damping: 0.8 });
 
 	function getBreakpoint(width, height) {
 		const isTabletOrLarger = width >= BREAKPOINTS.tablet && height >= BREAKPOINTS.tablet;
@@ -75,10 +69,6 @@
 		if (width >= BREAKPOINTS.desktop) return 'desktop';
 		if (width >= BREAKPOINTS.laptop) return 'laptop';
 		return 'tablet';
-	}
-
-	function toRadians(degrees) {
-		return (degrees * Math.PI) / 180;
 	}
 
 	function toDegrees(radians) {
@@ -129,26 +119,11 @@
 		distanceSpring.target = currentDistance;
 	}
 
-	// Update gaze spring when prop changes
-	$effect(() => {
-		gazeSpring.target = gazeAngle;
-	});
-
-	// Camera at eye height, looking in gaze direction
-	const gazeRadians = $derived(toRadians(gazeSpring.current));
-	const eyeHeightUnits = $derived(eyeHeight * distanceScale);
-
+	// Camera positioned at viewing distance from anchor, looking at anchor
 	const position = $derived([
 		anchor[0],
-		eyeHeightUnits,
-		anchor[2] - Math.cos(gazeRadians) * distanceSpring.current
-	]);
-
-	// Look-at point derived from eye height and gaze angle
-	const lookAt = $derived([
-		anchor[0],
-		eyeHeightUnits + Math.sin(gazeRadians) * distanceSpring.current,
-		anchor[2]
+		anchor[1],
+		anchor[2] - distanceSpring.current
 	]);
 
 	$effect(() => {
@@ -162,7 +137,7 @@
 	// Update camera lookAt every frame
 	useTask(() => {
 		if (cameraRef) {
-			cameraRef.lookAt(...lookAt);
+			cameraRef.lookAt(...anchor);
 		}
 	});
 </script>
