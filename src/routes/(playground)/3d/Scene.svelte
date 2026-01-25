@@ -7,7 +7,7 @@
 	 *   to match real-world viewing conditions (eye distance, display angular size)
 	 * - SceneBox: Frustum visualization with responsive grid walls aligned to camera view
 	 * - Interactive ball: Click to animate toward screen with deformation
-	 *   (no vertex crosses the screen plane at z=0)
+	 *   (no vertex crosses the reality membrane at z=0)
 	 * - Two-phase animation: linear motion until collision, cubic ease during deformation
 	 */
 
@@ -46,8 +46,8 @@
 	// Ball touches screen when center is at z = radius
 	const collisionPoint = ballRadius;
 
-	// Final position: center penetrates 0.25 radius into screen
-	const targetZ = ballRadius * 0.75;
+	// Final position: center penetrates 0.125 radius into membrane
+	const targetZ = ballRadius * 0.875;
 
 
 	let viewingDistance = $state(eyeDistance.mobile * distanceScale);
@@ -187,7 +187,7 @@
 		return texture;
 	}
 
-	const gradientMap = createGradientMap(4);
+	const gradientMap = createGradientMap(2);
 
 	// Deform sphere so no vertex crosses z=0 in world space
 	function deformSphere(ballZPos) {
@@ -215,17 +215,18 @@
 <!-- Frustum visualization: grid walls forming the view volume -->
 <SceneBox anchor={[0, 0, 0]} opacity={0.5} />
 
-<!-- Lighting: key light above and to the side + fill from behind camera -->
-<T.DirectionalLight position={[viewingDistance * 0.7, viewingDistance, -viewingDistance * 0.5]} intensity={1} />
-<T.PointLight position={[0, 0, -2 * viewingDistance]} intensity={0.5} />
+<!-- Hemisphere: bright from above, dark from below -->
+<T.HemisphereLight args={['#ffffff', '#222222', 0.6]} />
+<!-- Directional for form/toon bands - behind membrane -->
+<T.DirectionalLight position={[0.5, 1, 0.5]} intensity={0.8} />
 
-<!-- Invisible screen plane at z=0 (collision boundary) -->
+<!-- Invisible reality membrane at z=0 (collision boundary) -->
 <T.Mesh position={[0, 0, 0]}>
 	<T.PlaneGeometry args={[1.6, 0.9]} />
 	<T.MeshStandardMaterial visible={false} transparent opacity={0.125} color="white" />
 </T.Mesh>
 
-<!-- Interactive ball: click to toggle position, deforms against screen plane -->
+<!-- Interactive ball: click to toggle position, deforms against reality membrane -->
 <T.Mesh
 	castShadow
 	position={[0, 0, ballZ]}

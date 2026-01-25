@@ -1,36 +1,16 @@
 <script>
-	import { T } from '@threlte/core';
+	import { T, useThrelte, useTask } from '@threlte/core';
 	import { Spring } from 'svelte/motion';
 	import * as THREE from 'three';
 
 	/**
 	 * SceneBox - 4 planes at the edges of the camera frustum
-	 * Creates a dynamic frame around the visible area with rectangular grids
+	 * Reads camera FOV directly to ensure perfect alignment with viewport
 	 */
 
 	let {
-		/** Eye distance from screen in centimeters per breakpoint */
-		eyeDistance = {
-			mobile: 30,
-			tablet: 45,
-			laptop: 54,
-			desktop: 63.5,
-			desktop4k: 63.5
-		},
-		/** Angular size (degrees) of the smallest screen side per breakpoint */
-		smallestSideAngle = {
-			mobile: 12,
-			tablet: 20,
-			laptop: 20,
-			desktop: 25,
-			desktop4k: 25
-		},
 		/** The point the camera looks at (and where planes intersect) */
 		anchor = [0, 0, 0],
-		/** Direction from anchor to camera (will be normalized) */
-		direction = [0, 0, -1],
-		/** Scale factor to convert eye distance (cm) to scene units */
-		distanceScale = 0.01,
 		/** Color of the grid lines */
 		color = '#ffffff',
 		/** Opacity of the grid lines */
@@ -42,79 +22,37 @@
 		...rest
 	} = $props();
 
-	const BREAKPOINTS = {
-		tablet: 507,
-		laptop: 1200,
-		desktop: 1537,
-		desktop4k: 2049
-	};
+	const { camera } = useThrelte();
 
-	let verticalFov = $state(smallestSideAngle.mobile);
-	let horizontalFov = $state(smallestSideAngle.mobile);
-	let distance = $state(eyeDistance.mobile * distanceScale);
-	let planeDepth = $state(distance * 2);
+	let verticalFov = $state(50);
+	let aspectRatio = $state(1);
+	let distance = $state(0.3);
+	let planeDepth = $state(0.6);
 
 	const vFovSpring = new Spring(verticalFov, { stiffness: 0.1, damping: 0.8 });
-	const hFovSpring = new Spring(horizontalFov, { stiffness: 0.1, damping: 0.8 });
+	const aspectSpring = new Spring(aspectRatio, { stiffness: 0.1, damping: 0.8 });
 	const distanceSpring = new Spring(distance, { stiffness: 0.1, damping: 0.8 });
 	const depthSpring = new Spring(planeDepth, { stiffness: 0.1, damping: 0.8 });
-
-	function getBreakpoint(width, height) {
-		const isTabletOrLarger = width >= BREAKPOINTS.tablet && height >= BREAKPOINTS.tablet;
-		if (!isTabletOrLarger) return 'mobile';
-		if (width >= BREAKPOINTS.desktop4k) return 'desktop4k';
-		if (width >= BREAKPOINTS.desktop) return 'desktop';
-		if (width >= BREAKPOINTS.laptop) return 'laptop';
-		return 'tablet';
-	}
 
 	function toRadians(degrees) {
 		return (degrees * Math.PI) / 180;
 	}
 
-	function calculateFovs(viewportWidth, viewportHeight, targetSmallestAngle) {
-		const aspectRatio = viewportWidth / viewportHeight;
+	// Read camera properties each frame
+	useTask(() => {
+		const cam = $camera;
+		if (cam && cam.isPerspectiveCamera) {
+			verticalFov = cam.fov;
+			aspectRatio = cam.aspect;
+			distance = Math.abs(cam.position.z - anchor[2]);
+			planeDepth = distance * 2;
 
-		if (viewportHeight <= viewportWidth) {
-			const vFov = targetSmallestAngle;
-			const hFov =
-				(2 * Math.atan(Math.tan(toRadians(vFov) / 2) * aspectRatio) * 180) / Math.PI;
-			return { vFov, hFov };
-		} else {
-			const hFov = targetSmallestAngle;
-			const vFov =
-				(2 * Math.atan(Math.tan(toRadians(hFov) / 2) / aspectRatio) * 180) / Math.PI;
-			return { vFov, hFov };
+			vFovSpring.target = verticalFov;
+			aspectSpring.target = aspectRatio;
+			distanceSpring.target = distance;
+			depthSpring.target = planeDepth;
 		}
-	}
-
-	function update() {
-		if (typeof window === 'undefined') return;
-
-		const viewportWidth = window.innerWidth;
-		const viewportHeight = window.innerHeight;
-		const isLandscape = viewportWidth >= viewportHeight;
-
-		const screenMin = Math.min(window.screen.width, window.screen.height);
-		const screenMax = Math.max(window.screen.width, window.screen.height);
-		const screenWidth = isLandscape ? screenMax : screenMin;
-		const screenHeight = isLandscape ? screenMin : screenMax;
-
-		const breakpoint = getBreakpoint(screenWidth, screenHeight);
-
-		const targetAngle = smallestSideAngle[breakpoint];
-		const { vFov, hFov } = calculateFovs(viewportWidth, viewportHeight, targetAngle);
-
-		verticalFov = vFov;
-		horizontalFov = hFov;
-		distance = eyeDistance[breakpoint] * distanceScale;
-		planeDepth = distance * 2;
-
-		vFovSpring.target = verticalFov;
-		hFovSpring.target = horizontalFov;
-		distanceSpring.target = distance;
-		depthSpring.target = planeDepth;
-	}
+	});
 
 	/**
 	 * Create a rectangular grid geometry (no diagonals)
@@ -149,10 +87,9 @@
 	}
 
 	const halfVAngle = $derived(toRadians(vFovSpring.current) / 2);
-	const halfHAngle = $derived(toRadians(hFovSpring.current) / 2);
 
 	const frustumHalfHeight = $derived(Math.tan(halfVAngle) * distanceSpring.current);
-	const frustumHalfWidth = $derived(Math.tan(halfHAngle) * distanceSpring.current);
+	const frustumHalfWidth = $derived(frustumHalfHeight * aspectSpring.current);
 
 	// Create grid geometries for each plane
 	const topBottomGrid = $derived(
@@ -162,11 +99,6 @@
 		createGridGeometry(depthSpring.current, frustumHalfHeight * 2, cellsDepth, cellsAcross)
 	);
 
-	$effect(() => {
-		update();
-		window.addEventListener('resize', update);
-		return () => window.removeEventListener('resize', update);
-	});
 </script>
 
 <!-- Top grid -->
