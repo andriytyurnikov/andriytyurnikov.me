@@ -1,13 +1,16 @@
 <script>
-	import { T } from '@threlte/core';
+	import { T, useTask } from '@threlte/core';
 	import { Spring } from 'svelte/motion';
 
 	/**
 	 * Responsive Point of View Camera
 	 *
-	 * Simulates the physical viewing relationship: the camera distance from the anchor
-	 * varies to reflect the eye's distance from the screen at each breakpoint.
-	 * FOV is calculated so the smallest screen side matches the target angular size.
+	 * Simulates the physical viewing relationship:
+	 * - Camera positioned at eye height (default 175cm) above floor
+	 * - Camera distance reflects eye-to-screen distance per device
+	 * - FOV matches the display's angular size
+	 * - Gaze angle tilts view (phones: -45°, desktops: -15°)
+	 * - Camera eye level defines the true horizon
 	 */
 
 	let {
@@ -27,11 +30,19 @@
 			desktop: 25,
 			desktop4k: 25
 		},
-		/** The point the camera looks at */
+		/** Gaze angle in degrees (negative = looking down, positive = looking up) */
+		gazeAngle = {
+			mobile: -45,
+			tablet: -30,
+			laptop: -15,
+			desktop: -15,
+			desktop4k: -15
+		},
+		/** The point the camera looks at (X and Z; Y is derived from eyeHeight and gaze) */
 		anchor = [0, 0, 0],
-		/** Direction from anchor to camera (will be normalized) */
-		direction = [0, 0, -1],
-		/** Scale factor to convert eye distance (cm) to scene units */
+		/** Eye height above floor in centimeters */
+		eyeHeight = 175,
+		/** Scale factor to convert distances (cm) to scene units */
 		distanceScale = 0.01,
 		...rest
 	} = $props();
@@ -45,9 +56,11 @@
 
 	let currentFov = $state(smallestSideAngle.mobile);
 	let currentDistance = $state(eyeDistance.mobile * distanceScale);
+	let currentGazeAngle = $state(gazeAngle.mobile);
 
 	const fovSpring = new Spring(currentFov, { stiffness: 0.1, damping: 0.8 });
 	const distanceSpring = new Spring(currentDistance, { stiffness: 0.1, damping: 0.8 });
+	const gazeSpring = new Spring(currentGazeAngle, { stiffness: 0.1, damping: 0.8 });
 
 	function getBreakpoint(width, height) {
 		const isTabletOrLarger = width >= BREAKPOINTS.tablet && height >= BREAKPOINTS.tablet;
@@ -57,11 +70,6 @@
 		if (width >= BREAKPOINTS.desktop) return 'desktop';
 		if (width >= BREAKPOINTS.laptop) return 'laptop';
 		return 'tablet';
-	}
-
-	function normalize(v) {
-		const len = Math.sqrt(v[0] ** 2 + v[1] ** 2 + v[2] ** 2);
-		return [v[0] / len, v[1] / len, v[2] / len];
 	}
 
 	function toRadians(degrees) {
@@ -113,17 +121,28 @@
 		const targetAngle = smallestSideAngle[breakpoint];
 		currentFov = calculateVerticalFov(viewportWidth, viewportHeight, targetAngle);
 		currentDistance = eyeDistance[breakpoint] * distanceScale;
+		currentGazeAngle = gazeAngle[breakpoint];
 
 		fovSpring.target = currentFov;
 		distanceSpring.target = currentDistance;
+		gazeSpring.target = currentGazeAngle;
 	}
 
-	const normalizedDirection = $derived(normalize(direction));
+	// Camera at eye height, looking in gaze direction
+	const gazeRadians = $derived(toRadians(gazeSpring.current));
+	const eyeHeightUnits = $derived(eyeHeight * distanceScale);
 
 	const position = $derived([
-		anchor[0] + normalizedDirection[0] * distanceSpring.current,
-		anchor[1] + normalizedDirection[1] * distanceSpring.current,
-		anchor[2] + normalizedDirection[2] * distanceSpring.current
+		anchor[0],
+		eyeHeightUnits,
+		anchor[2] - Math.cos(gazeRadians) * distanceSpring.current
+	]);
+
+	// Look-at point derived from eye height and gaze angle
+	const lookAt = $derived([
+		anchor[0],
+		eyeHeightUnits + Math.sin(gazeRadians) * distanceSpring.current,
+		anchor[2]
 	]);
 
 	$effect(() => {
@@ -131,14 +150,21 @@
 		window.addEventListener('resize', updateCamera);
 		return () => window.removeEventListener('resize', updateCamera);
 	});
+
+	let cameraRef = $state(null);
+
+	// Update camera lookAt every frame
+	useTask(() => {
+		if (cameraRef) {
+			cameraRef.lookAt(...lookAt);
+		}
+	});
 </script>
 
 <T.PerspectiveCamera
 	makeDefault
+	bind:ref={cameraRef}
 	fov={fovSpring.current}
 	position={position}
-	oncreate={(ref) => {
-		ref.lookAt(...anchor);
-	}}
 	{...rest}
 />

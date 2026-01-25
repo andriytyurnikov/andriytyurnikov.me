@@ -3,9 +3,10 @@
 	 * 3D Scene demonstrating Responsive Point of View (RPoV) camera system.
 	 *
 	 * Features:
-	 * - RPoVCamera: Camera FOV and distance adjust based on device breakpoints
-	 *   to match real-world viewing conditions (eye distance, display angular size)
-	 * - SceneBox: Frustum visualization with responsive grid walls
+	 * - RPoVCamera: Camera FOV, distance, and gaze angle adjust based on device breakpoints
+	 *   to match real-world viewing conditions (eye distance, display angular size, head tilt)
+	 * - TrueHorizon: Visual horizon line at eye level, positioned based on gaze angle
+	 * - SceneBox: Frustum visualization with responsive grid walls aligned to camera view
 	 * - Interactive ball: Click to animate toward screen with deformation
 	 *   (no vertex crosses the screen plane at z=0)
 	 * - Two-phase animation: linear motion until collision, cubic ease during deformation
@@ -17,6 +18,7 @@
 
 	import RPoVCamera from './RPoVCamera.svelte';
 	import SceneBox from './SceneBox.svelte';
+	import TrueHorizon from './TrueHorizon.svelte';
 
 	interactivity();
 
@@ -36,6 +38,18 @@
 		desktop: 63.5,
 		desktop4k: 63.5
 	};
+
+	// Gaze angle in degrees (negative = looking down)
+	const gazeAngle = {
+		mobile: -45,
+		tablet: -30,
+		laptop: -15,
+		desktop: -15,
+		desktop4k: -15
+	};
+
+	// Eye height above floor (cm)
+	const eyeHeight = 175;
 
 	// Convert real-world cm to scene units (1cm = 0.01 units)
 	const distanceScale = 0.01;
@@ -59,7 +73,10 @@
 	};
 
 	let viewingDistance = $state(eyeDistance.mobile * distanceScale);
+	let currentGazeAngle = $state(gazeAngle.mobile);
 	let frustumHalfHeight = $state(0);
+	let horizonY = $state(eyeHeight * distanceScale);
+	let lookAtY = $state(eyeHeight * distanceScale + Math.sin(toRadians(gazeAngle.mobile)) * eyeDistance.mobile * distanceScale);
 
 	function toRadians(degrees) {
 		return (degrees * Math.PI) / 180;
@@ -180,6 +197,11 @@
 
 		const breakpoint = getBreakpoint(screenWidth, screenHeight);
 		viewingDistance = eyeDistance[breakpoint] * distanceScale;
+		currentGazeAngle = gazeAngle[breakpoint];
+
+		// Calculate look-at point Y (where camera is pointing)
+		const eyeHeightUnits = eyeHeight * distanceScale;
+		lookAtY = eyeHeightUnits + Math.sin(toRadians(currentGazeAngle)) * viewingDistance;
 
 		// Calculate frustum height for light positioning
 		const targetAngle = smallestSideAngle[breakpoint];
@@ -238,18 +260,21 @@
 	});
 </script>
 
-<!-- Responsive camera: FOV and distance adapt to device viewing conditions -->
-<RPoVCamera anchor={[0, 0, 0]} direction={[0, 0, -1]} />
+<!-- Responsive camera: FOV, distance, and gaze angle adapt to device viewing conditions -->
+<RPoVCamera anchor={[0, 0, 0]} />
 
-<!-- Frustum visualization: 4 grid walls at screen edges -->
-<SceneBox anchor={[0, 0, 0]} direction={[0, 0, -1]} opacity={0.5} />
+<!-- True horizon line at eye level -->
+<TrueHorizon onHorizonChange={(y) => (horizonY = y)} opacity={0.5} />
+
+<!-- Frustum visualization: 5 grid walls forming the view volume -->
+<SceneBox anchor={[0, 0, 0]} opacity={0.5} />
 
 <!-- Lighting: three-quarter key light + fill from behind camera -->
-<T.DirectionalLight position={[viewingDistance * 0.7, viewingDistance, -viewingDistance * 0.5]} intensity={1} />
-<T.PointLight position={[0, 0, -2 * viewingDistance]} intensity={0.5} />
+<T.DirectionalLight position={[viewingDistance * 0.7, horizonY + viewingDistance, -viewingDistance * 0.5]} intensity={1} />
+<T.PointLight position={[0, horizonY, -2 * viewingDistance]} intensity={0.5} />
 
 <!-- Invisible screen plane at z=0 (collision boundary) -->
-<T.Mesh position.y={0} position.x={0} position.z={0}>
+<T.Mesh position.y={lookAtY} position.x={0} position.z={0}>
 	<T.PlaneGeometry args={[1.6, 0.9]} />
 	<T.MeshStandardMaterial visible={false} transparent={true} opacity={0.125} color="white" />
 </T.Mesh>
@@ -257,14 +282,15 @@
 <!-- Interactive ball: click to toggle position, deforms against screen plane -->
 <T.Mesh
 	castShadow
-	position={[0, 0, ballZ]}
+	position={[0, lookAtY, ballZ]}
 	onclick={toggleBallPosition}
 	geometry={sphereGeometry}
 >
 	<T.MeshToonMaterial color="white" {gradientMap} />
 </T.Mesh>
 
-<!-- <T.Mesh position.y={-1.75} rotation.x={-Math.PI / 2} receiveShadow>
-	<T.CircleGeometry args={[3, 64]} />
-	<T.MeshStandardMaterial color="blue" />
-</T.Mesh> -->
+<!-- Floor plane at Y=0 (60x60 units = 60m x 60m) -->
+<T.Mesh position.y={0} rotation.x={-Math.PI / 2} receiveShadow>
+	<T.PlaneGeometry args={[60, 60]} />
+	<T.MeshStandardMaterial color="red" />
+</T.Mesh>
