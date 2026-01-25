@@ -41,7 +41,6 @@
 		desktop4k: 63.5
 	};
 
-
 	// Eye height above floor (cm)
 	const eyeHeight = 175;
 
@@ -69,7 +68,9 @@
 	let viewingDistance = $state(eyeDistance.mobile * distanceScale);
 	let frustumHalfHeight = $state(0);
 	let horizonY = $state(eyeHeight * distanceScale);
-	let lookAtY = $derived(eyeHeight * distanceScale + Math.sin(toRadians(gazeAngle)) * viewingDistance);
+	let lookAtY = $derived(
+		eyeHeight * distanceScale + Math.sin(toRadians(gazeAngle)) * viewingDistance
+	);
 
 	function toRadians(degrees) {
 		return (degrees * Math.PI) / 180;
@@ -214,7 +215,7 @@
 	const originalPositions = sphereGeometry.attributes.position.array.slice();
 
 	// Create gradient map for toon shading with more bands
-	function createGradientMap(steps = 5) {
+	function createGradientMap(steps = 2) {
 		const colors = new Uint8Array(steps);
 		for (let i = 0; i < steps; i++) {
 			colors[i] = Math.round((i / (steps - 1)) * 255);
@@ -226,7 +227,7 @@
 		return texture;
 	}
 
-	const gradientMap = createGradientMap(6);
+	const gradientMap = createGradientMap(4);
 
 	// Floor zone circles (meters to scene units: 1m = 100cm * 0.01 = 1 unit)
 	const yellowZone = new THREE.CircleGeometry(2, 64); // 2m radius
@@ -263,7 +264,10 @@
 <SceneBox anchor={[0, 0, 0]} opacity={0.5} />
 
 <!-- Lighting: three-quarter key light + fill from behind camera -->
-<T.DirectionalLight position={[viewingDistance * 0.7, horizonY + viewingDistance, -viewingDistance * 0.5]} intensity={1} />
+<T.DirectionalLight
+	position={[viewingDistance * 0.7, horizonY + viewingDistance, -viewingDistance * 0.5]}
+	intensity={1}
+/>
 <T.PointLight position={[0, horizonY, -2 * viewingDistance]} intensity={0.5} />
 
 <!-- Invisible screen plane at z=0 (collision boundary) -->
