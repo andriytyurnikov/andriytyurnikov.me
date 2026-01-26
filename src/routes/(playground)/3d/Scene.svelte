@@ -49,7 +49,6 @@
 	// Final position: center penetrates 0.125 radius into membrane
 	const targetZ = ballRadius * 0.875;
 
-
 	let viewingDistance = $state(eyeDistance.mobile * distanceScale);
 
 	// Ball animation state
@@ -171,7 +170,7 @@
 	});
 
 	// Create sphere geometry with stored original positions
-	const sphereGeometry = new THREE.SphereGeometry(ballRadius, 256, 256);
+	const sphereGeometry = new THREE.SphereGeometry(ballRadius, 512, 512);
 	const originalPositions = sphereGeometry.attributes.position.array.slice();
 
 	// Create gradient map for toon shading with more bands
@@ -187,7 +186,7 @@
 		return texture;
 	}
 
-	const gradientMap = createGradientMap(2);
+	const gradientMap = createGradientMap(3);
 
 	// Deform sphere so no vertex crosses z=0 in world space
 	function deformSphere(ballZPos) {
@@ -216,9 +215,11 @@
 <SceneBox anchor={[0, 0, 0]} opacity={0.5} />
 
 <!-- Hemisphere: bright from above, dark from below -->
-<T.HemisphereLight args={['#ffffff', '#222222', 0.6]} />
+<T.HemisphereLight args={['#ffffff', '#000000', 0.6]} />
 <!-- Directional for form/toon bands - behind membrane -->
 <T.DirectionalLight position={[0.5, 1, 0.5]} intensity={0.8} />
+<!-- Rim light for edge separation against dark background -->
+<T.DirectionalLight position={[0, 0, 1]} intensity={0.4} />
 
 <!-- Invisible reality membrane at z=0 (collision boundary) -->
 <T.Mesh position={[0, 0, 0]}>
@@ -227,12 +228,6 @@
 </T.Mesh>
 
 <!-- Interactive ball: click to toggle position, deforms against reality membrane -->
-<T.Mesh
-	castShadow
-	position={[0, 0, ballZ]}
-	onclick={toggleBallPosition}
-	geometry={sphereGeometry}
->
+<T.Mesh castShadow position={[0, 0, ballZ]} onclick={toggleBallPosition} geometry={sphereGeometry}>
 	<T.MeshToonMaterial color="white" {gradientMap} />
 </T.Mesh>
-
