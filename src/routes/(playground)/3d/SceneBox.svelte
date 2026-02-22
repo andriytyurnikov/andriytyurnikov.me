@@ -18,7 +18,7 @@
 		/** Number of cells across the width */
 		cellsAcross = 6,
 		/** Number of cells along the depth */
-		cellsDepth = 6,
+		cellsDepth = 6
 	} = $props();
 
 	const { camera } = useThrelte();
@@ -86,10 +86,16 @@
 
 	$effect(() => {
 		const tbGrid = createGridGeometry(
-			frustumHalfWidth * 2, depthSpring.current, cellsAcross, cellsDepth
+			frustumHalfWidth * 2,
+			depthSpring.current,
+			cellsAcross,
+			cellsDepth
 		);
 		const lrGrid = createGridGeometry(
-			depthSpring.current, frustumHalfHeight * 2, cellsDepth, cellsAcross
+			depthSpring.current,
+			frustumHalfHeight * 2,
+			cellsDepth,
+			cellsAcross
 		);
 
 		if (topBottomGrid) topBottomGrid.dispose();
@@ -103,7 +109,6 @@
 			lrGrid.dispose();
 		};
 	});
-
 </script>
 
 {#if topBottomGrid && leftRightGrid}

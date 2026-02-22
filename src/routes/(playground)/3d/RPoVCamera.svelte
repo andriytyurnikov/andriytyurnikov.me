@@ -86,11 +86,7 @@
 	}
 
 	// Camera positioned at viewing distance from anchor, looking at anchor
-	const position = $derived([
-		anchor[0],
-		anchor[1],
-		anchor[2] - distanceSpring.current
-	]);
+	const position = $derived([anchor[0], anchor[1], anchor[2] - distanceSpring.current]);
 
 	$effect(() => {
 		updateCamera();
@@ -102,7 +98,7 @@
 <T.PerspectiveCamera
 	makeDefault
 	fov={fovSpring.current}
-	position={position}
+	{position}
 	oncreate={(ref) => ref.lookAt(...anchor)}
 	{...rest}
 />
