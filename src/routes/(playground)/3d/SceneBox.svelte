@@ -2,6 +2,7 @@
 	import { T, useThrelte, useTask } from '@threlte/core';
 	import { Spring } from 'svelte/motion';
 	import * as THREE from 'three';
+	import { toRadians } from './rpov-utils.js';
 
 	/**
 	 * SceneBox - 4 planes at the edges of the camera frustum
@@ -27,10 +28,6 @@
 	const aspectSpring = new Spring(1, { stiffness: 0.1, damping: 0.8 });
 	const distanceSpring = new Spring(0.3, { stiffness: 0.1, damping: 0.8 });
 	const depthSpring = new Spring(0.6, { stiffness: 0.1, damping: 0.8 });
-
-	function toRadians(degrees) {
-		return (degrees * Math.PI) / 180;
-	}
 
 	// Read camera properties each frame
 	useTask(() => {
@@ -97,9 +94,6 @@
 			cellsDepth,
 			cellsAcross
 		);
-
-		if (topBottomGrid) topBottomGrid.dispose();
-		if (leftRightGrid) leftRightGrid.dispose();
 
 		topBottomGrid = tbGrid;
 		leftRightGrid = lrGrid;
