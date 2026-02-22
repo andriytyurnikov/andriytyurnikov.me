@@ -17,24 +17,17 @@
 
 	import RPoVCamera from './RPoVCamera.svelte';
 	import SceneBox from './SceneBox.svelte';
+	import { detectBreakpoint } from './rpov-utils.js';
 
 	interactivity();
-
-	// Device breakpoints (pixels) - matches CSS breakpoints
-	const BREAKPOINTS = {
-		tablet: 507,
-		laptop: 1200,
-		desktop: 1537,
-		desktop4k: 2049
-	};
 
 	// Eye-to-screen distance (cm) per device type
 	const eyeDistance = {
 		mobile: 30,
 		tablet: 45,
 		laptop: 54,
-		desktop: 63.5,
-		desktop4k: 63.5
+		desktop: 65,
+		desktop4k: 70
 	};
 
 	// Convert real-world cm to scene units (1cm = 0.01 units)
@@ -133,31 +126,12 @@
 		}
 	}
 
-	function getBreakpoint(width, height) {
-		const isTabletOrLarger = width >= BREAKPOINTS.tablet && height >= BREAKPOINTS.tablet;
-		if (!isTabletOrLarger) return 'mobile';
-		if (width >= BREAKPOINTS.desktop4k) return 'desktop4k';
-		if (width >= BREAKPOINTS.desktop) return 'desktop';
-		if (width >= BREAKPOINTS.laptop) return 'laptop';
-		return 'tablet';
-	}
-
 	function updateDistance() {
 		if (typeof window === 'undefined') return;
 
-		const viewportWidth = window.innerWidth;
-		const viewportHeight = window.innerHeight;
-		const isLandscape = viewportWidth >= viewportHeight;
-
-		const screenMin = Math.min(window.screen.width, window.screen.height);
-		const screenMax = Math.max(window.screen.width, window.screen.height);
-		const screenWidth = isLandscape ? screenMax : screenMin;
-		const screenHeight = isLandscape ? screenMin : screenMax;
-
-		const breakpoint = getBreakpoint(screenWidth, screenHeight);
+		const breakpoint = detectBreakpoint();
 		viewingDistance = eyeDistance[breakpoint] * distanceScale;
 
-		// Update ball position if it's at the initial position and not animating
 		if (!ballAtScreen && !animating) {
 			ballZ = viewingDistance;
 		}
