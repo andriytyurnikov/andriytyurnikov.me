@@ -6,6 +6,7 @@
 	import HeroSection from './HeroSection.svelte';
 	import FieldOfViewSection from './FieldOfViewSection.svelte';
 	import DeviceFormFactorsSection from './DeviceFormFactorsSection.svelte';
+	import SEO from '$lib/SEO.svelte';
 
 	let breakpoint = $state('mobile');
 
@@ -21,6 +22,12 @@
 		}
 	});
 </script>
+
+<SEO
+	title="Ergonomic Web"
+	description="Designing for eyes, hands, and devices — field of view, typography, handedness."
+	path="/ergonomic-web"
+/>
 
 <article class="column-of-light text-eigengrau-50">
 	<HeroSection />

@@ -1,6 +1,13 @@
 <script>
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO
+	title="Responsive Navbar"
+	description="Adaptive navigation bar layout for all device orientations."
+	path="/garage/mobile-first-layouts/responsive-navbar"
+/>
 
 <div class="ui-shell--grid min-h-dvh">
 	<main

@@ -1,6 +1,13 @@
 <script>
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO
+	title="Mobile-first Layouts"
+	description="Responsive layout patterns emerging from physical device constraints."
+	path="/garage/mobile-first-layouts"
+/>
 
 <section class="ui-el-container">
 	<h1 class="text-[2.25rem]">Mobile-first Layouts</h1>

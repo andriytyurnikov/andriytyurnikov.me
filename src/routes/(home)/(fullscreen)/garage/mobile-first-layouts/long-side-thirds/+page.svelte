@@ -1,6 +1,13 @@
 <script>
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO
+	title="Long Side Thirds"
+	description="Content layout divided into vertical thirds."
+	path="/garage/mobile-first-layouts/long-side-thirds"
+/>
 
 <article class="flex flex-col justify-stretch items-center h-full w-full">
 	<div class="p-4 justify-self-start place-self-start">

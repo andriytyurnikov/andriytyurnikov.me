@@ -12,6 +12,13 @@
 </script>
 
 <div class="ui-shell bg-slate-900 text-slate-200">
+	<a
+		href="#main-content"
+		class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-2 focus:left-2 focus:bg-slate-800 focus:text-slate-100 focus:px-4 focus:py-2 focus:rounded"
+	>
+		Skip to main content
+	</a>
+
 	<!-- Responsive NavBar -->
 	<nav class="ui-shell-navbar-slot bg-slate-900 font-sans">
 		<div class="ui-shell-navbar justify-between bg-slate-900/75 backdrop-blur-md text-slate-200">
@@ -143,7 +150,7 @@
 	</nav>
 
 	<!-- main content -->
-	<main class="ui-shell-main bg-garage text-slate-200 flex flex-col flex-1">
+	<main id="main-content" class="ui-shell-main bg-garage text-slate-200 flex flex-col flex-1">
 		<GlowingIce rules={transitionRules}>
 			<!-- <div class="flex flex-col flex-1 justify-stretch grow min-h-full h-full"> -->
 			{@render children()}

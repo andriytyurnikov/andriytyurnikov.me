@@ -2,7 +2,14 @@
 	import '../../../../../styles/home.css';
 
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO
+	title="Field of View Map"
+	description="Zoning and composition through the human visual acuity map."
+	path="/garage/fov-map"
+/>
 
 <article
 	class="overflow-clip grayscale-30 text-viridis-950 bg-viridis-950 min-h-full max-w-dvw max-h-dvh flex flex-col flex-1 place-items-center place-content-center"

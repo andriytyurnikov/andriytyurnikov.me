@@ -1,5 +1,6 @@
 <script>
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 	let cohort = $state('median');
 
 	// let APS = $state(0.3);
@@ -175,6 +176,12 @@
 	});
 </script>
 
+<SEO
+	title="Ergonomic Typography"
+	description="Calculate optimal font size for any font, device, and audience."
+	path="/garage/ergonomic-typography"
+/>
+
 <article
 	class="
     text-slate-300
@@ -234,7 +241,7 @@
       Active and Checked: "ring-2"
     -->
 				<label
-					class="border peer/kids flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+					class="border peer/kids flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-400 sm:flex-1
 
 			          has-active:ring-2 has-active:ring-slate-900 has-active:ring-offset-2
                 has-checked:ring-0 has-checked:bg-slate-300 has-checked:text-slate-900 has-checked:hover:bg-slate-300"
@@ -259,7 +266,7 @@
       Active and Checked: "ring-2"
     -->
 				<label
-					class="border peer/peak flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+					class="border peer/peak flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-400 sm:flex-1
 
      has-active:ring-2 has-active:ring-slate-900 has-active:ring-offset-2
                 has-checked:ring-0 has-checked:bg-slate-300 has-checked:text-slate-900 has-checked:hover:bg-slate-300"
@@ -284,7 +291,7 @@
       Active and Checked: "ring-2"
     -->
 				<label
-					class="border peer/median flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+					class="border peer/median flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-400 sm:flex-1
 
 					      has-active:ring-2 has-active:ring-slate-900 has-active:ring-offset-2
                 has-checked:ring-0 has-checked:bg-slate-300 has-checked:text-slate-900 has-checked:hover:bg-slate-300"
@@ -309,7 +316,7 @@
       Active and Checked: "ring-2"
     -->
 				<label
-					class="border peer/elders flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+					class="border peer/elders flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-400 sm:flex-1
 
                 has-active:ring-2 has-active:ring-slate-900 has-active:ring-offset-2
                 has-checked:ring-0 has-checked:bg-slate-300 has-checked:text-slate-900 has-checked:hover:bg-slate-300"

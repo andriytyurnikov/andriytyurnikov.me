@@ -1,6 +1,13 @@
 <script>
 	// import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO
+	title="Glowing Ice"
+	description="Animated page transitions for SvelteKit with routing rules and accessibility."
+	path="/garage/glowing-ice"
+/>
 
 <section class="h-full w-full flex flex-col grow flex-1 justify-center items-center">
 	<div

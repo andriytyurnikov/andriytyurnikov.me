@@ -1,3 +1,13 @@
+<script>
+	import SEO from '$lib/SEO.svelte';
+</script>
+
+<SEO
+	title="No More Top Hamburger"
+	description="Why bottom navigation beats the hamburger menu on mobile."
+	path="/garage/no-more-top-hamburger"
+/>
+
 <!-- <section class="flex flex-col flex-grow flex-1"> -->
 <div class="w-full max-w-[24rem] mx-auto">
 	<p class="text-[1.25rem] mb-2 text-balance">

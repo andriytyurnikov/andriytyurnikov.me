@@ -1,6 +1,13 @@
 <script>
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO
+	title="Portrait Feed"
+	description="Vertical scrolling feed layout optimized for portrait orientation."
+	path="/garage/mobile-first-layouts/portrait-feed"
+/>
 
 <article
 	class="lt-portrait-feed

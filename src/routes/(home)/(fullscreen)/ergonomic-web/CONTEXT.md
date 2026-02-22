@@ -8,14 +8,14 @@ Little affordances may add up (or even multiply). The perceived and real complex
 
 ## Ergonomic Layers
 
-| Layer | Domain | Status |
-|-------|--------|--------|
-| **Perceptual** | Vision, FOV, visual angle, acuity | Developing |
-| **Motor** | Thumb reach, gestures, handedness, Fitts's Law | Developing |
-| **Cognitive** | Attention, memory, load, decision-making | To research |
-| **Temporal** | Animation timing, latency, rhythm, pacing | To research |
-| **Emotional** | Delight, frustration, trust, affect | To research |
-| **Semantic** | Meaning, mental models, language, iconography | To research |
+| Layer          | Domain                                         | Status      |
+| -------------- | ---------------------------------------------- | ----------- |
+| **Perceptual** | Vision, FOV, visual angle, acuity              | Developing  |
+| **Motor**      | Thumb reach, gestures, handedness, Fitts's Law | Developing  |
+| **Cognitive**  | Attention, memory, load, decision-making       | To research |
+| **Temporal**   | Animation timing, latency, rhythm, pacing      | To research |
+| **Emotional**  | Delight, frustration, trust, affect            | To research |
+| **Semantic**   | Meaning, mental models, language, iconography  | To research |
 
 ---
 
@@ -38,19 +38,20 @@ We don't have access to viewing distance in CSS/browsers. We can't measure degre
 Make an educated guess from **screen resolution + orientation** to infer device tier, then scale rem to approximate angular units.
 
 **Breakpoint logic:**
+
 - 507px = iPad Picture-in-Picture size
 - If both width AND height < 507px → phone or small floating window
 - If ≥ 507px on both → tablet or larger as primary display
 
 **Root font-size scale** (base unit = 4px):
 
-| Device | Multiplier | Root font-size | Breakpoint |
-|--------|-----------|----------------|------------|
-| Mobile | ×4 | 16px | <507px |
-| Tablet | ×5 | 20px | 507px |
-| Laptop | ×6 | 24px | 1200px |
-| Desktop | ×7 | 28px | 1537px |
-| Desktop 4K | ×8 | 32px | 2049px |
+| Device     | Multiplier | Root font-size | Breakpoint |
+| ---------- | ---------- | -------------- | ---------- |
+| Mobile     | ×4         | 16px           | <507px     |
+| Tablet     | ×5         | 20px           | 507px      |
+| Laptop     | ×6         | 24px           | 1200px     |
+| Desktop    | ×7         | 28px           | 1537px     |
+| Desktop 4K | ×8         | 32px           | 2049px     |
 
 **Result:** Rem becomes approximately angular-consistent across device tiers. 1rem ≈ same visual angle regardless of device.
 
@@ -83,6 +84,7 @@ The traditional "60 character line length" rule is derived, not fundamental.
 **Portrait mode:** "Easy reach" = bottom of screen. Navbar belongs at bottom.
 
 **Landscape mode:** "Easy reach" shifts to **dominant hand side**.
+
 - Right-handed: right edge = easy reach
 - Left-handed: left edge = easy reach
 
@@ -93,12 +95,14 @@ The "bottom" is not a fixed edge — it's **relative to grip position**.
 CSS `orientation: landscape` doesn't tell us rotation direction. Need JS extension.
 
 **Screen Orientation API:**
+
 - `landscape-primary` → rotated one direction
 - `landscape-secondary` → rotated opposite direction
 
 Rotation direction hints at dominant hand (needs verification of mapping).
 
 **Implementation:**
+
 ```
 Screen Orientation API (JS)
     ↓
@@ -109,18 +113,19 @@ CSS/Tailwind responds to injected state
 
 **Injection strategies** (see Tailwind dark mode pattern):
 
-| Strategy | Example | Enables |
-|----------|---------|---------|
-| Class | `<html class="right-handed">` | Tailwind variants: `right-handed:ml-auto` |
-| Data attr | `<html data-hand="right">` | CSS selectors: `[data-hand="right"] .navbar` |
-| CSS var | `--dominant-hand: right` | Calculations, runtime JS access |
-| Combined | All three | Maximum flexibility |
+| Strategy  | Example                       | Enables                                      |
+| --------- | ----------------------------- | -------------------------------------------- |
+| Class     | `<html class="right-handed">` | Tailwind variants: `right-handed:ml-auto`    |
+| Data attr | `<html data-hand="right">`    | CSS selectors: `[data-hand="right"] .navbar` |
+| CSS var   | `--dominant-hand: right`      | Calculations, runtime JS access              |
+| Combined  | All three                     | Maximum flexibility                          |
 
 ### Platform Scope
 
 **Handedness insights apply to handheld platforms only (Phone, Tablet).**
 
 Thumb reach, grip position, and orientation-based nav placement are irrelevant for:
+
 - Laptop (trackpad/mouse)
 - Desktop (mouse/keyboard)
 - Desktop 4K (mouse/keyboard)
@@ -132,6 +137,7 @@ Don't transfer handheld motor ergonomics to desktop-class devices.
 **Expose orientation to CSS, defer handedness assumptions.**
 
 Just inject the raw orientation type:
+
 - `portrait-primary`
 - `portrait-secondary`
 - `landscape-primary`
@@ -147,12 +153,13 @@ Let layout author decide what each means for their UI. Don't bake in handedness 
 
 ### Two Worlds
 
-| Group | Devices | Primary Constraint | Interaction |
-|-------|---------|-------------------|-------------|
-| **Touch/Handheld** | Phone, Tablet | Thumb reach (motor) | Touch, held in hand |
-| **Desktop-class** | Laptop, Desktop, 4K | Viewing distance (perceptual) | Mouse/keyboard, stationary |
+| Group              | Devices             | Primary Constraint            | Interaction                |
+| ------------------ | ------------------- | ----------------------------- | -------------------------- |
+| **Touch/Handheld** | Phone, Tablet       | Thumb reach (motor)           | Touch, held in hand        |
+| **Desktop-class**  | Laptop, Desktop, 4K | Viewing distance (perceptual) | Mouse/keyboard, stationary |
 
 Different realities → different conventions:
+
 - **Touch:** Nav at bottom/side, thumb-friendly tap targets, motor ergonomics dominate
 - **Desktop:** Nav at top acceptable, denser UI possible, perceptual ergonomics dominate
 
@@ -197,6 +204,7 @@ See `/garage/mobile-first-layouts` and `/zoned-layouts` for working examples.
 Building on responsive rem (≈ angular units), how do we zone layouts ergonomically?
 
 ### Open Questions
+
 - What angular zones exist? (foveal ~2°, parafoveal ~5°, near-peripheral ~30°?)
 - How do zones map to UI regions? (primary content, nav, periphery)
 - Does handedness (thumb reach) intersect with visual zoning on touch devices?
@@ -204,6 +212,7 @@ Building on responsive rem (≈ angular units), how do we zone layouts ergonomic
 - Is there an optimal "visual hierarchy" expressed in degrees?
 
 ### Research Threads
+
 (to be developed)
 
 ---
@@ -211,6 +220,7 @@ Building on responsive rem (≈ angular units), how do we zone layouts ergonomic
 ## Future Directions
 
 ### Additional UI Patterns to Address
+
 - Positioning of modal dialogs
 - Popovers and dropdowns
 - Notifications / toasts
@@ -218,13 +228,15 @@ Building on responsive rem (≈ angular units), how do we zone layouts ergonomic
 (All should respect thumb reach on handheld, viewing distance on desktop)
 
 ### Extraction of CSS Tools
+
 Responsive rem, breakpoints, orientation detection could be extracted as standalone:
+
 - Tailwind plugin
 - CSS-only library
 - PostCSS plugin
 
 ### Potential Side Products
+
 - **Component systems** (Web3 friendly) — ergonomic UI primitives
 - **E-commerce themes** — applying ergonomic principles to shopping UX
 - **FOV overlay browser plugin** — extract FOV oval zones visualization as a developer tool for auditing visual hierarchy and content placement against acuity zones
-

@@ -1,6 +1,13 @@
 <script>
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO
+	title="Cover Layout"
+	description="Full-screen cover layout pattern for mobile-first design."
+	path="/garage/mobile-first-layouts/cover"
+/>
 
 <article class="lt-cover h-dvh w-dvw">
 	<div class="p-4 lt-cover-header">optional Heading area - hard to reach on mobile</div>

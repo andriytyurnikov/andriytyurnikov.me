@@ -1,6 +1,13 @@
 <script>
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO
+	title="Garage"
+	description="Experiments and tools: ergonomic typography, mobile-first layouts, field of view."
+	path="/garage"
+/>
 
 <section
 	class="text-slate-200 min-h-full h-full w-full flex grow flex-1 portrait:flex-col landscape:flex-row place-center items-center justify-evenly"
@@ -40,10 +47,6 @@
 					class="ui-link-out u-url after:content-['_↗']"
 					href="https://rubygems.org/gems/clamo">📣 Clamo 💎</a
 				> : Ruby via JSON-RPC.
-			</li>
-
-			<li class="hidden">
-				<a href="{base}/display-horizon">🖥️ Display Horizon 🌅</a> &mdash; screens in field of view
 			</li>
 		</ul>
 	</div>

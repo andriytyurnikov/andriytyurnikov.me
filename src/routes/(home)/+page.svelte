@@ -1,7 +1,10 @@
 <script>
 	import '../../styles/home.css';
 	import { base } from '$app/paths';
+	import SEO from '$lib/SEO.svelte';
 </script>
+
+<SEO description="Web developer from Kyiv, Ukraine. Portfolio, experiments, and tools." path="/" />
 
 <article
 	class="bg-black text-[1.25rem] gap-0 grid grid-cols-1 grid-rows-2 landscape:grid-cols-2 landscape:grid-rows-1 h-dvh w-dvw text-slate-200-200"
@@ -11,12 +14,16 @@
 			<div class="flex flex-col content-center">
 				<div class="mb-8 flex flex-row justify-center">
 					<div class="mr-4">
-						<img
-							style="clip-path: url(#dyna-squircle-3)"
-							class="ui-photo u-photo"
-							src="{base}/images/me_ghibli.png"
-							alt="Andriy Tyurnikov"
-						/>
+						<picture>
+							<source srcset="{base}/images/me_ghibli.webp" type="image/webp" />
+							<img
+								style="clip-path: url(#dyna-squircle-3)"
+								class="ui-photo u-photo"
+								src="{base}/images/me_ghibli.png"
+								alt="Andriy Tyurnikov"
+								loading="lazy"
+							/>
+						</picture>
 					</div>
 					<div class="leading-8">
 						<p class="p-name">Andriy Tyurnikov</p>

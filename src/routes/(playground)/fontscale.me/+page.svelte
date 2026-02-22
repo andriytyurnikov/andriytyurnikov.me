@@ -254,7 +254,7 @@
       Active and Checked: "ring-2"
     -->
 					<label
-						class="border peer/kids flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+						class="border peer/kids flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-400 sm:flex-1
 						      outline-transparent
 						      has-active:ring-2 has-active:ring-eigengrau has-active:ring-offset-2
                   has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-cold-gray-200 has-checked:hover:bg-eigengrau"
@@ -279,7 +279,7 @@
       Active and Checked: "ring-2"
     -->
 					<label
-						class="border peer/peak flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+						class="border peer/peak flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-400 sm:flex-1
 						      outline-transparent
 						      has-active:ring-2 has-active:ring-eigengrau has-active:ring-offset-2
                   has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-cold-gray-200 has-checked:hover:bg-eigengrau"
@@ -304,7 +304,7 @@
       Active and Checked: "ring-2"
     -->
 					<label
-						class="border peer/median flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+						class="border peer/median flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-400 sm:flex-1
                   outline-transparent
                   has-active:transition-transform has-active:ring-2 has-active:ring-eigengrau has-active:ring-offset-2
                   has-checked:transition-transform has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-cold-gray-200 has-checked:hover:bg-eigengrau"
@@ -329,7 +329,7 @@
       Active and Checked: "ring-2"
     -->
 					<label
-						class="border peer/elders flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus:outline-hidden sm:flex-1
+						class="border peer/elders flex cursor-pointer items-center justify-center rounded-md px-3 py-3 font-semibold uppercase focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-slate-400 sm:flex-1
 
 									has-active:transition-transform has-active:ring-2 has-active:ring-eigengrau has-active:ring-offset-2
 			            has-checked:transition-transform has-checked:ring-0 has-checked:bg-eigengrau has-checked:text-cold-gray-200 has-checked:hover:bg-eigengrau"
