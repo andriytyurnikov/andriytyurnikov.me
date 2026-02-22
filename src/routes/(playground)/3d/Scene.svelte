@@ -144,7 +144,7 @@
 	});
 
 	// Create sphere geometry with stored original positions
-	const sphereGeometry = new THREE.SphereGeometry(ballRadius, 512, 512);
+	const sphereGeometry = new THREE.SphereGeometry(ballRadius, 128, 128);
 	const originalPositions = sphereGeometry.attributes.position.array.slice();
 
 	// Create gradient map for toon shading with more bands
@@ -178,7 +178,18 @@
 
 	useTask(() => {
 		animateBall(performance.now());
-		deformSphere(ballZ);
+		// Only deform when ball center is within one radius of z=0
+		if (ballZ <= ballRadius) {
+			deformSphere(ballZ);
+		} else {
+			// Reset to original positions if previously deformed
+			const positions = sphereGeometry.attributes.position.array;
+			if (positions[2] !== originalPositions[2]) {
+				positions.set(originalPositions);
+				sphereGeometry.attributes.position.needsUpdate = true;
+				sphereGeometry.computeVertexNormals();
+			}
+		}
 	});
 </script>
 
