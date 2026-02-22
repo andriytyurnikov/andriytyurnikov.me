@@ -19,20 +19,14 @@
 		cellsAcross = 6,
 		/** Number of cells along the depth */
 		cellsDepth = 6,
-		...rest
 	} = $props();
 
 	const { camera } = useThrelte();
 
-	let verticalFov = $state(50);
-	let aspectRatio = $state(1);
-	let distance = $state(0.3);
-	let planeDepth = $state(0.6);
-
-	const vFovSpring = new Spring(verticalFov, { stiffness: 0.1, damping: 0.8 });
-	const aspectSpring = new Spring(aspectRatio, { stiffness: 0.1, damping: 0.8 });
-	const distanceSpring = new Spring(distance, { stiffness: 0.1, damping: 0.8 });
-	const depthSpring = new Spring(planeDepth, { stiffness: 0.1, damping: 0.8 });
+	const vFovSpring = new Spring(50, { stiffness: 0.1, damping: 0.8 });
+	const aspectSpring = new Spring(1, { stiffness: 0.1, damping: 0.8 });
+	const distanceSpring = new Spring(0.3, { stiffness: 0.1, damping: 0.8 });
+	const depthSpring = new Spring(0.6, { stiffness: 0.1, damping: 0.8 });
 
 	function toRadians(degrees) {
 		return (degrees * Math.PI) / 180;
@@ -42,15 +36,10 @@
 	useTask(() => {
 		const cam = $camera;
 		if (cam && cam.isPerspectiveCamera) {
-			verticalFov = cam.fov;
-			aspectRatio = cam.aspect;
-			distance = Math.abs(cam.position.z - anchor[2]);
-			planeDepth = distance * 2;
-
-			vFovSpring.target = verticalFov;
-			aspectSpring.target = aspectRatio;
-			distanceSpring.target = distance;
-			depthSpring.target = planeDepth;
+			vFovSpring.target = cam.fov;
+			aspectSpring.target = cam.aspect;
+			distanceSpring.target = Math.abs(cam.position.z - anchor[2]);
+			depthSpring.target = Math.abs(cam.position.z - anchor[2]) * 2;
 		}
 	});
 
@@ -92,47 +81,65 @@
 	const frustumHalfWidth = $derived(frustumHalfHeight * aspectSpring.current);
 
 	// Create grid geometries for each plane
-	const topBottomGrid = $derived(
-		createGridGeometry(frustumHalfWidth * 2, depthSpring.current, cellsAcross, cellsDepth)
-	);
-	const leftRightGrid = $derived(
-		createGridGeometry(depthSpring.current, frustumHalfHeight * 2, cellsDepth, cellsAcross)
-	);
+	let topBottomGrid = $state(null);
+	let leftRightGrid = $state(null);
+
+	$effect(() => {
+		const tbGrid = createGridGeometry(
+			frustumHalfWidth * 2, depthSpring.current, cellsAcross, cellsDepth
+		);
+		const lrGrid = createGridGeometry(
+			depthSpring.current, frustumHalfHeight * 2, cellsDepth, cellsAcross
+		);
+
+		if (topBottomGrid) topBottomGrid.dispose();
+		if (leftRightGrid) leftRightGrid.dispose();
+
+		topBottomGrid = tbGrid;
+		leftRightGrid = lrGrid;
+
+		return () => {
+			tbGrid.dispose();
+			lrGrid.dispose();
+		};
+	});
 
 </script>
 
-<!-- Top grid -->
-<T.LineSegments
-	position={[anchor[0], anchor[1] + frustumHalfHeight, anchor[2] + depthSpring.current / 2]}
-	rotation.x={Math.PI / 2}
-	geometry={topBottomGrid}
->
-	<T.LineBasicMaterial {color} transparent {opacity} />
-</T.LineSegments>
+{#if topBottomGrid && leftRightGrid}
+	<!-- Top grid -->
+	<T.LineSegments
+		position={[anchor[0], anchor[1] + frustumHalfHeight, anchor[2] + depthSpring.current / 2]}
+		rotation.x={Math.PI / 2}
+		geometry={topBottomGrid}
+	>
+		<T.LineBasicMaterial {color} transparent {opacity} />
+	</T.LineSegments>
 
-<!-- Bottom grid -->
-<T.LineSegments
-	position={[anchor[0], anchor[1] - frustumHalfHeight, anchor[2] + depthSpring.current / 2]}
-	rotation.x={-Math.PI / 2}
-	geometry={topBottomGrid}
->
-	<T.LineBasicMaterial {color} transparent {opacity} />
-</T.LineSegments>
+	<!-- Bottom grid -->
+	<T.LineSegments
+		position={[anchor[0], anchor[1] - frustumHalfHeight, anchor[2] + depthSpring.current / 2]}
+		rotation.x={-Math.PI / 2}
+		geometry={topBottomGrid}
+	>
+		<T.LineBasicMaterial {color} transparent {opacity} />
+	</T.LineSegments>
 
-<!-- Left grid -->
-<T.LineSegments
-	position={[anchor[0] - frustumHalfWidth, anchor[1], anchor[2] + depthSpring.current / 2]}
-	rotation.y={Math.PI / 2}
-	geometry={leftRightGrid}
->
-	<T.LineBasicMaterial {color} transparent {opacity} />
-</T.LineSegments>
+	<!-- Left grid -->
+	<T.LineSegments
+		position={[anchor[0] - frustumHalfWidth, anchor[1], anchor[2] + depthSpring.current / 2]}
+		rotation.y={Math.PI / 2}
+		geometry={leftRightGrid}
+	>
+		<T.LineBasicMaterial {color} transparent {opacity} />
+	</T.LineSegments>
 
-<!-- Right grid -->
-<T.LineSegments
-	position={[anchor[0] + frustumHalfWidth, anchor[1], anchor[2] + depthSpring.current / 2]}
-	rotation.y={-Math.PI / 2}
-	geometry={leftRightGrid}
->
-	<T.LineBasicMaterial {color} transparent {opacity} />
-</T.LineSegments>
+	<!-- Right grid -->
+	<T.LineSegments
+		position={[anchor[0] + frustumHalfWidth, anchor[1], anchor[2] + depthSpring.current / 2]}
+		rotation.y={-Math.PI / 2}
+		geometry={leftRightGrid}
+	>
+		<T.LineBasicMaterial {color} transparent {opacity} />
+	</T.LineSegments>
+{/if}

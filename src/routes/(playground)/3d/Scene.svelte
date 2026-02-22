@@ -162,6 +162,13 @@
 
 	const gradientMap = createGradientMap(3);
 
+	$effect(() => {
+		return () => {
+			sphereGeometry.dispose();
+			gradientMap.dispose();
+		};
+	});
+
 	// Deform sphere so no vertex crosses z=0 in world space
 	function deformSphere(ballZPos) {
 		const positions = sphereGeometry.attributes.position.array;
