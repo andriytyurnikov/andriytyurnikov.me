@@ -213,12 +213,6 @@
 <!-- Rim light for edge separation against dark background -->
 <T.DirectionalLight position={[0, 0, 1]} intensity={0.4} />
 
-<!-- Invisible reality membrane at z=0 (collision boundary) -->
-<T.Mesh position={[0, 0, 0]}>
-	<T.PlaneGeometry args={[1.6, 0.9]} />
-	<T.MeshStandardMaterial visible={false} transparent opacity={0.125} color="white" />
-</T.Mesh>
-
 <!-- Interactive ball: click to toggle position, deforms against reality membrane -->
 <T.Mesh castShadow position={[0, 0, ballZ]} onclick={toggleBallPosition} geometry={sphereGeometry}>
 	<T.MeshToonMaterial color="white" {gradientMap} />
