@@ -1,7 +1,5 @@
 <script>
 	import '../../../styles/default.css';
-	import { base } from '$app/paths';
-
 	let cohort = $state('median');
 	// let APS = $state(0.3);
 
@@ -130,11 +128,6 @@
 
 	let selectedFontFamilyKey = 'atkinson-hyperlegible';
 
-	function truncate_float(length, number) {
-		let base = Math.pow(10, length);
-		return Math.round(base * number) / base;
-	}
-
 	function pad_float(precision, width = 4, number) {
 		let base = Math.pow(10, precision);
 		let truncated_float = Math.round(base * number) / base;
@@ -148,24 +141,18 @@
 	}
 
 	let APS = $derived.by(() => {
-		let value = 0.3;
 		switch (cohort) {
 			case 'kids':
-				value = 0.42;
-				break;
+				return 0.42;
 			case 'peak':
-				value = 0.2;
-				break;
+				return 0.2;
 			case 'median':
-				value = 0.3;
-				break;
+				return 0.3;
 			case 'elders':
-				value = 0.42;
-				break;
+				return 0.42;
 			default:
-				value = 0.3;
+				return 0.3;
 		}
-		return value;
 	});
 
 	let selectedFontFamily = $derived.by(() => {
@@ -176,25 +163,6 @@
 		return selectedFontFamily.unitsPerEm / selectedFontFamily.xHeight;
 	});
 
-	let labelAPS = $derived.by(() => {
-		if (APS <= 0.19) {
-			return 'degradation cliff';
-		} else if (APS == 0.2) {
-			return 'normal vision';
-		} else if (APS <= 0.3) {
-			return 'broadly inclusive';
-		} else if (APS < 0.42) {
-			return 'inclusive';
-		} else if (APS == 0.42) {
-			return 'children and eldery';
-		} else if (APS > 0.42 && APS <= 0.5) {
-			return 'very inclusive';
-		} else if (APS > 0.5 && APS < 1) {
-			return 'watch your headings!';
-		} else if (APS == 1.0) {
-			return 'slight discomfort for normal vision';
-		}
-	});
 </script>
 
 <svelte:head>
@@ -385,7 +353,7 @@
 							<span class="whitespace-wrap break-keep"> font-size </span>, CSS px
 						</th>
 					</tr>
-					{#each Object.entries(devices) as [key, properties], index (key)}
+					{#each Object.entries(devices) as [key, properties] (key)}
 						<tr class="border">
 							<td class="px-2 border">
 								{properties.name}

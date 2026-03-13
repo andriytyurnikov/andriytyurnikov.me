@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <div class="ui-shell--grid min-h-dvh">
@@ -15,7 +15,7 @@
 			<div class="min-w-[20rem]">
 				Main Zone
 				<br />
-				<a href="{base}/garage/mobile-first-layouts" rel="me">back to layouts</a>
+				<a href={resolve('/garage/mobile-first-layouts')} rel="me">back to layouts</a>
 			</div>
 		</div>
 	</main>

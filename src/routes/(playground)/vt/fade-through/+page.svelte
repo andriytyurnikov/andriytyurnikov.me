@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <div
@@ -8,7 +8,7 @@
 >
 	<h1 class="font-bold text-[2rem] text-center">View Transitions</h1>
 	<h2>Container transform</h2>
-	<a href="{base}/vt">Back</a>
+	<a href={resolve('/vt')}>Back</a>
 </div>
 
 <style>

@@ -1,5 +1,4 @@
 <script>
-	import { base } from '$app/paths';
 	let cohort = $state('median');
 
 	// let APS = $state(0.3);
@@ -128,11 +127,6 @@
 
 	let selectedFontFamilyKey = $state('atkinson-hyperlegible');
 
-	function truncate_float(length, number) {
-		let base = Math.pow(10, length);
-		return Math.round(base * number) / base;
-	}
-
 	function pad_float(precision, width = 4, number) {
 		let base = Math.pow(10, precision);
 		let truncated_float = Math.round(base * number) / base;
@@ -154,24 +148,18 @@
 	});
 
 	let APS = $derived.by(() => {
-		let value = 0.3;
 		switch (cohort) {
 			case 'kids':
-				value = 0.42;
-				break;
+				return 0.42;
 			case 'peak':
-				value = 0.2;
-				break;
+				return 0.2;
 			case 'median':
-				value = 0.3;
-				break;
+				return 0.3;
 			case 'elders':
-				value = 0.42;
-				break;
+				return 0.42;
 			default:
-				value = 0.3;
+				return 0.3;
 		}
-		return value;
 	});
 </script>
 
@@ -215,7 +203,7 @@
 		>
 			<legend class="px-2">Font family</legend>
 			<select class="p-2 w-full" bind:value={selectedFontFamilyKey}>
-				{#each Object.entries(fontFamilies) as [key, properties], index (key)}
+				{#each Object.entries(fontFamilies) as [key, properties] (key)}
 					<option value={key} selected={key === selectedFontFamilyKey}>
 						{properties.name}
 					</option>
@@ -366,7 +354,7 @@
 							>CSS <span class="whitespace-wrap break-keep">font-size</span>, px</th
 						>
 					</tr>
-					{#each Object.entries(devices) as [key, properties], index (key)}
+					{#each Object.entries(devices) as [key, properties] (key)}
 						<tr class="border">
 							<td class="px-2 border">
 								{properties.name}

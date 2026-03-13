@@ -142,7 +142,7 @@
 		if (!derivedUseViewTransitions) return;
 		// use ViewTransition API
 		return new Promise((resolve) => {
-			const viewTransition = document.startViewTransition(async () => {
+			document.startViewTransition(async () => {
 				resolve();
 				await navigation.complete;
 			});

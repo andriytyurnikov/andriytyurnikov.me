@@ -1,6 +1,6 @@
 <script>
 	import '../../../styles/default.css';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <article class="px-4 laptop:px-0 max-w-[40rem] mx-auto bg-inferno-900 text-inferno-200 min-h-dvh">
@@ -136,6 +136,6 @@
 	</section>
 
 	<section>
-		<a href="{base}/garage">Back</a>
+		<a href={resolve('/garage')}>Back</a>
 	</section>
 </article>

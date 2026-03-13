@@ -1,4 +1,5 @@
 import { linear } from 'svelte/easing';
+import { cubicOut } from 'svelte/easing';
 
 function split_css_unit(value) {
 	const split = typeof value === 'string' && value.match(/^\s*(-?[\d.]+)([^\s]*)\s*$/);
@@ -10,13 +11,13 @@ export function noop(_node, { duration = 0, delay = 0, easing = (t) => t } = {})
 		delay,
 		duration,
 		easing,
-		css: (t, u) => ``
+		css: () => ``
 	};
 }
 
 export function translate(
 	node,
-	{ delay = 0, duration = 400, easing = cubic_out, x = 0, y = 0 } = {}
+	{ delay = 0, duration = 400, easing = cubicOut, x = 0, y = 0 } = {}
 ) {
 	const style = getComputedStyle(node);
 	const transform = style.transform === 'none' ? '' : style.transform;
@@ -26,7 +27,7 @@ export function translate(
 		delay,
 		duration,
 		easing,
-		css: (t, u) => `
+		css: (t) => `
 			transform: ${transform} translate(${(1 - t) * x_value}${x_unit}, ${(1 - t) * y_value}${y_unit});`
 	};
 }

@@ -1,25 +1,10 @@
 <script>
-	import { base } from '$app/paths';
-	import { browser } from '$app/environment';
+	import { resolve } from '$app/paths';
 	import '../../../../styles/home.css';
 
 	import HeroSection from './HeroSection.svelte';
 	import FieldOfViewSection from './FieldOfViewSection.svelte';
 	import DeviceFormFactorsSection from './DeviceFormFactorsSection.svelte';
-
-	let breakpoint = $state('mobile');
-
-	$effect(() => {
-		if (browser) {
-			const update = () => {
-				const w = window.innerWidth;
-				breakpoint = w >= 1200 ? 'laptop' : w >= 507 ? 'tablet' : 'mobile';
-			};
-			update();
-			window.addEventListener('resize', update);
-			return () => window.removeEventListener('resize', update);
-		}
-	});
 </script>
 
 <article class="column-of-light text-eigengrau-50">
@@ -117,7 +102,7 @@
 		<!-- Navigation at bottom - demonstrating the principle -->
 		<nav class="py-6 flex justify-center tablet:hidden">
 			<a
-				href="{base}/garage"
+				href={resolve('/garage')}
 				class="bg-eigengrau-900 border border-eigengrau-700 rounded-full px-6 py-3 text-eigengrau-300 hover:bg-eigengrau-800 transition-colors"
 			>
 				Back to Garage
@@ -157,7 +142,7 @@
 			</ul>
 
 			<a
-				href="{base}/garage"
+				href={resolve('/garage')}
 				class="inline-block bg-eigengrau-100 text-eigengrau-950 rounded-full px-8 py-3 font-medium hover:bg-eigengrau-200 transition-colors"
 			>
 				Back to Garage

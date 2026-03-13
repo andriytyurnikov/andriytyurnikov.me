@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <article class="flex flex-col justify-stretch items-center h-full w-full">
@@ -12,7 +12,7 @@
 		<p>
 			Both axes (if needed).
 			<br />
-			<a href="{base}/garage/mobile-first-layouts" rel="me">back to layouts</a>
+			<a href={resolve('/garage/mobile-first-layouts')} rel="me">back to layouts</a>
 		</p>
 	</section>
 

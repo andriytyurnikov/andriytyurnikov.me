@@ -1,10 +1,7 @@
 <script>
 	import '../../../styles/home.css';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
-	import { linear, quadIn } from 'svelte/easing';
-	import { blur, fade, fly, scale, slide } from 'svelte/transition';
-	import { noop, filterHueRotate, filterInvert, filterContrast } from '$lib/glowing-ice/transition';
 
 	let { children } = $props();
 
@@ -24,7 +21,7 @@
 			<ul
 				class="ui-shell-navbar-section ui-shell-navbar-section--central justify-between laptop:justify-start"
 			>
-				<a class="ui-navbar-item" href="/">
+				<a class="ui-navbar-item" href={resolve('/')}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -43,7 +40,7 @@
 					<span class="ui-navbar-item-label">Home</span>
 				</a>
 
-				<a class="ui-navbar-item" href="/garage">
+				<a class="ui-navbar-item" href={resolve('/garage')}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -61,7 +58,7 @@
 					<span class="ui-navbar-item-label">Garage</span>
 				</a>
 
-				<a class="ui-navbar-item" href="{base}/friends">
+				<a class="ui-navbar-item" href={resolve('/friends')}>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
@@ -80,7 +77,7 @@
 					<span class="ui-navbar-item-label">Friends</span>
 				</a>
 
-				<a class="ui-navbar-item" href="{base}/about">
+				<a class="ui-navbar-item" href={resolve('/about')}>
 					<svg
 						class="ui-navbar-item-icon size-5"
 						xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +100,7 @@
 				class="ui-shell-navbar-section ui-shell-navbar-section--aside justify-end items-center justify-self-end"
 			>
 				<li class="!hidden flex">
-					<a href="/" aria-label="profile" class="align-bottom">
+					<a href={resolve('/')} aria-label="profile" class="align-bottom">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"

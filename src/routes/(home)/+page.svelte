@@ -1,6 +1,6 @@
 <script>
 	import '../../styles/home.css';
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <article
@@ -14,7 +14,7 @@
 						<img
 							style="clip-path: url(#dyna-squircle-3)"
 							class="ui-photo u-photo"
-							src="{base}/images/me_ghibli.png"
+							src={resolve('/images/me_ghibli.png')}
 							alt="Andriy Tyurnikov"
 						/>
 					</div>
@@ -45,7 +45,7 @@
 				<a
 					data-sveltekit-preload-data
 					class="mb-4 cursor-pointer inline-block active:translate-y-1 hover:bg-yellow-300 u-url rounded-md px-4 py-2 bg-yellow-400 text-black no-underline after:content-['_→']"
-					href="{base}/garage"
+					href={resolve('/garage')}
 					rel="me">MY GARAGE</a
 				><br />
 				<a

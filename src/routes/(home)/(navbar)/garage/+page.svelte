@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <section
@@ -14,23 +14,23 @@
 		<h2 class="text-[1.75rem] font-medium mb-6">Web, UI/UX related:</h2>
 		<ul class="text-[1.25rem] leading-[1.875rem]">
 			<li class="mt-4">
-				<a href="{base}/garage/fov-map">🌇 Field of View Map 🗺️</a>
+				<a href={resolve('/garage/fov-map')}>🌇 Field of View Map 🗺️</a>
 			</li>
 
 			<li>
-				<a href="{base}/garage/ergonomic-typography">👁️ Ergonomic Typography 🔠</a>
+				<a href={resolve('/garage/ergonomic-typography')}>👁️ Ergonomic Typography 🔠</a>
 			</li>
 
 			<li>
-				<a href="{base}/garage/no-more-top-hamburger">🔪 NoMoreTopHamburger.com 🍔</a>
+				<a href={resolve('/garage/no-more-top-hamburger')}>🔪 NoMoreTopHamburger.com 🍔</a>
 			</li>
 
 			<li>
-				<a href="{base}/garage/mobile-first-layouts">📱 Mobile-first Layouts 🖼️</a>
+				<a href={resolve('/garage/mobile-first-layouts')}>📱 Mobile-first Layouts 🖼️</a>
 			</li>
 
 			<li class="text-cyan-200">
-				<a href="{base}/garage/glowing-ice">✨ Glowing Ice Animations 🧊</a>
+				<a href={resolve('/garage/glowing-ice')}>✨ Glowing Ice Animations 🧊</a>
 			</li>
 
 			<li>
@@ -43,7 +43,7 @@
 			</li>
 
 			<li class="hidden">
-				<a href="{base}/display-horizon">🖥️ Display Horizon 🌅</a> &mdash; screens in field of view
+				<a href={resolve('/display-horizon')}>🖥️ Display Horizon 🌅</a> &mdash; screens in field of view
 			</li>
 		</ul>
 	</div>

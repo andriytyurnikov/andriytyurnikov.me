@@ -2,9 +2,6 @@
 	import '../../../../../styles/home.css';
 
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
-	import { linear } from 'svelte/easing';
-	import { blur, fade, fly, scale, slide } from 'svelte/transition';
-	import { filterHueRotate, filterInvert, filterContrast } from '$lib/glowing-ice/transition';
 
 	let { children } = $props();
 </script>

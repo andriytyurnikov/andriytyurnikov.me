@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <div
@@ -9,7 +9,7 @@
 	<h1 class="font-bold text-[2rem] text-center">View Transitions</h1>
 
 	Container transform (strong relationship - item-to-details)<br />
-	<a href="{base}/vt/container-transform">
+	<a href={resolve('/vt/container-transform')}>
 		<div
 			class="inline-block bg-rose-300 p-4 rounded-full"
 			style="view-transition-name: container-transform;"
@@ -20,7 +20,7 @@
 
 	Shared Axis(x/y/z - back&next, stepper & wizard, camera)<br />
 	Fade through (no strong relationship - navbar destinations!)<br />
-	<a href="{base}/vt/fade-through">
+	<a href={resolve('/vt/fade-through')}>
 		<div class="inline-block bg-yellow-300 p-4 rounded-full">fade through</div>
 	</a>
 	Fade (separate element +scale)<br />

@@ -1,7 +1,7 @@
 <script>
 	import '../../../../../styles/home.css';
 
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <article
@@ -29,7 +29,7 @@
 							Zoning and<br /> composition<br />
 							trough visual<br /> accuity map.
 							<br />
-							<a href="{base}/garage">Back</a>
+							<a href={resolve('/garage')}>Back</a>
 						</p>
 					</div>
 					<!-- </div> -->

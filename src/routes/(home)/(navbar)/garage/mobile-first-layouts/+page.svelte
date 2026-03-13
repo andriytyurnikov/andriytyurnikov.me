@@ -1,5 +1,5 @@
 <script>
-	import { base } from '$app/paths';
+	import { resolve } from '$app/paths';
 </script>
 
 <section class="ui-el-container">
@@ -17,12 +17,12 @@
 
 	<h2 class="text-[2.25rem]">Emerging solutions:</h2>
 	<p>
-		<a href="{base}/garage/mobile-first-layouts/responsive-navbar" rel="me">Responsive NavBar</a>
+		<a href={resolve('/garage/mobile-first-layouts/responsive-navbar')} rel="me">Responsive NavBar</a>
 		<br />
-		<a href="{base}/garage/mobile-first-layouts/portrait-feed" rel="me">Portrait feed</a>
+		<a href={resolve('/garage/mobile-first-layouts/portrait-feed')} rel="me">Portrait feed</a>
 		(often image/video driven)
 		<br />
-		<a href="{base}/garage/mobile-first-layouts/cover" rel="me">Cover</a>
+		<a href={resolve('/garage/mobile-first-layouts/cover')} rel="me">Cover</a>
 		(mostly for landing pages)<br />
 		<!-- <a href="{base}/garage/mobile-first-layouts/long-side-halves" rel="me">Long side halves</a>
 		<br />
