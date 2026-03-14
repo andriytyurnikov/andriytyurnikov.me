@@ -5,12 +5,11 @@
 	import { onNavigate } from '$app/navigation';
 	import { tick } from 'svelte';
 
-	// import { noop } from './transition.js';
 	const noop = () => {};
 
 	let {
 		children,
-		debug = true,
+		debug = false,
 		enableViewTransitions = false, // Flag for future granular control
 		enableSvelteTransitions = true, // Flag for future granular control
 		rules = []
@@ -41,10 +40,6 @@
 		if (!browser) return false;
 
 		return page.url.pathname + instanceId;
-
-		// return 0 == derivedMatchingRules.length
-		// 	? page.url.pathname + instanceId
-		// 	: page.url.pathname + instanceId;
 	});
 
 	const derivedMatchingRules = $derived.by(() => {
@@ -118,8 +113,6 @@
 			if (debug) console.log('View Transitions API supported:', viewTransitionsSupported);
 			if (debug) console.log('View Transitions enabled:', enableViewTransitions);
 			instanceId = Math.random().toString(36).slice(2, 11);
-			viewTransitionsActive = viewTransitionsSupported && enableViewTransitions;
-			svelteTransitionsActive = enableSvelteTransitions && !viewTransitionsActive;
 
 			// First tick: component mounted
 			// Second tick: all children rendered
@@ -196,45 +189,3 @@
 		</div>
 	{/key}
 </div>
-
-<style>
-	@keyframes -global-slide-in {
-		from {
-			transform: translateX(100%);
-			opacity: 0;
-		}
-		to {
-			transform: translateX(0);
-			opacity: 1;
-		}
-	}
-
-	@keyframes -global-slide-out {
-		from {
-			transform: translateX(0);
-			opacity: 1;
-		}
-		to {
-			transform: translateX(-100%);
-			opacity: 0;
-		}
-	}
-
-	@keyframes -global-fade-in {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-
-	@keyframes -global-fade-out {
-		from {
-			opacity: 1;
-		}
-		to {
-			opacity: 0;
-		}
-	}
-</style>
