@@ -17,7 +17,9 @@
 
 	<h2 class="text-[2.25rem]">Emerging solutions:</h2>
 	<p>
-		<a href={resolve('/garage/mobile-first-layouts/responsive-navbar')} rel="me">Responsive NavBar</a>
+		<a href={resolve('/garage/mobile-first-layouts/responsive-navbar')} rel="me"
+			>Responsive NavBar</a
+		>
 		<br />
 		<a href={resolve('/garage/mobile-first-layouts/portrait-feed')} rel="me">Portrait feed</a>
 		(often image/video driven)

@@ -22,7 +22,7 @@
 
 	article {
 		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/center.jpg');
+			linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/center.webp');
 		@apply bg-center bg-cover;
 	}
 

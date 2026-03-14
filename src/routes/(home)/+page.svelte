@@ -14,7 +14,7 @@
 						<img
 							style="clip-path: url(#dyna-squircle-3)"
 							class="ui-photo u-photo"
-							src={resolve('/images/me_ghibli.png')}
+							src={resolve('/images/me_ghibli.webp')}
 							alt="Andriy Tyurnikov"
 						/>
 					</div>

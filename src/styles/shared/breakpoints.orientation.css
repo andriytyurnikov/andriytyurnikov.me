@@ -44,13 +44,23 @@
 
 /* Convenience aliases for common cases */
 @custom-variant orientation-portrait {
-	&:where(.orientation-portrait-primary, .orientation-portrait-primary *, .orientation-portrait-secondary, .orientation-portrait-secondary *) {
+	&:where(
+		.orientation-portrait-primary,
+		.orientation-portrait-primary *,
+		.orientation-portrait-secondary,
+		.orientation-portrait-secondary *
+	) {
 		@slot;
 	}
 }
 
 @custom-variant orientation-landscape {
-	&:where(.orientation-landscape-primary, .orientation-landscape-primary *, .orientation-landscape-secondary, .orientation-landscape-secondary *) {
+	&:where(
+		.orientation-landscape-primary,
+		.orientation-landscape-primary *,
+		.orientation-landscape-secondary,
+		.orientation-landscape-secondary *
+	) {
 		@slot;
 	}
 }

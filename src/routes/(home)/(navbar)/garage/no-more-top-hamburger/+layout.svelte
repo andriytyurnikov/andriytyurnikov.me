@@ -15,6 +15,6 @@
 
 		background-image:
 			linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)),
-			url('/images/burger-with-knife-in-it.jpg');
+			url('/images/burger-with-knife-in-it.webp');
 	}
 </style>

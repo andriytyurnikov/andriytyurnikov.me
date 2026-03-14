@@ -13,8 +13,8 @@
 			<li>✅ Nested layouts</li>
 			<li>✅ Accessibility 'prefers-reduced-motion'</li>
 			<li>✅ Svelte Transitions</li>
-			<li>⛔ TODO: ViewTransitions API</li>
-			<li>⛔ TODO: Container customization</li>
+			<li>🔜 ViewTransitions API</li>
+			<li>🔜 Container customization</li>
 		</ul>
 	</div>
 </section>

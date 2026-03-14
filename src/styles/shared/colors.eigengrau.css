@@ -342,7 +342,8 @@ Appears yellow (approximately #FFEE33 when concentrated) */
 	--color-warm-gray-200: oklch(0.8 0.04 110);
 	--color-warm-gray-300: oklch(0.7 0.04 110);
 	--color-warm-gray-400: oklch(0.6 0.04 110);
-	--color-warm-gray-500: oklch(0.5 0.04 110) --color-warm-gray-600: oklch(0.4 0.04 110);
+	--color-warm-gray-500: oklch(0.5 0.04 110);
+	--color-warm-gray-600: oklch(0.4 0.04 110);
 	--color-warm-gray-700: oklch(0.3 0.04 110);
 	--color-warm-gray-800: oklch(0.2 0.04 110);
 	--color-warm-gray-900: oklch(0.1 0.04 110);

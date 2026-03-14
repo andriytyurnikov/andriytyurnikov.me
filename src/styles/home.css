@@ -56,7 +56,7 @@
 	@apply bg-local bg-center bg-cover bg-black;
 
 	background-image:
-		linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/garage.jpg');
+		linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/garage.webp');
 }
 
 @utility bg-burger {
@@ -64,7 +64,7 @@
 
 	background-image:
 		linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.25)),
-		url('/images/burger-with-knife-in-it.jpg');
+		url('/images/burger-with-knife-in-it.webp');
 }
 
 @utility bg-ice {
@@ -72,5 +72,5 @@
 
 	background-image:
 		linear-gradient(rgba(0, 0, 0, 0.125), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.125)),
-		url('/images/glowing-ice.jpg');
+		url('/images/glowing-ice.webp');
 }

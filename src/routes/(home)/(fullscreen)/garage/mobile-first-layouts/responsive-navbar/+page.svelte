@@ -29,7 +29,7 @@
 
 	main {
 		background-image:
-			linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/balance.jpg');
+			linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/balance.webp');
 		@apply bg-center bg-cover text-neutral-50;
 	}
 

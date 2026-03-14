@@ -162,7 +162,6 @@
 	let selectedFontFamilySizeFactor = $derived.by(() => {
 		return selectedFontFamily.unitsPerEm / selectedFontFamily.xHeight;
 	});
-
 </script>
 
 <svelte:head>
