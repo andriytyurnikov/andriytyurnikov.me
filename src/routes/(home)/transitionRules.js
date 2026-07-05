@@ -55,15 +55,6 @@ export default [
 	},
 	{
 		withType: 'link',
-		fromRouteId: '/(home)/(navbar)/garage/viewport-typography',
-		toRouteId: '/(home)/(navbar)/garage',
-		transition: {
-			function: fade,
-			params: { duration: 250, easing: linear }
-		}
-	},
-	{
-		withType: 'link',
 		fromRouteId: '/(home)/(navbar)/garage',
 		toRouteId: '/(home)/(navbar)/garage/mobile-first-layouts',
 		transition: {

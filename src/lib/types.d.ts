@@ -1,8 +1,10 @@
 import { NavigationType } from '@sveltejs/kit';
 import { TransitionConfig } from 'svelte/transition';
 
+export type TransitionFunction = (node: Element, params?: object) => TransitionConfig;
+
 export type TransitionFunctionWithParams = {
-	function: function;
+	function: TransitionFunction;
 	params?: object;
 };
 
@@ -10,9 +12,13 @@ export type TransitionRule = {
 	fromRouteId?: string | string[];
 	toRouteId?: string | string[];
 	withType?: NavigationType | NavigationType[];
-	transition?: TransitionFunctionWithParams | TransitionFunctionWithParams[];
-	intro?: TransitionFunctionWithParams | TransitionFunctionWithParams[];
-	outro?: TransitionFunctionWithParams | TransitionFunctionWithParams[];
+	transition?: TransitionFunctionWithParams;
+	intro?: TransitionFunctionWithParams;
+	outro?: TransitionFunctionWithParams;
+	onintrostart?: (e: Event) => void;
+	onintroend?: (e: Event) => void;
+	onoutrostart?: (e: Event) => void;
+	onoutroend?: (e: Event) => void;
 };
 
 export type TransitionRules = TransitionRule[];

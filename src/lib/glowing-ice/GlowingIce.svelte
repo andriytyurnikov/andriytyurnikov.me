@@ -42,8 +42,12 @@
 		return page.url.pathname + instanceId;
 	});
 
+	const matchesRouteId = (expected, actual) =>
+		Array.isArray(expected) ? expected.includes(actual) : expected === actual;
+
 	const derivedMatchingRules = $derived.by(() => {
-		if (!navigating) return [];
+		// navigating from $app/state is always an object; its props are null when idle
+		if (!navigating?.type) return [];
 
 		return rules.filter((rule) => {
 			if (!rule) return false;
@@ -63,13 +67,13 @@
 
 			// Normal navigation checks
 			if (Object.hasOwn(rule, 'fromRouteId')) {
-				if (rule.fromRouteId !== navigating?.from?.route?.id) {
+				if (!matchesRouteId(rule.fromRouteId, navigating?.from?.route?.id)) {
 					return false;
 				}
 			}
 
 			if (Object.hasOwn(rule, 'toRouteId')) {
-				if (rule.toRouteId !== navigating?.to?.route?.id) {
+				if (!matchesRouteId(rule.toRouteId, navigating?.to?.route?.id)) {
 					return false;
 				}
 			}

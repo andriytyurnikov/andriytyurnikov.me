@@ -37,7 +37,7 @@
 				<a
 					rel="me"
 					target="_blank"
-					class="ui-link-out u-url after:content-['_↗']"
+					class="ui-link--out u-url"
 					href="https://rubygems.org/gems/clamo">📣 Clamo 💎</a
 				> : Ruby via JSON-RPC.
 			</li>
