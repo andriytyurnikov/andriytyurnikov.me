@@ -68,10 +68,11 @@ The traditional "60 character line length" rule is derived, not fundamental.
 **Key ratio:** 1° ≈ 2.4rem
 
 **Reference dimensions:**
-| Dimension | Responsive Rem | Degrees |
-|-----------|----------------|---------|
-| Portrait mobile width | ~24rem | ~10° |
-| Body text max (line length) | 40rem | ~16.7° |
+
+| Dimension                   | Responsive Rem | Degrees |
+| --------------------------- | -------------- | ------- |
+| Portrait mobile width       | ~24rem         | ~10°    |
+| Body text max (line length) | 40rem          | ~16.7°  |
 
 **Implication:** If rem is angular-consistent, then line width in rem is also angular-consistent. Set `max-width: 40rem` and the ~17° rule follows automatically across devices.
 
@@ -174,22 +175,24 @@ Pareto principle for layouts — fewer patterns, better executed.
 See `/garage/mobile-first-layouts` and `/zoned-layouts` for working examples.
 
 **Structural layouts:**
-| Pattern | Structure | Use Case |
-|---------|-----------|----------|
-| **Cover** | Header / Main / Footer | Landing pages, hero (footer = easy reach) |
-| **Portrait Feed** | Nav / Main / Aside | Content feeds, media apps |
-| **Responsive NavBar** | Orientation-aware nav | App shells |
+
+| Pattern               | Structure              | Use Case                                  |
+| --------------------- | ---------------------- | ----------------------------------------- |
+| **Cover**             | Header / Main / Footer | Landing pages, hero (footer = easy reach) |
+| **Portrait Feed**     | Nav / Main / Aside     | Content feeds, media apps                 |
+| **Responsive NavBar** | Orientation-aware nav  | App shells                                |
 
 **Content zones:**
-| Pattern | Description |
-|---------|-------------|
-| Solo Minor | Single small zone |
-| Solo | Single medium zone |
-| Solo Wide | Single wide zone |
-| Duo | Two equal zones |
-| Duo Minor | Two small zones |
-| Major + Minor | Asymmetric pair |
-| Trio | Three equal zones |
+
+| Pattern       | Description        |
+| ------------- | ------------------ |
+| Solo Minor    | Single small zone  |
+| Solo          | Single medium zone |
+| Solo Wide     | Single wide zone   |
+| Duo           | Two equal zones    |
+| Duo Minor     | Two small zones    |
+| Major + Minor | Asymmetric pair    |
+| Trio          | Three equal zones  |
 
 **Orientation behavior:** Zones stack in portrait, go side-by-side in landscape.
 
