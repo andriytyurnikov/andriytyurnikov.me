@@ -1,16 +1,25 @@
 <script>
 	import { Canvas } from '@threlte/core';
-	import { Studio } from '@threlte/studio';
+	import { dev } from '$app/environment';
 
 	import Scene from './Scene.svelte';
 
-	import { dev } from '$app/environment';
+	// @threlte/studio's <Studio> has no `enabled` prop, so passing one does not
+	// keep the editor out of production - it has to not be rendered at all.
+	// `dev` is replaced at build time, so the dynamic import below is dead code
+	// eliminated and Studio never reaches the production bundle.
 </script>
 
 <Canvas>
-	<Studio enabled={dev}>
+	{#if dev}
+		{#await import('@threlte/studio') then { Studio }}
+			<Studio>
+				<Scene />
+			</Studio>
+		{/await}
+	{:else}
 		<Scene />
-	</Studio>
+	{/if}
 </Canvas>
 
 <style>
