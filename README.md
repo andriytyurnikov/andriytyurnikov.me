@@ -36,10 +36,20 @@ bun run dev
 
 ```bash
 bun run lint       # prettier --check && eslint
+bun run check      # svelte-check (svelte + css diagnostics)
 bun run test       # vitest, single run
 bun run test:e2e   # playwright, builds and previews first
 bun run build
 ```
+
+`check` reports 0 errors. The warnings it does report are mostly
+`Unknown at rule @apply` / `@reference` — svelte-check's CSS parser does not
+know Tailwind 4 directives. Pass `--diagnostic-sources js,svelte` to silence
+them, at the cost of also losing unused-selector warnings.
+
+svelte-check needs TypeScript 6 and 7 installed side by side and the `--tsgo`
+flag, hence the `typescript` (6) plus `@typescript/native` (7) pair in
+devDependencies.
 
 ## Adding a page
 

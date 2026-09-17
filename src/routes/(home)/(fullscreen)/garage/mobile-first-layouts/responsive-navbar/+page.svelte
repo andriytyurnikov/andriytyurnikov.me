@@ -32,12 +32,4 @@
 			linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('/images/balance.webp');
 		@apply bg-center bg-cover text-neutral-50;
 	}
-
-	li {
-		@apply self-stretch items-center;
-	}
-
-	li a {
-		@apply min-h-8 min-w-8;
-	}
 </style>
