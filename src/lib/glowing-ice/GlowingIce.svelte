@@ -17,7 +17,7 @@
 
 	// Reactive state
 	let prefersReducedMotionMediaQuery = new MediaQuery('prefers-reduced-motion: reduce');
-	let viewTransitionsSupported = $state(false);
+	const viewTransitionsSupported = $derived(browser && 'startViewTransition' in document);
 
 	let viewTransitionsActive = $derived.by(() => {
 		if (!browser) return false;
@@ -105,7 +105,6 @@
 	// Effects
 	$effect(() => {
 		if (browser) {
-			viewTransitionsSupported = 'startViewTransition' in document;
 			if (debug) console.log('View Transitions API supported:', viewTransitionsSupported);
 			if (debug) console.log('View Transitions enabled:', enableViewTransitions);
 
