@@ -77,6 +77,12 @@
 		  landscape:flex-col-reverse portrait:flex-row
 			laptop:landscape:flex-row laptop:portrait:flex-row
 			h-full w-full;
+
+			/* The <li> wrappers exist so the <ul> is valid HTML; `contents` keeps
+			   .ui-navbar-item itself the flex item, as the sizing rules below assume. */
+			& > li {
+				@apply contents;
+			}
 		}
 
 		.ui-navbar-item {

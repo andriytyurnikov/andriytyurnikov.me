@@ -47,12 +47,6 @@
       desktop-4k:max-w-[64rem];
 	}
 
-	.ui-el-stack {
-	}
-
-	.ui-el-box {
-	}
-
 	.ui-el-center {
 		/* max-inline-size: 60ch; */
 		max-inline-size: 40rem;
@@ -78,7 +72,7 @@
 			margin-block-start: 0;
 		}
 
-		& > :last-child:not(.ul-el-cover-hero) {
+		& > :last-child:not(.ui-el-cover-hero) {
 			margin-block-end: 0;
 		}
 	}

@@ -4,12 +4,25 @@ import adapter from '@sveltejs/adapter-vercel';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
 		adapter: adapter({
 			runtime: 'nodejs24.x'
-		})
+		}),
+		prerender: {
+			// The playground routes are static but unlinked, so the crawler never
+			// reaches them. Listing them here keeps them prerendered rather than
+			// served by a serverless function on every request.
+			entries: [
+				'*',
+				'/3d',
+				'/canon',
+				'/colors',
+				'/display-horizon',
+				'/vt',
+				'/vt/container-transform',
+				'/vt/fade-through',
+				'/zoned-layouts'
+			]
+		}
 	},
 	preprocess: [mdsvex()],
 	extensions: ['.svelte', '.svx']

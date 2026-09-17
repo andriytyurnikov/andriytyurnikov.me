@@ -1,5 +1,4 @@
 <script>
-	import '../../../styles/default.css';
 	import { resolve } from '$app/paths';
 </script>
 

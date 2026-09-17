@@ -1,5 +1,4 @@
 <script>
-	import '../../styles/home.css';
 	import { resolve } from '$app/paths';
 </script>
 
@@ -15,6 +14,9 @@
 							style="clip-path: url(#dyna-squircle-3)"
 							class="ui-photo u-photo"
 							src={resolve('/images/me_ghibli.webp')}
+							width="384"
+							height="384"
+							fetchpriority="high"
 							alt="Andriy Tyurnikov"
 						/>
 					</div>

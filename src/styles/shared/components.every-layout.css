@@ -8,12 +8,6 @@
       desktop-4k:max-w-[64rem];
 	}
 
-	.el-stack {
-	}
-
-	.el-box {
-	}
-
 	.el-center {
 		max-inline-size: 60ch;
 		margin-inline: auto;

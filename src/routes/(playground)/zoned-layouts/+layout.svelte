@@ -1,5 +1,4 @@
 <script>
-	import '../../../styles/default.css';
 	let { children } = $props();
 </script>
 
@@ -10,8 +9,6 @@
 		href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
 		rel="stylesheet"
 	/>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
 {@render children()}

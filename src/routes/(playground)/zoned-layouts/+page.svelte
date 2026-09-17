@@ -1,5 +1,4 @@
 <script>
-	import '../../../styles/default.css';
 </script>
 
 <article class="flex flex-col flex-1">

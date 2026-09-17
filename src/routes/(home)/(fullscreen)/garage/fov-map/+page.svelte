@@ -1,6 +1,4 @@
 <script>
-	import '../../../../../styles/home.css';
-
 	import { resolve } from '$app/paths';
 </script>
 
@@ -27,7 +25,7 @@
 					>
 						<p>
 							Zoning and<br /> composition<br />
-							trough visual<br /> accuity map.
+							through visual<br /> acuity map.
 							<br />
 							<a href={resolve('/garage')}>Back</a>
 						</p>

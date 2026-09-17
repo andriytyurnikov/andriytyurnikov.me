@@ -42,14 +42,6 @@
 	.ui-link--out {
 		@apply after:content-['_↗'];
 	}
-
-	.ui-splash {
-		@apply absolute
-      top-0
-      left-0
-      w-full
-      h-dvh;
-	}
 }
 
 @utility bg-garage {

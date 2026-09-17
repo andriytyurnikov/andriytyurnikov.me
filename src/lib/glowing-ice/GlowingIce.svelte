@@ -18,7 +18,6 @@
 	// Reactive state
 	let prefersReducedMotionMediaQuery = new MediaQuery('prefers-reduced-motion: reduce');
 	let viewTransitionsSupported = $state(false);
-	let instanceId = $state(42);
 
 	let viewTransitionsActive = $derived.by(() => {
 		if (!browser) return false;
@@ -36,11 +35,7 @@
 		);
 	});
 
-	let derivedKey = $derived.by(() => {
-		if (!browser) return false;
-
-		return page.url.pathname + instanceId;
-	});
+	let derivedKey = $derived(page.url.pathname);
 
 	const matchesRouteId = (expected, actual) =>
 		Array.isArray(expected) ? expected.includes(actual) : expected === actual;
@@ -60,13 +55,10 @@
 					return false;
 			}
 
-			// Special case: 'enter' navigation has null .from
-			if (navigating?.type === 'enter') {
-				return !Object.hasOwn(rule, 'fromRouteId');
-			}
-
-			// Normal navigation checks
+			// 'enter' navigation has a null `.from`, so a rule that names one cannot match
 			if (Object.hasOwn(rule, 'fromRouteId')) {
+				if (navigating?.type === 'enter') return false;
+
 				if (!matchesRouteId(rule.fromRouteId, navigating?.from?.route?.id)) {
 					return false;
 				}
@@ -116,7 +108,6 @@
 			viewTransitionsSupported = 'startViewTransition' in document;
 			if (debug) console.log('View Transitions API supported:', viewTransitionsSupported);
 			if (debug) console.log('View Transitions enabled:', enableViewTransitions);
-			instanceId = Math.random().toString(36).slice(2, 11);
 
 			// First tick: component mounted
 			// Second tick: all children rendered

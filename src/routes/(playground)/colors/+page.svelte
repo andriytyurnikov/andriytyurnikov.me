@@ -1,5 +1,4 @@
 <script>
-	import '../../../styles/default.css';
 </script>
 
 <div

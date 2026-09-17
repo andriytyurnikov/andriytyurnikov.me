@@ -1,6 +1,4 @@
 <script>
-	import '../../../../../styles/home.css';
-
 	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
 
 	let { children } = $props();

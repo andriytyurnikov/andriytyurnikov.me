@@ -1,5 +1,4 @@
 <script>
-	import '../../../styles/default.css';
 	let cohort = $state('median');
 	// let APS = $state(0.3);
 
@@ -171,12 +170,10 @@
 		href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
 		rel="stylesheet"
 	/>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
 <div
-	class="font-serif h-dvh mx-auto w-dvw bg-linear-to-b/oklch from-cold-gray-200 to-cold-gray-300 text-warm-gray-900 overflow-y-scroll tracking-wider"
+	class="font-eb-garamond h-dvh mx-auto w-dvw bg-linear-to-b/oklch from-cold-gray-200 to-cold-gray-300 text-warm-gray-900 overflow-y-scroll tracking-wider"
 >
 	<div class="mx-auto max-w-[40rem]">
 		<div class="px-4 pt-4">

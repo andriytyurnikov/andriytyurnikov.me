@@ -1,6 +1,5 @@
 <script>
 	let { children } = $props();
-	import '../../../../../styles/home.css';
 </script>
 
 <article class="min-h-full w-full p-4 flex items-center justify-center">

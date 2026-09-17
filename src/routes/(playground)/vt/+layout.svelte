@@ -1,6 +1,4 @@
 <script>
-	import '../../../styles/default.css';
-
 	import { onNavigate } from '$app/navigation';
 
 	onNavigate((navigation) => {
@@ -24,8 +22,6 @@
 		href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
 		rel="stylesheet"
 	/>
-
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
 {@render children()}

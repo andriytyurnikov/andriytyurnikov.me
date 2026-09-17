@@ -1,6 +1,4 @@
 <script>
-	import '../../../styles/default.css';
-
 	import { Canvas } from '@threlte/core';
 	import { Studio } from '@threlte/studio';
 

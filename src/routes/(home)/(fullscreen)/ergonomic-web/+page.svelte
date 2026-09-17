@@ -1,6 +1,5 @@
 <script>
 	import { resolve } from '$app/paths';
-	import '../../../../styles/home.css';
 
 	import HeroSection from './HeroSection.svelte';
 	import FieldOfViewSection from './FieldOfViewSection.svelte';
