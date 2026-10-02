@@ -1,12 +1,12 @@
 <script>
 	import { T, useThrelte, useTask } from '@threlte/core';
-	import { Spring } from 'svelte/motion';
 	import * as THREE from 'three';
 	import { toRadians } from './rpov-utils.js';
 
 	/**
 	 * SceneBox - 4 planes at the edges of the camera frustum
-	 * Reads camera FOV directly to ensure perfect alignment with viewport
+	 * Fits them to the camera before every render, so they stay on the viewport
+	 * edges while the camera animates
 	 */
 
 	let {
@@ -24,31 +24,38 @@
 
 	const { camera } = useThrelte();
 
-	const vFovSpring = new Spring(50, { stiffness: 0.1, damping: 0.8 });
-	const aspectSpring = new Spring(1, { stiffness: 0.1, damping: 0.8 });
-	const distanceSpring = new Spring(0.3, { stiffness: 0.1, damping: 0.8 });
-	const depthSpring = new Spring(0.6, { stiffness: 0.1, damping: 0.8 });
+	/** @type {THREE.LineSegments | undefined} */
+	let top = $state();
+	/** @type {THREE.LineSegments | undefined} */
+	let bottom = $state();
+	/** @type {THREE.LineSegments | undefined} */
+	let left = $state();
+	/** @type {THREE.LineSegments | undefined} */
+	let right = $state();
 
-	/**
-	 * Retarget a spring only when its target moved, so a settled spring stays idle
-	 * @param {Spring<number>} spring
-	 * @param {number} target
-	 */
-	function follow(spring, target) {
-		if (spring.target !== target) spring.target = target;
-	}
-
-	// Read camera properties each frame. The task does not invalidate: when a
-	// spring moves, the grids change and Threlte renders for that.
+	// Fit the planes to the camera each frame, in the same frame the camera is
+	// rendered with. The task does not invalidate: the camera only changes with
+	// a prop change or a resize, and those already make Threlte render.
 	useTask(
 		() => {
 			const cam = $camera;
-			if (cam && cam.isPerspectiveCamera) {
-				follow(vFovSpring, cam.fov);
-				follow(aspectSpring, cam.aspect);
-				follow(distanceSpring, Math.abs(cam.position.z - anchor[2]));
-				follow(depthSpring, Math.abs(cam.position.z - anchor[2]) * 2);
-			}
+			if (!cam?.isPerspectiveCamera || !top || !bottom || !left || !right) return;
+
+			const distance = Math.abs(cam.position.z - anchor[2]);
+			const depth = distance * 2;
+			const halfHeight = Math.tan(toRadians(cam.fov) / 2) * distance;
+			const halfWidth = halfHeight * cam.aspect;
+			const z = anchor[2] + depth / 2;
+
+			top.position.set(anchor[0], anchor[1] + halfHeight, z);
+			bottom.position.set(anchor[0], anchor[1] - halfHeight, z);
+			left.position.set(anchor[0] - halfWidth, anchor[1], z);
+			right.position.set(anchor[0] + halfWidth, anchor[1], z);
+
+			top.scale.set(halfWidth * 2, depth, 1);
+			bottom.scale.set(halfWidth * 2, depth, 1);
+			left.scale.set(depth, halfHeight * 2, 1);
+			right.scale.set(depth, halfHeight * 2, 1);
 		},
 		{ autoInvalidate: false }
 	);
@@ -85,31 +92,13 @@
 		return geometry;
 	}
 
-	const halfVAngle = $derived(toRadians(vFovSpring.current) / 2);
-
-	const frustumHalfHeight = $derived(Math.tan(halfVAngle) * distanceSpring.current);
-	const frustumHalfWidth = $derived(frustumHalfHeight * aspectSpring.current);
-
-	// Create grid geometries for each plane
-	let topBottomGrid = $state(null);
-	let leftRightGrid = $state(null);
+	// Unit grids, scaled to the frustum by the task above
+	const topBottomGrid = $derived(createGridGeometry(1, 1, cellsAcross, cellsDepth));
+	const leftRightGrid = $derived(createGridGeometry(1, 1, cellsDepth, cellsAcross));
 
 	$effect(() => {
-		const tbGrid = createGridGeometry(
-			frustumHalfWidth * 2,
-			depthSpring.current,
-			cellsAcross,
-			cellsDepth
-		);
-		const lrGrid = createGridGeometry(
-			depthSpring.current,
-			frustumHalfHeight * 2,
-			cellsDepth,
-			cellsAcross
-		);
-
-		topBottomGrid = tbGrid;
-		leftRightGrid = lrGrid;
+		const tbGrid = topBottomGrid;
+		const lrGrid = leftRightGrid;
 
 		return () => {
 			tbGrid.dispose();
@@ -118,40 +107,22 @@
 	});
 </script>
 
-{#if topBottomGrid && leftRightGrid}
-	<!-- Top grid -->
-	<T.LineSegments
-		position={[anchor[0], anchor[1] + frustumHalfHeight, anchor[2] + depthSpring.current / 2]}
-		rotation.x={Math.PI / 2}
-		geometry={topBottomGrid}
-	>
-		<T.LineBasicMaterial {color} transparent {opacity} />
-	</T.LineSegments>
+<!-- Top grid -->
+<T.LineSegments bind:ref={top} rotation.x={Math.PI / 2} geometry={topBottomGrid}>
+	<T.LineBasicMaterial {color} transparent {opacity} />
+</T.LineSegments>
 
-	<!-- Bottom grid -->
-	<T.LineSegments
-		position={[anchor[0], anchor[1] - frustumHalfHeight, anchor[2] + depthSpring.current / 2]}
-		rotation.x={-Math.PI / 2}
-		geometry={topBottomGrid}
-	>
-		<T.LineBasicMaterial {color} transparent {opacity} />
-	</T.LineSegments>
+<!-- Bottom grid -->
+<T.LineSegments bind:ref={bottom} rotation.x={-Math.PI / 2} geometry={topBottomGrid}>
+	<T.LineBasicMaterial {color} transparent {opacity} />
+</T.LineSegments>
 
-	<!-- Left grid -->
-	<T.LineSegments
-		position={[anchor[0] - frustumHalfWidth, anchor[1], anchor[2] + depthSpring.current / 2]}
-		rotation.y={Math.PI / 2}
-		geometry={leftRightGrid}
-	>
-		<T.LineBasicMaterial {color} transparent {opacity} />
-	</T.LineSegments>
+<!-- Left grid -->
+<T.LineSegments bind:ref={left} rotation.y={Math.PI / 2} geometry={leftRightGrid}>
+	<T.LineBasicMaterial {color} transparent {opacity} />
+</T.LineSegments>
 
-	<!-- Right grid -->
-	<T.LineSegments
-		position={[anchor[0] + frustumHalfWidth, anchor[1], anchor[2] + depthSpring.current / 2]}
-		rotation.y={-Math.PI / 2}
-		geometry={leftRightGrid}
-	>
-		<T.LineBasicMaterial {color} transparent {opacity} />
-	</T.LineSegments>
-{/if}
+<!-- Right grid -->
+<T.LineSegments bind:ref={right} rotation.y={-Math.PI / 2} geometry={leftRightGrid}>
+	<T.LineBasicMaterial {color} transparent {opacity} />
+</T.LineSegments>

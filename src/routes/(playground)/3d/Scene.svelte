@@ -17,6 +17,7 @@
 
 	import RPoVCamera from './RPoVCamera.svelte';
 	import SceneBox from './SceneBox.svelte';
+	import { ballPositionAt, planBallMotion } from './ball-motion.js';
 	import { detectBreakpoint, VIEWING_DISTANCE_CM } from './rpov-utils.js';
 
 	interactivity();
@@ -39,82 +40,32 @@
 	let ballAtScreen = $state(false);
 	let ballZ = $state(viewingDistance);
 	let animating = $state(false);
-	let animationStart = $state(0);
-	let animationFrom = $state(viewingDistance);
-	let animationTo = $state(viewingDistance);
+	/** @type {import('./ball-motion.js').Segment[]} */
+	let motion = [];
+	let motionStart = 0;
 
 	// Animation parameters
-	const linearSpeed = 2.0; // units per second (linear phase)
-	const collisionDuration = 0.3; // seconds for cubic deceleration during collision
-
-	function cubicEaseOut(t) {
-		return 1 - Math.pow(1 - t, 3);
-	}
-
-	function cubicEaseIn(t) {
-		return Math.pow(t, 3);
-	}
+	const motionOptions = {
+		collisionZ: collisionPoint,
+		squashedZ: targetZ,
+		speed: 2.0, // units per second (linear phase)
+		squashDuration: 0.3 // seconds for cubic deceleration during collision
+	};
 
 	function toggleBallPosition() {
 		ballAtScreen = !ballAtScreen;
-		animating = true;
-		animationStart = performance.now();
-		animationFrom = ballZ;
-		animationTo = ballAtScreen ? targetZ : viewingDistance;
+		// Plan from wherever the ball is, so a click mid-flight reverses it
+		motion = planBallMotion(ballZ, ballAtScreen ? targetZ : viewingDistance, motionOptions);
+		motionStart = performance.now();
+		animating = motion.length > 0;
 	}
 
 	function animateBall(now) {
 		if (!animating) return;
 
-		const movingToScreen = animationTo < animationFrom;
-
-		if (movingToScreen) {
-			// Moving toward screen: linear until collision, then cubic
-			const linearDistance = animationFrom - collisionPoint;
-			const collisionDistance = collisionPoint - targetZ;
-			const linearDuration = linearDistance / linearSpeed;
-
-			const elapsed = (now - animationStart) / 1000;
-
-			if (elapsed < linearDuration) {
-				// Linear phase
-				const t = elapsed / linearDuration;
-				ballZ = animationFrom - linearDistance * t;
-			} else {
-				// Cubic phase
-				const collisionElapsed = elapsed - linearDuration;
-				const t = Math.min(collisionElapsed / collisionDuration, 1);
-				ballZ = collisionPoint - collisionDistance * cubicEaseOut(t);
-
-				if (t >= 1) {
-					ballZ = targetZ;
-					animating = false;
-				}
-			}
-		} else {
-			// Moving away from screen: cubic until collision point, then linear
-			const collisionDistance = collisionPoint - animationFrom;
-			const linearDistance = animationTo - collisionPoint;
-			const linearDuration = linearDistance / linearSpeed;
-
-			const elapsed = (now - animationStart) / 1000;
-
-			if (elapsed < collisionDuration) {
-				// Cubic phase (ease in - starts slow)
-				const t = elapsed / collisionDuration;
-				ballZ = animationFrom + collisionDistance * cubicEaseIn(t);
-			} else {
-				// Linear phase
-				const linearElapsed = elapsed - collisionDuration;
-				const t = Math.min(linearElapsed / linearDuration, 1);
-				ballZ = collisionPoint + linearDistance * t;
-
-				if (t >= 1) {
-					ballZ = animationTo;
-					animating = false;
-				}
-			}
-		}
+		const { z, done } = ballPositionAt(motion, (now - motionStart) / 1000);
+		ballZ = z;
+		if (done) animating = false;
 	}
 
 	function updateDistance() {

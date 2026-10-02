@@ -41,7 +41,8 @@
 		return toDegrees(2 * Math.atan(screenDimension / (2 * distance)));
 	}
 
-	// Start from a full-screen phone in portrait, whose height is its landscape width
+	// Placeholders for a full-screen phone in portrait (its height is its
+	// landscape width), replaced instantly by the first update
 	const fovSpring = new Spring(calculateFov(screenSize.mobile.width, viewingDistance.mobile), {
 		stiffness: 0.1,
 		damping: 0.8
@@ -50,6 +51,10 @@
 		stiffness: 0.1,
 		damping: 0.8
 	});
+
+	// The first update jumps to the real values, so the camera does not zoom on
+	// load; later ones (resize, rotation) animate
+	let settled = false;
 
 	function updateCamera() {
 		if (typeof window === 'undefined') return;
@@ -62,8 +67,10 @@
 			height: window.innerHeight
 		});
 
-		fovSpring.target = calculateFov(viewportPhysicalHeight, distance);
-		distanceSpring.target = distance * distanceScale;
+		const options = { instant: !settled };
+		fovSpring.set(calculateFov(viewportPhysicalHeight, distance), options);
+		distanceSpring.set(distance * distanceScale, options);
+		settled = true;
 	}
 
 	// Camera positioned at viewing distance from anchor, looking at anchor
