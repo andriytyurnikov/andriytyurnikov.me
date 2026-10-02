@@ -17,18 +17,9 @@
 
 	import RPoVCamera from './RPoVCamera.svelte';
 	import SceneBox from './SceneBox.svelte';
-	import { detectBreakpoint } from './rpov-utils.js';
+	import { detectBreakpoint, VIEWING_DISTANCE_CM } from './rpov-utils.js';
 
 	interactivity();
-
-	// Eye-to-screen distance (cm) per device type
-	const eyeDistance = {
-		mobile: 30,
-		tablet: 45,
-		laptop: 54,
-		desktop: 65,
-		desktop4k: 70
-	};
 
 	// Convert real-world cm to scene units (1cm = 0.01 units)
 	const distanceScale = 0.01;
@@ -42,7 +33,7 @@
 	// Final position: center penetrates 0.125 radius into membrane
 	const targetZ = ballRadius * 0.875;
 
-	let viewingDistance = $state(eyeDistance.mobile * distanceScale);
+	let viewingDistance = $state(VIEWING_DISTANCE_CM.mobile * distanceScale);
 
 	// Ball animation state
 	let ballAtScreen = $state(false);
@@ -130,7 +121,7 @@
 		if (typeof window === 'undefined') return;
 
 		const breakpoint = detectBreakpoint();
-		viewingDistance = eyeDistance[breakpoint] * distanceScale;
+		viewingDistance = VIEWING_DISTANCE_CM[breakpoint] * distanceScale;
 
 		if (!ballAtScreen && !animating) {
 			ballZ = viewingDistance;
@@ -183,21 +174,27 @@
 		sphereGeometry.computeVertexNormals();
 	}
 
-	useTask(() => {
-		animateBall(performance.now());
-		// Only deform when ball center is within one radius of z=0
-		if (ballZ <= ballRadius) {
-			deformSphere(ballZ);
-		} else {
-			// Reset to original positions if previously deformed
-			const positions = sphereGeometry.attributes.position.array;
-			if (positions[2] !== originalPositions[2]) {
-				positions.set(originalPositions);
+	// Whether the sphere still carries a deformation from an earlier frame
+	let deformed = false;
+
+	useTask(
+		() => {
+			animateBall(performance.now());
+			// Only deform when ball center is within one radius of z=0
+			if (ballZ <= ballRadius) {
+				deformSphere(ballZ);
+				deformed = true;
+			} else if (deformed) {
+				sphereGeometry.attributes.position.array.set(originalPositions);
 				sphereGeometry.attributes.position.needsUpdate = true;
 				sphereGeometry.computeVertexNormals();
+				deformed = false;
 			}
-		}
-	});
+		},
+		// The ball only changes while it animates; a running task makes Threlte
+		// render every frame, so it runs only then.
+		{ running: () => animating }
+	);
 </script>
 
 <!-- Responsive camera: FOV and distance adapt to device viewing conditions -->

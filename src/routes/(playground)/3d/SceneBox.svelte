@@ -29,16 +29,29 @@
 	const distanceSpring = new Spring(0.3, { stiffness: 0.1, damping: 0.8 });
 	const depthSpring = new Spring(0.6, { stiffness: 0.1, damping: 0.8 });
 
-	// Read camera properties each frame
-	useTask(() => {
-		const cam = $camera;
-		if (cam && cam.isPerspectiveCamera) {
-			vFovSpring.target = cam.fov;
-			aspectSpring.target = cam.aspect;
-			distanceSpring.target = Math.abs(cam.position.z - anchor[2]);
-			depthSpring.target = Math.abs(cam.position.z - anchor[2]) * 2;
-		}
-	});
+	/**
+	 * Retarget a spring only when its target moved, so a settled spring stays idle
+	 * @param {Spring<number>} spring
+	 * @param {number} target
+	 */
+	function follow(spring, target) {
+		if (spring.target !== target) spring.target = target;
+	}
+
+	// Read camera properties each frame. The task does not invalidate: when a
+	// spring moves, the grids change and Threlte renders for that.
+	useTask(
+		() => {
+			const cam = $camera;
+			if (cam && cam.isPerspectiveCamera) {
+				follow(vFovSpring, cam.fov);
+				follow(aspectSpring, cam.aspect);
+				follow(distanceSpring, Math.abs(cam.position.z - anchor[2]));
+				follow(depthSpring, Math.abs(cam.position.z - anchor[2]) * 2);
+			}
+		},
+		{ autoInvalidate: false }
+	);
 
 	/**
 	 * Create a rectangular grid geometry (no diagonals)

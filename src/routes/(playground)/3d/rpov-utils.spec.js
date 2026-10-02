@@ -1,5 +1,12 @@
 import { describe, it, expect } from 'vitest';
-import { BREAKPOINTS, getBreakpoint, toDegrees, toRadians } from './rpov-utils.js';
+import {
+	BREAKPOINTS,
+	getBreakpoint,
+	SCREEN_SIZE_CM,
+	toDegrees,
+	toRadians,
+	viewportHeightCm
+} from './rpov-utils.js';
 
 describe('BREAKPOINTS', () => {
 	it('defines expected device thresholds', () => {
@@ -50,6 +57,39 @@ describe('getBreakpoint', () => {
 		expect(getBreakpoint(1537, 800)).toBe('desktop');
 		expect(getBreakpoint(2048, 800)).toBe('desktop');
 		expect(getBreakpoint(2049, 800)).toBe('desktop4k');
+	});
+});
+
+describe('SCREEN_SIZE_CM', () => {
+	it('lists every screen in landscape, wider than tall', () => {
+		for (const size of Object.values(SCREEN_SIZE_CM)) {
+			expect(size.width).toBeGreaterThan(size.height);
+		}
+	});
+});
+
+describe('viewportHeightCm', () => {
+	const phone = SCREEN_SIZE_CM.mobile;
+	const portrait = { width: 390, height: 844 };
+	const landscape = { width: 844, height: 390 };
+
+	it('gives a full-screen portrait phone its long side', () => {
+		expect(viewportHeightCm(phone, portrait, portrait)).toBeCloseTo(14);
+	});
+
+	it('gives a full-screen landscape phone its short side', () => {
+		expect(viewportHeightCm(phone, landscape, landscape)).toBeCloseTo(7);
+	});
+
+	it('does not depend on the orientation the screen reports', () => {
+		expect(viewportHeightCm(phone, portrait, landscape)).toBeCloseTo(7);
+		expect(viewportHeightCm(phone, landscape, portrait)).toBeCloseTo(14);
+	});
+
+	it('scales with the share of the screen the viewport covers', () => {
+		const laptop = SCREEN_SIZE_CM.laptop;
+		const screen = { width: 1440, height: 900 };
+		expect(viewportHeightCm(laptop, screen, { width: 1440, height: 450 })).toBeCloseTo(9.5);
 	});
 });
 

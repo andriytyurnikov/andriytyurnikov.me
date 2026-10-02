@@ -1,7 +1,13 @@
 <script>
 	import { T } from '@threlte/core';
 	import { Spring } from 'svelte/motion';
-	import { detectBreakpoint, toDegrees } from './rpov-utils.js';
+	import {
+		detectBreakpoint,
+		SCREEN_SIZE_CM,
+		toDegrees,
+		VIEWING_DISTANCE_CM,
+		viewportHeightCm
+	} from './rpov-utils.js';
 
 	/**
 	 * Responsive Point of View Camera
@@ -16,30 +22,10 @@
 	 */
 
 	let {
-		/** Physical screen height in centimeters per breakpoint (landscape orientation) */
-		screenHeight = {
-			mobile: 14, // ~6" phone in portrait (width becomes height in landscape)
-			tablet: 18, // ~11" tablet
-			laptop: 19, // ~14" laptop
-			desktop: 34, // ~27" monitor
-			desktop4k: 40 // ~32" monitor
-		},
-		/** Physical screen width in centimeters per breakpoint (landscape orientation) */
-		screenWidth = {
-			mobile: 7, // ~6" phone in portrait (height becomes width in landscape)
-			tablet: 24, // ~11" tablet
-			laptop: 30, // ~14" laptop
-			desktop: 60, // ~27" monitor
-			desktop4k: 70 // ~32" monitor
-		},
+		/** Physical screen size in centimeters per breakpoint (landscape orientation) */
+		screenSize = SCREEN_SIZE_CM,
 		/** Eye-to-screen distance in centimeters per breakpoint */
-		viewingDistance = {
-			mobile: 30,
-			tablet: 45,
-			laptop: 54,
-			desktop: 65,
-			desktop4k: 70
-		},
+		viewingDistance = VIEWING_DISTANCE_CM,
 		/** The point the camera looks at */
 		anchor = [0, 0, 0],
 		/** Scale factor to convert distances (cm) to scene units */
@@ -55,7 +41,8 @@
 		return toDegrees(2 * Math.atan(screenDimension / (2 * distance)));
 	}
 
-	const fovSpring = new Spring(calculateFov(screenHeight.mobile, viewingDistance.mobile), {
+	// Start from a full-screen phone in portrait, whose height is its landscape width
+	const fovSpring = new Spring(calculateFov(screenSize.mobile.width, viewingDistance.mobile), {
 		stiffness: 0.1,
 		damping: 0.8
 	});
@@ -67,19 +54,13 @@
 	function updateCamera() {
 		if (typeof window === 'undefined') return;
 
-		const viewportWidth = window.innerWidth;
-		const viewportHeight = window.innerHeight;
-		const isLandscape = viewportWidth >= viewportHeight;
-
 		const breakpoint = detectBreakpoint();
 		const distance = viewingDistance[breakpoint];
 
-		const physicalHeight = isLandscape ? screenHeight[breakpoint] : screenWidth[breakpoint];
-
-		const screenPixelHeight = isLandscape
-			? Math.min(window.screen.width, window.screen.height)
-			: Math.max(window.screen.width, window.screen.height);
-		const viewportPhysicalHeight = physicalHeight * (viewportHeight / screenPixelHeight);
+		const viewportPhysicalHeight = viewportHeightCm(screenSize[breakpoint], window.screen, {
+			width: window.innerWidth,
+			height: window.innerHeight
+		});
 
 		fovSpring.target = calculateFov(viewportPhysicalHeight, distance);
 		distanceSpring.target = distance * distanceScale;
