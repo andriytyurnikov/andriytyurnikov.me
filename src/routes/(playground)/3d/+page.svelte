@@ -7,16 +7,21 @@
 	// @threlte/studio's <Studio> has no `enabled` prop, so passing one does not
 	// keep the editor out of production - it has to not be rendered at all.
 	// `dev` is replaced at build time, so the dynamic import below is dead code
-	// eliminated and Studio never reaches the production bundle.
+	// eliminated and Studio is never loaded in production.
+	//
+	// The import lives here rather than in an {#await} block: mounting <Studio>
+	// inside {#await} throws effect_update_depth_exceeded.
+	let Studio = $state();
+	if (dev) import('@threlte/studio').then((m) => (Studio = m.Studio));
 </script>
 
 <Canvas>
 	{#if dev}
-		{#await import('@threlte/studio') then { Studio }}
+		{#if Studio}
 			<Studio>
 				<Scene />
 			</Studio>
-		{/await}
+		{/if}
 	{:else}
 		<Scene />
 	{/if}
