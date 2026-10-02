@@ -32,6 +32,10 @@ bun install
 bun run dev
 ```
 
+To edit the `/3d` scene in Threlte Studio, open `/3d?studio` (dev only). Studio
+saves edits made in its editor back into the `.svelte` source, so check
+`git diff` after using it.
+
 ## Checks
 
 ```bash
