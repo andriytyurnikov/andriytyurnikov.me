@@ -2,7 +2,7 @@
 
 Personal site and playground — [andriytyurnikov.me](https://andriytyurnikov.me).
 
-Built with SvelteKit 2 (Svelte 5 runes), Tailwind CSS 4 and Threlte, deployed to
+Built with SvelteKit 3 (Svelte 5 runes), Tailwind CSS 4 and Threlte, deployed to
 Vercel as a fully prerendered static site.
 
 ## Layout
@@ -15,7 +15,7 @@ src/
     seo/           Per-route <title>/description/OG metadata, rendered once in the root layout
   routes/
     (home)/        The public site: home, garage, about, friends
-    (playground)/  Unlinked experiments — reachable by URL, listed in svelte.config.js
+    (playground)/  Unlinked experiments — reachable by URL, listed in vite.config.js
   styles/
     default.css    Tailwind entry for the playground
     home.css       Tailwind entry for the public site
@@ -56,4 +56,5 @@ devDependencies.
 Add the route under `src/routes/`, then add a title and description for its route
 id to `src/lib/seo/metadata.js` — otherwise the page falls back to the site
 defaults. If the page is not linked from anywhere, also add its path to
-`kit.prerender.entries` in `svelte.config.js` so the crawler still reaches it.
+`prerender.entries` in the `sveltekit()` options in `vite.config.js` so the
+crawler still reaches it.

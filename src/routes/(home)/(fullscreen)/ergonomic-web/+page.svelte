@@ -101,7 +101,7 @@
 		<!-- Navigation at bottom - demonstrating the principle -->
 		<nav class="py-6 flex justify-center tablet:hidden">
 			<a
-				href={resolve('/garage')}
+				href={resolve('garage')}
 				class="bg-eigengrau-900 border border-eigengrau-700 rounded-full px-6 py-3 text-eigengrau-300 hover:bg-eigengrau-800 transition-colors"
 			>
 				Back to Garage
@@ -141,7 +141,7 @@
 			</ul>
 
 			<a
-				href={resolve('/garage')}
+				href={resolve('garage')}
 				class="inline-block bg-eigengrau-100 text-eigengrau-950 rounded-full px-8 py-3 font-medium hover:bg-eigengrau-200 transition-colors"
 			>
 				Back to Garage

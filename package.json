@@ -24,7 +24,7 @@
 		"@eslint/compat": "^2.1.1",
 		"@eslint/js": "^10.0.1",
 		"@playwright/test": "^1.63.0",
-		"@sveltejs/kit": "^2.70.3",
+		"@sveltejs/kit": "^3.0.0",
 		"@sveltejs/vite-plugin-svelte": "^7.3.1",
 		"@types/bun": "^1.4.2",
 		"@typescript/native": "npm:typescript@7",
@@ -42,15 +42,19 @@
 		"vitest": "^5.0.3"
 	},
 	"dependencies": {
-		"@sveltejs/adapter-vercel": "^6.3.4",
+		"@sveltejs/adapter-vercel": "^7.0.0",
 		"@tailwindcss/vite": "^4.3.3",
 		"@threlte/core": "^8.6.1",
 		"@threlte/extras": "^9.22.0",
 		"@threlte/studio": "^0.4.4",
 		"@types/three": "^0.186.0",
-		"@vercel/analytics": "^2.0.1",
-		"@vercel/speed-insights": "^2.0.0",
+		"@vercel/analytics": "2.1.0-canary.5",
+		"@vercel/speed-insights": "2.1.0-canary",
 		"tailwindcss": "^4.3.3",
 		"three": "^0.186.1"
+	},
+	"imports": {
+		"#lib": "./src/lib/index.js",
+		"#lib/*": "./src/lib/*"
 	}
 }

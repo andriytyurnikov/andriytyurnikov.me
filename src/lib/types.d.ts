@@ -1,4 +1,4 @@
-import { NavigationType } from '@sveltejs/kit';
+import { NavigationType } from '$app/navigation';
 import { TransitionConfig } from 'svelte/transition';
 
 export type TransitionFunction = (node: Element, params?: object) => TransitionConfig;

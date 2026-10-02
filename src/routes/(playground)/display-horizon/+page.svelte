@@ -135,6 +135,6 @@
 	</section>
 
 	<section>
-		<a href={resolve('/garage')}>Back</a>
+		<a href={resolve('garage')}>Back</a>
 	</section>
 </article>

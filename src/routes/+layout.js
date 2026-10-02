@@ -1,9 +1,9 @@
 export const prerender = true;
 
-import { dev } from '$app/environment';
-import { injectAnalytics } from '@vercel/analytics/sveltekit';
+import { dev } from '$app/env';
+import { injectAnalytics } from '@vercel/analytics/sveltekit-next';
 
-import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit-next';
 
 injectAnalytics({ mode: dev ? 'development' : 'production' });
 injectSpeedInsights();

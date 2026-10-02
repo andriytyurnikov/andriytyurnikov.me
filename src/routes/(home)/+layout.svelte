@@ -4,7 +4,7 @@
 	let { children } = $props();
 
 	import transitionRules from './transitionRules';
-	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
+	import GlowingIce from '#lib/glowing-ice/GlowingIce.svelte';
 </script>
 
 <svelte:head>

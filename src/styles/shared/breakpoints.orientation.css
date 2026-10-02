@@ -3,7 +3,7 @@
  * ===========================
  *
  * Tailwind variants for Screen Orientation API types.
- * Requires JS initialization from $lib/orientation/orientation.js
+ * Requires JS initialization from #lib/orientation/orientation.js
  *
  * Usage:
  *   <div class="portrait-primary:pb-16 landscape-primary:pr-16">

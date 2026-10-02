@@ -1,5 +1,5 @@
 <script>
-	import { resolve } from '$app/paths';
+	import { asset, resolve } from '$app/paths';
 </script>
 
 <article
@@ -13,7 +13,7 @@
 						<img
 							style="clip-path: url(#dyna-squircle-3)"
 							class="ui-photo u-photo"
-							src={resolve('/images/me_ghibli.webp')}
+							src={asset('images/me_ghibli.webp')}
 							width="384"
 							height="384"
 							fetchpriority="high"
@@ -47,7 +47,7 @@
 				<a
 					data-sveltekit-preload-data
 					class="mb-4 cursor-pointer inline-block active:translate-y-1 hover:bg-yellow-300 u-url rounded-md px-4 py-2 bg-yellow-400 text-black no-underline after:content-['_→']"
-					href={resolve('/garage')}
+					href={resolve('garage')}
 					rel="me">MY GARAGE</a
 				><br />
 				<a

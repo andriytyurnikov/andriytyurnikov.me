@@ -15,7 +15,7 @@
 			<div class="min-w-[20rem]">
 				Main Zone
 				<br />
-				<a href={resolve('/garage/mobile-first-layouts')} rel="me">back to layouts</a>
+				<a href={resolve('garage/mobile-first-layouts')} rel="me">back to layouts</a>
 			</div>
 		</div>
 	</main>

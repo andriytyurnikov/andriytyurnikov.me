@@ -27,7 +27,7 @@
 							Zoning and<br /> composition<br />
 							through visual<br /> acuity map.
 							<br />
-							<a href={resolve('/garage')}>Back</a>
+							<a href={resolve('garage')}>Back</a>
 						</p>
 					</div>
 					<!-- </div> -->

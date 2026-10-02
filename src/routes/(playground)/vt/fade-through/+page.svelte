@@ -8,7 +8,7 @@
 >
 	<h1 class="font-bold text-[2rem] text-center">View Transitions</h1>
 	<h2>Container transform</h2>
-	<a href={resolve('/vt')}>Back</a>
+	<a href={resolve('vt')}>Back</a>
 </div>
 
 <style>

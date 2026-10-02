@@ -1,8 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
-	import { initOrientationDetection } from '$lib/orientation/orientation.js';
-	import { metadataFor, OG_IMAGE, SITE_NAME, SITE_URL } from '$lib/seo/metadata.js';
+	import { initOrientationDetection } from '#lib/orientation/orientation.js';
+	import { metadataFor, OG_IMAGE, SITE_NAME, SITE_URL } from '#lib/seo/metadata.js';
 
 	let { children } = $props();
 

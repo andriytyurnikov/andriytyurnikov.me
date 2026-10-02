@@ -12,7 +12,7 @@
 		<p>
 			Both axes (if needed).
 			<br />
-			<a href={resolve('/garage/mobile-first-layouts')} rel="me">back to layouts</a>
+			<a href={resolve('garage/mobile-first-layouts')} rel="me">back to layouts</a>
 		</p>
 	</section>
 

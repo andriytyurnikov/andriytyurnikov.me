@@ -1,5 +1,5 @@
 <script>
-	import { browser } from '$app/environment';
+	import { browser } from '$app/env';
 	import { MediaQuery } from 'svelte/reactivity';
 	import { navigating, page } from '$app/state';
 	import { onNavigate } from '$app/navigation';
@@ -120,6 +120,7 @@
 
 	// placeholder for future implementation of ViewTransitions API support
 	onNavigate((navigation) => {
+		if (navigation.shallow) return;
 		if (debug) console.log('Navigation starting:', navigation.type);
 		if (!browser) return;
 		// navigating is faster

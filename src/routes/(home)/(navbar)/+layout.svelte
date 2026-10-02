@@ -1,6 +1,6 @@
 <script>
 	import { resolve } from '$app/paths';
-	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
+	import GlowingIce from '#lib/glowing-ice/GlowingIce.svelte';
 
 	let { children } = $props();
 
@@ -42,7 +42,7 @@
 				</li>
 
 				<li>
-					<a class="ui-navbar-item" href={resolve('/garage')}>
+					<a class="ui-navbar-item" href={resolve('garage')}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -62,7 +62,7 @@
 				</li>
 
 				<li>
-					<a class="ui-navbar-item" href={resolve('/friends')}>
+					<a class="ui-navbar-item" href={resolve('friends')}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -83,7 +83,7 @@
 				</li>
 
 				<li>
-					<a class="ui-navbar-item" href={resolve('/about')}>
+					<a class="ui-navbar-item" href={resolve('about')}>
 						<svg
 							class="ui-navbar-item-icon size-5"
 							xmlns="http://www.w3.org/2000/svg"

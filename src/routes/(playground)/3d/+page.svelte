@@ -1,6 +1,6 @@
 <script>
 	import { Canvas } from '@threlte/core';
-	import { dev } from '$app/environment';
+	import { dev } from '$app/env';
 
 	import Scene from './Scene.svelte';
 

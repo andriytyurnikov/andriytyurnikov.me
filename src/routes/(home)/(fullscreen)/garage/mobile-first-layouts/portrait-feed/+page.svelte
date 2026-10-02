@@ -24,7 +24,7 @@
 				<br />
 				Content (images ans videos) section
 				<br />
-				<a href={resolve('/garage/mobile-first-layouts')} rel="me">back to layouts</a>
+				<a href={resolve('garage/mobile-first-layouts')} rel="me">back to layouts</a>
 			</p>
 		</div>
 	</main>

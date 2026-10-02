@@ -1,5 +1,5 @@
 <script>
-	import GlowingIce from '$lib/glowing-ice/GlowingIce.svelte';
+	import GlowingIce from '#lib/glowing-ice/GlowingIce.svelte';
 
 	let { children } = $props();
 </script>
